@@ -1,6 +1,28 @@
 import React,{useState,useEffect} from "react"
-import {TableContainer,Table,TableHead,TableCell,TableBody,TableRow,Paper,Typography} from "@mui/material";
-const dummyData = [
+import {TableContainer,Table,TableHead,TableBody,TableRow,Paper,Typography} from "@mui/material";
+import TableCell, { tableCellClasses } from '@mui/material/TableCell';
+import { styled } from '@mui/material/styles';
+import AddButton from "./AddUser";
+
+const StyledTableCell=styled(TableCell)(({ theme })=>({
+    [`&.${tableCellClasses.head}`]:{
+      backgroundColor: theme.palette.common.black,
+      color: theme.palette.common.white,
+    },
+    [`&.${tableCellClasses.body}`]:{
+      fontSize: 14,
+    },
+}));
+  const StyledTableRow=styled(TableRow)(({ theme })=>({
+    '&:nth-of-type(odd)':{
+      backgroundColor: theme.palette.action.hover,
+    },
+    '&:last-child td, &:last-child th':{
+      border: 0,
+    },
+}));
+
+const dummyData=[
     {
       id: 1,
       name: "John Doe",
@@ -24,33 +46,38 @@ const dummyData = [
     },
   ];
 const AdminPage=()=>{
-    const [users,setUsers]=useState([]);
+    const [users,setUsers]=useState(dummyData);
+    const addUser=(newUser)=>{
+        const updatedUsers=[...users,{...newUser,id:users.lenght+1}];
+        setUsers(updatedUsers)
+    }
     useEffect(()=>{
         setUsers(dummyData);
     },[]);
     return(
         <>
             <Typography variant="h4" align="center" color="primary">Admin Page</Typography>
+            <AddButton/>
             <TableContainer component={Paper}>
                 <Table>
                     <TableHead>
-                        <TableRow>
-                            <TableCell>ID</TableCell>
-                            <TableCell>Name</TableCell>
-                            <TableCell>Mobile number</TableCell>
-                            <TableCell>Designation</TableCell>
-                            <TableCell>Gender</TableCell>
-                        </TableRow>
+                        <StyledTableRow>
+                            <StyledTableCell>ID</StyledTableCell>
+                            <StyledTableCell>Name</StyledTableCell>
+                            <StyledTableCell>Mobile number</StyledTableCell>
+                            <StyledTableCell>Designation</StyledTableCell>
+                            <StyledTableCell>Gender</StyledTableCell>
+                        </StyledTableRow>
                     </TableHead>
                     <TableBody>
                         {users.map((user)=>(
-                            <TableRow key={user.id}>
-                                <TableCell>{user.id}</TableCell>
-                                <TableCell>{user.name}</TableCell>
-                                <TableCell>{user.mobileNumber}</TableCell>
-                                <TableCell>{user.designation}</TableCell>
-                                <TableCell>{user.gender}</TableCell>
-                            </TableRow>
+                            <StyledTableRow key={user.id}>
+                                <StyledTableCell>{user.id}</StyledTableCell>
+                                <StyledTableCell>{user.name}</StyledTableCell>
+                                <StyledTableCell>{user.mobileNumber}</StyledTableCell>
+                                <StyledTableCell>{user.designation}</StyledTableCell>
+                                <StyledTableCell>{user.gender}</StyledTableCell>
+                            </StyledTableRow>
                         ))}
                     </TableBody>
                 </Table>
