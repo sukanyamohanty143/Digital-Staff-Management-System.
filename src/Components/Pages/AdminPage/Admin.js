@@ -23,7 +23,7 @@ const dummyData = [
       gender: "Male",
     },
   ];
-const Admin=()=>{
+const AdminPage=()=>{
     const [users,setUsers]=useState([]);
     useEffect(()=>{
         setUsers(dummyData);
@@ -59,4 +59,4 @@ const Admin=()=>{
         </>
     )
 }
-export default Admin;
+export default AdminPage;
