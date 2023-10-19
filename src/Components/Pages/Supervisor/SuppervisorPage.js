@@ -8,7 +8,7 @@ function SupervisorPage() {
        
         <SreachBar/>
         <TableData/>
-    
+            
         </>
     )
 }
