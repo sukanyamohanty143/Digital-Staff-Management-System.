@@ -55,7 +55,7 @@ const Admin=()=>{
                     </TableBody>
                 </Table>
             </TableContainer>
-            <Button>Add user</Button>
+            <Button variant="contained">Add user</Button>
         </>
     )
 }
