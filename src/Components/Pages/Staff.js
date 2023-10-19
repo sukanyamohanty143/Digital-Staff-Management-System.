@@ -2,6 +2,7 @@ import React,{useState} from "react";
 import { Button } from "@material-ui/core";
 const Staff=()=>{
     return(
+<<<<<<< HEAD
         <center>
         <div>  
             <h1>Staff Management </h1>
@@ -26,6 +27,11 @@ const Staff=()=>{
             <Button variant="contained" color="primary">Sumbit</Button>
         </div>
         </center>
+=======
+        <>
+        <h1>Staff page</h1>
+        </>
+>>>>>>> 62753b2fc377191797dd1b86c3b7bb5f2a17cef7
     )
 }
 export default Staff
