@@ -7,11 +7,10 @@ import Registration from "./Components/Pages/Registration";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 // import SupervisorPage from "./Components/Pages/Supervisor/SuppervisorPage"
-import AdminPage from "./Components/Pages/Admin/admin"
+import AdminPage from "./Components/Pages/AdminPage/admin"
 function App(){
 
     return (
-        <>
         <>
             <Router>
                 <Routes>
@@ -20,7 +19,6 @@ function App(){
                 </Routes>
             </Router>
             <AdminPage/>
-            </>
         </>
 
     );
