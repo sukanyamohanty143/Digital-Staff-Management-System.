@@ -5,30 +5,19 @@
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
-<<<<<<< HEAD
-    "@material-ui/core": "^4.12.4",
-    "@mui/material": "^5.14.14",
-    "@mui/x-date-pickers": "^6.16.2",
-=======
     "@fontsource/roboto": "^5.0.8",
+    "@material-ui/core": "^4.12.4",
     "@mui/icons-material": "^5.14.14",
     "@mui/material": "^5.14.14",
     "@mui/styled-engine-sc": "^6.0.0-alpha.2",
->>>>>>> 62753b2fc377191797dd1b86c3b7bb5f2a17cef7
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "dayjs": "^1.11.10",
     "react": "^18.2.0",
-    "react-date-picker": "^10.5.2",
     "react-dom": "^18.2.0",
-<<<<<<< HEAD
-    "react-scripts": "^5.0.1",
-=======
     "react-router-dom": "^6.17.0",
     "react-scripts": "5.0.1",
     "styled-components": "^6.1.0",
->>>>>>> 62753b2fc377191797dd1b86c3b7bb5f2a17cef7
     "web-vitals": "^2.1.4"
   },
   "scripts": {

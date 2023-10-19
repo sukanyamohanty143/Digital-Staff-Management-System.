@@ -11,13 +11,19 @@ import SupervisorPage from "./Components/Pages/Supervisor/SuppervisorPage"
 function App(){
 
     return (
+      <>
         <Router>
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/registration" element={<Registration />} />
-                <Route path="/Staff" element={<Staff/>}/>
+                
             </Routes>
         </Router>
+        <Staff/>
+        <br></br>
+        <SupervisorPage/>
+        </>
+
     ); 
 }
 
