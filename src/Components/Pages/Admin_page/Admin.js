@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from "react"
-import {TableContainer,Table,TableHead,TableCell,TableBody,TableRow,Paper,Typography} from "@mui/material";
+import {TableContainer,Table,TableHead,TableCell,TableBody,TableRow,Paper,Typography,Button} from "@mui/material";
 const dummyData = [
     {
       id: 1,
@@ -55,6 +55,7 @@ const Admin=()=>{
                     </TableBody>
                 </Table>
             </TableContainer>
+            <Button>Add user</Button>
         </>
     )
 }

@@ -5,7 +5,7 @@ import React from 'react';
 import  Home  from "./Components/Pages/Home";
 import  Registration  from "./Components/Pages/Registration";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Admin from "./Components/Pages/Admin_page/admin";
+import Admin from "./Components/Pages/Admin_page/Admin";
 function App() {
     return (
         <>
