@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom';
 
 function Home() {
     const navigate = useNavigate();
-
     const goToRegistration = () => {
         // alert("colled function")
         navigate("/registration")
