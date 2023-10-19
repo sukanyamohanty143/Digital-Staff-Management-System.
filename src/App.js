@@ -1,16 +1,8 @@
-import Staff from "./Components/Pages/Staff";
 
-<<<<<<< HEAD
-function App() {
-  return (
-    <div>
-     <Staff/>
-    </div>
-  );
-=======
 import "./App.css";
 import React from 'react';
 import Home from "./Components/Pages/Home";
+import Staff from "./Components/Pages/Staff"
 import Registration from "./Components/Pages/Registration";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
@@ -23,10 +15,10 @@ function App(){
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/registration" element={<Registration />} />
+                <Route path="/Staff" element={<Staff/>}/>
             </Routes>
         </Router>
-    );
->>>>>>> 62753b2fc377191797dd1b86c3b7bb5f2a17cef7
+    ); 
 }
 
 export default App;
