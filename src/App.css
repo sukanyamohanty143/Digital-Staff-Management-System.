@@ -1,8 +1,10 @@
+
+
 body {
   margin: 0%;
   padding: 0%;
+  background-color: rgb(234, 229, 229);
 }
-
 .navbar {
   height: 100px;
   width: 100%;
@@ -12,33 +14,31 @@ body {
   align-items: center;
   margin-right: 10px;
 }
-
-/* .home,
-.Registration {
-  margin-left: 20px;
-  color: white;
-  font-size: x-large;
-  text-decoration: none;
-  line-height: 10px;
-} */
-
-
 .container {
   width: 1135px;
   margin: auto;
   height: 560px;
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
   border-radius: 10px;
   margin-top: 40px;
 }
-
 .nextbutton {
   position: relative;
   top: -72px;
   left: 988px;
 }
+
+
+.nextbutton:hover {
+  color: wheat;
+  box-shadow: 2px 2px 5px rgba(228, 226, 226, 0.3);
+  top: -70px; 
+  left: 990px; 
+}
+
+
 .images {
-  width: 1138px;
+  width: 1119px;
   height: 560px;
   border-radius: 9px;
   opacity: 0.9;
@@ -51,3 +51,9 @@ body {
   padding: 10px;
   line-height: 10px;
 }
+
+.formcontainer{
+  text-align: center;
+}
+
+
