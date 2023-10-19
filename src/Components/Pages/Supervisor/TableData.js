@@ -5,12 +5,13 @@ function TableData({ employees }) {
     return (
         <>
             <Grid container xs={12} item spacing={2} style={{ position: "relative", bottom: "20px", marginTop: "30px" }}>
+                
                 <TableContainer>
                     <Table>
                         <TableHead>
                             <TableRow>
 
-                                <TableCell  style={{ textAlign: 'center' }}><Typography variant="h5">FirstName</Typography></TableCell>
+                                <TableCell style={{ textAlign: 'center' }}><Typography variant="h5">FirstName</Typography></TableCell>
                                 <TableCell><Typography variant="h5">LastName</Typography></TableCell>
                                 <TableCell><Typography variant="h5">Mobile</Typography></TableCell>
                                 <TableCell><Typography variant="h5">Attendance</Typography></TableCell>
