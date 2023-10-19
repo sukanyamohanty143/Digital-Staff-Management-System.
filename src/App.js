@@ -1,9 +1,9 @@
-
+import Staff from "./Components/Pages/Staff";
 
 function App() {
   return (
     <div>
-     <h1>hello</h1>
+     <Staff/>
     </div>
   );
 }
