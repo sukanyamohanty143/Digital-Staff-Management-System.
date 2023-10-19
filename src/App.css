@@ -16,7 +16,7 @@ body {
   width: 1135px;
   margin: auto;
   height: 560px;
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
   border-radius: 10px;
   margin-top: 40px;
 }
@@ -36,7 +36,7 @@ body {
 
 
 .images {
-  width: 1138px;
+  width: 1119px;
   height: 560px;
   border-radius: 9px;
   opacity: 0.9;
