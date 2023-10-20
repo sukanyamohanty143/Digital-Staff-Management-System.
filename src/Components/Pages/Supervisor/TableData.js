@@ -71,4 +71,8 @@ function TableData({ filterArr }) {
         </>
     )
 }
+<<<<<<< HEAD
 export default TableData;
+=======
+export default TableData;
+>>>>>>> 10acc7abdd4941a7e2bd5af9dc8af679b57d4ccb

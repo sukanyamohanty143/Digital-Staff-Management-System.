@@ -9,7 +9,6 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import SupervisorPage from "./Components/Pages/Supervisor/SuppervisorPage"
 
 function App(){
-
     return (
       <>
         <Router>
@@ -23,8 +22,7 @@ function App(){
         <br></br>
         <SupervisorPage/>
         </>
-
-    ); 
+    )
 }
 
 export default App;
