@@ -22,14 +22,11 @@ function SreachBar({ employeesdata }) {
     })
 
     const HandlerAddButton = () => {
+
         setSreach('')
 
-        setFilterArr([...filterArr,...filterData])
-
-
-
+        setFilterArr([...filterArr, ...filterData])
     }
-
 
     console.log(filterArr, "filterdata")
 
@@ -37,7 +34,7 @@ function SreachBar({ employeesdata }) {
 
         <>
 
-
+            
             <Grid container xs={12} item spacing={2} justifyContent="center" style={{ backgroundColor: "#011627" }} >
 
                 <Grid item lg={3} sm={6} xs={12}><Typography variant="h4" style={{ color: "white" }}>Supervisor </Typography></Grid>
@@ -48,11 +45,11 @@ function SreachBar({ employeesdata }) {
 
             </Grid>
 
-            {filterArr.map((item)=>(
-                <p>{item.FirstName}</p>
-            ))}
+          
 
-           
+
+
+
 
 
 
@@ -60,3 +57,36 @@ function SreachBar({ employeesdata }) {
     )
 }
 export default SreachBar;
+
+
+
+// FirstName
+// : 
+// "John"
+// Gender
+// : 
+// "Male"
+// LastName
+// : 
+// "Doe"
+// Mobile
+// : 
+// "1234567890"
+// attendance
+// : 
+// "persent"
+// date
+// : 
+// "1-10-2023"
+// designation
+// : 
+// "Admin"
+// [[Prototype]]
+// : 
+// Object
+// length
+// : 
+// 1
+// [[Prototype]]
+// : 
+// Ar
