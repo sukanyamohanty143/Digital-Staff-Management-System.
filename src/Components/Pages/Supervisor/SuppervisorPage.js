@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import SreachBar from "./SreachBar";
 
 import TableData from "./TableData"
-// import { useState,useEffect} from "react"//;
 
 import employeesData from './dataserver.json';
 
@@ -31,7 +30,7 @@ function SupervisorPage() {
         <>
            
 
-            <SreachBar/>
+            <SreachBar employeesdata={data}/>
             <TableData employees={data} />
 
 
