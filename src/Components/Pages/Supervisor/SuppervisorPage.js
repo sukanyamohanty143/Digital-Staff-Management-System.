@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
+
 import employeesData from './dataserver.json';
 
 import TableData from "./TableData"
 import { Grid, TextField, Button, Card, CardContent } from "@mui/material";
+
+import PdfCom from "./PdfCom";
 
 function SupervisorPage() {
 
@@ -82,6 +85,7 @@ function SupervisorPage() {
 
             <TableData filterArr={filterArr}/>
 
+            <PdfCom filterArr={filterArr}/>
 
 
         </>
