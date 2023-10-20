@@ -1,48 +1,74 @@
-import { TableCell, TableContainer, TableHead, TableRow, Table, Grid, TableBody, Typography } from "@mui/material"
+import { Table, TableCell, TableContainer, TableHead, TableRow, Card, CardContent, Grid, TableBody } from "@mui/material";
 
-function TableData({ employees }) {
-    console.log(employees)
-
+function TableData({ filterArr }) {
     return (
         <>
-            {/* <Grid container xs={12} item spacing={2} style={{ position: "relative", bottom: "20px", marginTop: "30px" }}>
-                
-                <TableContainer>
-                    <Table>
-                        <TableHead>
-                            <TableRow>
 
-                                <TableCell style={{ textAlign: 'center' }}><Typography variant="h5">FirstName</Typography></TableCell>
-                                <TableCell><Typography variant="h5">LastName</Typography></TableCell>
-                                <TableCell><Typography variant="h5">Mobile</Typography></TableCell>
-                                <TableCell><Typography variant="h5">Attendance</Typography></TableCell>
-                                <TableCell><Typography variant="h5">Date</Typography></TableCell>
-                                <TableCell><Typography variant="h5">Designation</Typography></TableCell>
 
-                            </TableRow>
-                        </TableHead>
-                        <TableBody>
+            <Card container
+                justifyContent="center">
+                <CardContent>
+                    <Grid
+                        align="center"
+                        container
+                        direction="column"
+                        justify="center"
+                        spacing={0}
 
-                            {employees.map((item) => (
+                    >
 
-                                <TableRow>
 
-                                    <TableCell style={{ textAlign: 'center' }}><Typography variant="h6">{item.FirstName}</Typography></TableCell>
-                                    <TableCell><Typography variant="h6">{item.LastName}</Typography></TableCell>
-                                    <TableCell><Typography variant="h6">{item.Mobile}</Typography></TableCell>
-                                    <TableCell><Typography variant="h6">{item.attendance}</Typography></TableCell>
-                                    <TableCell><Typography variant="h6">{item.date}</Typography></TableCell>
-                                    <TableCell><Typography variant="h6">{item.designation}</Typography></TableCell>
+                        <Grid item>
 
-                                </TableRow>
+                            <TableContainer>
+                                <Table>
+                                    <TableHead>
+                                        <TableRow>
+                                            <TableCell>FIrstName</TableCell>
+                                            <TableCell>LastName</TableCell>
+                                            <TableCell>Mobile</TableCell>
+                                            <TableCell>attendance</TableCell>
+                                            <TableCell>Gender</TableCell>
+                                            <TableCell>designation</TableCell>
+                                            <TableCell>date</TableCell>
+                                        </TableRow>
+                                    </TableHead>
 
-                            ))}
+                                    <TableBody>
 
-                        </TableBody>
-                    </Table>
-                </TableContainer>
-            </Grid> */}
+                                    
+
+                                            {filterArr.map((item) => (
+
+                                                <TableRow key={item}>
+
+                                                    <TableCell> {item.FirstName}</TableCell>
+                                                    <TableCell>{item.LastName}</TableCell>
+                                                    <TableCell>{item.Mobile}</TableCell>
+                                                    <TableCell>{item.attendance}</TableCell>
+                                                    <TableCell>{item.Gender}</TableCell>
+                                                    <TableCell>{item.designation}</TableCell>
+                                                    <TableCell>{item.date}</TableCell>
+
+                                                </TableRow>
+
+                                            ))}
+
+                                    
+
+                                    </TableBody>
+                                </Table>
+                            </TableContainer>
+
+                        </Grid>
+
+                    </Grid>
+
+                </CardContent>
+            </Card>
+
+
         </>
     )
 }
-export default TableData
+export default TableData;
