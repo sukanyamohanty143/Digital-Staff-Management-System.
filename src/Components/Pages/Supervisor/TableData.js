@@ -1,10 +1,11 @@
 import { TableCell, TableContainer, TableHead, TableRow, Table, Grid, TableBody, Typography } from "@mui/material"
 
 function TableData({ employees }) {
+    console.log(employees)
 
     return (
         <>
-            <Grid container xs={12} item spacing={2} style={{ position: "relative", bottom: "20px", marginTop: "30px" }}>
+            {/* <Grid container xs={12} item spacing={2} style={{ position: "relative", bottom: "20px", marginTop: "30px" }}>
                 
                 <TableContainer>
                     <Table>
@@ -40,7 +41,7 @@ function TableData({ employees }) {
                         </TableBody>
                     </Table>
                 </TableContainer>
-            </Grid>
+            </Grid> */}
         </>
     )
 }
