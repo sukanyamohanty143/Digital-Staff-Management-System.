@@ -17,6 +17,7 @@ function App(){
                 </Routes>
             </Router>
             <AdminPage/>
+            <SupervisorPage/>
         </>
     )
 }
