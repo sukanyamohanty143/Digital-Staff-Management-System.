@@ -4,6 +4,7 @@ import jsPDF from 'jspdf';
 
 function PdfCom({ filterArr }) {
 
+
     const HandlerPDF = () => {
         const dic = new jsPDF();
 
