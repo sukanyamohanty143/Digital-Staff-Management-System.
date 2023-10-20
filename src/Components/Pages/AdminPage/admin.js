@@ -57,7 +57,7 @@ const AdminPage=()=>{
     return(
         <>
             <Typography variant="h4" align="center" color="primary">Admin Page</Typography>
-            <AddButton/>
+                <AddButton onAddUser={addUser} />
             <TableContainer component={Paper}>
                 <Table>
                     <TableHead>
