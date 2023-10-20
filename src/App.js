@@ -17,6 +17,7 @@ function App(){
                     <Route path="/registration" element={<Registration />} />
                 </Routes>
             </Router>
+
             <Staff/>
             {/* <AdminPage/> */}
             {/* <SupervisorPage/> */}
