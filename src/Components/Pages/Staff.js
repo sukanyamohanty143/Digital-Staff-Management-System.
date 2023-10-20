@@ -1,31 +1,65 @@
-import React from "react";
-import { Button } from "@material-ui/core";
-const Staff=()=>{
-    return(
-        <center>
-        <div>  
-            <h1>Staff Management </h1>
-            <label htmlFor="Name">Name   </label>
-            <input type="text"/>
-            <br></br><br></br>
-            <label htmlFor="Attendence">Attendence   </label>
+import "./Staff.css";
+import React, { useState } from "react";
 
-            <select>
+const Staff = () => {
+  const [date, setDate] = useState("");
+  const [name, setName] = useState("");
+  const [attendance, setAttendance] = useState("Attendence");
 
-            <option value="Attendence">Atendence</option>
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Name:", name);
+    console.log("Attendance:", attendance);
+    console.log("Date:", date);
+  };
+
+  return (
+    <center>
+      <div className="staff">
+        <h1 className="h1">Staff Management</h1>
+        <form  className="form1" onSubmit={handleSubmit}>
+          <label className="l1" htmlFor="Name">
+            Name
+          </label>
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <br></br>
+          <br></br>
+          <label className="l2" htmlFor="Attendance">
+            Attendance
+          </label>
+          <select
+            value={attendance}
+            onChange={(e) => setAttendance(e.target.value)}
+          >
+            <option value="Attendence">Attendance</option>
             <option value="Present">Present</option>
             <option value="Absent">Absent</option>
+          </select>
+          <br></br>
+          <br></br>
+          <label className="l3" htmlFor="date">
+            Date
+          </label>
+          <input
+            type="date"
+            id="date"
+            name="date"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+          />
+          <br></br>
+          <br></br>
+          <button className="b1" type="submit">
+            Submit
+          </button>
+        </form>
+      </div>
+    </center>
+  );
+};
 
-            </select><br></br><br></br>
-            <label for="birthday">Date    </label>
-             <input type="date" id="date" name="date"/><br></br><br></br>
-
-
-
-
-            <Button variant="contained" color="primary">Sumbit</Button>
-        </div>
-        </center>
-    )
-}
-export default Staff
+export default Staff;
