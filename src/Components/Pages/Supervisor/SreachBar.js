@@ -9,6 +9,7 @@ function SreachBar({ employeesdata }) {
 
     const [filterArr,setFilterArr]=useState([])
 
+
     const HandlerChange = (e) => {
         setSreach(e.target.value)
     }
@@ -16,25 +17,23 @@ function SreachBar({ employeesdata }) {
 
     const filterData = employeesdata.filter(item => {
 
-        return item.designation === sreach || item.FirstName===sreach || item.Date===sreach || item.LastName===sreach || item.Mobile===sreach || item.Gender==sreach;
+        return item.designation === sreach || item.FirstName === sreach || item.Date === sreach || item.LastName === sreach || item.Mobile === sreach || item.Gender == sreach;
 
     })
-
     const HandlerFilterArr=()=>{
 
         setFilterArr([...filterArr,filterData])
-        setSreach('')
-
     }
+    
 
-    console.log(filterArr,"khushbooo")
+    console.log(filterArr)
 
     console.log(filterData, "filterdata")
 
     return (
 
         <>
-        
+
 
 
             <Grid container xs={12} item spacing={2} justifyContent="center" style={{ backgroundColor: "#011627" }} >
@@ -47,7 +46,7 @@ function SreachBar({ employeesdata }) {
 
             </Grid>
 
-          
+
         </>
     )
 }
