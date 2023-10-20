@@ -14,9 +14,9 @@ function Home() {
     return (
         <>
             <div className="navbar">
-                <Typography className='navigetiontitle' variant='h5'>Digital Staff Managment Systam</Typography>
+                <Typography className='navigetiontitle' variant='h5'>Digital Staff Managment System</Typography>
             </div>
-            <Typography variant='h4' style={{ textAlign: "center", margin: "20px" }}>Welcome to Staff Management Systam</Typography>
+            <Typography variant='h4' style={{ textAlign: "center", margin: "20px" }}>Welcome to Staff Management System</Typography>
             <Container>
                 <div className="container">
                     <img className="images" src={background} alt="no images" />
