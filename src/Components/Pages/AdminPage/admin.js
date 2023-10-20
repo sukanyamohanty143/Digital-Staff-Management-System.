@@ -2,15 +2,15 @@ import React,{useState,useEffect} from "react"
 import {TableContainer,Table,TableHead,TableBody,TableRow,Paper,Typography} from "@mui/material";
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import { styled } from '@mui/material/styles';
-import AddButton from "./AddUser";
+// import AddButton from "./AddUser";
 
 const StyledTableCell=styled(TableCell)(({ theme })=>({
     [`&.${tableCellClasses.head}`]:{
-      backgroundColor: theme.palette.common.black,
+      backgroundColor:"blue",
       color: theme.palette.common.white,
     },
     [`&.${tableCellClasses.body}`]:{
-      fontSize: 14,
+      fontSize: 15,
     },
 }));
   const StyledTableRow=styled(TableRow)(({ theme })=>({
@@ -47,17 +47,17 @@ const dummyData=[
   ];
 const AdminPage=()=>{
     const [users,setUsers]=useState(dummyData);
-    const addUser=(newUser)=>{
-        const updatedUsers=[...users,{...newUser,id:users.lenght+1}];
-        setUsers(updatedUsers)
-    }
+    // const addUser=(newUser)=>{
+    //     const updatedUsers=[...users,{...newUser,id:users.lenght+1}];
+    //     setUsers(updatedUsers)
+    // }
     useEffect(()=>{
         setUsers(dummyData);
     },[]);
     return(
         <>
-            <Typography variant="h4" align="center" color="primary">Admin Page</Typography>
-                <AddButton onAddUser={addUser} />
+            <Typography variant="h4" align="center" color="blue">Admin Page</Typography>
+                {/* <AddButton onAddUser={addUser} /> */}
             <TableContainer component={Paper}>
                 <Table>
                     <TableHead>
