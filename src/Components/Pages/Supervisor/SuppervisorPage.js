@@ -1,10 +1,8 @@
-// import { useState } from "react";
 import { useEffect, useState } from "react";
-import SreachBar from "./SreachBar";
+import employeesData from './dataserver.json';
 
 import TableData from "./TableData"
-
-import employeesData from './dataserver.json';
+import { Grid, TextField, Button, Card, CardContent } from "@mui/material";
 
 function SupervisorPage() {
 
@@ -13,25 +11,77 @@ function SupervisorPage() {
     const [data, setData] = useState([])
 
     useEffect(() => {
-        setData(employees)
-    },[employees])
 
-    // console.log(employees,"data")
+        setData(employees)
+
+    }, [employees])
+
+
+
+    const [sreach, setSreach] = useState('')
+
+    const [filterArr, setFilterArr] = useState([])
+
+    const HandlerChange = (e) => {
+        setSreach(e.target.value)
+    }
+
+    const filterData = data.filter(item => {
+        return item.designation === sreach || item.FirstName === sreach || item.LastName === sreach || item.Mobile === sreach || item.attendance === sreach || item.date === sreach || item.Gender === sreach;
+    })
+
+    const HandlerAddButton = () => {
+
+        setSreach('')
+
+        setFilterArr([filterArr, ...filterData])
+    }
+
+    console.log(filterArr, "filterdata")
+
     console.log(data, "data")
 
-    // console.log(employees,"data")
 
-    // const [data,setData]=useState([])
-
-    // setData(employees)
-    // console.log(data,"kkkkk")
 
     return (
         <>
-           
 
-            <SreachBar employeesdata={data}/>
-            <TableData employees={data} />
+            <Card container
+                justifyContent="center" style={{ backgroundColor: ' #3a0ca3' }}>
+                <CardContent>
+                    <Grid
+                        align="center"
+                        container
+                        direction="column"
+                        justify="center"
+                        spacing={0}
+                
+                    >
+
+
+                        <Grid item>
+
+                            <TextField
+                                error
+                                id="outlined-error"
+                                label="Sreach User....."
+                               onChange={HandlerChange}
+                               value={sreach}
+
+                            />
+
+                            <Button onClick={HandlerAddButton} variant="contained" color="error" style={{fontSize:"23px",marginLeft:"5px"}}>
+                                Sreach
+                            </Button>
+                        </Grid>
+
+                    </Grid>
+
+                </CardContent>
+            </Card>
+
+            <TableData filterArr={filterArr}/>
+
 
 
         </>
