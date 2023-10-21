@@ -1,3 +1,36 @@
 {
-    "employees" : []
+  "employees": [
+    {
+      "name": "sonam",
+      "lastname": "kumari",
+      "mobilnumber": "8601387027",
+      "degignation": "superwisor",
+      "gender": "female",
+      "id": 1
+    },
+    {
+      "name": "khushboo",
+      "lastname": "kumari",
+      "mobilnumber": "8796657443",
+      "degignation": "admin",
+      "gender": "female",
+      "id": 2
+    },
+    {
+      "name": "sangeeta ",
+      "lastname": "paswan",
+      "mobilnumber": "9867654355",
+      "degignation": "admin",
+      "gender": "female",
+      "id": 3
+    },
+    {
+      "name": "rabindra",
+      "lastname": "sharma",
+      "mobilnumber": "6846327822",
+      "degignation": "staff",
+      "gender": "male",
+      "id": 4
+    }
+  ]
 }

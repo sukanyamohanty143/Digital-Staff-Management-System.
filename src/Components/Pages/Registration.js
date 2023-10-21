@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
-import { Typography, Button, Stack } from '@mui/material';
+import { Typography, Button, AppBar } from '@mui/material';
 
 const data = [
   {
@@ -30,16 +30,14 @@ const genderData = [
   },
 ];
 
-
 function Registration() {
   const [submittedData, setSubmittedData] = useState(null);
-
   const [formData, setFormData] = useState({
     name: '',
     lastname: '',
     mobilnumber: '',
     degignation: '',
-    gender: '',
+    gender: ''
   });
 
   const handleChange = (event) => {
@@ -49,20 +47,46 @@ function Registration() {
 
   const handleSubmit = () => {
     if (formData.name && formData.lastname && formData.mobilnumber && formData.degignation && formData.gender) {
-      console.log('formData', formData);
+
+      // add user data in data-server.jso file.
+      fetch('http://localhost:3000/employees', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+        .then(response => response.json())
+        .then(data => {
+          console.log('Data added:', data);
+        })
+        .catch(error => {
+          console.error('Error adding data:', error);
+        });
+
+      console.log('formData =', formData);
+
+
       setSubmittedData(formData);
+      setFormData({
+        name: '',
+        lastname: '',
+        mobilnumber: '',
+        degignation: '',
+        gender: ''
+      })
     } else {
-      alert('Please fill out all required fields.');
+      alert('You have to fill all required.');
     }
   };
 
   return (
     <>
-      <div className="navbar">
-        <Typography className="navigetiontitle" variant="h5">
-          You Can Do Registration Here
+      <AppBar position="static" style={{ padding: "20px", height: "75px" }}>
+        <Typography variant="h6" color="inherit" component="div">
+          You Can Registration Here
         </Typography>
-      </div>
+      </AppBar>
       <Typography variant="h4" style={{ textAlign: 'center', margin: '15px' }}>
         Registration Form
       </Typography>
@@ -85,7 +109,6 @@ function Registration() {
             value={formData.name}
             onChange={handleChange}
             helperText={!formData.name ? "Name is required" : "Enter your name"}
-            error={!formData.name}
           />
           <br />
 
@@ -98,7 +121,6 @@ function Registration() {
             value={formData.lastname}
             onChange={handleChange}
             helperText={!formData.lastname ? "Last name is required" : "Enter your last name"}
-            error={!formData.lastname}
           />
           <br />
 
@@ -111,7 +133,6 @@ function Registration() {
             value={formData.mobilnumber}
             onChange={handleChange}
             helperText={!formData.mobilnumber ? "Mobilnumber is required" : "Enter your mobil number"}
-            error={!formData.mobilnumber}
           />
           <br />
 
@@ -124,7 +145,6 @@ function Registration() {
             value={formData.degignation}
             onChange={handleChange}
             helperText={!formData.degignation ? "Degignation is required" : "Enter your degignation"}
-            error={!formData.degignation}
           >
             {data.map((option) => (
               <MenuItem key={option.value} value={option.value}>
@@ -143,7 +163,6 @@ function Registration() {
             value={formData.gender}
             onChange={handleChange}
             helperText={!formData.gender ? "Gender is required" : "Enter your gender"}
-            error={!formData.gender}
           >
             {genderData.map((selectgender) => (
               <MenuItem key={selectgender.value} value={selectgender.value}>
@@ -156,29 +175,22 @@ function Registration() {
           <Button className="submitbtn" variant="contained" onClick={handleSubmit}>
             Submit Button
           </Button>
-          
+
         </div>
       </Box>
 
-
       {submittedData && (
-        <div className='container' style={{ textAlign: "center" }}>
-          <Stack>
-            <Typography>Name: {submittedData.name}</Typography>
-            <Typography>lastname: {submittedData.lastname}</Typography>
-            <Typography>mobilnumber: {submittedData.mobilnumber}</Typography>
-            <Typography>degignation: {submittedData.degignation}</Typography>
-
-            <Typography>gender: {submittedData.gender}</Typography>
-          </Stack>
-        </div>
+        <div className='container' style={{ textAlign: "center" }}></div>
       )}
+
     </>
   );
 }
-
-
 export default Registration;
+
+
+
+
 
 
 
