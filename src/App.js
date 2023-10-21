@@ -5,7 +5,7 @@ import Registration from "./Components/Pages/Registration";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Staff from "./Components/Pages/Staff";
 import AdminPage from "./Components/Pages/AdminPage/admin";
-import SupervisorPage from "./Components/Pages/Supervisor/SuppervisorPage";
+// import SupervisorPage from "./Components/Pages/Supervisor/SuppervisorPage";
 function App(){
     return (
         <>
@@ -17,7 +17,7 @@ function App(){
             </Router>
             <Staff/>
             <AdminPage/>
-            <SupervisorPage/>
+            {/* <SupervisorPage/> */}
             
         </>
     )
