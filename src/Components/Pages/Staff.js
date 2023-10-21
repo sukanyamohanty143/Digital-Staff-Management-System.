@@ -104,7 +104,7 @@ const Staff = () => {
         <Button
           variant="contained"
           color="primary"
-          type="submit"
+          type="Submit"
           className={classes.button}
         >
           Submit
