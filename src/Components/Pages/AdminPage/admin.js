@@ -21,6 +21,14 @@ const StyledTableRow =styled(TableRow)(({ theme })=>({
         border: 0,
     },
 }));
+const CenteredButtonContainer = styled('div')({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+
+});
+
 
 const dummyData=[
   {
@@ -75,18 +83,23 @@ const AdminPage=()=>{
   };
   return (
     <>
-          <Typography variant="h4" align="center" color="">Admin Page</Typography>
-          <Button variant="contained" onClick={() => setShowForm(true)}>Add User</Button>
+          <Typography variant="h4" align="center">Admin Page</Typography>
+          {/* <Button style={{marginLeft:"50px"}} variant="contained" onClick={() => setShowForm(true)}>Add User</Button> */}
+          <CenteredButtonContainer>
+              <Button variant="contained" onClick={() => setShowForm(true)}>
+                  Add User
+              </Button>
           {showForm && (
             <UserForm
-              onAddUser={addUser}
-              user={selectedUser}
-              onCloseForm={() => {
-                setShowForm(false);
-                setSelectedUser(null);
+                onAddUser={addUser}
+                user={selectedUser}
+                onCloseForm={() => {
+                    setShowForm(false);
+                    setSelectedUser(null);
               }}
             />
           )}
+          </CenteredButtonContainer>
           <TableContainer component={Paper}>
               <Table>
                   <TableHead>
