@@ -1,66 +1,117 @@
-import "./Staff.css";
 import React, { useState } from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import {
+  Typography,
+  TextField,
+  Select,
+  MenuItem,
+
+  Button,
+  Container,
+  Box,
+} from "@material-ui/core";
+import { formControlClasses } from "@mui/material";
+import { color } from "@mui/system";
+
+const useStyles = makeStyles((theme) => ({
+  staff: {
+    textAlign: "center",
+    padding: theme.spacing(10),
+  },
+  form1: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+  label: {
+    marginBottom: theme.spacing(2)  },
+  input: {
+    marginBottom: theme.spacing(4),
+    position:"relative",
+    
+    marginLeft:20,
+  },
+  button: {
+    marginTop: theme.spacing(),
+  },
+}));
 
 const Staff = () => {
+  const classes = useStyles();
   const [date, setDate] = useState("");
   const [name, setName] = useState("");
-  const [attendance, setAttendance] = useState("Attendence");
+  const [attendence, setAttendence] = useState("Attendence");
+
+
+
+ 
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if(name && date && attendence){
     console.log("Name:", name);
-    console.log("Attendance:", attendance);
+    console.log("Attendance:", attendence);
     console.log("Date:", date);
+    }
+    else{
+      alert("Please fill all the information in the form")
+    }
   };
 
   return (
-    <center>
-      <div className="staff">
-        <h1 className="h1">Staff Management</h1>
-        <form  className="form1" onSubmit={handleSubmit}>
-          <label className="l1" htmlFor="Name">
-            Name
-          </label>
-          <input
+    <Container className={classes.staff}>
+      <Typography variant="h4" gutterBottom>
+        Staff Management
+      </Typography><br></br>
+      <form className={classes.form1} onSubmit={handleSubmit}>
+        <Box>
+           <label className={classes.label} htmlFor="Name">Name</label> 
+          <TextField
+    
+            id="name"
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
+            className={classes.input}
           />
-          <br></br>
-          <br></br>
-          <label className="l2" htmlFor="Attendance">
-            Attendance
-          </label>
-          <select
-            value={attendance}
-            onChange={(e) => setAttendance(e.target.value)}
+        </Box>
+        <Box>
+        <label className={classes.label} htmlFor="Attendence">Attendence</label> 
+
+          <Select
+            id="attendence"
+            value={attendence}
+            onChange={(e) => setAttendence(e.target.value)}
+            className={classes.input}
           >
-            <option value="Attendence">Attendance</option>
-            <option value="Present">Present</option>
-            <option value="Absent">Absent</option>
-          </select>
-          <br></br>
-          <br></br>
-          <label className="l3" htmlFor="date">
+            <MenuItem value="Attendence">Attendence</MenuItem>
+            <MenuItem value="Present">Present</MenuItem>
+            <MenuItem value="Absent">Absent</MenuItem>
+          </Select>
+        </Box>
+        <Box>
+          <label className={classes.label} htmlFor="date">
             Date
           </label>
-          <input
-            type="date"
+          <TextField
             id="date"
-            name="date"
+            type="date"
             value={date}
             onChange={(e) => setDate(e.target.value)}
+            className={classes.input}
           />
-          <br></br>
-          <br></br>
-          <button className="b1" type="submit">
-            Submit
-          </button>
-        </form>
-      </div>
-    </center>
+        </Box>
+        <Button
+          variant="contained"
+          color="primary"
+          type="submit"
+          className={classes.button}
+        >
+          Submit
+        </Button>
+      </form>
+    </Container>
   );
 };
 
 export default Staff;
-
