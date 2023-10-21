@@ -40,7 +40,7 @@ const Staff = () => {
   const classes = useStyles();
   const [date, setDate] = useState("");
   const [name, setName] = useState("");
-  const [attendance, setAttendance] = useState("Attendance");
+  const [attendence, setAttendence] = useState("Attendence");
 
 
 
@@ -48,9 +48,9 @@ const Staff = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(name && date && attendance){
+    if(name && date && attendence){
     console.log("Name:", name);
-    console.log("Attendance:", attendance);
+    console.log("Attendance:", attendence);
     console.log("Date:", date);
     }
     else{
@@ -76,15 +76,15 @@ const Staff = () => {
           />
         </Box>
         <Box>
-        <label className={classes.label} htmlFor="Attendance">Attendance</label> 
+        <label className={classes.label} htmlFor="Attendence">Attendence</label> 
 
           <Select
-            id="attendance"
-            value={attendance}
-            onChange={(e) => setAttendance(e.target.value)}
+            id="attendence"
+            value={attendence}
+            onChange={(e) => setAttendence(e.target.value)}
             className={classes.input}
           >
-            <MenuItem value="Attendance">Attendance</MenuItem>
+            <MenuItem value="Attendence">Attendence</MenuItem>
             <MenuItem value="Present">Present</MenuItem>
             <MenuItem value="Absent">Absent</MenuItem>
           </Select>
