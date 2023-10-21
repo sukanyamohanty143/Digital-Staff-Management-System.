@@ -5,10 +5,10 @@ import {
   TextField,
   Select,
   MenuItem,
-  FormControl,
-  InputLabel, 
+
   Button,
   Container,
+  Box,
 } from "@material-ui/core";
 import { formControlClasses } from "@mui/material";
 import { color } from "@mui/system";
@@ -16,7 +16,7 @@ import { color } from "@mui/system";
 const useStyles = makeStyles((theme) => ({
   staff: {
     textAlign: "center",
-    padding: theme.spacing(20),
+    padding: theme.spacing(10),
   },
   form1: {
     display: "flex",
@@ -24,15 +24,15 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
   },
   label: {
-    marginBottom: theme.spacing(78)  },
+    marginBottom: theme.spacing(2)  },
   input: {
     marginBottom: theme.spacing(4),
     position:"relative",
-    top:12,
-    marginLeft:50,
+    
+    marginLeft:20,
   },
   button: {
-    marginTop: theme.spacing(3),
+    marginTop: theme.spacing(),
   },
 }));
 
@@ -62,22 +62,22 @@ const Staff = () => {
     <Container className={classes.staff}>
       <Typography variant="h4" gutterBottom>
         Staff Management
-      </Typography>
+      </Typography><br></br>
       <form className={classes.form1} onSubmit={handleSubmit}>
-        <FormControl>
-          <InputLabel>Name</InputLabel>
+        <Box>
+           <label className={classes.label} htmlFor="Name">Name</label> 
           <TextField
+    
             id="name"
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
             className={classes.input}
           />
-        </FormControl>
-        <FormControl>
-          <InputLabel className={classes.label} htmlFor="attendance"> {/* Change 'Label' to 'InputLabel' */}
-            
-          </InputLabel>
+        </Box>
+        <Box>
+        <label className={classes.label} htmlFor="Attendance">Attendance</label> 
+
           <Select
             id="attendance"
             value={attendance}
@@ -88,11 +88,11 @@ const Staff = () => {
             <MenuItem value="Present">Present</MenuItem>
             <MenuItem value="Absent">Absent</MenuItem>
           </Select>
-        </FormControl>
-        <FormControl>
-          <InputLabel className={classes.label} htmlFor="date">
+        </Box>
+        <Box>
+          <label className={classes.label} htmlFor="date">
             Date
-          </InputLabel>
+          </label>
           <TextField
             id="date"
             type="date"
@@ -100,7 +100,7 @@ const Staff = () => {
             onChange={(e) => setDate(e.target.value)}
             className={classes.input}
           />
-        </FormControl>
+        </Box>
         <Button
           variant="contained"
           color="primary"
