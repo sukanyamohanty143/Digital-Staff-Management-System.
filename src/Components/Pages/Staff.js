@@ -42,11 +42,20 @@ const Staff = () => {
   const [name, setName] = useState("");
   const [attendance, setAttendance] = useState("Attendance");
 
+
+
+ 
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    if(name && date && attendance){
     console.log("Name:", name);
     console.log("Attendance:", attendance);
     console.log("Date:", date);
+    }
+    else{
+      alert("Please fill all the information in the form")
+    }
   };
 
   return (
