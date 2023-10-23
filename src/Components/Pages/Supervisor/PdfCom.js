@@ -19,7 +19,7 @@ function PdfCom({ filterArr }) {
     return (
         <>
             <Button variant="contained" onClick={HandlerPDF}>Convert into PDF</Button>
-            <Button variant="contained" onClick={HandlerPDF}>Convert into PDF</Button>
+            {/* <Button variant="contained" onClick={HandlerPDF}>Convert into PDF</Button> */}
         </>
     )
 }

@@ -1,13 +1,7 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> 10acc7abdd4941a7e2bd5af9dc8af679b57d4ccb
-import { useEffect, useState } from "react";
-import employeesData from './dataserver.json';
-
 import TableData from "./TableData"
 import { Grid, TextField, Button, Card, CardContent } from "@mui/material";
-
+import { useState,useEffect} from "react";
+import employeesData from "./dataserver.json"
 function SupervisorPage() {
 
     const employees = employeesData.employees;
@@ -20,7 +14,6 @@ function SupervisorPage() {
 
     }, [employees])
 
-<<<<<<< HEAD
 
 
     const [sreach, setSreach] = useState('')
@@ -46,33 +39,6 @@ function SupervisorPage() {
 
     console.log(data, "data")
 
-=======
-
-
-    const [sreach, setSreach] = useState('')
-
-    const [filterArr, setFilterArr] = useState([])
-
-    const HandlerChange = (e) => {
-        setSreach(e.target.value)
-    }
-
-    const filterData = data.filter(item => {
-        return item.designation === sreach || item.FirstName === sreach || item.LastName === sreach || item.Mobile === sreach || item.attendance === sreach || item.date === sreach || item.Gender === sreach;
-    })
-
-    const HandlerAddButton = () => {
-
-        setSreach('')
-
-        setFilterArr([filterArr, ...filterData])
-    }
-
-    console.log(filterArr, "filterdata")
-
-    console.log(data, "data")
-
->>>>>>> 10acc7abdd4941a7e2bd5af9dc8af679b57d4ccb
 
 
     return (
@@ -120,4 +86,3 @@ function SupervisorPage() {
     )
 }
 export default SupervisorPage;
-

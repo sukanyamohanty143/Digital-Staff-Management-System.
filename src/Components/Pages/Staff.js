@@ -1,31 +1,117 @@
-import React from "react";
-import { Button } from "@material-ui/core";
-const Staff=()=>{
-    return(
-        <center>
-        <div>  
-            <h1>Staff Management </h1>
-            <label htmlFor="Name">Name   </label>
-            <input type="text"/>
-            <br></br><br></br>
-            <label htmlFor="Attendence">Attendence   </label>
+import React, { useState } from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import {
+  Typography,
+  TextField,
+  Select,
+  MenuItem,
 
-            <select>
+  Button,
+  Container,
+  Box,
+} from "@material-ui/core";
+import { formControlClasses } from "@mui/material";
+import { color } from "@mui/system";
 
-            <option value="Attendence">Atendence</option>
-            <option value="Present">Present</option>
-            <option value="Absent">Absent</option>
+const useStyles = makeStyles((theme) => ({
+  staff: {
+    textAlign: "center",
+    padding: theme.spacing(10),
+  },
+  form1: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+  label: {
+    marginBottom: theme.spacing(2)  },
+  input: {
+    marginBottom: theme.spacing(4),
+    position:"relative",
+    
+    marginLeft:20,
+  },
+  button: {
+    marginTop: theme.spacing(),
+  },
+}));
 
-            </select><br></br><br></br>
-            <label for="birthday">Date    </label>
-             <input type="date" id="date" name="date"/><br></br><br></br>
+const Staff = () => {
+  const classes = useStyles();
+  const [date, setDate] = useState("");
+  const [name, setName] = useState("");
+  const [attendence, setAttendence] = useState("Attendence");
 
 
 
+ 
 
-            <Button variant="contained" color="primary">Sumbit</Button>
-        </div>
-        </center>
-    )
-}
-export default Staff
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if(name && date && attendence){
+    console.log("Name:", name);
+    console.log("Attendance:", attendence);
+    console.log("Date:", date);
+    }
+    else{
+      alert("Please fill all the information in the form")
+    }
+  };
+
+  return (
+    <Container className={classes.staff}>
+      <Typography variant="h4" gutterBottom>
+        Staff Management
+      </Typography><br></br>
+      <form className={classes.form1} onSubmit={handleSubmit}>
+        <Box>
+           <label className={classes.label} htmlFor="Name">Name</label> 
+          <TextField
+    
+            id="name"
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className={classes.input}
+          />
+        </Box>
+        <Box>
+        <label className={classes.label} htmlFor="Attendence">Attendence</label> 
+
+          <Select
+            id="attendence"
+            value={attendence}
+            onChange={(e) => setAttendence(e.target.value)}
+            className={classes.input}
+          >
+            <MenuItem value="Attendence">Attendence</MenuItem>
+            <MenuItem value="Present">Present</MenuItem>
+            <MenuItem value="Absent">Absent</MenuItem>
+          </Select>
+        </Box>
+        <Box>
+          <label className={classes.label} htmlFor="date">
+            Date
+          </label>
+          <TextField
+            id="date"
+            type="date"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+            className={classes.input}
+          />
+        </Box>
+        <Button
+          variant="contained"
+          color="primary"
+          type="submit"
+          className={classes.button}
+        >
+          Submit
+        </Button>
+      </form>
+    </Container>
+  );
+};
+
+export default Staff;
