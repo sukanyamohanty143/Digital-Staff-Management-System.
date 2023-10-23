@@ -1,13 +1,22 @@
-import React, { useState } from 'react';
-import {List,ListItem,Button,TextField} from '@mui/material';
-const UserForm = ({ onAddUser }) => {
+import React, { useState,useEffect } from 'react';
+import {List,ListItem,Button,TextField,Card} from '@mui/material';
+const UserForm = ({ onAddUser,onCloseForm,user}) => {
     const [id, setId] = useState('');
     const [name, setName] = useState('');
     const [mobileNumber, setMobileNumber] = useState('');
     const [designation, setDesignation] = useState('');
     const [gender, setGender] = useState('');
-    const addUser = () => {
-        const newUser = {
+    useEffect(() => {
+        if (user){
+          setId(user.id);
+          setName(user.name);
+          setMobileNumber(user.mobileNumber);
+          setDesignation(user.designation);
+          setGender(user.gender);
+        }
+      }, [user]);
+    const addUser=()=>{
+        const newUser={
             id,
             name,
             mobileNumber,
@@ -15,6 +24,7 @@ const UserForm = ({ onAddUser }) => {
             gender,
         };
         onAddUser(newUser);
+        onCloseForm();
 
         setId('');
         setName('');
@@ -23,7 +33,8 @@ const UserForm = ({ onAddUser }) => {
         setGender('');
     };
     return (
-        <>
+          
+        <Card sx={{ maxWidth:400, marginBottom:2}}>
             <List>
                 <ListItem>
                     <TextField
@@ -64,7 +75,8 @@ const UserForm = ({ onAddUser }) => {
                       <Button variant="contained" onClick={addUser}>Add Form</Button>
                 </ListItem>
             </List>
-        </>
+        </Card>
+        
   );
 };
 export default UserForm;

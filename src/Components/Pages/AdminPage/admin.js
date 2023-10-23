@@ -59,85 +59,85 @@ const AdminPage=()=>{
   const [showForm,setShowForm]=useState(false);
   const [selectedUser,setSelectedUser]=useState(null);
 
-  const addUser=(newUser)=>{
-      if(selectedUser){
-          const updatedUsers=users.map((user) =>
-              user.id===selectedUser.id? newUser:user
-          );
-          setUsers(updatedUsers);
-          setSelectedUser(null);
-      } 
-      else{
-          const updatedUsers = [...users, { ...newUser, id: users.length + 1 }];
-          setUsers(updatedUsers);
-      }
-      setShowForm(true);
-  };
-  const closeForm=()=>{
-    setShowForm(false);
-    setSelectedUser(null);
-  }
-  const handleEdit=(user)=>{
-      setSelectedUser(user);
-      setShowForm(true);
-  };
-  const handleDelete=(user)=>{
-      const updatedUsers = users.filter((u) => u.id !== user.id);
-          setUsers(updatedUsers);
-  };
-  return (
-    <>
-        <Typography variant="h4" align="center">Admin Page</Typography>
-        <CenteredButtonContainer>
-            <Grid container spacing={2} style={{marginLeft:"83%"}}>
-                <Grid item style={{marginBottom:10}}>
-                    <Button variant="contained" onClick={() => setShowForm(true)}>
-                        Add User
-                    </Button>
+    const addUser=(newUser)=>{
+        if(selectedUser){
+            const updatedUsers=users.map((user) =>
+                user.id===selectedUser.id? newUser:user
+            );
+            setUsers(updatedUsers);
+            setSelectedUser(null);
+        } 
+        else{
+            const updatedUsers = [...users, { ...newUser, id: users.length + 1 }];
+            setUsers(updatedUsers);
+        }
+        setShowForm(false);
+    };
+    const closeForm=()=>{
+        setShowForm(false);
+        setSelectedUser(null);
+    }
+    const handleEdit=(user)=>{
+        setSelectedUser(user);
+        setShowForm(true);
+    };
+    const handleDelete=(user)=>{
+        const updatedUsers=users.filter((u) => u.id !== user.id);
+            setUsers(updatedUsers);
+    };
+    return (
+        <>
+            <Typography variant="h4" align="center">Admin Page</Typography>
+            <CenteredButtonContainer>
+                <Grid container spacing={2} style={{marginLeft:"83%"}}>
+                    <Grid item style={{marginBottom:10}}>
+                        <Button variant="contained" onClick={() => setShowForm(true)}>
+                            Add User
+                        </Button>
+                    </Grid>
+                    <Grid item>
+                        <Button variant="contained" onClick={closeForm}>Logout</Button>
+                    </Grid>
                 </Grid>
-                <Grid item>
-                    <Button variant="contained" onClick={closeForm}>Logout</Button>
-                </Grid>
-            </Grid>
-            {showForm && (
-                    <UserForm
-                    onAddUser={addUser}
-                    user={selectedUser}
-                    onCloseForm={closeForm}
-                />
-            )}
-        </CenteredButtonContainer>
-        <TableContainer component={Paper}>
-            <Table>
-                <TableHead>
-                    <StyledTableRow>
-                        <StyledTableCell>ID</StyledTableCell>
-                        <StyledTableCell>Name</StyledTableCell>
-                        <StyledTableCell>Mobile number</StyledTableCell>
-                        <StyledTableCell>Designation</StyledTableCell>
-                        <StyledTableCell>Gender</StyledTableCell>
-                        <StyledTableCell>Action</StyledTableCell>
-                    </StyledTableRow>
-                </TableHead>
-                <TableBody>
-                    {users.map((user) => (
-                        <StyledTableRow key={user.id}>
-                            <StyledTableCell>{user.id}</StyledTableCell>
-                            <StyledTableCell>{user.name}</StyledTableCell>
-                            <StyledTableCell>{user.mobileNumber}</StyledTableCell>
-                            <StyledTableCell>{user.designation}</StyledTableCell>
-                            <StyledTableCell>{user.gender}</StyledTableCell>
-                            <StyledTableCell>
-                                <Button variant="contained" onClick={() => handleEdit(user)} >Update</Button>
-                                <Button variant="contained" onClick={() => handleDelete(user)}  >Delete</Button>
-                            </StyledTableCell>
+                {showForm && (
+                        <UserForm
+                        onAddUser={addUser}
+                        user={selectedUser}
+                        onCloseForm={closeForm}
+                    />
+                )}
+            </CenteredButtonContainer>
+            <TableContainer component={Paper}>
+                <Table>
+                    <TableHead>
+                        <StyledTableRow>
+                            <StyledTableCell>ID</StyledTableCell>
+                            <StyledTableCell>Name</StyledTableCell>
+                            <StyledTableCell>Mobile number</StyledTableCell>
+                            <StyledTableCell>Designation</StyledTableCell>
+                            <StyledTableCell>Gender</StyledTableCell>
+                            <StyledTableCell>Action</StyledTableCell>
                         </StyledTableRow>
-                    ))}
-                </TableBody>
-            </Table>
-        </TableContainer>
-    </>
-  );
+                    </TableHead>
+                    <TableBody>
+                        {users.map((user) => (
+                            <StyledTableRow key={user.id}>
+                                <StyledTableCell>{user.id}</StyledTableCell>
+                                <StyledTableCell>{user.name}</StyledTableCell>
+                                <StyledTableCell>{user.mobileNumber}</StyledTableCell>
+                                <StyledTableCell>{user.designation}</StyledTableCell>
+                                <StyledTableCell>{user.gender}</StyledTableCell>
+                                <StyledTableCell>
+                                    <Button variant="contained" onClick={() => handleEdit(user)} >Update</Button>
+                                    <Button variant="contained" onClick={() => handleDelete(user)}  >Delete</Button>
+                                </StyledTableCell>
+                            </StyledTableRow>
+                        ))}
+                    </TableBody>
+                </Table>
+            </TableContainer>
+        </>
+    );
 };
 
 export default AdminPage;
