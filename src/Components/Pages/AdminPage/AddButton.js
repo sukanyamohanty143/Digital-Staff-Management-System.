@@ -1,11 +1,11 @@
 import React, { useState,useEffect } from 'react';
 import {List,ListItem,Button,TextField,Card} from '@mui/material';
 const UserForm = ({ onAddUser,onCloseForm,user}) => {
-    const [id, setId] = useState('');
-    const [name, setName] = useState('');
-    const [mobileNumber, setMobileNumber] = useState('');
-    const [designation, setDesignation] = useState('');
-    const [gender, setGender] = useState('');
+    const [id,setId]=useState('');
+    const [name,setName]=useState('');
+    const [mobileNumber,setMobileNumber]=useState('');
+    const [designation,setDesignation]=useState('');
+    const [gender,setGender]=useState('');
     useEffect(() => {
         if (user){
           setId(user.id);
@@ -14,7 +14,7 @@ const UserForm = ({ onAddUser,onCloseForm,user}) => {
           setDesignation(user.designation);
           setGender(user.gender);
         }
-      }, [user]);
+      },[user]);
     const addUser=()=>{
         const newUser={
             id,
@@ -75,8 +75,7 @@ const UserForm = ({ onAddUser,onCloseForm,user}) => {
                       <Button variant="contained" onClick={addUser}>Add Form</Button>
                 </ListItem>
             </List>
-        </Card>
-        
+        </Card> 
   );
 };
 export default UserForm;
