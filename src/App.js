@@ -3,8 +3,8 @@ import React from 'react';
 import Home from "./Components/Pages/Home";
 import Registration from "./Components/Pages/Registration";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-
 import Staff from "./Components/Pages/Staff";
+// import Staff from "./Components/Pages/Staff";
 
 function App(){
     return (
@@ -16,6 +16,7 @@ function App(){
                 </Routes>
 
             </Router>
+            {/* <Staff/> */}
             <Staff/>
             {/* <AdminPage/> */}
             {/* <SupervisorPage/> */}

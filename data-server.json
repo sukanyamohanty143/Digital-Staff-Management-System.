@@ -1,9 +1,12 @@
 {
   "employees": [
+    {}
+  ],
+  "Attendence": [
     {
       "name": "Laxmi Yadav",
-      "date": "2023-10-17",
       "attendance": "Present",
+      "date": "2023-10-21",
       "id": 1
     }
   ]
