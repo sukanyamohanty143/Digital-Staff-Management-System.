@@ -1,88 +1,80 @@
 import React, { useState } from "react";
+import { TextField, Button, Typography, Card, Box, MenuItem, Select } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import {
-  Typography,
-  TextField,
-  Select,
-  MenuItem,
-  Button,
-  Container,
-  Box,
-} from "@material-ui/core";
+import { pink } from "@material-ui/core/colors";
 
 const useStyles = makeStyles((theme) => ({
-  staff: {
-    textAlign: "center",
-    padding: theme.spacing(10),
-  },
-  form1: {
+  container: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
   },
+  card: {
+    maxWidth: 400,
+    marginBottom: 20,
+    padding: theme.spacing(1),
+  },
   label: {
-    marginBottom: theme.spacing(2),
+    marginBottom: theme.spacing(1),
+    
   },
   input: {
-    marginBottom: theme.spacing(4),
-    position: "relative",
-    marginLeft: 20,
+    width: "100%",
   },
   button: {
-    marginTop: theme.spacing(),
+    marginTop: theme.spacing(2),
+    
   },
+ 
 }));
 
 const Staff = () => {
   const classes = useStyles();
   const [date, setDate] = useState("");
   const [name, setName] = useState("");
-  const [attendance, setAttendance] = useState("Attendance");
+  const [attendance, setAttendance] = useState("");
 
-  const [data, setData] = useState({
-    entries: [],
-  });
+  const HandleName = (e) => {
+    setName(e.target.value);
+  };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (name && date && attendance !== "Attendance") {
-      const newData = {
-        name,
-        date,
-        attendance,
-      };
+  const HandleAttendence = (e) => {
+    setAttendance(e.target.value);
+  };
 
-      setData({
-        ...data,
-        entries: [...data.entries, newData],
-      });
+  const HandleDate = (e) => {
+    setDate(e.target.value);
+  };
 
-      setName("");
-      setDate("");
-      setAttendance("Attendance");
-      const submittedData = {
-        name,
-        date,
-        attendance,
-      };
-      console.log("submittedData:",submittedData)
-
-     
+  const HandleClick = () => {
+    const data = { name, attendance, date };
+    if (name && date && attendance) {
+      fetch("http://localhost:3000/Attendence", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+        .then((res) => {
+          alert("Data saved successfully");
+          setName("");
+          setAttendance("");
+          setDate("");
+        })
+        .catch((error) => {
+          alert("Error saving data");
+          console.error(error);
+        });
     } else {
       alert("Please fill all the information in the form");
     }
   };
 
-
-  console.log("Submitted Data:", data.entries);
-
   return (
-    <Container className={classes.staff}>
-      <Typography variant="h4" gutterBottom>
-        Staff Management
-      </Typography>
-      <br />
-      <form className={classes.form1} onSubmit={handleSubmit}>
+    <div className={classes.container}>
+      <Typography variant="h3" className={classes.heading}>Staff Management</Typography>
+      <Card className={classes.card}>
         <Box>
           <label className={classes.label} htmlFor="Name">
             Name
@@ -91,7 +83,7 @@ const Staff = () => {
             id="name"
             type="text"
             value={name}
-            onChange={(e) => setName(e.target.value)}
+            onChange={HandleName}
             className={classes.input}
           />
         </Box>
@@ -102,10 +94,9 @@ const Staff = () => {
           <Select
             id="attendance"
             value={attendance}
-            onChange={(e) => setAttendance(e.target.value)}
+            onChange={HandleAttendence}
             className={classes.input}
           >
-            <MenuItem value="Attendance">Attendance</MenuItem>
             <MenuItem value="Present">Present</MenuItem>
             <MenuItem value="Absent">Absent</MenuItem>
           </Select>
@@ -118,24 +109,20 @@ const Staff = () => {
             id="date"
             type="date"
             value={date}
-            onChange={(e) => setDate(e.target.value)}
+            onChange={HandleDate}
             className={classes.input}
           />
         </Box>
         <Button
           variant="contained"
           color="primary"
-          type="Submit"
           className={classes.button}
+          onClick={HandleClick}
         >
           Submit
         </Button>
-      </form>
-      
-     
-      
-    
-    </Container>
+      </Card>
+    </div>
   );
 };
 
