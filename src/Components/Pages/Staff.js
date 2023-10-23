@@ -1,90 +1,102 @@
 import React, { useState } from "react";
+import { TextField, Button, Typography, Card, Box, MenuItem, Select } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import {
-  Typography,
-  TextField,
-  Select,
-  MenuItem,
-
-  Button,
-  Container,
-  Box,
-} from "@material-ui/core";
-import { formControlClasses } from "@mui/material";
-import { color } from "@mui/system";
+import { pink } from "@material-ui/core/colors";
 
 const useStyles = makeStyles((theme) => ({
-  staff: {
-    textAlign: "center",
-    padding: theme.spacing(10),
-  },
-  form1: {
+  container: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
   },
+  card: {
+    maxWidth: 400,
+    marginBottom: 20,
+    padding: theme.spacing(1),
+  },
   label: {
-    marginBottom: theme.spacing(2)  },
-  input: {
-    marginBottom: theme.spacing(4),
-    position:"relative",
+    marginBottom: theme.spacing(1),
     
-    marginLeft:20,
+  },
+  input: {
+    width: "100%",
   },
   button: {
-    marginTop: theme.spacing(),
+    marginTop: theme.spacing(2),
+    
   },
+ 
 }));
 
 const Staff = () => {
   const classes = useStyles();
   const [date, setDate] = useState("");
   const [name, setName] = useState("");
-  const [attendence, setAttendence] = useState("Attendence");
+  const [attendance, setAttendance] = useState("");
 
+  const HandleName = (e) => {
+    setName(e.target.value);
+  };
 
+  const HandleAttendence = (e) => {
+    setAttendance(e.target.value);
+  };
 
- 
+  const HandleDate = (e) => {
+    setDate(e.target.value);
+  };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if(name && date && attendence){
-    console.log("Name:", name);
-    console.log("Attendance:", attendence);
-    console.log("Date:", date);
-    }
-    else{
-      alert("Please fill all the information in the form")
+  const HandleClick = () => {
+    const data = { name, attendance, date };
+    if (name && date && attendance) {
+      fetch("http://localhost:3000/Attendence", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+        .then((res) => {
+          alert("Data saved successfully");
+          setName("");
+          setAttendance("");
+          setDate("");
+        })
+        .catch((error) => {
+          alert("Error saving data");
+          console.error(error);
+        });
+    } else {
+      alert("Please fill all the information in the form");
     }
   };
 
   return (
-    <Container className={classes.staff}>
-      <Typography variant="h4" gutterBottom>
-        Staff Management
-      </Typography><br></br>
-      <form className={classes.form1} onSubmit={handleSubmit}>
+    <div className={classes.container}>
+      <Typography variant="h3" className={classes.heading}>Staff Management</Typography>
+      <Card className={classes.card}>
         <Box>
-           <label className={classes.label} htmlFor="Name">Name</label> 
+          <label className={classes.label} htmlFor="Name">
+            Name
+          </label>
           <TextField
-    
             id="name"
             type="text"
             value={name}
-            onChange={(e) => setName(e.target.value)}
+            onChange={HandleName}
             className={classes.input}
           />
         </Box>
         <Box>
-        <label className={classes.label} htmlFor="Attendence">Attendence</label> 
-
+          <label className={classes.label} htmlFor="Attendance">
+            Attendance
+          </label>
           <Select
-            id="attendence"
-            value={attendence}
-            onChange={(e) => setAttendence(e.target.value)}
+            id="attendance"
+            value={attendance}
+            onChange={HandleAttendence}
             className={classes.input}
           >
-            <MenuItem value="Attendence">Attendence</MenuItem>
             <MenuItem value="Present">Present</MenuItem>
             <MenuItem value="Absent">Absent</MenuItem>
           </Select>
@@ -97,20 +109,20 @@ const Staff = () => {
             id="date"
             type="date"
             value={date}
-            onChange={(e) => setDate(e.target.value)}
+            onChange={HandleDate}
             className={classes.input}
           />
         </Box>
         <Button
           variant="contained"
           color="primary"
-          type="submit"
           className={classes.button}
+          onClick={HandleClick}
         >
           Submit
         </Button>
-      </form>
-    </Container>
+      </Card>
+    </div>
   );
 };
 
