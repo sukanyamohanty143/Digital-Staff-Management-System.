@@ -3,21 +3,23 @@ import React from 'react';
 import Home from "./Components/Pages/Home";
 import Registration from "./Components/Pages/Registration";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-// import Staff from "./Components/Pages/Staff";
-// import AdminPage from "./Components/Pages/AdminPage/admin";
-import SupervisorPage from "./Components/Pages/Supervisor/SuppervisorPage";
+
+import Staff from "./Components/Pages/Staff";
+
 function App(){
     return (
         <>
              <Router>
                 <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/registration" element={<Registration />} />
+                     <Route path="/" element={<Home />} /> 
+                     <Route path="/registration" element={<Registration />} /> 
                 </Routes>
-            </Router> 
-            {/* <Staff/> */} 
+
+            </Router>
+            <Staff/>
             {/* <AdminPage/> */}
-            <SupervisorPage/>
+            {/* <SupervisorPage/> */}
+
             
         </>
     )
