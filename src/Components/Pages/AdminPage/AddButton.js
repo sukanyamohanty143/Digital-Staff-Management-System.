@@ -1,11 +1,12 @@
 import React, { useState,useEffect } from 'react';
-import {List,ListItem,Button,TextField,Card} from '@mui/material';
+import {List,ListItem,TextField,Card} from '@mui/material';
+import DataSaverOnIcon from '@mui/icons-material/DataSaverOn';
 const UserForm = ({ onAddUser,onCloseForm,user}) => {
-    const [id, setId] = useState('');
-    const [name, setName] = useState('');
-    const [mobileNumber, setMobileNumber] = useState('');
-    const [designation, setDesignation] = useState('');
-    const [gender, setGender] = useState('');
+    const [id,setId]=useState('');
+    const [name,setName]=useState('');
+    const [mobileNumber,setMobileNumber]=useState('');
+    const [designation,setDesignation]=useState('');
+    const [gender,setGender]=useState('');
     useEffect(() => {
         if (user){
           setId(user.id);
@@ -14,7 +15,7 @@ const UserForm = ({ onAddUser,onCloseForm,user}) => {
           setDesignation(user.designation);
           setGender(user.gender);
         }
-      }, [user]);
+      },[user]);
     const addUser=()=>{
         const newUser={
             id,
@@ -71,12 +72,12 @@ const UserForm = ({ onAddUser,onCloseForm,user}) => {
                         onChange={(e) => setGender(e.target.value)}
                     />
                 </ListItem>
-                <ListItem>
-                      <Button variant="contained" onClick={addUser}>Add Form</Button>
-                </ListItem>
+                <DataSaverOnIcon
+                    onClick={addUser}
+                    style={{marginLeft:15}}
+                />
             </List>
-        </Card>
-        
+        </Card> 
   );
 };
 export default UserForm;
