@@ -1,80 +1,221 @@
-import { useEffect, useState } from "react";
+// import TableData from "./TableData"
+// import { Grid, TextField, Button, Card, CardContent } from "@mui/material";
+// // import PdfCom from "./PdfCom";
+// import { useState, useEffect } from "react";
+// import employeesData from "./dataserver.json"
 
-import employeesData from './dataserver.json';
+// import { useEffect, useState } from "react";
 
-import TableData from "./TableData"
-import { Grid, TextField, Button, Card, CardContent } from "@mui/material";
+// function SupervisorPage() {
 
-import PdfCom from "./PdfCom";
+//     const employees = employeesData.employees;
 
+//     const [data, setData] = useState([])
+
+//     useEffect(() => {
+
+//         setData(employees)
+
+//     }, [employees])
+
+//     const [sreach, setSreach] = useState('')
+
+//     const [filterArr, setFilterArr] = useState([])
+
+//     const HandlerChange = (e) => {
+//         setSreach(e.target.value)
+//     }
+
+//     const filterData = data.filter(item => {
+//         return item.designation === sreach || item.FirstName === sreach || item.LastName === sreach || item.Mobile === sreach || item.attendance === sreach || item.date === sreach || item.Gender === sreach;
+//     })
+
+//     const HandlerAddButton = () => {
+
+//         setSreach('')
+//         setFilterArr([filterArr, ...filterData])
+//     }
+
+//     console.log(filterArr, "filterdata")
+//     console.log(data, "data")
+
+//     return (
+//         <>
+
+//             <Card container
+//                 justifyContent="center" style={{ backgroundColor: 'rgb(80, 80, 244' }}>
+
+//                 <CardContent>
+//                     <Grid
+//                         align="center"
+//                         container
+//                         direction="column"
+//                         justify="center"
+//                         spacing={0}
+
+//                     >
+
+//                         <Grid item>
+
+//                             <TextField
+//                                 label="Sreach Bar..."
+
+
+//                                 onChange={HandlerChange}
+//                                 value={sreach}
+//                                 style={{ background: "white", width: "30%", height: "50px", borderRadius: "20px", }}
+
+
+//                             />
+
+//                             <Button onClick={HandlerAddButton} variant="contained" style={{ fontSize: "16px", marginLeft: "5px", height: "50px" }}>
+//                                 <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" /></svg>Sreach
+
+//                             </Button>
+//                         </Grid>
+
+//                     </Grid>
+
+//                 </CardContent>
+//             </Card>
+
+//             <TableData filterArr={filterArr} />
+
+//         </>
+//     )
+// }
+// export default SupervisorPage;
+
+
+// import TableData from "./TableData"
+// import { TextField } from "@material-ui/core";
+// import { TextField } from "@material-ui/core"
+// import { TextFiesld } from "@material-ui/core"
+// import { useState,useEffect } from "react"
+// function SupervisorPage(){
+
+//     const [data,setData]=useState(null)
+
+//     // const [sreach,setSreach]=useState('')
+
+//     const FetchData=()=>{
+
+//         fetch("http://localhost:3000/Attendence").then((res)=>{
+
+//             return res.json()
+
+//         }).then((res)=>{
+//             setData(res)
+//         })
+
+//     }
+
+//     // const HandleFetch=(e)=>{
+
+//     //     setSreach(e.target.value)
+
+//     // }
+
+//     // const filtered = data.filter(item=>{
+//     //     return item.name === sreach;
+//     //   });
+
+
+//     useEffect(()=>{
+//         FetchData()
+//     })
+
+//     // console.log( ,"data")
+
+//     return(
+//         <>
+//         {/* <input onChange={HandleFetch} value={sreach}></input> */}
+
+//         </>
+//     )
+// }
+// export default SupervisorPage;
+
+
+// import { setRef } from "@material-ui/core";
+
+import TableData from "./TableData";
+import { useState, useEffect } from "react";
+
+import { Card,Grid,Button,TextField,CardContent } from "@material-ui/core";
 function SupervisorPage() {
 
-    const employees = employeesData.employees;
+    const [data, setData] = useState(null);
+    const [search, setSearch] = useState('');
 
-    const [data, setData] = useState([])
+    const [filteredData, setFilteredData] = useState([]);
+
+    const FetchData = () => {
+        fetch("http://localhost:3000/Attendence")
+            .then((res) => res.json())
+            .then((res) => {
+                setData(res);
+            });
+    };
+
+    const HandlerChange=(e)=>{
+        setSearch(e.target.value)
+    }
 
     useEffect(() => {
 
-        setData(employees)
+        FetchData();
 
-    }, [employees])
+    }, []);
 
+    const handleSearch = () => {
 
+        const filtered = data
 
-    const [sreach, setSreach] = useState('')
+          ? data.filter(item => item.name.toLowerCase().includes(search.toLowerCase()) || item.attendan1e.toLowerCase().includes(search.toLowerCase()) || item.date.toLowerCase().includes(search.toLowerCase()))
 
-    const [filterArr, setFilterArr] = useState([])
+          : [];
 
-    const HandlerChange = (e) => {
-        setSreach(e.target.value)
-    }
+        setFilteredData(filtered);
+       
 
-    const filterData = data.filter(item => {
-        return item.designation === sreach || item.FirstName === sreach || item.LastName === sreach || item.Mobile === sreach || item.attendance === sreach || item.date === sreach || item.Gender === sreach;
-    })
-
-    const HandlerAddButton = () => {
-
-        setSreach('')
-
-        setFilterArr([filterArr, ...filterData])
-    }
-
-    console.log(filterArr, "filterdata")
-
-    console.log(data, "data")
-
-
+  }
 
     return (
         <>
+           
 
-            <Card container
-                justifyContent="center" style={{ backgroundColor: ' #3a0ca3' }}>
+             <Card container
+
+                justifyContent="center" style={{ backgroundColor: 'rgb(80, 80, 244' }}>
+
                 <CardContent>
+
                     <Grid
                         align="center"
                         container
                         direction="column"
                         justify="center"
                         spacing={0}
-                
-                    >
 
+                    >
 
                         <Grid item>
 
                             <TextField
-                                error
-                                id="outlined-error"
-                                label="Sreach User....."
-                               onChange={HandlerChange}
-                               value={sreach}
+
+                                label="Sreach Bar..."
+
+                                onChange={HandlerChange}
+                                value={search}
+                                style={{ background: "white", width: "30%", height: "50px", borderRadius: "20px", }}
+
 
                             />
 
-                            <Button onClick={HandlerAddButton} variant="contained" color="error" style={{fontSize:"23px",marginLeft:"5px"}}>
-                                Sreach
+                            <Button onClick={handleSearch} variant="contained" style={{ fontSize: "16px", marginLeft: "5px", height: "50px" }}>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" /></svg>Sreach
+
                             </Button>
                         </Grid>
 
@@ -83,12 +224,10 @@ function SupervisorPage() {
                 </CardContent>
             </Card>
 
-            <TableData filterArr={filterArr}/>
-
-            <PdfCom filterArr={filterArr}/>
-
+            <TableData filteredData={filteredData}/>
 
         </>
-    )
+    );
 }
+
 export default SupervisorPage;
