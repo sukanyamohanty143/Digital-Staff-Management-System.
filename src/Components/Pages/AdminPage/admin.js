@@ -31,58 +31,76 @@ const CenteredButtonContainer=styled('div')({
 });
 
 const AdminPage=()=>{
-    const [users,setUsers]=useState(null);
-    const [showForm,setShowForm]=useState(false);
-    const [selectedUser,setSelectedUser]=useState(null);
-
-    const fetchData = () => {
-    fetch("http://localhost:3000/employees")
-      .then((response) => response.json())
-      .then((data) => setUsers(data))
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
-  };
-  useEffect(() => {
-    fetchData();
-  }, []);
-    console.log(users,"ujala")
-
-    const addUser=(newUser)=>{
-    if(selectedUser){
-        const updatedUsers=users.map((user)=>
-            user.id===selectedUser.id ?newUser:user
-        );
-        setUsers(updatedUsers);
-        setSelectedUser(null);
-    } 
-    else{
-        const updatedUsers=[...users,{ ...newUser,id:users.length + 1 }];
-        setUsers(updatedUsers);
-    }
-    setShowForm(false);
+    const [users, setUsers] = useState(null);
+    const [showForm, setShowForm] = useState(false);
+    const [selectedUser, setSelectedUser] = useState(null);
+    const fetchData=()=>{
+      fetch("http://localhost:3000/employees")
+        .then((response)=>response.json())
+        .then((data)=>setUsers(data))
+        .catch((error)=>{
+          console.error("Error fetching data:", error);
+        });
     };
+    useEffect(()=>{
+        fetchData();
+    },[]);
 
+    const addUser =(newUser)=>{
+        if (selectedUser){
+            fetch(`http://localhost:3000/employees/${selectedUser.id}`,{
+                method:"PUT",
+                headers:{
+                    "Content-Type": "application/json",
+                },
+                body:JSON.stringify(newUser),
+            })
+                .then(()=>fetchData())
+                .catch((error)=>{
+                    console.error("Error updating user data:", error);
+                });
+            setSelectedUser(null);
+        } 
+        else{
+            fetch("http://localhost:3000/employees",{
+                method:"POST",
+                headers:{
+                    "Content-Type": "application/json",
+                },
+                body:JSON.stringify(newUser),
+            })
+                .then(()=>fetchData())
+                .catch((error)=>{
+                  console.error("Error adding a new user:", error);
+                });
+        }
+        setShowForm(false);
+        setUsers(users)
+        setShowForm(showForm)
+        setSelectedUser(selectedUser)
+  };
     const closeForm=()=>{
         setShowForm(false);
         setSelectedUser(null);
     };
-
     const handleEdit=(user)=>{
         setSelectedUser(user);
         setShowForm(true);
     };
-
     const handleDelete=(user)=>{
-        const updatedUsers=users.filter((u)=>u.id!==user.id);
-        setUsers(updatedUsers);
+        fetch(`http://localhost:3000/employees/${user.id}`,{
+            method: "DELETE",
+        })
+            .then(()=>fetchData())
+            .catch((error)=>{
+                console.error("Error deleting user data:", error);
+            });
     };
-
-    return (
-        <>
+  return(
+    <>
         <Typography variant="h4" align="center">Admin Page</Typography>
         <CenteredButtonContainer>
-            <Grid container spacing={2} style={{ marginLeft: "83%" }}>
+            <Grid container spacing={2} justifyContent="center">
             <Grid item style={{ marginBottom: 10 }}>
                 <Button variant="contained" onClick={() => setShowForm(true)}>
                 Add User
@@ -125,6 +143,7 @@ const AdminPage=()=>{
                         <StyledTableCell>{user.mobileNumber}</StyledTableCell>
                         <StyledTableCell>{user.designation}</StyledTableCell>
                         <StyledTableCell>{user.gender}</StyledTableCell>
+
                         <StyledTableCell>
                             <DeleteIcon
                                 style={{marginRight:10}}
@@ -140,7 +159,8 @@ const AdminPage=()=>{
             </TableBody>
             </Table>
         </TableContainer>
-        </>
-    );
+    </>
+  );
 };
+
 export default AdminPage;
