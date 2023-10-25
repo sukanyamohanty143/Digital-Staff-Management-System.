@@ -1,3 +1,33 @@
 {
-    "employees" : []
+  "employees" : [
+    {
+        "id": 1,
+        "name": "John Doe",
+        "mobileNumber": "123-456-7890",
+        "designation": "Software Engineer",
+        "gender": "Male"
+      },
+      {
+        "id": 2,
+        "name": "Jane Smith",
+        "mobileNumber": "987-654-3210",
+        "designation": "Product Manager",
+        "gender": "Female"
+      },
+      {
+        "id": 3,
+        "name": "Bob Johnson",
+        "mobileNumber": "555-123-4567",
+        "designation": "UI/UX Designer",
+        "gender": "Male"
+      }
+    ],
+    "Attendence": [
+      {
+        "name": "Laxmi Yadav",
+        "attendance": "Present",
+        "date": "2023-10-21",
+        "id": 1
+      }
+    ]
 }
