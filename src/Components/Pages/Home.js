@@ -1,27 +1,37 @@
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import user from "../assets/user.png"
-import { Typography, Button, Grid } from "@mui/material";
+import { Typography, Button, Grid} from "@mui/material";
 import { useNavigate } from 'react-router-dom';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import AppBar from '@mui/material/AppBar';
 
 function Home() {
+
     const navigate = useNavigate();
     const goToRegistration = () => {
         navigate("/registration")
     }
+
     return (
         <>
+            {/* <Container>
+                <Toolbar>
+                    <AppBar position="static" style={{ padding: "20px", height: "75px" }}>
+                        <Typography variant="h6" color="inherit" component="div">
+                            Digital Staff Managment System
+                        </Typography>
+                    </AppBar>
+                </Toolbar>
+            </Container> */}
+
             <AppBar position="static" style={{ padding: "20px", height: "75px" }}>
                 <Typography variant="h6" color="inherit" component="div">
                     Digital Staff Managment System
                 </Typography>
             </AppBar>
 
-
-            <Typography variant='h4' style={{ textAlign: "center" ,marginTop:"40px"}}>Welcome to Staff Management System</Typography>
-
+            <Typography variant='h4' style={{ textAlign: "center", marginTop: "40px" }}>Welcome to Digital Staff Managment System</Typography>
             <Card className='card' >
                 <CardContent>
                     <Grid container spacing={2}>

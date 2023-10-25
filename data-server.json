@@ -31,6 +31,38 @@
       "degignation": "staff",
       "gender": "male",
       "id": 4
+    },
+    {
+      "name": "aanan",
+      "lastname": "kumar",
+      "mobilnumber": "75677688668",
+      "degignation": "superwisor",
+      "gender": "male",
+      "id": 5
+    },
+    {
+      "name": "rocky",
+      "lastname": "roy",
+      "mobilnumber": "874858435834",
+      "degignation": "staff",
+      "gender": "male",
+      "id": 6
+    },
+    {
+      "name": "asdfghjkl",
+      "lastname": "jklkjh",
+      "mobilnumber": "234567890-",
+      "degignation": "supervisor",
+      "gender": "female",
+      "id": 7
+    },
+    {
+      "name": "aman",
+      "lastname": "sharma",
+      "mobilnumber": "8965746553",
+      "degignation": "supervisor",
+      "gender": "male",
+      "id": 9
     }
   ]
 }
