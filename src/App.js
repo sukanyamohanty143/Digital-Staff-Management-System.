@@ -1,27 +1,16 @@
-import "./App.css";
-import React from 'react';
-import Home from "./Components/Pages/Home";
-import Registration from "./Components/Pages/Registration";
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Staff from "./Components/Pages/Staff";
-// import AdminPage from "./Components/Pages/AdminPage/admin";
-function App(){
-    return (
-        <>
-              <Router>
-                <Routes>
-                     <Route path="/" element={<Home />} /> 
-                     <Route path="/registration" element={<Registration />} /> 
-                </Routes>
+import Login from "./Components/Pages/Login";
+import './App.css';
+import Header from "./Components/Pages/Header";
 
-            </Router> 
-             <Staff/> 
-            {/* <AdminPage/> */}
-            {/* <SupervisorPage/> */}
 
-            
-        </>
-    )
+
+function App() {
+  return (
+    <div>
+      <Header/>
+     <Login/>
+    </div>
+  );
 }
 
 export default App;
