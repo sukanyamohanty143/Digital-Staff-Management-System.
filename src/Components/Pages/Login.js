@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import {
   Grid,
   Paper,
@@ -6,20 +6,21 @@ import {
   TextField,
   MenuItem,
   Button,
-  Typography, Link
+  Typography,
+  Link
 } from "@mui/material"
 import PersonIcon from '@mui/icons-material/Person';
 
 
 
 function Login() {
-  const [ userName, setUserName ] = useState("")
-  const [ role, setRole ] = useState("")
+  const [userName, setUserName] = useState("")
+  const [role, setRole] = useState("")
 
   const paperStyle = {
     padding: 20,
-    height: "60vh",
-    width: 280,
+    height: "50vh",
+    width: 350,
     margin: "20px auto"
   }
 
@@ -31,19 +32,14 @@ function Login() {
     margin: "20px auto"
   }
 
-  const gridStyle = {
-    height: "100vh",
-    backgroundColor: '#9900cc'
-  }
-
-  const avatarStyle = {backgroundColor: '#1bbd7e'}
+  const avatarStyle = { backgroundColor: '#1bbd7e' }
 
   const handelClick = () => {
 
   }
 
   return (
-    <Grid style={gridStyle}>
+    <Grid style={{marginTop: "70px"}}>
       <Paper elevation={10} style={paperStyle}>
 
         <Grid align="center" margin="30px">
@@ -66,13 +62,13 @@ function Login() {
           </Link>
         </Typography>
 
-        <Button 
-          variant="contained" 
-          style={buttonStyle} 
+        <Button
+          variant="contained"
+          style={buttonStyle}
           onClick={handelClick}
-          fullWidth 
+          fullWidth
           disabled>
-            Sign In
+          Sign In
         </Button>
 
       </Paper>
