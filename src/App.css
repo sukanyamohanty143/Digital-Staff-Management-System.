@@ -32,7 +32,18 @@ body {
 .fottercontainer{
   margin: auto;
   width: 450px;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin-top: 28px;
+}
+
+.footer-text{
+   text-align:"center";
+   margin-top: 20px;
+   font-size:smaller;
+
+}
+
+.footer-text:hover {
+  color: red;
 }
 
 
