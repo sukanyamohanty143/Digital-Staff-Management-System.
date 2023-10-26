@@ -11,7 +11,7 @@ function Footer() {
                     <Stack className="fottercontainer">
                         <Grid container spacing={1}>
                             <Grid item xs={4}>
-                                <Typography variant='h5' style={{ margin: "20px" }} >
+                                <Typography variant='h5' style={{ margin: "15px" }} >
                                     <TwitterIcon style={{ marginLeft: "5px" }} />
                                     <FacebookIcon style={{ marginLeft: "5px" }} />
                                     <LinkedInIcon style={{ marginLeft: "5px" }} />
@@ -19,7 +19,7 @@ function Footer() {
                             </Grid>
 
                             <Grid item xs={8}>
-                                <p style={{ textAlign: "center", marginTop: "20px" }}>© 2023 Management System.</p>
+                                <p className="footer-text">© 2023 Digital Staff Managment System</p>
                             </Grid>
                         </Grid>
                     </Stack>

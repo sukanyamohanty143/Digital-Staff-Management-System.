@@ -30,10 +30,23 @@ body {
  }
 
 .fottercontainer{
-  border: 2px solid black;
   margin: auto;
-  width: 450px;
+  width: 470px;
+  margin-top: 28px;
 }
+
+.footer-text{
+   text-align:"center";
+   margin-top: 20px;
+   font-size:smaller;
+   font-style: italic;
+
+}
+
+.footer-text:hover {
+  color:red;
+}
+
 
 .registretion-card{
   width: 700px;
