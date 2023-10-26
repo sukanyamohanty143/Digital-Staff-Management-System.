@@ -30,8 +30,9 @@ body {
  }
 
 .fottercontainer{
+  border: 2px solid black;
   margin: auto;
-  width: 450px;
+  width: 470px;
   margin-top: 28px;
 }
 
@@ -43,7 +44,7 @@ body {
 }
 
 .footer-text:hover {
-  color: red;
+  color:red;
 }
 
 

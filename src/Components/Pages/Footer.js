@@ -19,7 +19,7 @@ function Footer() {
                             </Grid>
 
                             <Grid item xs={8}>
-                                <p className="footer-text">© 2023 Management System.</p>
+                                <p className="footer-text">© 2023 Digital Staff Managment System</p>
                             </Grid>
                         </Grid>
                     </Stack>
