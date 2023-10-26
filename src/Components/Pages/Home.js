@@ -1,6 +1,6 @@
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import user from "../assets/user.png"
-import { Typography, Button, Grid} from "@mui/material";
+import { Typography, Button, Grid } from "@mui/material";
 import { useNavigate } from 'react-router-dom';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -15,16 +15,6 @@ function Home() {
 
     return (
         <>
-            {/* <Container>
-                <Toolbar>
-                    <AppBar position="static" style={{ padding: "20px", height: "75px" }}>
-                        <Typography variant="h6" color="inherit" component="div">
-                            Digital Staff Managment System
-                        </Typography>
-                    </AppBar>
-                </Toolbar>
-            </Container> */}
-
             <AppBar position="static" style={{ padding: "20px", height: "75px" }}>
                 <Typography variant="h6" color="inherit" component="div">
                     Digital Staff Managment System
