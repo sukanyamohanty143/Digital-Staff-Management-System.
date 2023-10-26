@@ -8,52 +8,44 @@ body {
 .navbar {
   height: 100px;
   width: 100%;
-  background-color:rgb(80, 80, 244);
+  background-color:#337CCF;
   display: flex;
   flex-direction: row;
   align-items: center;
   margin-right: 10px;
-}
-.container {
-  width: 1135px;
-  margin: auto;
-  height: 560px;
-  /* border: 2px solid blue; */
-  border-radius: 10px;
-  margin-top: 40px;
-}
-.nextbutton {
-  position: relative;
-  top: -72px;
-  left: 988px;
-}
-
-
-.nextbutton:hover {
-  color: wheat;
-  box-shadow: 2px 2px 5px rgba(228, 226, 226, 0.3);
-  top: -70px; 
-  left: 990px; 
-}
-
-
-.images {
-  width: 1119px;
-  height: 560px;
-  border-radius: 9px;
-  opacity: 0.9;
-}
-.images:hover {
-  opacity: 1.0;
 }
 .navigetiontitle{
   color: white;
   padding: 10px;
   line-height: 10px;
 }
-
 .formcontainer{
   text-align: center;
 }
+.card{
+  width: 1000px;
+  height: 500px;
+  margin: auto;
+  margin-top: 50px;
+ }
 
+.fottercontainer{
+  /* border: 2px solid black; */
+  margin: auto;
+  width: 450px;
+}
 
+.registretion-card{
+  width: 700px;
+  height: 700px;
+  margin: auto;
+  margin-top: 50px;
+}
+
+.cardcontainer{
+  width: 800px;
+  height: 500px;
+  margin: auto;
+  margin-top: 50px;
+
+}

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { TextField, Button, Typography, Card, Box, MenuItem, Select } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import { pink } from "@material-ui/core/colors";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -16,21 +15,25 @@ const useStyles = makeStyles((theme) => ({
   },
   label: {
     marginBottom: theme.spacing(1),
-    
   },
   input: {
     width: "100%",
   },
   button: {
     marginTop: theme.spacing(2),
-    
   },
- 
 }));
+
+const getFormattedDate = (date) => {
+  const yyyy = date.getFullYear();
+  const mm = String(date.getMonth() + 1).padStart(2, "0");
+  const dd = String(date.getDate()).padStart(2, "0");
+  return `${yyyy}-${mm}-${dd}`;
+};
 
 const Staff = () => {
   const classes = useStyles();
-  const [date, setDate] = useState("");
+  const [date, setDate] = useState(getFormattedDate(new Date())); 
   const [name, setName] = useState("");
   const [attendance, setAttendance] = useState("");
 
@@ -47,8 +50,13 @@ const Staff = () => {
   };
 
   const HandleClick = () => {
-    const data = { name, attendance, date };
-    if (name && date && attendance) {
+    const currentDate = new Date();
+    const selectedDate = new Date(date);
+
+    const diff = Math.floor((currentDate - selectedDate) / (1000 * 60 * 60 * 24));
+
+    if (name && date && attendance && diff >= -3 && diff <= 4) {
+      const data = { name, attendance, date };
       fetch("http://localhost:3000/Attendence", {
         method: "POST",
         headers: {
@@ -56,16 +64,20 @@ const Staff = () => {
         },
         body: JSON.stringify(data),
       })
+      
         .then((res) => {
           alert("Data saved successfully");
           setName("");
-          setAttendance("");
-          setDate("");
+          setDate(getFormattedDate(new Date())); 
+          setAttendance("Present");
         })
         .catch((error) => {
-          alert("Error saving data");
           console.error(error);
         });
+    } else if (diff > -3) {
+      alert("Selected date is more than 3 days in the past.");
+    } else if (diff < 4) {
+      alert("Selected date is more than 4 days in the future.");
     } else {
       alert("Please fill all the information in the form");
     }
@@ -73,7 +85,9 @@ const Staff = () => {
 
   return (
     <div className={classes.container}>
-      <Typography variant="h3" className={classes.heading}>Staff Management</Typography>
+      <Typography variant="h3" className={classes.heading}>
+        Staff Management
+      </Typography>
       <Card className={classes.card}>
         <Box>
           <label className={classes.label} htmlFor="Name">
