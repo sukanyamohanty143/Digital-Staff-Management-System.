@@ -32,7 +32,9 @@ body {
 .fottercontainer{
   margin: auto;
   width: 450px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+
 
 .registretion-card{
   width: 700px;
