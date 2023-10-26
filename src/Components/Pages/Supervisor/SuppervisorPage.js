@@ -25,7 +25,7 @@ function SupervisorPage() {
     }
 
     const filterData = data.filter(item => {
-        return item.designation === sreach || item.FirstName === sreach || item.LastName === sreach || item.Mobile === sreach || item.attendance === sreach || item.date === sreach || item.Gender === sreach;
+        return item.name === sreach || item.lastname === sreach || item.LastName === sreach || item.Mobile === sreach || item.attendance === sreach || item.date === sreach || item.Gender === sreach;
     })
 
     const HandlerAddButton = () => {
