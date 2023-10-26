@@ -1,7 +1,6 @@
 {
   "employees": [
     {
-<<<<<<< HEAD
       "name": "sonam",
       "lastname": "kumari",
       "mobilnumber": "8601387027",
@@ -64,28 +63,6 @@
       "degignation": "supervisor",
       "gender": "male",
       "id": 9
-=======
-      "id": 3,
-      "name": "Bob Johnson",
-      "mobileNumber": "555-123-4567",
-      "designation": "UI/UX Designer",
-      "gender": "Male"
-    },
-    {
-      "id": "1",
-      "name": "saini ",
-      "mobileNumber": "23424223242",
-      "designation": "student",
-      "gender": "male"
-    }
-  ],
-  "Attendence": [
-    {
-      "name": "Laxmi Yadav",
-      "attendance": "Present",
-      "date": "2023-10-21",
-      "id": 1
->>>>>>> 7e7fdf0809dcfed5b5efbb8e718b6380e20b3f3a
     }
   ]
 }
