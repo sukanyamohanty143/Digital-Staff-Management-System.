@@ -69,7 +69,6 @@ body {
 
 .welcometext {
   animation: fadeIn 1.5s ease-in-out;
-  text-shadow: 2px 2px 5px gray;
 }
 
 .typing-animation {
