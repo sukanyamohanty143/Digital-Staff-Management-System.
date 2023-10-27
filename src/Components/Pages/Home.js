@@ -21,7 +21,7 @@ function Home() {
                 </Typography>
             </AppBar>
 
-            <Typography variant='h4' style={{ textAlign: "center", marginTop: "40px" }}>Welcome to Digital Staff Managment System</Typography>
+            <Typography variant='h4' style={{ textAlign: "center", marginTop: "40px" }} className='welcometext'> Welcome to Digital Staff Managment System</Typography>
             <Card className='card' >
                 <CardContent>
                     <Grid container spacing={2}>

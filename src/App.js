@@ -5,29 +5,19 @@ import Registration from "./Components/Pages/Registration";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Footer from "./Components/Pages/Footer";
 
-// import SupervisorPage from "./Components/Pages/Supervisor/SuppervisorPage"
-
-function App(){
+function App() {
     return (
-      <>
-        <Router>
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/registration" element={<Registration />} />
-                
-            </Routes>
-        </Router>
-        
-        {/* <Staff/> */}
-        <br/>
-        {/* <SupervisorPage/> */}
-        {/* <Adminpre/> */}
-        {/* <SearchBar/> */}
+        <>
+            <Router>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/registration" element={<Registration />} />
 
-
-        <Footer/>
+                </Routes>
+            </Router>
+            <br />
+            <Footer />
         </>
     )
 }
-
 export default App;
