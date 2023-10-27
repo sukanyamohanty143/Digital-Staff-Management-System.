@@ -85,7 +85,7 @@ body {
   display: inline-block;
   overflow: hidden;
   white-space: nowrap;
-  border-right: 2px solid #000; /* The blinking cursor */
+  border-right: 2px solid gray; 
   animation: typing 4s steps(14, end) infinite, blink-caret 1s step-end infinite;
 }
 
