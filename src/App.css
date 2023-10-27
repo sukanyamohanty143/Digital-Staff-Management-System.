@@ -14,12 +14,10 @@ body {
   align-items: center;
   margin-right: 10px;
 }
-.container {
-  width: 1135px;
-  margin: auto;
-  height: 560px;
-  border-radius: 10px;
-  margin-top: 40px;
+.navigetiontitle{
+  color: white;
+  padding: 10px;
+  line-height: 10px;
 }
 .formcontainer{
   text-align: center;
@@ -63,4 +61,48 @@ body {
   margin: auto;
   margin-top: 50px;
 
+}
+
+
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.welcometext {
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+
+.typing-animation {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid #000; /* The blinking cursor */
+  animation: typing 4s steps(14, end) infinite, blink-caret 1s step-end infinite;
+}
+
+@keyframes typing {
+  0%, 100% {
+    width: 0;
+  }
+  50% {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #000;
+  }
 }

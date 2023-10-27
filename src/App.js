@@ -3,8 +3,9 @@ import React from 'react';
 import Home from "./Components/Pages/Home";
 import Registration from "./Components/Pages/Registration";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Footer from "./Components/Pages/Footer";
 
-import SupervisorPage from "./Components/Pages/Supervisor/SuppervisorPage"
+// import SupervisorPage from "./Components/Pages/Supervisor/SuppervisorPage"
 
 function App(){
     return (
@@ -21,7 +22,7 @@ function App(){
         <br/>
         {/* <SupervisorPage/> */}
         {/* <Adminpre/> */}
-        <SearchBar/>
+        {/* <SearchBar/> */}
 
 
         <Footer/>
