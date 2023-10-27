@@ -28,13 +28,11 @@ body {
   margin: auto;
   margin-top: 50px;
  }
-
 .fottercontainer{
   margin: auto;
   width: 470px;
   margin-top: 28px;
 }
-
 .footer-text{
    text-align:"center";
    margin-top: 20px;
@@ -42,19 +40,15 @@ body {
    font-style: italic;
 
 }
-
 .footer-text:hover {
-  color: gray;
+  color: red;
 }
-
-
 .registretion-card{
   width: 700px;
   height: 700px;
   margin: auto;
   margin-top: 50px;
 }
-
 .cardcontainer{
   width: 800px;
   height: 500px;
@@ -62,7 +56,6 @@ body {
   margin-top: 50px;
 
 }
-
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -74,11 +67,9 @@ body {
   }
 }
 
-
 .welcometext {
   animation: fadeIn 1.5s ease-in-out;
 }
-
 
 .typing-animation {
   display: inline-block;
@@ -86,22 +77,22 @@ body {
   white-space: nowrap;
   border-right: 2px solid gray; 
   animation: typing 4s steps(14, end) infinite, blink-caret 1s step-end infinite;
+  text-shadow: 2px 2px 5px #337CCF;
 }
 
 @keyframes typing {
   0%, 100% {
     width: 0;
   }
-  50% {
+  40% {
     width: 100%;
   }
 }
-
 @keyframes blink-caret {
   from, to {
     border-color: transparent;
   }
-  50% {
+  40% {
     border-color: #000;
   }
 }
