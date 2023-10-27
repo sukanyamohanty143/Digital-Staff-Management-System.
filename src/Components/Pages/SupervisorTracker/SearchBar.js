@@ -6,7 +6,7 @@ function SearchBar() {
 
     const [data, setData] = useState(null)
 
-    // const [search,setSearch]=useState('')
+    const [search,setSearch]=useState('')
 
     const fetchData = () => {
         fetch("http://localhost:3000/employees").then((res) => {
@@ -23,12 +23,20 @@ function SearchBar() {
     })
     console.log(data, "data")
 
+
+    const handleChange=(e)=>{
+
+        setSearch(e.target.value)
+    }
+
+    
+
     return (
         <>
             <>
-                <TextField onChange={handleChange} value={sreach}></TextField>
+                <TextField onChange={handleChange} value={search}></TextField>
                 <Button variant="contained" onClick={handleAddButton}>add</Button>
-                
+
             </>
         </>
     )
