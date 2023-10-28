@@ -5,20 +5,27 @@ import Registration from "./Components/Pages/Registration";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Footer from "./Components/Pages/Footer";
 import SearchBar from "./Components/Pages/SupervisorTracker/SearchBar";
-
+import Staff from "./Components/Pages/Staff";
 function App() {
     return (
         <>
+
             <Router>
                 <Routes>
+                    
                     <Route path="/" element={<Home />} />
                     <Route path="/registration" element={<Registration />} />
 
                 </Routes>
             </Router>
 
-            <Footer />
+            <Staff/>
+
             <SearchBar/>
+
+            <Footer />
+
+            
         </>
     )
 }
