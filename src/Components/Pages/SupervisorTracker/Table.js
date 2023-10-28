@@ -10,6 +10,7 @@ import {
     TableRow
 
 } from '@material-ui/core';
+
 function TableData({ data }) {
 
     console.log(data, "filrt")
@@ -28,6 +29,7 @@ function TableData({ data }) {
                             spacing={0}
                         >
                             <Grid item>
+
                                 <TableContainer>
                                     <Table>
                                         <TableHead>
@@ -39,14 +41,19 @@ function TableData({ data }) {
                                             </TableRow>
                                         </TableHead>
                                         <TableBody>
+
                                             {data.map((item) => (
                                                 <TableRow key={item.id}>
+
                                                     <TableCell style={{ fontSize: "12px",textAlign:"center" }}>{item.name}</TableCell>
-                                                    <TableCell style={{ fontSize: "12px",textAlign:"center" }}>{item.lastame}</TableCell>
-                                                    {/* <TableCell style={{ fontSize: "20px" }}>{item.Mobile}</TableCell> */}
+                                                    <TableCell style={{ fontSize: "12px",textAlign:"center" }}>{item.lastname}</TableCell>
+                                                    <TableCell style={{ fontSize: "12px",textAlign:"center" }}>{item.degignation}</TableCell>
+                                                    
+
 
                                                 </TableRow>
                                             ))}
+
                                         </TableBody>
                                     </Table>
                                 </TableContainer>
