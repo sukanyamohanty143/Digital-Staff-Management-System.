@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from "react";
 import { Grid, TextField, Button, Card, CardContent } from "@mui/material";
-
+import Table from "./Table";
 function SearchBar() {
   const [data, setData] = useState([]);
   const [search, setSearch] = useState('');
@@ -26,6 +26,7 @@ function SearchBar() {
   }
 
   const handleSearch = () => {
+
     const filteredData = data.filter(item => item.degignation.toLowerCase() === search.toLowerCase() || item.name.toLowerCase() === search.toLowerCase());
     console.log(filteredData, "filteredData");
   }
@@ -55,6 +56,7 @@ function SearchBar() {
           </Grid>
         </CardContent>
       </Card>
+      <Table/>
     </>
   )
 }
