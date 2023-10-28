@@ -9,9 +9,10 @@ import Staff from "./Components/Pages/Staff";
 function App() {
     return (
         <>
-        
+
             <Router>
                 <Routes>
+                    
                     <Route path="/" element={<Home />} />
                     <Route path="/registration" element={<Registration />} />
 

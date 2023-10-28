@@ -34,6 +34,7 @@ function TableData({ data }) {
                                     <Table>
                                         <TableHead>
                                             <TableRow >
+                                                
                                                 <TableCell style={{ fontSize: "20px",textAlign:"center" }}>FirstName</TableCell>
                                                 <TableCell style={{ fontSize: "20px",textAlign:"center" }}>LastName</TableCell>
                                                 <TableCell style={{ fontSize: "20px",textAlign:"center" }}>Mobile</TableCell>
