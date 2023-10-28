@@ -1,44 +1,58 @@
-import { useEffect } from "react";
-import { useState } from "react";
-import { json } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Button, TextField } from "@mui/material";
 
 function SearchBar() {
+  const [data, setData] = useState([]);
+  const [search, setSearch] = useState("");
+  const [filterdata, setFilterdata] = useState([]);
 
-    const [data, setData] = useState(null)
+  useEffect(() => {
 
-    const [search,setSearch]=useState('')
+    fetch("http://localhost:3000/employees")
+      .then((res) => res.json())
+      .then((res) => {
+        setData(res);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
 
-    const fetchData = () => {
-        fetch("http://localhost:3000/employees").then((res) => {
-            return res.json()
-        }).then((res) => {
-            console.log(res)
-        }).catch((erro) => {
-            console.log(erro)
-        })
+  }, []);
 
-    }
-    useEffect(() => {
-        fetchData()
-    })
-    console.log(data, "data")
+  const handleChange = (e) => {
+    setSearch(e.target.value);
+  };
+
+  const HanldeAdd = () => {
+
+    setFilterdata([...filterdata, search]);
+    setSearch(""); 
+  };
+
+  const filteredPeople = data.filter((person) =>
+
+    person.name.toLowerCase().includes(search.toLowerCase()) || person.lastname.toLowerCase().includes(search.toLowerCase())|| person.name.toLowerCase().includes(search.toLowerCase()) 
+
+  );
 
 
-    const handleChange=(e)=>{
+  console.log(filteredPeople ,"filteredPeople ")
 
-        setSearch(e.target.value)
-    }
+  return (
+    <div>degignation
+      <TextField
+        onChange={handleChange}
+        value={search}
+        label="Search by name"
+      />
+      <Button variant="contained" onClick={HanldeAdd}>
+        Add
+      </Button>
 
-    
-
-    return (
-        <>
-            <>
-                <TextField onChange={handleChange} value={search}></TextField>
-                <Button variant="contained" onClick={handleAddButton}>add</Button>
-
-            </>
-        </>
-    )
+      
+     
+    </div>
+  );
 }
+
 export default SearchBar;
