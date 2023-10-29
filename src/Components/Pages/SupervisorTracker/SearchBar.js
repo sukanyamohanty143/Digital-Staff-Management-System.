@@ -34,7 +34,7 @@ function SearchBar() {
     console.log(filterdata, "filteredData");
     return (
         <>
-            <Card container justifyContent="center" style={{ backgroundColor: "#337CCF" ,height:"80px"}}>
+            <Card container justifyContent="center" style={{ backgroundColor: "#337CCF", height: "80px" }}>
                 <CardContent>
                     <Grid
                         align="center"
@@ -46,13 +46,14 @@ function SearchBar() {
                         <Grid item>
 
                             <TextField
-                                error
+                                required
                                 id="outlined-error"
                                 label="Search bar....."
 
                                 onChange={handleChange}
                                 value={search}
-                                
+                                style={{backgroundColor:"white"}}
+
 
                             />
 
@@ -62,7 +63,7 @@ function SearchBar() {
 
                                 style={{ fontSize: "16px", marginLeft: "5px", height: "50px" }}
 
-                                color="success"
+                                color="primary"
 
                                 onClick={handleSearch}
                             >
@@ -77,8 +78,6 @@ function SearchBar() {
             </Card>
 
             <TableData data={filterdata} />
-            <Button variant="contained" color="primary">Dowloaw Pdf</Button>
-
         </>
     )
 }
