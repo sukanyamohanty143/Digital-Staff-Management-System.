@@ -29,7 +29,7 @@ function SearchBar() {
 
         const filteredData = data.filter(item => item.degignation.toLowerCase() === search.toLowerCase() || item.name.toLowerCase() === search.toLowerCase());
         setFilterdata(filteredData)
-        // console.log(filteredData, "filteredData");
+      
     }
     console.log(filterdata, "filteredData");
     return (
