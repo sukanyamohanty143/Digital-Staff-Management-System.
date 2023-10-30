@@ -1,6 +1,5 @@
 import React, { useState,useEffect } from 'react';
-import {List,ListItem,TextField,Card} from '@mui/material';
-import DataSaverOnIcon from '@mui/icons-material/DataSaverOn';
+import {List,ListItem,TextField,Card,Button} from '@mui/material';
 const UserForm = ({ onAddUser,onCloseForm,user}) => {
     const [id,setId]=useState('');
     const [name,setName]=useState('');
@@ -72,10 +71,11 @@ const UserForm = ({ onAddUser,onCloseForm,user}) => {
                         onChange={(e) => setGender(e.target.value)}
                     />
                 </ListItem>
-                <DataSaverOnIcon
-                    onClick={addUser}
-                    style={{marginLeft:15}}
-                />
+                <Button
+                onClick={addUser}
+                variant="contained"
+                style={{marginLeft:15}}
+                >Save Data</Button>
             </List>
         </Card> 
   );
