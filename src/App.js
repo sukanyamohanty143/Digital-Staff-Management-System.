@@ -1,20 +1,20 @@
 import "./App.css";
 import React from 'react';
-import Home from "./Components/Pages/Home";
-import Registration from "./Components/Pages/Registration";
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+// import Home from "./Components/Pages/Home";
+// import Registration from "./Components/Pages/Registration";
+// import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Staff from "./Components/Pages/Staff";
 // import AdminPage from "./Components/Pages/AdminPage/admin";
 function App(){
     return (
         <>
-              <Router>
+              {/* <Router>
                 <Routes>
                      <Route path="/" element={<Home />} /> 
                      <Route path="/registration" element={<Registration />} /> 
                 </Routes>
 
-            </Router> 
+            </Router>  */}
              <Staff/> 
             {/* <AdminPage/> */}
             {/* <SupervisorPage/> */}
