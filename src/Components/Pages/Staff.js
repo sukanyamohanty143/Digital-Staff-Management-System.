@@ -7,11 +7,13 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    
   },
   card: {
     maxWidth: 400,
     marginBottom: 20,
     padding: theme.spacing(1),
+    marginTop:30
   },
   label: {
     marginBottom: theme.spacing(1),
@@ -22,6 +24,9 @@ const useStyles = makeStyles((theme) => ({
   button: {
     marginTop: theme.spacing(2),
   },
+  heading:{
+    marginTop:100,
+  }
 }));
 
 const getFormattedDate = (date) => {
@@ -86,7 +91,7 @@ const Staff = () => {
   return (
     <div className={classes.container}>
       <Typography variant="h3" className={classes.heading}>
-        Staff Management
+        Staff Page
       </Typography>
       <Card className={classes.card}>
         <Box>
