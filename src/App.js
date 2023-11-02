@@ -1,15 +1,24 @@
-import './App.css';
-import Header from "./Components/Pages/Header";
-import Routing from './Components/Routing/Routing';
-
+import "./App.css";
+import React from 'react';
+import Home from "./Components/Pages/Home";
+import Registration from "./Components/Pages/Registration";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Footer from "./Components/Pages/Footer";
+import SupervisorPage from "./Components/Pages/SupervisorTracker/SupervisorPage";
 function App() {
-  
-  return (
-    <div>
-      <Header/>
-      <Routing/>
-    </div>
-  );
-}
+    return (
+        <>
+            <Router>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/registration" element={<Registration />} />
 
+                </Routes>
+            </Router>
+            <br />
+            <SupervisorPage/>
+            <Footer />
+        </>
+    )
+}
 export default App;
