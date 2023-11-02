@@ -7,7 +7,7 @@ function SearchBar() {
     const [filterdata, setFilterdata] = useState([])
 
     const fetchData = () => {
-        fetch("http://localhost:3000/employees")
+        fetch("http://localhost:8000/Attendence")
             .then((res) => res.json())
             .then((res) => {
                 setData(res);
@@ -27,9 +27,11 @@ function SearchBar() {
 
     const handleSearch = () => {
 
-        const filteredData = data.filter(item => item.degignation.toLowerCase() === search.toLowerCase() || item.name.toLowerCase() === search.toLowerCase());
+        setSearch("")
+
+        const filteredData = data.filter(item => item.name.toLowerCase() === search.toLowerCase() || item.attendance.toLowerCase() === search.toLowerCase() || item.date.toLowerCase() === search.toLowerCase());
         setFilterdata(filteredData)
-        // console.log(filteredData, "filteredData");
+       
     }
     console.log(filterdata, "filteredData");
     return (
@@ -62,7 +64,7 @@ function SearchBar() {
 
                                 style={{ fontSize: "16px", marginLeft: "5px", height: "50px" }}
 
-                                color="success"
+                                color="primary"
 
                                 onClick={handleSearch}
                             >
@@ -77,7 +79,7 @@ function SearchBar() {
             </Card>
 
             <TableData data={filterdata} />
-            <Button variant="contained" color="primary">Dowloaw Pdf</Button>
+
 
         </>
     )
