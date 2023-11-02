@@ -4,6 +4,7 @@ import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import { Typography, Button, AppBar, Card ,CardContent} from '@mui/material';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
+import { useNavigate } from 'react-router-dom';
 
 const data = [
   {
@@ -33,7 +34,6 @@ const genderData = [
 
 function Registration() {
   const [submittedData, setSubmittedData] = useState(null);
-
   const [formData, setFormData] = useState({
     name: '',
     lastname: '',
@@ -42,7 +42,16 @@ function Registration() {
     gender: ''
   });
 
+
+  const navigate = useNavigate();
+    
+  const goToLogin = () => {
+      navigate("/login")
+  }
+
+
   console.log("formData", formData);
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
@@ -50,7 +59,6 @@ function Registration() {
 
   const handleSubmit = () => {
     if (formData.name && formData.lastname && formData.mobilnumber && formData.degignation && formData.gender) {
-
       fetch('http://localhost:3000/employees', {
         method: 'POST',
         headers: {
@@ -66,10 +74,11 @@ function Registration() {
           console.error('Error adding data:', error);
         });
 
-      console.log('formData =', formData);
-
+      // console.log('formData =', formData);
+      goToLogin()
 
       setSubmittedData(formData);
+
       setFormData({
         name: '',
         lastname: '',
@@ -77,9 +86,13 @@ function Registration() {
         degignation: '',
         gender: ''
       })
-    } else {
+    } 
+    
+    else {
       alert('You have to fill all required.');
     }
+
+
   };
 
   return (
@@ -176,9 +189,11 @@ function Registration() {
                 ))}
               </TextField>
               <br />
+
               <Button className="submitbtn" variant="contained" onClick={handleSubmit}>
                 Submit Button
               </Button>
+
             </div>
           </Box>
 

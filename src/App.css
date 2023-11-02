@@ -85,14 +85,14 @@ body {
     width: 0;
   }
   40% {
-    width: 100%;
+    width: 61%;
   }
 }
 @keyframes blink-caret {
   from, to {
-    border-color: transparent;
+    border-color:transparent;
   }
   40% {
-    border-color: #000;
+    border-color:gray;
   }
 }

@@ -9,9 +9,12 @@ import AppBar from '@mui/material/AppBar';
 function Home() {
 
     const navigate = useNavigate();
+    
     const goToRegistration = () => {
         navigate("/registration")
     }
+
+
 
     return (
         <>
