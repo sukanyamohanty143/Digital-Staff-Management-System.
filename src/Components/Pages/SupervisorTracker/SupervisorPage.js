@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Grid, TextField, Button, Card, CardContent } from "@mui/material";
 import TableData from "./Table";
-function SearchBar() {
+
+function SupervisorPage() {
     const [data, setData] = useState([]);
     const [search, setSearch] = useState('');
     const [filterdata, setFilterdata] = useState([])
@@ -85,4 +86,4 @@ function SearchBar() {
     )
 }
 
-export default SearchBar;
+export default SupervisorPage;

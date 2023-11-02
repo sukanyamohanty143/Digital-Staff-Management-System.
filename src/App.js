@@ -4,7 +4,7 @@ import Home from "./Components/Pages/Home";
 import Registration from "./Components/Pages/Registration";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Footer from "./Components/Pages/Footer";
-import SearchBar from "./Components/Pages/SupervisorTracker/SearchBar";
+import SupervisorPage from "./Components/Pages/SupervisorTracker/SupervisorPage";
 function App() {
     return (
         <>
@@ -16,7 +16,7 @@ function App() {
                 </Routes>
             </Router>
             <br />
-            <SearchBar></SearchBar>
+            <SupervisorPage/>
             <Footer />
         </>
     )
