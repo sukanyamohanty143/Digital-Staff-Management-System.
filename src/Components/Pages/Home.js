@@ -4,7 +4,6 @@ import { Typography, Button, Grid } from "@mui/material";
 import { useNavigate } from 'react-router-dom';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import AppBar from '@mui/material/AppBar';
 
 function Home() {
 
@@ -15,12 +14,6 @@ function Home() {
 
     return (
         <>
-            <AppBar position="static" style={{ padding: "20px", height: "75px" }}>
-                <Typography variant="h6" color="inherit" component="div">
-                    Digital Staff Managment System
-                </Typography>
-            </AppBar>
-
             <Typography variant='h4' style={{ textAlign: "center", marginTop: "40px" }} className='welcometext'>Welcome to Digital Staff Managment System</Typography>
             <Card className='card' >
                 <CardContent>
