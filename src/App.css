@@ -82,22 +82,3 @@ body {
   text-shadow: 2px 2px 5px #337CCF;
 
 }
-
-@keyframes typing {
-  0%, 100% {
-    width: 0;
-  }
-  50% {
-    width: 100%;
-  }
-}
-  40% {
-    width: 100%;
-  }
-}
-
-@keyframes blink-caret {
-  from, to {
-    border-color: transparent;
-  }
-
