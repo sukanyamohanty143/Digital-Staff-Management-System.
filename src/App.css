@@ -56,6 +56,7 @@ body {
   margin-top: 50px;
 
 }
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -77,7 +78,9 @@ body {
   white-space: nowrap;
   border-right: 2px solid gray; 
   animation: typing 4s steps(14, end) infinite, blink-caret 1s step-end infinite;
+
   text-shadow: 2px 2px 5px #337CCF;
+
 }
 
 @keyframes typing {
@@ -85,14 +88,14 @@ body {
     width: 0;
   }
   40% {
-    width: 61%;
+    width: 100%;
   }
 }
 @keyframes blink-caret {
   from, to {
-    border-color:transparent;
+    border-color: transparent;
   }
   40% {
-    border-color:gray;
+    border-color: #000;
   }
 }

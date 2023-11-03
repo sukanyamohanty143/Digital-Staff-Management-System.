@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
-import { Typography, Button, AppBar, Card ,CardContent} from '@mui/material';
+import { Typography, Button, Card ,CardContent} from '@mui/material';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 
 const data = [
@@ -90,12 +90,6 @@ function Registration() {
 
   return (
     <>
-      <AppBar position="static" style={{ padding: "20px", height: "75px" }}>
-        <Typography variant="h6" color="inherit" component="div">
-          You Can Registration Here
-        </Typography>
-      </AppBar>
-
       <Card className='registretion-card'>
         <CardContent>
           <Typography variant="h4" style={{ textAlign: 'center', margin: '15px' }}>

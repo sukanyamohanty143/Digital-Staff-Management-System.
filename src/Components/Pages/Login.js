@@ -10,7 +10,7 @@ import {
   Link
 } from "@mui/material";
 import PersonIcon from '@mui/icons-material/Person';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 
 
 function Login() {
@@ -70,7 +70,7 @@ function Login() {
         navigate('/supervisor');
       } else {    
         navigate('/');
-      }
+      }   
     
     } else {
       console.log("User not found or credentials are incorrect");
