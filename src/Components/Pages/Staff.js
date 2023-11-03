@@ -29,16 +29,11 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const getFormattedDate = (date) => {
-  const yyyy = date.getFullYear();
-  const mm = String(date.getMonth() + 1).padStart(2, "0");
-  const dd = String(date.getDate()).padStart(2, "0");
-  return `${yyyy}-${mm}-${dd}`;
-};
+
 
 const Staff = () => {
   const classes = useStyles();
-  const [date, setDate] = useState(getFormattedDate(new Date())); 
+  const [date, setDate] = useState(); 
   const [name, setName] = useState("");
   const [attendance, setAttendance] = useState("");
 
@@ -55,12 +50,10 @@ const Staff = () => {
   };
 
   const HandleClick = () => {
-    const currentDate = new Date();
-    const selectedDate = new Date(date);
 
-    const diff = Math.floor((currentDate - selectedDate) / (1000 * 60 * 60 * 24));
 
-    if (name && date && attendance && diff >= -3 && diff <= 4) {
+
+    if (name && date && attendance ) {
       const data = { name, attendance, date };
       fetch("http://localhost:3000/Attendence", {
         method: "POST",
@@ -73,17 +66,12 @@ const Staff = () => {
         .then((res) => {
           alert("Data saved successfully");
           setName("");
-          setDate(getFormattedDate(new Date())); 
           setAttendance("Present");
         })
         .catch((error) => {
           console.error(error);
         });
-    } else if (diff > -3) {
-      alert("Selected date is more than 3 days in the past.");
-    } else if (diff < 4) {
-      alert("Selected date is more than 4 days in the future.");
-    } else {
+    } else{
       alert("Please fill all the information in the form");
     }
   };
