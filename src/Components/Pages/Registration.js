@@ -4,7 +4,6 @@ import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import { Typography, Button, AppBar, Card ,CardContent} from '@mui/material';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
-import { useNavigate } from 'react-router-dom';
 
 const data = [
   {
@@ -43,12 +42,6 @@ function Registration() {
   });
 
 
-  const navigate = useNavigate();
-    
-  const goToLogin = () => {
-      navigate("/login")
-  }
-
 
   console.log("formData", formData);
 
@@ -75,7 +68,7 @@ function Registration() {
         });
 
       // console.log('formData =', formData);
-      goToLogin()
+
 
       setSubmittedData(formData);
 
