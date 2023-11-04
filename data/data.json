@@ -7,6 +7,22 @@
       "designation": "Staff",
       "gender": "Male",
       "id": 1
+    },
+    {
+      "firstName": "ujala",
+      "lastName": "saini",
+      "mobileNumber": "12345432",
+      "designation": "developer",
+      "gender": "female",
+      "id": 2
+    },
+    {
+      "firstName": "kuku",
+      "lastName": "kuku",
+      "mobileNumber": "1234567891",
+      "designation": "kuku",
+      "gender": "male",
+      "id": 3
     }
   ],
   "Attendence": [
