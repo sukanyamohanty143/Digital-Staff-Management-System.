@@ -37,7 +37,7 @@ function SupervisorPage() {
     console.log(filterdata, "filteredData");
     return (
         <>
-            <Card container justifyContent="center" style={{ backgroundColor: "#337CCF" ,height:"80px"}}>
+            <Card container justifyContent="center" style={{ backgroundColor: "#337CCF" ,height:"80px", marginTop:"50px"}}>
                 <CardContent>
                     <Grid
                         align="center"

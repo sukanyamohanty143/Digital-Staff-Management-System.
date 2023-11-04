@@ -4,7 +4,7 @@ import Staff from '../Pages/Staff'
 import Home from '../Pages/Home'
 import Registration from '../Pages/Registration'
 import AdminPage from '../Pages/AdminPage/admin'
-import SupervisorPage from '../Pages/Supervisor/SuppervisorPage'
+import SupervisorPage from '../Pages/SupervisorTracker/SupervisorPage'
 
 function Routing() {
 
