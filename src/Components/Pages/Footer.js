@@ -6,7 +6,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 function Footer() {
     return (
         <>
-            <AppBar position="static" style={{ padding: "20px", height: "155px", marginTop: "115px" }}>
+            <AppBar position="static" style={{ padding: "20px", height: "auto", marginTop: "115px" }}>
                 <Typography variant="h6" color="inherit" component="div">
                     <Stack className="fottercontainer">
                         <Grid container spacing={1}>
