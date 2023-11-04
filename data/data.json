@@ -28,7 +28,7 @@
       "firstName": "Vikash",
       "lastName": "saini",
       "mobileNumber": "1234567892",
-      "designation": "Student",
+      "designation": "Staff",
       "gender": "male",
       "id": 4
     },
@@ -36,17 +36,17 @@
       "firstName": "Anup",
       "lastName": "Bhaiya",
       "mobileNumber": "6565655656",
-      "designation": "Teacher",
+      "designation": "supervisor",
       "gender": "Male",
       "id": 5
     },
     {
-      "firstName": "Anuj",
-      "lastName": "bhaiya",
-      "mobileNumber": "1212121212",
-      "designation": "Teacher",
-      "gender": "Male",
-      "id": 6
+      "firstName": "dvcv",
+      "lastName": "dcvdc",
+      "mobileNumber": "2324321252",
+      "designation": "sdfsf",
+      "gender": "df",
+      "id": 7
     }
   ],
   "Attendence": [

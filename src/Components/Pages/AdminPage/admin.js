@@ -31,7 +31,6 @@ const CenteredButtonContainer=styled('div')({
     alignItems: 'center',
     justifyContent: 'center',
 });
-
 const AdminPage=()=>{
 
     // const navigate = useNavigate();
@@ -106,7 +105,7 @@ const AdminPage=()=>{
             <Typography variant="h4"  style={{ marginBottom:15,marginTop:10}}>Admin Page</Typography>
             <Grid container spacing={2} justifyContent="center">
                 {showForm?(null):(
-                    <Grid item style={{ marginBottom: 10}}>
+                    <Grid item style={{ marginBottom:10,}}>
                         <Button variant="contained" onClick={() => setShowForm(true)}>Add User</Button>
                     </Grid>
                 )}
@@ -119,7 +118,7 @@ const AdminPage=()=>{
             />
             )}
         
-            <TableContainer component={Paper} style={{ width: '1000px' }}>
+            <TableContainer component={Paper} style={{ width: '1000px',}}>
                 <Table>
                 <TableHead>
                     <StyledTableRow>
