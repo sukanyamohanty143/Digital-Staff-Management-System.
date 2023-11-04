@@ -37,6 +37,7 @@ const AdminPage=()=>{
     const [users, setUsers] = useState(null);
     const [showForm, setShowForm] = useState(false);
     const [selectedUser, setSelectedUser] = useState(null);
+
     const fetchData=()=>{
       fetch("http://localhost:3000/employees")
         .then((response)=>response.json())
@@ -111,13 +112,20 @@ const AdminPage=()=>{
                 )}
             </Grid>
             {showForm && (
-            <UserForm
-                onAddUser={addUser}
-                user={selectedUser}
-                onCloseForm={closeForm}
-            />
+            <div
+                style={{
+                    position: 'fixed',
+                    zIndex: 999,
+                }}
+            >
+          <UserForm
+            onAddUser={addUser}
+            user={selectedUser}
+            onCloseForm={closeForm}
+          />
+        </div>
             )}
-        
+            
             <TableContainer component={Paper} style={{ width: '1000px',}}>
                 <Table>
                 <TableHead>
