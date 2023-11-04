@@ -1,15 +1,15 @@
 import React, { useState,useEffect } from 'react';
 import {List,ListItem,TextField,Card,Button} from '@mui/material';
 const UserForm = ({ onAddUser,onCloseForm,user}) => {
-    const [id,setId]=useState('');
-    const [name,setName]=useState('');
+    const [firstName,setFirstName]=useState('');
+    const [lastName,setLastName]=useState('');
     const [mobileNumber,setMobileNumber]=useState('');
     const [designation,setDesignation]=useState('');
     const [gender,setGender]=useState('');
     useEffect(() => {
         if (user){
-          setId(user.id);
-          setName(user.name);
+          setFirstName(user.firstName);
+          setLastName(user.lastName);
           setMobileNumber(user.mobileNumber);
           setDesignation(user.designation);
           setGender(user.gender);
@@ -18,8 +18,8 @@ const UserForm = ({ onAddUser,onCloseForm,user}) => {
       
     const addUser=()=>{
         const newUser={
-            id,
-            name,
+            firstName,
+            lastName,
             mobileNumber,
             designation,
             gender,
@@ -27,8 +27,8 @@ const UserForm = ({ onAddUser,onCloseForm,user}) => {
         onAddUser(newUser);
         onCloseForm();
 
-        setId('');
-        setName('');
+        setFirstName('');
+        setLastName('');
         setMobileNumber('');
         setDesignation('');
         setGender('');
@@ -39,16 +39,16 @@ const UserForm = ({ onAddUser,onCloseForm,user}) => {
             <List>
                 <ListItem>
                     <TextField
-                        label="ID"
-                        value={id}
-                        onChange={(e) => setId(e.target.value)}
+                        label="First Name"
+                        value={firstName}
+                        onChange={(e) => setFirstName(e.target.value)}
                     />
                 </ListItem>
                 <ListItem>
                     <TextField
-                        label="Name"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
+                        label="Last Name"
+                        value={lastName}
+                        onChange={(e) => setLastName(e.target.value)}
                     />
                 </ListItem>
                 <ListItem>

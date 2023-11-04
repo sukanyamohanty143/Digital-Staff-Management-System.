@@ -5,6 +5,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 function Footer() {
+
     // styling for foorter content.
 
     const footerStyle = {
@@ -16,12 +17,12 @@ function Footer() {
         width: '100%',
     };
 
-    // styling for footer icon.
     const iconStyle = {
-        fontSize: 32, 
-        color: 'white', 
+        fontSize: 32,
+        color: 'white',
         marginRight: '10px',
     };
+
 
     return (
         <AppBar position="static" style={footerStyle}>
