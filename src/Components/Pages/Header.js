@@ -14,7 +14,6 @@ export default function Header() {
                     Digital Staff Management System
                 </Typography>
             </Toolbar>
-
         </AppBar>
     )
 }
