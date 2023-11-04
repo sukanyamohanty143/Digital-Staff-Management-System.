@@ -5,7 +5,7 @@ body {
   padding: 0%;
   background-color: rgb(245, 243, 243);
 }
-.navbar {
+/* .navbar {
   height: 100px;
   width: 100%;
   background-color:#337CCF;
@@ -13,7 +13,7 @@ body {
   flex-direction: row;
   align-items: center;
   margin-right: 10px;
-}
+} */
 .navigetiontitle{
   color: white;
   padding: 10px;
@@ -38,9 +38,10 @@ body {
 
 .registretion-card{
   width: 700px;
-  height: 700px;
+  height: auto;
   margin: auto;
   margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .cardcontainer{
@@ -48,13 +49,11 @@ body {
   height: 500px;
   margin: auto;
   margin-top: 50px;
-
 }
 
 .welcometext {
   animation: fadeIn 1.5s ease-in-out;
   text-shadow: 2px 2px 5px rgb(65, 69, 149);
-
 }
 
 .typing-animation {
@@ -82,4 +81,6 @@ body {
   }
 }
 
-
+.digital{
+  margin-top: 20px;
+}

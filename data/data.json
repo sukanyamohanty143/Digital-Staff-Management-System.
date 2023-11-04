@@ -7,6 +7,14 @@
       "designation": "Staff",
       "gender": "Male",
       "id": 1
+    },
+    {
+      "firstname": "kkkkkk",
+      "lastname": "rrrrrrrrrr",
+      "mobilenumber": "676543234",
+      "designation": "Supervisor",
+      "gender": "female",
+      "id": 2
     }
   ],
   "Attendence": [

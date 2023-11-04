@@ -1,21 +1,22 @@
 // import React, { useState } from 'react';
+// import { useNavigate } from 'react-router-dom';
 // import Box from '@mui/material/Box';
 // import TextField from '@mui/material/TextField';
 // import MenuItem from '@mui/material/MenuItem';
-// import { Typography, Button, Card ,CardContent} from '@mui/material';
+// import { Typography, Button, Card, CardContent } from '@mui/material';
 // import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 
 // const data = [
 //   {
-//     value: 'admin',
+//     value: 'Admin',
 //     position: 'Admin',
 //   },
 //   {
-//     value: 'supervisor',
+//     value: 'Supervisor',
 //     position: 'Supervisor',
 //   },
 //   {
-//     value: 'staff',
+//     value: 'Staff',
 //     position: 'Staff',
 //   },
 // ];
@@ -32,9 +33,10 @@
 // ];
 
 // function Registration() {
+//   const navigate = useNavigate();
 //   const [submittedData, setSubmittedData] = useState(null);
 //   const [formData, setFormData] = useState({
-//     name: '',
+//     firstname: '',
 //     lastname: '',
 //     mobilenumber: '',
 //     designation: '',
@@ -51,8 +53,11 @@
 //   };
 
 //   const handleSubmit = () => {
-//     if (formData.name && formData.lastname && formData.mobilenumber && formData.designation && formData.gender) {
-//       fetch('http://localhost:3000/employees', {
+
+//     if (formData.firstname && formData.lastname && formData.mobilenumber && formData.designation && formData.gender) {
+
+
+//       fetch('http://localhost:8000/employees', {
 //         method: 'POST',
 //         headers: {
 //           'Content-Type': 'application/json',
@@ -66,19 +71,23 @@
 //         .catch(error => {
 //           console.error('Error adding data:', error);
 //         });
+//       // console.log('formData =', formData);
 //       setSubmittedData(formData);
-
 //       setFormData({
-//         name: '',
+//         firstname: '',
 //         lastname: '',
 //         mobilenumber: '',
 //         designation: '',
-//         gender: ''
+//         gender: '',
+//         email: '',
+//         password: ''
 //       })
-//     } 
-    
-//     else {
-//       alert('You have to fill all required.');
+
+//     } else {
+//       const goToLogin = () => {
+//         navigate("/login")
+//       }
+//       goToLogin()
 //     }
 
 
@@ -95,7 +104,7 @@
 //           <Box
 //             component="form"
 //             sx={{
-//               '& .MuiTextField-root': { m: 2, width: '60ch' },
+//               '& .MuiTextField-root': { m: 1, width: '60ch' },
 //             }}
 //             noValidate
 //             autoComplete="off"
@@ -103,13 +112,13 @@
 //             <div className="formcontainer">
 //               <TextField
 //                 id="name"
-//                 name="name"
-//                 label="Name"
+//                 name="firstname"
+//                 label="First Name"
 //                 variant="standard"
 //                 placeholder="Enter your name"
-//                 value={formData.name}
+//                 value={formData.firstname}
 //                 onChange={handleChange}
-//                 helperText={!formData.name ? "Name is required" : "Enter your name"}
+//                 helperText={!formData.firstname ? "Name is required" : "Enter your name"}
 //               />
 //               <br />
 
@@ -122,6 +131,33 @@
 //                 value={formData.lastname}
 //                 onChange={handleChange}
 //                 helperText={!formData.lastname ? "Last name is required" : "Enter your last name"}
+//               />
+//               <br />
+
+
+//               <TextField
+//                 id="email"
+//                 name="email"
+//                 label="Email"
+//                 variant="standard"
+//                 placeholder="Enter your email"
+//                 value={formData.email}
+//                 onChange={handleChange}
+//                 helperText={!formData.email ? "email is required" : "Enter your email"}
+//               />
+//               <br />
+
+
+
+//               <TextField
+//                 id="password"
+//                 name="password"
+//                 label="Password"
+//                 variant="standard"
+//                 placeholder="Enter your password"
+//                 value={formData.password}
+//                 onChange={handleChange}
+//                 helperText={!formData.password ? "password is required" : "Enter your password"}
 //               />
 //               <br />
 
@@ -183,12 +219,8 @@
 //           {submittedData && (
 //             <div className='container' style={{ textAlign: "center" }}></div>
 //           )}
-
 //         </CardContent>
-
-
 //       </Card>
-
 //     </>
 //   );
 // }
@@ -234,12 +266,19 @@
 
 
 
+
+
+
+
+
+
+
 import React, { useState } from 'react';
-import { useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
-import { Typography, Button, Card ,CardContent} from '@mui/material';
+import { Typography, Button, Card, CardContent } from '@mui/material';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 
 const data = [
@@ -290,8 +329,9 @@ function Registration() {
 
   const handleSubmit = () => {
 
-    if (formData.name && formData.lastname && formData.mobilenumber && formData.designation && formData.gender) {
-    
+    if (formData.firstname && formData.lastname && formData.mobilenumber && formData.designation && formData.gender) {
+
+
       fetch('http://localhost:8000/employees', {
         method: 'POST',
         headers: {
@@ -307,16 +347,15 @@ function Registration() {
           console.error('Error adding data:', error);
         });
       // console.log('formData =', formData);
-
-
       setSubmittedData(formData);
-
       setFormData({
         firstname: '',
         lastname: '',
         mobilenumber: '',
         designation: '',
-        gender: ''
+        gender: '',
+        email: '',
+        password: ''
       })
 
     } else {
@@ -324,7 +363,7 @@ function Registration() {
         navigate("/login")
       }
       goToLogin()
-    } 
+    }
 
 
   };
@@ -340,7 +379,7 @@ function Registration() {
           <Box
             component="form"
             sx={{
-              '& .MuiTextField-root': { m: 2, width: '60ch' },
+              '& .MuiTextField-root': { m: 1, width: '60ch' },
             }}
             noValidate
             autoComplete="off"
@@ -367,6 +406,33 @@ function Registration() {
                 value={formData.lastname}
                 onChange={handleChange}
                 helperText={!formData.lastname ? "Last name is required" : "Enter your last name"}
+              />
+              <br />
+
+
+              <TextField
+                id="email"
+                name="email"
+                label="Email"
+                variant="standard"
+                placeholder="Enter your email"
+                value={formData.email}
+                onChange={handleChange}
+                helperText={!formData.email ? "email is required" : "Enter your email"}
+              />
+              <br />
+
+
+
+              <TextField
+                id="password"
+                name="password"
+                label="Password"
+                variant="standard"
+                placeholder="Enter your password"
+                value={formData.password}
+                onChange={handleChange}
+                helperText={!formData.password ? "password is required" : "Enter your password"}
               />
               <br />
 
@@ -428,16 +494,16 @@ function Registration() {
           {submittedData && (
             <div className='container' style={{ textAlign: "center" }}></div>
           )}
-
         </CardContent>
-
-
       </Card>
-
     </>
   );
 }
 export default Registration;
+
+
+
+
 
 
 

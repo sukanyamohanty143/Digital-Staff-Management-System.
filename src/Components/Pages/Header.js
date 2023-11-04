@@ -4,16 +4,14 @@ import CoPresentIcon from '@mui/icons-material/CoPresent';
 
 
 export default function Header() {
-    const appBarStyle = {
-        height: "10vh"
-    }
+
     return (
-        <AppBar position='static' style={appBarStyle}>
+        <AppBar position='static'>
             <Toolbar>
                 <IconButton size='large' edge='start' color='inherit' aria-label='logo'>
                     <CoPresentIcon />
                 </IconButton>
-                <Typography variant='h5' component='div' sx={{ flexGrow: 1 }}>
+                <Typography variant='h5' className='digital'>
                     Digital Staff Management System
                 </Typography>
             </Toolbar>

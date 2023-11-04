@@ -5,7 +5,7 @@ import { styled } from "@mui/material/styles";
 import DeleteIcon from '@mui/icons-material/Delete';
 import UpdateIcon from '@mui/icons-material/Update';
 import UserForm from "./AddButton";
-import { useNavigate} from 'react-router-dom';
+// import { useNavigate} from 'react-router-dom';
 
 
 const StyledTableCell=styled(TableCell)(({ theme })=>({
@@ -34,7 +34,7 @@ const CenteredButtonContainer=styled('div')({
 
 const AdminPage=()=>{
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const [users, setUsers] = useState(null);
     const [showForm, setShowForm] = useState(false);
     const [selectedUser, setSelectedUser] = useState(null);
