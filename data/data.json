@@ -17,12 +17,36 @@
       "id": 2
     },
     {
-      "firstName": "kuku",
-      "lastName": "kuku",
-      "mobileNumber": "1234567891",
-      "designation": "kuku",
-      "gender": "male",
+      "firstName": "pooja",
+      "lastName": "saini",
+      "mobileNumber": "6666666666",
+      "designation": "Student",
+      "gender": "female",
       "id": 3
+    },
+    {
+      "firstName": "Vikash",
+      "lastName": "saini",
+      "mobileNumber": "1234567892",
+      "designation": "Student",
+      "gender": "male",
+      "id": 4
+    },
+    {
+      "firstName": "Anup",
+      "lastName": "Bhaiya",
+      "mobileNumber": "6565655656",
+      "designation": "Teacher",
+      "gender": "Male",
+      "id": 5
+    },
+    {
+      "firstName": "Anuj",
+      "lastName": "bhaiya",
+      "mobileNumber": "1212121212",
+      "designation": "Teacher",
+      "gender": "Male",
+      "id": 6
     }
   ],
   "Attendence": [

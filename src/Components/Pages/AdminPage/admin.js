@@ -102,17 +102,14 @@ const AdminPage=()=>{
     };
   return(
     <>
-        <Typography variant="h4" align="center">Admin Page</Typography>
         <CenteredButtonContainer>
+            <Typography variant="h4"  style={{ marginBottom:15,marginTop:10}}>Admin Page</Typography>
             <Grid container spacing={2} justifyContent="center">
-            <Grid item style={{ marginBottom: 10 }}>
-                <Button variant="contained" onClick={() => setShowForm(true)}>
-                Add User
-                </Button>
-            </Grid>
-            {/* <Grid item>
-                <Button variant="contained" onClick={closeForm}>Logout</Button>
-            </Grid> */}
+                {showForm?(null):(
+                    <Grid item style={{ marginBottom: 10}}>
+                        <Button variant="contained" onClick={() => setShowForm(true)}>Add User</Button>
+                    </Grid>
+                )}
             </Grid>
             {showForm && (
             <UserForm
@@ -121,48 +118,49 @@ const AdminPage=()=>{
                 onCloseForm={closeForm}
             />
             )}
-        </CenteredButtonContainer>
-        <TableContainer component={Paper}>
-            <Table>
-            <TableHead>
-                <StyledTableRow>
-                <StyledTableCell>Firstname</StyledTableCell>
-                <StyledTableCell>Lastname</StyledTableCell>
-                <StyledTableCell>Mobile number</StyledTableCell>
-                <StyledTableCell>Designation</StyledTableCell>
-                <StyledTableCell>Gender</StyledTableCell>
-                <StyledTableCell>Action</StyledTableCell>
-                </StyledTableRow>
-            </TableHead>
-            <TableBody>
-                {users === null ? (
-                <TableRow>
-                    <TableCell colSpan={6}>Loading...page</TableCell>
-                </TableRow>
-                ) : (
-                users.map((user) => (
-                    <StyledTableRow key={user.id}>
-                        <StyledTableCell>{user.firstName}</StyledTableCell>
-                        <StyledTableCell>{user.lastName}</StyledTableCell>
-                        <StyledTableCell>{user.mobileNumber}</StyledTableCell>
-                        <StyledTableCell>{user.designation}</StyledTableCell>
-                        <StyledTableCell>{user.gender}</StyledTableCell>
-
-                        <StyledTableCell>
-                            <DeleteIcon
-                                style={{marginRight:10}}
-                                onClick={() => handleDelete(user)}
-                            />
-                            <UpdateIcon
-                                onClick={() => handleEdit(user)}
-                            />
-                        </StyledTableCell>
+        
+            <TableContainer component={Paper} style={{ width: '1000px' }}>
+                <Table>
+                <TableHead>
+                    <StyledTableRow>
+                    <StyledTableCell>Firstname</StyledTableCell>
+                    <StyledTableCell>Lastname</StyledTableCell>
+                    <StyledTableCell>Mobile number</StyledTableCell>
+                    <StyledTableCell>Designation</StyledTableCell>
+                    <StyledTableCell>Gender</StyledTableCell>
+                    <StyledTableCell>Action</StyledTableCell>
                     </StyledTableRow>
-                ))
-                )}
-            </TableBody>
-            </Table>
-        </TableContainer>
+                </TableHead>
+                <TableBody>
+                    {users === null ? (
+                    <TableRow>
+                        <TableCell colSpan={6}>Loading...page</TableCell>
+                    </TableRow>
+                    ) : (
+                    users.map((user) => (
+                        <StyledTableRow key={user.id}>
+                            <StyledTableCell>{user.firstName}</StyledTableCell>
+                            <StyledTableCell>{user.lastName}</StyledTableCell>
+                            <StyledTableCell>{user.mobileNumber}</StyledTableCell>
+                            <StyledTableCell>{user.designation}</StyledTableCell>
+                            <StyledTableCell>{user.gender}</StyledTableCell>
+
+                            <StyledTableCell>
+                                <DeleteIcon
+                                    style={{marginRight:10}}
+                                    onClick={() => handleDelete(user)}
+                                />
+                                <UpdateIcon
+                                    onClick={() => handleEdit(user)}
+                                />
+                            </StyledTableCell>
+                        </StyledTableRow>
+                    ))
+                    )}
+                </TableBody>
+                </Table>
+            </TableContainer>
+        </CenteredButtonContainer>
     </>
   );
 };
