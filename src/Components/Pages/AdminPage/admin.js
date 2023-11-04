@@ -112,18 +112,17 @@ const AdminPage=()=>{
                 )}
             </Grid>
             {showForm && (
-            <div
-                style={{
-                    position: 'fixed',
-                    zIndex: 999,
-                }}
-            >
-          <UserForm
-            onAddUser={addUser}
-            user={selectedUser}
-            onCloseForm={closeForm}
-          />
-        </div>
+                <div
+                    style={{position: 'fixed',zIndex: 999,top:0,left:0,width:"100%",height:"100%",backgroundColor:"rgba(0,0,0,.5)"}}
+                >
+                    <div style={{position:"absolute", top:"50%", left:"50%", transform:"translate(-50%, -50%)"}}> 
+                        <UserForm
+                            onAddUser={addUser}
+                            user={selectedUser}
+                            onCloseForm={closeForm}
+                        />
+                    </div>
+                </div>
             )}
             
             <TableContainer component={Paper} style={{ width: '1000px',}}>
