@@ -6,6 +6,8 @@ const UserForm = ({ onAddUser,onCloseForm,user}) => {
     const [mobileNumber,setMobileNumber]=useState('');
     const [designation,setDesignation]=useState('');
     const [gender,setGender]=useState('');
+    const [mobailNumErro,setMobailNumErro]=useState(false)
+
     useEffect(() => {
         if (user){
           setFirstName(user.firstName);
@@ -33,6 +35,15 @@ const UserForm = ({ onAddUser,onCloseForm,user}) => {
         setDesignation('');
         setGender('');
     };
+    const HandleMobailOnchange=(e)=>{
+        setMobileNumber(e.target.value)
+        if (mobileNumber.length>10){
+            setMobailNumErro(true)
+            alert("please enter 10 digit number!")
+        }
+        setMobailNumErro(false)
+
+    }
     return (
           
         <Card sx={{ maxWidth:400, marginBottom:2}}>
@@ -41,7 +52,7 @@ const UserForm = ({ onAddUser,onCloseForm,user}) => {
                     <TextField
                         label="First Name"
                         value={firstName}
-                        onChange={(e) => setFirstName(e.target.value)}
+                        onChange={(e)=>setFirstName(e.target.value)}
                     />
                 </ListItem>
                 <ListItem>
@@ -55,7 +66,8 @@ const UserForm = ({ onAddUser,onCloseForm,user}) => {
                     <TextField
                         label="Mobile Number"
                         value={mobileNumber}
-                        onChange={(e) => setMobileNumber(e.target.value)}
+                        onChange={HandleMobailOnchange}
+                        
                     />
                 </ListItem>
                 <ListItem>

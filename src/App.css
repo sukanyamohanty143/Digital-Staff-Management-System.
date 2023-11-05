@@ -37,10 +37,11 @@ body {
 }
 
 .registretion-card{
+  position: 'static';
   width: 700px;
   height: auto;
   margin: auto;
-  margin-top: 50px;
+  margin-top: 15px;
   margin-bottom: 50px;
 }
 
@@ -84,3 +85,4 @@ body {
 .digital{
   margin-top: 20px;
 }
+

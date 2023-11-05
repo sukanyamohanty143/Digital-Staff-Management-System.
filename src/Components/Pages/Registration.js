@@ -317,9 +317,6 @@ function Registration() {
     designation: '',
     gender: ''
   });
-
-
-
   console.log("formData", formData);
 
   const handleChange = (event) => {

@@ -39,7 +39,7 @@ const AdminPage=()=>{
     const [showForm, setShowForm] = useState(false);
     const [selectedUser, setSelectedUser] = useState(null);
     const fetchData=()=>{
-      fetch("http://localhost:8000/employees")
+      fetch("http://localhost:3000/employees")
         .then((response)=>response.json())
         .then((data)=>setUsers(data))
         .catch((error)=>{
@@ -52,7 +52,7 @@ const AdminPage=()=>{
 
     const addUser =(newUser)=>{
         if (selectedUser){
-            fetch(`http://localhost:8000/employees/${selectedUser.id}`,{
+            fetch(`http://localhost:3000/employees/${selectedUser.id}`,{
                 method:"PUT",
                 headers:{
                     "Content-Type": "application/json",
@@ -66,7 +66,7 @@ const AdminPage=()=>{
             setSelectedUser(null);
         } 
         else{
-            fetch("http://localhost:8000/employees",{
+            fetch("http://localhost:3000/employees",{
                 method:"POST",
                 headers:{
                     "Content-Type": "application/json",
@@ -92,7 +92,7 @@ const AdminPage=()=>{
         setShowForm(true);
     };
     const handleDelete=(user)=>{
-        fetch(`http://localhost:8000/employees/${user.id}`,{
+        fetch(`http://localhost:3000/employees/${user.id}`,{
             method: "DELETE",
         })
             .then(()=>fetchData())
@@ -110,9 +110,9 @@ const AdminPage=()=>{
                 Add User
                 </Button>
             </Grid>
-            <Grid item>
+            {/* <Grid item>
                 <Button variant="contained" onClick={closeForm}>Logout</Button>
-            </Grid>
+            </Grid> */}
             </Grid>
             {showForm && (
             <UserForm

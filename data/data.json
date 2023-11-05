@@ -9,12 +9,20 @@
       "id": 1
     },
     {
-      "firstname": "kkkkkk",
-      "lastname": "rrrrrrrrrr",
-      "mobilenumber": "676543234",
-      "designation": "Supervisor",
+      "firstName": "ujala",
+      "lastName": "saini",
+      "mobileNumber": "12345432",
+      "designation": "developer",
       "gender": "female",
       "id": 2
+    },
+    {
+      "firstName": "kuku",
+      "lastName": "kuku",
+      "mobileNumber": "1234567891",
+      "designation": "kuku",
+      "gender": "male",
+      "id": 3
     }
   ],
   "Attendence": [
