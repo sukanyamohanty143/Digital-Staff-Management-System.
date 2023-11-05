@@ -45,8 +45,8 @@ const UserForm = ({ onAddUser,onCloseForm,user}) => {
 
     }
     return (
-          
-        <Card sx={{ maxWidth:400, marginBottom:2}}>
+        <Card sx={{maxWidth:400,marginBottom:2}}
+        >
             <List>
                 <ListItem>
                     <TextField
@@ -65,6 +65,7 @@ const UserForm = ({ onAddUser,onCloseForm,user}) => {
                 <ListItem>
                     <TextField
                         label="Mobile Number"
+                        mobailNumErro={mobailNumErro}
                         value={mobileNumber}
                         onChange={HandleMobailOnchange}
                         
