@@ -4,8 +4,9 @@ import Home from "./Components/Pages/Home";
 import Registration from "./Components/Pages/Registration";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Footer from "./Components/Pages/Footer";
-import SearchBar from "./Components/Pages/SupervisorTracker/SearchBar";
+// import SearchBar from "./Components/Pages/SupervisorTracker/SearchBar";
 import Staff from "./Components/Pages/Staff";
+import Profile from "./Components/Pages/Profile";
 function App() {
     return (
         <>
@@ -20,8 +21,8 @@ function App() {
             </Router>
 
             <Staff/>
-
-            <SearchBar/>
+        <Profile/>
+            {/* <SearchBar/> */}
 
 
             <Footer />
