@@ -12,14 +12,11 @@ import {
 const EmployeeProfile = () => {
   const [profile, setProfile] = useState({
     name: '',
-    fatherName: '',
     email: '',
     password: '',
-    phone: '',
+
     joinDate: '',
-    dob: '',
     profilePhoto: null,
-    githubLink: '',
   });
 
   const handleChange = (event) => {
