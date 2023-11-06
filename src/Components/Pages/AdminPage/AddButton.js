@@ -17,6 +17,7 @@ const UserForm = ({ onAddUser,onCloseForm,user}) => {
           setGender(user.gender);
         }
       },[user]);
+      
     const addUser=()=>{
         const newUser={
             firstName,
