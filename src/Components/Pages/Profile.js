@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import {
   Container,
   TextField,
-  Button,
+Button,
   Grid,
   Paper,
   Typography,
   Avatar,
+  IconButton,
 } from '@mui/material';
+import PhotoCameraIcon from '@mui/icons-material/PhotoCamera'; // Import the camera icon
 
 const EmployeeProfile = () => {
   const [profile, setProfile] = useState({
@@ -43,11 +45,20 @@ const EmployeeProfile = () => {
       JoiningDate: profile.joinDate,
       ProfilePhotoURL: profile.profilePhoto,
     };
-
-    
-    const jsonData = JSON.stringify(profileData);
-
-    console.log('Profile Data :', jsonData);
+    fetch('http://localhost:8000/EmployeeProfile', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(profileData),
+      })
+        .then(response => response.json())
+        .then(data => {
+          console.log('Data added:', data);
+        })
+        .catch(error => {
+          console.error('Error adding data:', error);
+        });
   };
 
   return (
@@ -58,7 +69,19 @@ const EmployeeProfile = () => {
         </Typography>
         <form>
           <label htmlFor="profilePhoto">
-            <Avatar src={profile.profilePhoto} alt="Profile" style={{ width: 80, height: 80 }}/>
+            <Avatar src={profile.profilePhoto} alt="Profile" style={{ width: 80, height: 80 }}>
+              <IconButton
+                color="primary"
+                component="span"
+                style={{
+                  position: 'absolute',
+                  bottom: 0,
+                  right: 0,
+                }}
+              >
+                <PhotoCameraIcon />
+              </IconButton>
+            </Avatar>
           </label>
           <Grid container spacing={2}>
             <Grid item xs={12}>
@@ -116,9 +139,6 @@ const EmployeeProfile = () => {
             Save Profile
           </Button>
         </form>
-
-     
-     
       </Paper>
     </Container>
   );
