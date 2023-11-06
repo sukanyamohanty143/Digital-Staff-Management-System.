@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate} from 'react-router-dom';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
@@ -7,15 +8,15 @@ import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 
 const data = [
   {
-    value: 'admin',
+    value: 'Admin',
     position: 'Admin',
   },
   {
-    value: 'supervisor',
+    value: 'Supervisor',
     position: 'Supervisor',
   },
   {
-    value: 'staff',
+    value: 'Staff',
     position: 'Staff',
   },
 ];
@@ -32,10 +33,10 @@ const genderData = [
 ];
 
 function Registration() {
+  const navigate = useNavigate();
   const [submittedData, setSubmittedData] = useState(null);
-
   const [formData, setFormData] = useState({
-    name: '',
+    firstname: '',
     lastname: '',
     mobilnumber: '',
     degignation: '',
@@ -49,9 +50,9 @@ function Registration() {
   };
 
   const handleSubmit = () => {
-    if (formData.name && formData.lastname && formData.mobilnumber && formData.degignation && formData.gender) {
+    if (formData.firstname && formData.lastname && formData.mobilnumber && formData.degignation && formData.gender) {
 
-      fetch('http://localhost:3000/employees', {
+      fetch('http://localhost:8000/employees', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -66,17 +67,21 @@ function Registration() {
           console.error('Error adding data:', error);
         });
 
-      console.log('formData =', formData);
+      // console.log('formData =', formData);
 
 
       setSubmittedData(formData);
       setFormData({
-        name: '',
+        firstname: '',
         lastname: '',
         mobilnumber: '',
         degignation: '',
         gender: ''
       })
+      const goToLogin = () => {
+        navigate("/login")
+      }
+      goToLogin()
     } else {
       alert('You have to fill all required.');
     }
@@ -101,13 +106,13 @@ function Registration() {
             <div className="formcontainer">
               <TextField
                 id="name"
-                name="name"
-                label="Name"
+                name="firstname"
+                label="First Name"
                 variant="standard"
                 placeholder="Enter your name"
-                value={formData.name}
+                value={formData.firstname}
                 onChange={handleChange}
-                helperText={!formData.name ? "Name is required" : "Enter your name"}
+                helperText={!formData.firstname ? "Name is required" : "Enter your name"}
               />
               <br />
 
