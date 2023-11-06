@@ -7,7 +7,6 @@ import {
   Paper,
   Typography,
   Avatar,
-  
 } from '@mui/material';
 
 const EmployeeProfile = () => {
@@ -33,12 +32,12 @@ const EmployeeProfile = () => {
 
   const handlePhotoChange = (event) => {
     const file = event.target.files[0];
+    const imageURL = URL.createObjectURL(file);
     setProfile({
       ...profile,
-      profilePhoto: URL.createObjectURL(file),
+      profilePhoto: imageURL,
     });
   };
-//   console.log(profile,"dddd")
 
   return (
     <Container>
@@ -47,11 +46,11 @@ const EmployeeProfile = () => {
           Employee Profile
         </Typography>
         <form>
-        <label htmlFor="profilePhoto">
-                <Avatar src={profile.profilePhoto} alt="Profile" style={{ width: 80, height: 80 }} />PhotoUpload
-              </label>
+          <label htmlFor="profilePhoto">
+            <Avatar src={profile.profilePhoto} alt="Profile" style={{ width: 80, height: 80 }} />Photo Upload
+          </label>
           <Grid container spacing={2}>
-            <Grid item xs={12} >
+            <Grid item xs={12}>
               <TextField
                 label="Name"
                 fullWidth
@@ -60,7 +59,6 @@ const EmployeeProfile = () => {
                 onChange={handleChange}
               />
             </Grid>
-           
             <Grid item xs={12}>
               <TextField
                 label="Email"
@@ -80,8 +78,7 @@ const EmployeeProfile = () => {
                 onChange={handleChange}
               />
             </Grid>
-            
-            <Grid item xs={12} >
+            <Grid item xs={12}>
               <TextField
                 label="Joining Date"
                 type="date"
@@ -94,7 +91,6 @@ const EmployeeProfile = () => {
                 }}
               />
             </Grid>
-           
             <Grid item xs={12}>
               <input
                 accept="image/*"
@@ -103,13 +99,29 @@ const EmployeeProfile = () => {
                 type="file"
                 onChange={handlePhotoChange}
               />
-              
             </Grid>
           </Grid>
           <Button variant="contained" color="primary" style={{ marginTop: '20px' }}>
             Save Profile
           </Button>
         </form>
+
+        {profile.profilePhoto && (
+            <div>
+              <Typography variant="h6"></Typography>
+              <img src={profile.profilePhoto} alt="Uploaded" style={{ maxWidth: '100%' }} />
+            </div>
+          )}
+        <div>
+          <Typography variant="h6">Entered Data:</Typography>
+          <ul>
+            <li>Name: {profile.name}</li>
+            <li>Email: {profile.email}</li>
+            <li>Password: {profile.password}</li>
+            <li>Joining Date: {profile.joinDate}</li>
+          </ul>
+       
+        </div>
       </Paper>
     </Container>
   );
