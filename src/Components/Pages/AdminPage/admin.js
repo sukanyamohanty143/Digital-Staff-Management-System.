@@ -3,10 +3,8 @@ import {TableContainer,Table,TableHead,TableBody,TableRow,Paper,Typography,Butto
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
 import { styled } from "@mui/material/styles";
 import DeleteIcon from '@mui/icons-material/Delete';
-import UpdateIcon from '@mui/icons-material/Update';
+import EditIcon from '@mui/icons-material/Edit';
 import UserForm from "./AddButton";
-// import { useNavigate} from 'react-router-dom';
-
 
 const StyledTableCell=styled(TableCell)(({ theme })=>({
     [`&.${tableCellClasses.head}`]: {
@@ -32,8 +30,6 @@ const CenteredButtonContainer=styled('div')({
     justifyContent: 'center',
 });
 const AdminPage=()=>{
-
-    // const navigate = useNavigate();
     const [users, setUsers] = useState(null);
     const [showForm, setShowForm] = useState(false);
     const [selectedUser, setSelectedUser] = useState(null);
@@ -102,29 +98,26 @@ const AdminPage=()=>{
     };
   return(
     <>
-        <CenteredButtonContainer>
-            <Typography variant="h4"  style={{ marginBottom:15,marginTop:10}}>Admin Page</Typography>
-            <Grid container spacing={2} justifyContent="center">
-                {showForm?(null):(
-                    <Grid item style={{ marginBottom:10,}}>
-                        <Button variant="contained" onClick={() => setShowForm(true)}>Add User</Button>
-                    </Grid>
-                )}
-            </Grid>
-            {showForm && (
-                <div
-                    style={{position: 'fixed',zIndex: 999,top:0,left:0,width:"100%",height:"100%",backgroundColor:"rgba(0,0,0,.5)"}}
-                >
-                    <div style={{position:"absolute", top:"50%", left:"50%", transform:"translate(-50%, -50%)"}}> 
-                        <UserForm
-                            onAddUser={addUser}
-                            user={selectedUser}
-                            onCloseForm={closeForm}
-                        />
-                    </div>
-                </div>
+        <Typography variant="h4"  style={{ textAlign:"center", marginBottom:15,marginTop:10}}>Admin Page</Typography>
+        <Grid container spacing={2} justifyContent="center">
+            {showForm?(null):(
+                <Grid item style={{ marginBottom:10,}}>
+                    <Button variant="contained" onClick={() => setShowForm(true)}>Add User</Button>
+                </Grid>
             )}
-            
+        </Grid>
+        {showForm && (
+            <div style={{position: 'fixed',zIndex: 999,top:0,left:0,width:"100%",height:"100%",backgroundColor:"rgba(0,0,0,.5)"}}>
+                <div style={{position:"fixed", top:"50%", left:"50%", transform:"translate(-50%, -50%)"}}> 
+                    <UserForm
+                        onAddUser={addUser}
+                        user={selectedUser}
+                        onCloseForm={closeForm}
+                    />
+                </div>
+            </div>
+        )}
+        <CenteredButtonContainer>
             <TableContainer component={Paper} style={{ width: '1000px',}}>
                 <Table>
                 <TableHead>
@@ -156,7 +149,7 @@ const AdminPage=()=>{
                                     style={{marginRight:10}}
                                     onClick={() => handleDelete(user)}
                                 />
-                                <UpdateIcon
+                                <EditIcon
                                     onClick={() => handleEdit(user)}
                                 />
                             </StyledTableCell>

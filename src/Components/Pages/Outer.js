@@ -7,14 +7,14 @@ const Outer = () => {
       
       <Grid item xs={4}>
         <Card xs={12} sm={4}>
-        {/* <Grid container spacing={3} justifyContent="center"> */}
+        
       <Grid item xs={12}  >
         <Typography variant="h4">Profile of Employee</Typography>
       </Grid>
           <div style={{ borderRadius: '50%', overflow: 'hidden', width: '200px', height: '200px', margin: '0 auto', border: '2px solid black' }}>
             <CardMedia
               component="img"
-              image="employee-image.jpg" // Replace with the actual image URL or use a placeholder
+              image="employee-image.jpg"
               alt="Employee Image"
               style={{ width: '100%', height: '100%' }}
             />
