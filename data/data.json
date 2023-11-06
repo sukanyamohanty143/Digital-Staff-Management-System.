@@ -7,6 +7,46 @@
       "designation": "Staff",
       "gender": "Male",
       "id": 1
+    },
+    {
+      "firstName": "ujala",
+      "lastName": "saini",
+      "mobileNumber": "12345432",
+      "designation": "developer",
+      "gender": "female",
+      "id": 2
+    },
+    {
+      "firstName": "pooja",
+      "lastName": "saini",
+      "mobileNumber": "6666666666",
+      "designation": "Student",
+      "gender": "female",
+      "id": 3
+    },
+    {
+      "firstName": "Vikash",
+      "lastName": "saini",
+      "mobileNumber": "1234567892",
+      "designation": "Staff",
+      "gender": "male",
+      "id": 4
+    },
+    {
+      "firstName": "Anup",
+      "lastName": "Bhaiya",
+      "mobileNumber": "6565655656",
+      "designation": "supervisor",
+      "gender": "Male",
+      "id": 5
+    },
+    {
+      "firstName": "Navgurukul ",
+      "lastName": "ji",
+      "mobileNumber": "1111111111",
+      "designation": "developer",
+      "gender": "male",
+      "id": 8
     }
   ],
   "Attendence": [
@@ -21,6 +61,13 @@
       "attendance": "Present",
       "date": "2023-10-30",
       "id": 2
+    }
+  
+  ],
+  "EmployeeProfile":[
+    {
+
+      
     }
   ]
 }
