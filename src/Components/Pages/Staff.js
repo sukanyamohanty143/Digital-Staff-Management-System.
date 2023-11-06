@@ -1,18 +1,19 @@
 import React, { useState } from "react";
-import { TextField, Button, Typography, Card, Box, MenuItem, Select } from "@material-ui/core";
+
+import { TextField, Button, Typography, Card, Box, MenuItem, Select, Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
   container: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    
+
   },
   card: {
     maxWidth: 400,
     marginBottom: 20,
     padding: theme.spacing(1),
-    marginTop:30
+    marginTop: 30
   },
   label: {
     marginBottom: theme.spacing(1),
@@ -23,16 +24,17 @@ const useStyles = makeStyles((theme) => ({
   button: {
     marginTop: theme.spacing(2),
   },
-  heading:{
-    marginTop:100,
+  heading: {
+    marginTop: 100,
   }
 }));
 
 
 
 const Staff = () => {
+
   const classes = useStyles();
-  const [date, setDate] = useState(); 
+  const [date, setDate] = useState();
   const [name, setName] = useState("");
   const [attendance, setAttendance] = useState("");
 
@@ -49,31 +51,32 @@ const Staff = () => {
   };
 
   const HandleClick = () => {
-
-
+    
 
     if (name && date && attendance ) {
       const data = { name, attendance, date };
-      fetch("http://localhost:3000/Attendence", {
+      fetch("http://localhost:8000/Attendence", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
       })
-      
+
         .then((res) => {
           alert("Data saved successfully");
           setName("");
+          setDate();
           setAttendance("Present");
         })
         .catch((error) => {
           console.error(error);
         });
-    } else{
+    }  else {
       alert("Please fill all the information in the form");
     }
   };
+
 
   return (
     <div className={classes.container}>
@@ -128,6 +131,7 @@ const Staff = () => {
           Submit
         </Button>
       </Card>
+  
     </div>
     
   );

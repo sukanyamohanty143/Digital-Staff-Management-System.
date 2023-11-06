@@ -1,25 +1,52 @@
 {
   "employees": [
     {
-      "id": 1,
-      "name": "John Doe",
-      "mobileNumber": "123-456-7890",
+      "firstName": "Jane ",
+      "lastName": "Smith",
+      "mobileNumber": "5677555444",
       "designation": "Staff",
-      "gender": "Male"
+      "gender": "Male",
+      "id": 1
     },
     {
-      "id": 2,
-      "name": "Jane Smith",
-      "mobileNumber": "987-654-3210",
-      "designation": "Admin",
-      "gender": "Female"
+      "firstName": "ujala",
+      "lastName": "saini",
+      "mobileNumber": "12345432",
+      "designation": "developer",
+      "gender": "female",
+      "id": 2
     },
     {
-      "id": 3,
-      "name": "Bob Johnson",
-      "mobileNumber": "555-123-4567",
-      "designation": "Supervisor",
-      "gender": "Male"
+      "firstName": "pooja",
+      "lastName": "saini",
+      "mobileNumber": "6666666666",
+      "designation": "Student",
+      "gender": "female",
+      "id": 3
+    },
+    {
+      "firstName": "Vikash",
+      "lastName": "saini",
+      "mobileNumber": "1234567892",
+      "designation": "Staff",
+      "gender": "male",
+      "id": 4
+    },
+    {
+      "firstName": "Anup",
+      "lastName": "Bhaiya",
+      "mobileNumber": "6565655656",
+      "designation": "supervisor",
+      "gender": "Male",
+      "id": 5
+    },
+    {
+      "firstName": "Navgurukul ",
+      "lastName": "ji",
+      "mobileNumber": "1111111111",
+      "designation": "developer",
+      "gender": "male",
+      "id": 8
     }
   ],
   "Attendence": [
@@ -28,6 +55,12 @@
       "attendance": "Present",
       "date": "2023-10-21",
       "id": 1
+    },
+    {
+      "name": "Sukanya",
+      "attendance": "Present",
+      "date": "2023-10-30",
+      "id": 2
     }
   
   ],
