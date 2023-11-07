@@ -1,3 +1,4 @@
+
 import { useEffect } from "react";
 import { useState } from "react";
 import { Box, Button, TextField, Card } from "@mui/material";
@@ -45,7 +46,6 @@ function SupervisorPage() {
                     alignItems="flex-end"
                     sx={{ background: "#eeeeee" }}
                 >
-
                     <Box sx={{ m: "20px" }}>
                         <TextField sx={{ background: "white", m: "2px" }} variant="outlined" label="search here......." onChange={HandleOnchange} value={search} />
                         <Button sx={{ height: "56px" }} variant="contained" onClick={HandleSearch}>
@@ -59,7 +59,6 @@ function SupervisorPage() {
                 <Attendencedata />
 
             </Card>
-
         </>
     )
 }
