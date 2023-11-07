@@ -1,25 +1,28 @@
+
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
-import { Typography, Button, Card ,CardContent} from '@mui/material';
+import { Typography, Button, Card, CardContent } from '@mui/material';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 
+// data variable store position like (staff,supervoiser,admin)
 const data = [
   {
-    value: 'admin',
+    value: 'Admin',
     position: 'Admin',
   },
   {
-    value: 'supervisor',
+    value: 'Supervisor',
     position: 'Supervisor',
   },
   {
-    value: 'staff',
+    value: 'Staff',
     position: 'Staff',
   },
 ];
-
+// this state for select gender.
 const genderData = [
   {
     value: 'male',
@@ -31,28 +34,38 @@ const genderData = [
   },
 ];
 
+
 function Registration() {
+  // here useNevigate use from react router dom.used for routing(if i click on button then open a new page)
+  const navigate = useNavigate();
+  const goToLogin = () => { 
+    navigate("/login")
+  }
+
+  // submittedData state when i click on submit button  data it will send all data in submitted 
   const [submittedData, setSubmittedData] = useState(null);
+
+  // formData store all user informetion.(firsname,lastname etc)
   const [formData, setFormData] = useState({
-    name: '',
+    firstname: '',
     lastname: '',
-    mobilnumber: '',
-    degignation: '',
+    mobilenumber: '',
+    designation: '',
     gender: ''
   });
+  console.log("formData:", formData);
 
-
-
-  console.log("formData", formData);
-
+// handleChange -In this function has to 
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
   };
 
+
   const handleSubmit = () => {
-    if (formData.name && formData.lastname && formData.mobilnumber && formData.degignation && formData.gender) {
-      fetch('http://localhost:3000/employees', {
+    // i put condition for vailidation.and post data in json server using post method in promisses.
+    if (formData.firstname && formData.lastname && formData.mobilenumber && formData.designation && formData.gender) {
+      fetch('http://localhost:8000/employees', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -66,63 +79,57 @@ function Registration() {
         .catch(error => {
           console.error('Error adding data:', error);
         });
-
-      // console.log('formData =', formData);
-
-
       setSubmittedData(formData);
 
       setFormData({
-        name: '',
+        firstname: '',
         lastname: '',
-        mobilnumber: '',
-        degignation: '',
-        gender: ''
+        mobilenumber: '',
+        designation: '',
+        gender: '',
+        email: '',
+        password: ''
       })
-    } 
-    
-    else {
-      alert('You have to fill all required.');
+      goToLogin()
     }
-
-
+    else{
+      alert("fill all require Feild")
+    }
   };
 
   return (
     <>
       <Card className='registretion-card'>
         <CardContent>
-          <Typography variant="h4" style={{ textAlign: 'center', margin: '15px' }}>
+          <Box style={{ textAlign: 'center', margin: '15px' }}>
             <PeopleAltIcon />
             <Typography variant='h5'>Registration Form</Typography>
-          </Typography>
+          </Box>
+
           <Box
             component="form"
             sx={{
-              '& .MuiTextField-root': { m: 2, width: '60ch' },
+              '& .MuiTextField-root': {m:0.5, width: '55ch' },
             }}
             noValidate
             autoComplete="off"
           >
             <div className="formcontainer">
               <TextField
-                id="name"
-                name="name"
-                label="Name"
+                name="firstname"
+                label="First Name"
                 variant="standard"
-                placeholder="Enter your name"
-                value={formData.name}
+                value={formData.firstname}
                 onChange={handleChange}
-                helperText={!formData.name ? "Name is required" : "Enter your name"}
+                helperText={!formData.firstname ? "Name is required" : "Enter your name"}
               />
               <br />
 
+
               <TextField
-                id="lastname"
                 name="lastname"
                 label="Last Name"
                 variant="standard"
-                placeholder="Enter your last name"
                 value={formData.lastname}
                 onChange={handleChange}
                 helperText={!formData.lastname ? "Last name is required" : "Enter your last name"}
@@ -130,26 +137,43 @@ function Registration() {
               <br />
 
               <TextField
-                id="mobilnumber"
-                name="mobilnumber"
-                label="Mobile Number"
+                name="email"
+                label="Email"
                 variant="standard"
-                placeholder="Enter your mobile number"
-                value={formData.mobilnumber}
+                value={formData.email}
                 onChange={handleChange}
-                helperText={!formData.mobilnumber ? "Mobilnumber is required" : "Enter your mobil number"}
+                helperText={!formData.email ? "email is required" : "Enter your email"}
               />
               <br />
 
               <TextField
-                id="degignation"
-                name="degignation"
+                name="password"
+                label="Password"
+                variant="standard"
+                value={formData.password}
+                onChange={handleChange}
+                helperText={!formData.password ? "password is required" : "Enter your password"}
+              />
+              <br />
+
+              <TextField
+                name="mobilenumber"
+                label="Mobile Number"
+                variant="standard"
+                value={formData.mobilenumber}
+                onChange={handleChange}
+                helperText={!formData.mobilenumber ? "mobilenumber is required" : "Enter your mobilenumber"}
+              />
+              <br />
+
+              <TextField
+                name="designation"
                 select
                 label="Select Designation"
                 variant="standard"
-                value={formData.degignation}
+                value={formData.designation}
                 onChange={handleChange}
-                helperText={!formData.degignation ? "Degignation is required" : "Enter your degignation"}
+                helperText={!formData.designation ? "Designation is required" : "Enter your designation"}
               >
                 {data.map((option) => (
                   <MenuItem key={option.value} value={option.value}>
@@ -160,7 +184,6 @@ function Registration() {
               <br />
 
               <TextField
-                id="gender"
                 name="gender"
                 select
                 label="Select Gender"
@@ -177,29 +200,17 @@ function Registration() {
               </TextField>
               <br />
 
-              <Button className="submitbtn" variant="contained" onClick={handleSubmit}>
+              <Button submittedData={submittedData} className="submitbtn" variant="contained" onClick={handleSubmit}>
                 Submit Button
               </Button>
-
             </div>
           </Box>
-
-          {submittedData && (
-            <div className='container' style={{ textAlign: "center" }}></div>
-          )}
-
         </CardContent>
-
-
       </Card>
-
     </>
   );
 }
 export default Registration;
-
-
-
 
 
 

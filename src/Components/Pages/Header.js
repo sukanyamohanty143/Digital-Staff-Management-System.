@@ -1,20 +1,26 @@
-import React from 'react'
-import { AppBar, Toolbar, Typography, IconButton } from '@mui/material'
-import CoPresentIcon from '@mui/icons-material/CoPresent';
 
+import React from 'react';
+import { AppBar, Toolbar, Typography, IconButton, Button, Stack } from '@mui/material';
+import CoPresentIcon from '@mui/icons-material/CoPresent';
 
 export default function Header() {
     return (
         <AppBar position='static'>
             <Toolbar>
                 <IconButton size='large' edge='start' color='inherit' aria-label='logo'>
-                    <CoPresentIcon/>
+                    <CoPresentIcon />
                 </IconButton>
-                <Typography variant='h5' component='div' sx={{ flexGrow: 1 }}>
+                <Typography variant='h5' className='digital'>
                     Digital Staff Management System
                 </Typography>
-            </Toolbar>
 
+                <Stack style={{ marginLeft: 'auto' }}>
+                    <Button color="inherit" style={{ border: '2px solid white' }}>
+                        Logout
+                    </Button>
+                </Stack>
+            </Toolbar>
         </AppBar>
     )
 }
+
