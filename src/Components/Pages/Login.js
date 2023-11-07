@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react';
 import {
   Grid,
   Paper,
@@ -6,41 +6,82 @@ import {
   TextField,
   MenuItem,
   Button,
-  Typography,
-  Link
-} from "@mui/material"
+  Typography
+} from "@mui/material";
 import PersonIcon from '@mui/icons-material/Person';
-
+import { useNavigate} from 'react-router-dom';
 
 
 function Login() {
+  const navigate = useNavigate();
+  const [userName, setUserName] = useState("");
+  const [userDesignation, setUserDesignation] = useState("");
+  const [userData, setUserData] = useState([])
 
-  const [userName, setUserName] = useState("")
-  const [role, setRole] = useState("")
+ 
+  useEffect(()=>{
+    fetch("http://localhost:8000/employees").then((res)=>{
+      return res.json()
+
+    }).then((res)=>{
+      setUserData(res)
+    })
+    .catch((err)=> console.log(err))
+  },[])
+  
 
   const paperStyle = {
     padding: 20,
     height: "50vh",
     width: 350,
     margin: "20px auto"
-  }
+  };
 
   const dropdownStyle = {
     margin: "20px auto"
-  }
+  };
 
   const buttonStyle = {
     margin: "20px auto"
+  };
+
+  const avatarStyle = { backgroundColor: '#1bbd7e' };
+  
+  const handleClick = () => {
+
+    const foundUsers = userData.filter((user) => {
+      return (
+        (user.firstName + user.lastName).toLowerCase().trim() === userName.toLowerCase().trim() &&
+        user.designation.toLowerCase() === userDesignation.toLowerCase()
+        
+      );
+    });
+    if (foundUsers.length > 0) {
+
+      let designation = foundUsers[0].designation;
+       
+      if (designation.toLowerCase() === 'staff') {
+        navigate('/staff');
+      } else if (designation.toLowerCase() === 'admin') {
+        navigate('/admin');
+      } else if (designation.toLowerCase() === 'supervisor') {
+        navigate('/supervisor');
+      } else {    
+        navigate('/');
+      }   
+    
+    } else {
+      console.log("User not found or credentials are incorrect");
+      
+    }
   }
-
-  const avatarStyle = { backgroundColor: '#1bbd7e' }
-
-  const handelClick = () => {
-
+  
+  const goToRegistration = () => {
+    navigate("/registration")
   }
 
   return (
-    <Grid style={{marginTop: "70px"}}>
+    <Grid style={{ marginTop: "70px" }}>
       <Paper elevation={10} style={paperStyle}>
 
         <Grid align="center" margin="30px">
@@ -48,9 +89,19 @@ function Login() {
           <h2>Sign In</h2>
         </Grid>
 
-        <TextField label="Username" placeholder='Enter username' fullWidth required />
+        <TextField 
+          label="Username" 
+          placeholder='Enter username' 
+          value={userName} 
+          onChange={(e) => { setUserName(e.target.value) }} 
+          fullWidth required />
 
-        <TextField label="Select role" style={dropdownStyle} select fullWidth>
+        <TextField 
+          label="Select designation" 
+          style={dropdownStyle} 
+          value={userDesignation} 
+          onChange={(e) => { setUserDesignation(e.target.value) }} 
+          select fullWidth>
           <MenuItem value="Staff">Staff</MenuItem>
           <MenuItem value="Admin">Admin</MenuItem>
           <MenuItem value="Supervisor">Supervisor</MenuItem>
@@ -58,17 +109,17 @@ function Login() {
 
         <Typography>
           Do you have an account ?
-          <Link href="#" underline="hover">
+          <Button onClick={goToRegistration} underline="hover">
             Sign Up
-          </Link>
+          </Button>
         </Typography>
 
         <Button
           variant="contained"
           style={buttonStyle}
-          onClick={handelClick}
+          onClick={handleClick}
           fullWidth
-          disabled>
+          disabled={!userName || !userDesignation}>
           Sign In
         </Button>
 

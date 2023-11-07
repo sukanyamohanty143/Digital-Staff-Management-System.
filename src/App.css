@@ -3,9 +3,9 @@
 body {
   margin: 0%;
   padding: 0%;
-  background-color: rgb(234, 229, 229);
+  background-color: rgb(245, 243, 243);
 }
-.navbar {
+/* .navbar {
   height: 100px;
   width: 100%;
   background-color:#337CCF;
@@ -13,7 +13,7 @@ body {
   flex-direction: row;
   align-items: center;
   margin-right: 10px;
-}
+} */
 .navigetiontitle{
   color: white;
   padding: 10px;
@@ -28,47 +28,33 @@ body {
   margin: auto;
   margin-top: 50px;
  }
-.fottercontainer{
-  margin: auto;
-  width: 470px;
-  margin-top: 28px;
-}
+
 .footer-text{
    text-align:"center";
    margin-top: 20px;
    font-size:smaller;
    font-style: italic;
+}
 
-}
-.footer-text:hover {
-  color: red;
-}
 .registretion-card{
+  position: 'static';
   width: 700px;
-  height: 700px;
+  height: auto;
   margin: auto;
-  margin-top: 50px;
+  margin-top: 15px;
+  margin-bottom: 50px;
 }
+
 .cardcontainer{
   width: 800px;
   height: 500px;
   margin: auto;
   margin-top: 50px;
-
-}
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .welcometext {
   animation: fadeIn 1.5s ease-in-out;
+  text-shadow: 2px 2px 5px rgb(65, 69, 149);
 }
 
 .typing-animation {
@@ -76,23 +62,27 @@ body {
   overflow: hidden;
   white-space: nowrap;
   border-right: 2px solid gray; 
-  animation: typing 4s steps(14, end) infinite, blink-caret 1s step-end infinite;
-  text-shadow: 2px 2px 5px #337CCF;
+  animation: typing 4s steps(14, end) infinite, blink-caret 3s step-end infinite;
+  text-shadow: 2px 2px 5px gray;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
 }
 
 @keyframes typing {
-  0%, 100% {
+  0%,100% {
     width: 0;
   }
-  40% {
-    width: 100%;
+  50% {
+    width: 64%;
   }
 }
-@keyframes blink-caret {
-  from, to {
-    border-color: transparent;
-  }
-  40% {
-    border-color: #000;
-  }
+
+.digital{
+  margin-top: 20px;
 }
+
