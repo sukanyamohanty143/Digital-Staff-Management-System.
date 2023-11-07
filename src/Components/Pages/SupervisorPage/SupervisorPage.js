@@ -1,12 +1,12 @@
+
 import { useEffect } from "react";
 import { useState } from "react";
-
-
 import TableData from "./Table";
 import { Box, Button, TextField, Card } from "@mui/material";
-import AttendenceData from "./AttendenceData";
+// import AttendenceData from "./AttendenceData";
 import SearchIcon from '@mui/icons-material/Search';
 function SupervisorPage() {
+
     const [attendance, setAttendance] = useState([])
     const [search, setSearch] = useState("")
     const FetchData = () => {
@@ -19,6 +19,7 @@ function SupervisorPage() {
     useEffect(() => {
         FetchData()
     }, [])
+
     const HandleOnchange = (e) => {
         setSearch(e.target.value)
     }
@@ -39,7 +40,6 @@ function SupervisorPage() {
                     alignItems="flex-end"
                     sx={{ background: "#eeeeee" }}
                 >
-
                     <Box sx={{ m: "20px" }}>
 
                         <TextField sx={{ background: "white", m: "2px" }} variant="outlined" label="search here......." onChange={HandleOnchange} value={search} />
@@ -53,7 +53,7 @@ function SupervisorPage() {
                 </Box>
                 <TableData attendanceData={attendance} />
             </Card>
-            < AttendenceData attendance={attendance} />
+            {/* < AttendenceData attendance={attendance} /> */}
         </>
     )
 }

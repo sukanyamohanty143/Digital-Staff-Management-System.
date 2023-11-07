@@ -4,18 +4,21 @@ import {
   Paper,
   Avatar,
   TextField,
-  MenuItem,
   Button,
   Typography
 } from "@mui/material";
 import PersonIcon from '@mui/icons-material/Person';
 import { useNavigate} from 'react-router-dom';
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import {app} from '../Pages/Context/firebase'
+
+const auth = getAuth(app);
 
 
 function Login() {
   const navigate = useNavigate();
-  const [userName, setUserName] = useState("");
-  const [userDesignation, setUserDesignation] = useState("");
+  const [userEmail, setUserEmail] = useState("");
+  const [userPassword, setUserPassword] = useState("");
   const [userData, setUserData] = useState([])
 
  
@@ -50,30 +53,12 @@ function Login() {
   const handleClick = () => {
 
     const foundUsers = userData.filter((user) => {
-      return (
-        (user.firstName + user.lastName).toLowerCase().trim() === userName.toLowerCase().trim() &&
-        user.designation.toLowerCase() === userDesignation.toLowerCase()
-        
-      );
+      if (user.email === userEmail && user.password === userPassword  ){
+        signInWithEmailAndPassword(auth, userEmail, userPassword)
+        .then(vlu => navigate(`/${user.designation}`))
+      }
     });
-    if (foundUsers.length > 0) {
-
-      let designation = foundUsers[0].designation;
-       
-      if (designation.toLowerCase() === 'staff') {
-        navigate('/staff');
-      } else if (designation.toLowerCase() === 'admin') {
-        navigate('/admin');
-      } else if (designation.toLowerCase() === 'supervisor') {
-        navigate('/supervisor');
-      } else {    
-        navigate('/');
-      }   
-    
-    } else {
-      console.log("User not found or credentials are incorrect");
-      
-    }
+  
   }
   
   const goToRegistration = () => {
@@ -90,22 +75,19 @@ function Login() {
         </Grid>
 
         <TextField 
-          label="Username" 
-          placeholder='Enter username' 
-          value={userName} 
-          onChange={(e) => { setUserName(e.target.value) }} 
+          label="Email ID" 
+          placeholder='Enter email' 
+          value={userEmail} 
+          onChange={(e) => { setUserEmail(e.target.value) }} 
           fullWidth required />
 
         <TextField 
-          label="Select designation" 
+          label="Password" 
           style={dropdownStyle} 
-          value={userDesignation} 
-          onChange={(e) => { setUserDesignation(e.target.value) }} 
-          select fullWidth>
-          <MenuItem value="Staff">Staff</MenuItem>
-          <MenuItem value="Admin">Admin</MenuItem>
-          <MenuItem value="Supervisor">Supervisor</MenuItem>
-        </TextField>
+          value={userPassword}
+          type='password' 
+          onChange={(e) => { setUserPassword(e.target.value) }} 
+          fullWidth required />
 
         <Typography>
           Do you have an account ?
@@ -119,7 +101,7 @@ function Login() {
           style={buttonStyle}
           onClick={handleClick}
           fullWidth
-          disabled={!userName || !userDesignation}>
+          disabled={!userEmail || !userPassword}>
           Sign In
         </Button>
 

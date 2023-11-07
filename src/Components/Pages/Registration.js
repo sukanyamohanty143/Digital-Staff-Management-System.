@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
@@ -6,8 +5,10 @@ import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import { Typography, Button, Card, CardContent } from '@mui/material';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import {app} from '../Pages/Context/firebase'
 
-// data state variable store position like (staff,supervoiser,admin)
+const auth = getAuth(app);
 const data = [
   {
     value: 'Admin',
@@ -48,7 +49,9 @@ function Registration() {
     lastname: '',
     mobilenumber: '',
     designation: '',
-    gender: ''
+    gender: '',
+    email: '',
+    password: ''
   });
   console.log("formData", formData);
 
@@ -61,7 +64,7 @@ function Registration() {
   const handleSubmit = () => {
 
     if (formData.firstname && formData.lastname && formData.mobilenumber && formData.designation && formData.gender) {
-
+      createUserWithEmailAndPassword (auth, formData.email, formData.password).then( vlu => alert("Sign up Done"))
 
       fetch('http://localhost:8000/employees', {
         method: 'POST',
