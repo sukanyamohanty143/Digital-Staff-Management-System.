@@ -1,36 +1,18 @@
+
+
 import "./App.css";
-import React from 'react';
-import Home from "./Components/Pages/Home";
-import Registration from "./Components/Pages/Registration";
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Header from './Components/Pages/Header';
+import Routing from "./Components/Routing/Routing";
 import Footer from "./Components/Pages/Footer";
-// import SearchBar from "./Components/Pages/SupervisorTracker/SearchBar";
-import Staff from "./Components/Pages/Staff";
-import Profile from "./Components/Pages/Profile";
-// import Admin from "./Components/Pages/AdminPage/admin";
-import Outer from "./Components/Pages/Outer";
-import Table from"./Components/Pages/Table";
+
 function App() {
     return (
         <>
-
-
-            <Router>
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/registration" element={<Registration />} />
-
-                </Routes>
-            </Router>
-            <Staff/>
-
-<Profile/>
-
-            {/* <SearchBar/> */}
-{/* <Admin/> */}
+            <Header/>
+            <Routing/>
             <Footer />
-            <Outer/>
-            <Table/>
+            {/* <Outer/> */}
+            {/* <Table/> */}
 
 
             
