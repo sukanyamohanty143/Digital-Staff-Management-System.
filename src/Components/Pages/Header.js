@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { AppBar, Toolbar, Typography, IconButton, Button, Stack } from '@mui/material';
+import { AppBar, Toolbar, Typography, IconButton, Button ,Stack} from '@mui/material';
 import CoPresentIcon from '@mui/icons-material/CoPresent';
 
 export default function Header() {
@@ -15,7 +15,7 @@ export default function Header() {
                 </Typography>
 
                 <Stack style={{ marginLeft: 'auto' }}>
-                    <Button color="inherit" style={{ border: '2px solid white' }}>
+                    <Button color="inherit" style={{ border: '2px solid white'}}>
                         Logout
                     </Button>
                 </Stack>
@@ -23,4 +23,3 @@ export default function Header() {
         </AppBar>
     )
 }
-

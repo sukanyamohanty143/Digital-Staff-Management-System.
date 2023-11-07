@@ -6,8 +6,7 @@ import {
   TextField,
   MenuItem,
   Button,
-  Typography,
-  Link
+  Typography
 } from "@mui/material";
 import PersonIcon from '@mui/icons-material/Person';
 import { useNavigate} from 'react-router-dom';
@@ -52,16 +51,15 @@ function Login() {
 
     const foundUsers = userData.filter((user) => {
       return (
-        user.name.toLowerCase().trim() === userName.toLowerCase().trim() &&
+        (user.firstName + user.lastName).toLowerCase().trim() === userName.toLowerCase().trim() &&
         user.designation.toLowerCase() === userDesignation.toLowerCase()
         
       );
     });
     if (foundUsers.length > 0) {
 
-      let designation = foundUsers[0].designation 
-      console.log(designation,"user role")
-      
+      let designation = foundUsers[0].designation;
+       
       if (designation.toLowerCase() === 'staff') {
         navigate('/staff');
       } else if (designation.toLowerCase() === 'admin') {
@@ -74,9 +72,13 @@ function Login() {
     
     } else {
       console.log("User not found or credentials are incorrect");
+      
     }
   }
   
+  const goToRegistration = () => {
+    navigate("/registration")
+  }
 
   return (
     <Grid style={{ marginTop: "70px" }}>
@@ -107,9 +109,9 @@ function Login() {
 
         <Typography>
           Do you have an account ?
-          <Link to="/ragistration" underline="hover">
+          <Button onClick={goToRegistration} underline="hover">
             Sign Up
-          </Link>
+          </Button>
         </Typography>
 
         <Button

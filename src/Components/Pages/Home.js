@@ -35,8 +35,8 @@ function Home() {
                                 variant="contained"
                             >
                                 Go To Register Yourself<ArrowForwardIosIcon />
-                            </Link>
 
+                            </Link>
 
                         </Grid>
                     </Grid>

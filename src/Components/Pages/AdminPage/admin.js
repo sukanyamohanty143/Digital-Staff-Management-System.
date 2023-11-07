@@ -3,7 +3,7 @@ import {TableContainer,Table,TableHead,TableBody,TableRow,Paper,Typography,Butto
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
 import { styled } from "@mui/material/styles";
 import DeleteIcon from '@mui/icons-material/Delete';
-import UpdateIcon from '@mui/icons-material/Update';
+import EditIcon from '@mui/icons-material/Edit';
 import UserForm from "./AddButton";
 
 const StyledTableCell=styled(TableCell)(({ theme })=>({
@@ -29,11 +29,11 @@ const CenteredButtonContainer=styled('div')({
     alignItems: 'center',
     justifyContent: 'center',
 });
-
 const AdminPage=()=>{
     const [users, setUsers] = useState(null);
     const [showForm, setShowForm] = useState(false);
     const [selectedUser, setSelectedUser] = useState(null);
+
     const fetchData=()=>{
       fetch("http://localhost:3000/employees")
         .then((response)=>response.json())
@@ -98,67 +98,68 @@ const AdminPage=()=>{
     };
   return(
     <>
-        <Typography variant="h4" align="center">Admin Page</Typography>
-        <CenteredButtonContainer>
-            <Grid container spacing={2} justifyContent="center">
-            <Grid item style={{ marginBottom: 10 }}>
-                <Button variant="contained" onClick={() => setShowForm(true)}>
-                Add User
-                </Button>
-            </Grid>
-            <Grid item>
-                <Button variant="contained" onClick={closeForm}>Logout</Button>
-            </Grid>
-            </Grid>
-            {showForm && (
-            <UserForm
-                onAddUser={addUser}
-                user={selectedUser}
-                onCloseForm={closeForm}
-            />
+        <Typography variant="h4"  style={{ textAlign:"center", marginBottom:15,marginTop:10}}>Admin Page</Typography>
+        <Grid container spacing={2} justifyContent="center">
+            {showForm?(null):(
+                <Grid item style={{ marginBottom:10,}}>
+                    <Button variant="contained" onClick={() => setShowForm(true)}>Add User</Button>
+                </Grid>
             )}
-        </CenteredButtonContainer>
-        <TableContainer component={Paper}>
-            <Table>
-            <TableHead>
-                <StyledTableRow>
-                <StyledTableCell>ID</StyledTableCell>
-                <StyledTableCell>Name</StyledTableCell>
-                <StyledTableCell>Mobile number</StyledTableCell>
-                <StyledTableCell>Designation</StyledTableCell>
-                <StyledTableCell>Gender</StyledTableCell>
-                <StyledTableCell>Action</StyledTableCell>
-                </StyledTableRow>
-            </TableHead>
-            <TableBody>
-                {users === null ? (
-                <TableRow>
-                    <TableCell colSpan={6}>Loading...page</TableCell>
-                </TableRow>
-                ) : (
-                users.map((user) => (
-                    <StyledTableRow key={user.id}>
-                        <StyledTableCell>{user.id}</StyledTableCell>
-                        <StyledTableCell>{user.name}</StyledTableCell>
-                        <StyledTableCell>{user.mobileNumber}</StyledTableCell>
-                        <StyledTableCell>{user.designation}</StyledTableCell>
-                        <StyledTableCell>{user.gender}</StyledTableCell>
-
-                        <StyledTableCell>
-                            <DeleteIcon
-                                style={{marginRight:10}}
-                                onClick={() => handleDelete(user)}
-                            />
-                            <UpdateIcon
-                                onClick={() => handleEdit(user)}
-                            />
-                        </StyledTableCell>
+        </Grid>
+        {showForm && (
+            <div style={{position: 'fixed',zIndex: 999,top:0,left:0,width:"100%",height:"100%",backgroundColor:"rgba(0,0,0,.5)"}}>
+                <div style={{position:"fixed", top:"50%", left:"50%", transform:"translate(-50%, -50%)"}}> 
+                    <UserForm
+                        onAddUser={addUser}
+                        user={selectedUser}
+                        onCloseForm={closeForm}
+                    />
+                </div>
+            </div>
+        )}
+        <CenteredButtonContainer>
+            <TableContainer component={Paper} style={{ width: '1000px',}}>
+                <Table>
+                <TableHead>
+                    <StyledTableRow>
+                    <StyledTableCell>Firstname</StyledTableCell>
+                    <StyledTableCell>Lastname</StyledTableCell>
+                    <StyledTableCell>Mobile number</StyledTableCell>
+                    <StyledTableCell>Designation</StyledTableCell>
+                    <StyledTableCell>Gender</StyledTableCell>
+                    <StyledTableCell>Action</StyledTableCell>
                     </StyledTableRow>
-                ))
-                )}
-            </TableBody>
-            </Table>
-        </TableContainer>
+                </TableHead>
+                <TableBody>
+                    {users === null ? (
+                    <TableRow>
+                        <TableCell colSpan={6}>Loading...page</TableCell>
+                    </TableRow>
+                    ) : (
+                    users.map((user) => (
+                        <StyledTableRow key={user.id}>
+                            <StyledTableCell>{user.firstName}</StyledTableCell>
+                            <StyledTableCell>{user.lastName}</StyledTableCell>
+                            <StyledTableCell>{user.mobileNumber}</StyledTableCell>
+                            <StyledTableCell>{user.designation}</StyledTableCell>
+                            <StyledTableCell>{user.gender}</StyledTableCell>
+
+                            <StyledTableCell>
+                                <DeleteIcon
+                                    style={{marginRight:10}}
+                                    onClick={() => handleDelete(user)}
+                                />
+                                <EditIcon
+                                    onClick={() => handleEdit(user)}
+                                />
+                            </StyledTableCell>
+                        </StyledTableRow>
+                    ))
+                    )}
+                </TableBody>
+                </Table>
+            </TableContainer>
+        </CenteredButtonContainer>
     </>
   );
 };

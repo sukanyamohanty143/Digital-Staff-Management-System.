@@ -21,6 +21,7 @@ function Footer() {
         backgroundColor: '#337CCF',
         padding: '20px',
         width: '100%',
+
     };
     const iconStyle = {
         fontSize: 32,
@@ -32,15 +33,13 @@ function Footer() {
             <Typography variant="h6">
                 <Stack className="footer-container">
                     <Grid container spacing={1}>
-
                         <Grid item xs={4}>
                             <Typography variant="h5" style={{ margin: '15px' }}>
                                 <TwitterIcon onClick={functionOpen} style={iconStyle} />
                                 <FacebookIcon onClick={functionOpen} style={iconStyle} />
                                 <LinkedInIcon onClick={functionOpen} style={iconStyle} />
                             </Typography>
-                            
-                            <Dialog open={open} maxWidth="lg">
+                            <Dialog open={open}  maxWidth="lg">
                                 <DialogContent>
                                     <DialogContentText>These are Icons for style, it's nothing will do by clicking</DialogContentText>
                                 </DialogContent>
@@ -49,7 +48,6 @@ function Footer() {
                                 </DialogActions>
                             </Dialog>
                         </Grid>
-
                         <Grid item xs={8}>
                             <p className="footer-text">
                                 © 2023 Digital Staff Management System
@@ -61,4 +59,5 @@ function Footer() {
         </AppBar>
     );
 }
+
 export default Footer;

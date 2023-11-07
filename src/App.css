@@ -30,9 +30,10 @@ body {
 
 .registretion-card {
   width: 700px;
-  height: auto;
+  height:auto;
   margin: auto;
-  margin-top: 50px;
+  margin-top: 15px;
+  margin-bottom: 50px;
 }
 
 .cardcontainer {

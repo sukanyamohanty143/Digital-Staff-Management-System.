@@ -7,7 +7,7 @@ import MenuItem from '@mui/material/MenuItem';
 import { Typography, Button, Card, CardContent } from '@mui/material';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 
-// data variable store position like (staff,supervoiser,admin)
+// data state variable store position like (staff,supervoiser,admin)
 const data = [
   {
     value: 'Admin',
@@ -36,13 +36,10 @@ const genderData = [
 
 
 function Registration() {
-  // here useNevigate use from react router dom.used for routing(if i click on button then open a new page)
   const navigate = useNavigate();
-  const goToLogin = () => { 
+  const goToLogin = () => {
     navigate("/login")
   }
-
-  // submittedData state when i click on submit button  data it will send all data in submitted 
   const [submittedData, setSubmittedData] = useState(null);
 
   // formData store all user informetion.(firsname,lastname etc)
@@ -53,9 +50,8 @@ function Registration() {
     designation: '',
     gender: ''
   });
-  console.log("formData:", formData);
+  console.log("formData", formData);
 
-// handleChange -In this function has to 
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
@@ -63,8 +59,10 @@ function Registration() {
 
 
   const handleSubmit = () => {
-    // i put condition for vailidation.and post data in json server using post method in promisses.
+
     if (formData.firstname && formData.lastname && formData.mobilenumber && formData.designation && formData.gender) {
+
+
       fetch('http://localhost:8000/employees', {
         method: 'POST',
         headers: {
@@ -79,8 +77,8 @@ function Registration() {
         .catch(error => {
           console.error('Error adding data:', error);
         });
+      // console.log('formData =', formData);
       setSubmittedData(formData);
-
       setFormData({
         firstname: '',
         lastname: '',
@@ -91,9 +89,8 @@ function Registration() {
         password: ''
       })
       goToLogin()
-    }
-    else{
-      alert("fill all require Feild")
+    } else {
+      alert("fill all required")
     }
   };
 
@@ -109,7 +106,7 @@ function Registration() {
           <Box
             component="form"
             sx={{
-              '& .MuiTextField-root': {m:0.5, width: '55ch' },
+              '& .MuiTextField-root': {m:1, width: '55ch' },
             }}
             noValidate
             autoComplete="off"
@@ -119,6 +116,7 @@ function Registration() {
                 name="firstname"
                 label="First Name"
                 variant="standard"
+                placeholder="Enter your name"
                 value={formData.firstname}
                 onChange={handleChange}
                 helperText={!formData.firstname ? "Name is required" : "Enter your name"}
@@ -140,6 +138,7 @@ function Registration() {
                 name="email"
                 label="Email"
                 variant="standard"
+                placeholder="Enter your email"
                 value={formData.email}
                 onChange={handleChange}
                 helperText={!formData.email ? "email is required" : "Enter your email"}
@@ -150,6 +149,7 @@ function Registration() {
                 name="password"
                 label="Password"
                 variant="standard"
+                placeholder="Enter your password"
                 value={formData.password}
                 onChange={handleChange}
                 helperText={!formData.password ? "password is required" : "Enter your password"}
@@ -157,9 +157,11 @@ function Registration() {
               <br />
 
               <TextField
+         
                 name="mobilenumber"
                 label="Mobile Number"
                 variant="standard"
+                placeholder="Enter your mobile number"
                 value={formData.mobilenumber}
                 onChange={handleChange}
                 helperText={!formData.mobilenumber ? "mobilenumber is required" : "Enter your mobilenumber"}
@@ -200,7 +202,7 @@ function Registration() {
               </TextField>
               <br />
 
-              <Button submittedData={submittedData} className="submitbtn" variant="contained" onClick={handleSubmit}>
+              <Button className="submitbtn" variant="contained" onClick={handleSubmit}>
                 Submit Button
               </Button>
             </div>
@@ -211,6 +213,15 @@ function Registration() {
   );
 }
 export default Registration;
+
+
+
+
+
+
+
+
+
 
 
 
