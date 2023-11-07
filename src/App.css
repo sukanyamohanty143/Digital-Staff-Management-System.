@@ -1,55 +1,46 @@
-
-
 body {
   margin: 0%;
   padding: 0%;
   background-color: rgb(245, 243, 243);
 }
-/* .navbar {
-  height: 100px;
-  width: 100%;
-  background-color:#337CCF;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-right: 10px;
-} */
-.navigetiontitle{
+
+.navigetiontitle {
   color: white;
   padding: 10px;
   line-height: 10px;
 }
-.formcontainer{
+
+.formcontainer {
   text-align: center;
 }
-.card{
+
+.card {
   width: 1000px;
   height: 500px;
   margin: auto;
   margin-top: 50px;
- }
-
-.footer-text{
-   text-align:"center";
-   margin-top: 20px;
-   font-size:smaller;
-   font-style: italic;
 }
 
-.registretion-card{
-  position: 'static';
+.footer-text {
+  text-align: "center";
+  margin-top: 20px;
+  font-size: smaller;
+  font-style: italic;
+}
+
+.registretion-card {
   width: 700px;
-  height: auto;
+  height:auto;
   margin: auto;
   margin-top: 15px;
   margin-bottom: 50px;
 }
 
-.cardcontainer{
+.cardcontainer {
   width: 800px;
   height: 500px;
   margin: auto;
-  margin-top: 50px;
+  margin-top: 40px;
 }
 
 .welcometext {
@@ -61,7 +52,7 @@ body {
   display: inline-block;
   overflow: hidden;
   white-space: nowrap;
-  border-right: 2px solid gray; 
+  border-right: 2px solid gray;
   animation: typing 4s steps(14, end) infinite, blink-caret 3s step-end infinite;
   text-shadow: 2px 2px 5px gray;
 }
@@ -74,15 +65,17 @@ body {
 }
 
 @keyframes typing {
-  0%,100% {
+
+  0%,
+  100% {
     width: 0;
   }
+
   50% {
     width: 64%;
   }
 }
 
-.digital{
+.digital {
   margin-top: 20px;
 }
-
