@@ -23,6 +23,126 @@
       "attendance": "Present",
       "date": "2023-10-30",
       "id": 2
+    },
+    {
+      "name": "Laxmi Yadav",
+      "attendance": "Present",
+      "date": "2023-10-21",
+      "id": 1
+    },
+    {
+      "name": "Sukanya",
+      "attendance": "Present",
+      "date": "2023-10-30",
+      "id": 2
+    },
+    {
+      "name": "John Doe",
+      "attendance": "Absent",
+      "date": "2023-11-05",
+      "id": 3
+    },
+    {
+      "name": "Jane Doe",
+      "attendance": "Present",
+      "date": "2023-11-02",
+      "id": 4
+    },
+    {
+      "name": "Bob Smith",
+      "attendance": "Present",
+      "date": "2023-11-15",
+      "id": 5
+    },
+    {
+      "name": "Alice Johnson",
+      "attendance": "Absent",
+      "date": "2023-11-10",
+      "id": 6
+    },
+    {
+      "name": "James Brown",
+      "attendance": "Present",
+      "date": "2023-11-20",
+      "id": 7
+    },
+    {
+      "name": "Mary Williams",
+      "attendance": "Present",
+      "date": "2023-11-25",
+      "id": 8
+    },
+    {
+      "name": "David Lee",
+      "attendance": "Absent",
+      "date": "2023-11-12",
+      "id": 9
+    },
+    {
+      "name": "Emily Davis",
+      "attendance": "Present",
+      "date": "2023-11-18",
+      "id": 10
+    },
+    {
+      "name": "Michael Martin",
+      "attendance": "Present",
+      "date": "2023-11-23",
+      "id": 11
+    },
+    {
+      "name": "Sarah Jackson",
+      "attendance": "Present",
+      "date": "2023-11-27",
+      "id": 12
+    },
+    {
+      "name": "Kevin Harris",
+      "attendance": "Absent",
+      "date": "2023-11-14",
+      "id": 13
+    },
+    {
+      "name": "Laura Thompson",
+      "attendance": "Present",
+      "date": "2023-11-19",
+      "id": 14
+    },
+    {
+      "name": "Brian Clark",
+      "attendance": "Present",
+      "date": "2023-11-28",
+      "id": 15
+    },
+    {
+      "name": "Ava Rodriguez",
+      "attendance": "Absent",
+      "date": "2023-11-11",
+      "id": 16
+    },
+    {
+      "name": "Oliver White",
+      "attendance": "Present",
+      "date": "2023-11-24",
+      "id": 17
+    },
+    {
+      "name": "Sophia Martinez",
+      "attendance": "Present",
+      "date": "2023-11-26",
+      "id": 18
+    },
+    {
+      "name": "Ethan Davis",
+      "attendance": "Absent",
+      "date": "2023-11-13",
+      "id": 19
+    },
+    {
+      "name": "Mia Rodriguez",
+      "attendance": "Present",
+      "date": "2023-11-29",
+      "id": 20
     }
   ],
   "EmployeeProfile": [
