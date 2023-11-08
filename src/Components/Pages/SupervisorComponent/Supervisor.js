@@ -1,6 +1,5 @@
 
 import TableData from "./Table";
-import DateMenu from "./DateMenu";
 import React, { useEffect, useState } from "react";
 import {
     TextField,
@@ -11,7 +10,7 @@ import {
 
 import SearchIcon from '@mui/icons-material/Search';
 const Supervisor = () => {
-    
+
     const [selectedRange, setSelectedRange] = useState(null);
     const [data, setData] = useState([]);
     const [search, setSearch] = useState("");
@@ -71,7 +70,7 @@ const Supervisor = () => {
 
                         <SearchIcon />
                     </Button>
-                    <DateMenu handleDropdownChange={handleDropdownChange} selectedRange={selectedRange} />
+                
                 </Box>
                 <TableData data={filterdData} />
             </Card >
