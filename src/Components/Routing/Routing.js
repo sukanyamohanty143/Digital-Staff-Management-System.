@@ -11,7 +11,6 @@ function Routing() {
 
   return (
     <BrowserRouter>
-      {/* <NavigationLogic role={role} /> */}
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/login" element={<Login />} />
@@ -23,23 +22,5 @@ function Routing() {
     </BrowserRouter>
   );
 }
-export default Routing
+export default Routing;
 
-// function NavigationLogic({ role }) {
-
-//   const navigate = useNavigate();
-//     console.log(role,"user role")
-//   if (role === 'staff') {
-//     navigate('/staff');
-//   } else if (role === 'admin') {
-//     navigate('/admin');
-//   } else if (role === 'supervisor') {
-//     navigate('/supervisor');
-//   } else {    
-//     navigate('/');
-//   }
-
-//   return null; 
-// }
-
-// export default Routing;
