@@ -1,20 +1,20 @@
 
 
 import "./App.css";
+
 import Header from './Components/Pages/Header';
 import Routing from "./Components/Routing/Routing";
-import Footer from "./Components/Pages/Footer";
-
+import Supervisor from "./Components/Pages/SupervisorComponent/Supervisor";
+// import SupervisorCom from "./Components/Pages/Supervisor/SupervisorCom";
 function App() {
     return (
         <>
             <Header/>
             <Routing/>
-            <Footer />
+            {/* <Footer /> */}
             {/* <Outer/> */}
             {/* <Table/> */}
-
-
+            <Supervisor/>
             
         </>
     )
