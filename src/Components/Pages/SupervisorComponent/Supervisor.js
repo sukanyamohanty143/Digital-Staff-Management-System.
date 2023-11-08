@@ -24,15 +24,16 @@ function Supervisor() {
     const HandleOnchange = (e) => {
         setSearch(e.target.value)
     }
-  
+
     const HandleSearch = () => {
         const filteredData = attendance.filter(item =>
             (item.name.toLowerCase().includes(search.toLowerCase())) ||
             (item.attendance.toLowerCase().includes(search.toLowerCase())) ||
-            (item.date.attendance.toLowerCase().includes(search.toLowerCase()))
+            (item.date.attendance && item.date.attendance.toLowerCase().includes(search.toLowerCase()))
         );
         setAttendance(filteredData);
     };
+
 
     console.log(attendance)
     return (
@@ -56,7 +57,7 @@ function Supervisor() {
                 </Box>
 
                 <TableData attendance={attendance} />
-                <Attendence/>
+                <Attendence />
 
             </Card>
         </>

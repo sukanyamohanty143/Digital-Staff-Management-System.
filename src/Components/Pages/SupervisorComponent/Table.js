@@ -139,6 +139,4 @@ function TableData({attendance}) {
        </>
    )
 }
-
-
 export default TableData;
