@@ -20,7 +20,7 @@ function SupervisorPage() {
    const [search,setSearch]=useState("")
 
 
-   cons
+
 
 
    const FetchData = () => {
