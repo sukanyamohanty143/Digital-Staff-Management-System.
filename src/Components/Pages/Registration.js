@@ -36,19 +36,23 @@ const genderData = [
 
 
 function Registration() {
+
   const navigate = useNavigate();
   const goToLogin = () => {
     navigate("/login")
   }
-  const [submittedData, setSubmittedData] = useState(null);
 
+  const [submittedData, setSubmittedData] = useState(null);
+  
   // formData store all user informetion.(firsname,lastname etc)
   const [formData, setFormData] = useState({
     firstname: '',
     lastname: '',
     mobilenumber: '',
     designation: '',
-    gender: ''
+    gender: '',
+    email:'',
+    password:''
   });
   console.log("formData", formData);
 
@@ -60,9 +64,7 @@ function Registration() {
 
   const handleSubmit = () => {
 
-    if (formData.firstname && formData.lastname && formData.mobilenumber && formData.designation && formData.gender) {
-
-
+    if (formData.firstname && formData.lastname && formData.mobilenumber && formData.designation && formData.gender && formData.email && formData.password) {
       fetch('http://localhost:8000/employees', {
         method: 'POST',
         headers: {
@@ -77,8 +79,8 @@ function Registration() {
         .catch(error => {
           console.error('Error adding data:', error);
         });
-      // console.log('formData =', formData);
       setSubmittedData(formData);
+
       setFormData({
         firstname: '',
         lastname: '',
@@ -89,6 +91,7 @@ function Registration() {
         password: ''
       })
       goToLogin()
+
     } else {
       alert("fill all required")
     }
@@ -123,7 +126,6 @@ function Registration() {
               />
               <br />
 
-
               <TextField
                 name="lastname"
                 label="Last Name"
@@ -157,7 +159,7 @@ function Registration() {
               <br />
 
               <TextField
-         
+        
                 name="mobilenumber"
                 label="Mobile Number"
                 variant="standard"
