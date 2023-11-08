@@ -1,7 +1,8 @@
-
 import React from 'react';
-import { AppBar, Toolbar, Typography, IconButton, Button ,Stack} from '@mui/material';
+import { AppBar, Toolbar, Typography, IconButton, Stack} from '@mui/material';
 import CoPresentIcon from '@mui/icons-material/CoPresent';
+import Logout from './Logout';
+import Profileavtar from './Profileavtar'
 
 export default function Header() {
     return (
@@ -14,11 +15,11 @@ export default function Header() {
                     Digital Staff Management System
                 </Typography>
 
-                <Stack style={{ marginLeft: 'auto' }}>
-                    <Button color="inherit" style={{ border: '2px solid white'}}>
-                        Logout
-                    </Button>
+                <Stack direction="row" spacing={2} sx={{ marginLeft: 'auto'}}>
+                    <Profileavtar/>
+                    <Logout/>
                 </Stack>
+
             </Toolbar>
         </AppBar>
     )
