@@ -61,27 +61,10 @@ const AdminPage=()=>{
                 });
             setSelectedUser(null);
         } 
-        else{
-            fetch("http://localhost:8000/employees",{
-                method:"POST",
-                headers:{
-                    "Content-Type": "application/json",
-                },
-                body:JSON.stringify(newUser),
-            })
-                .then(()=>fetchData())
-                .catch((error)=>{
-                  console.error("Error adding a new user:", error);
-                });
-        }
-        setShowForm(false);
-        setUsers(users)
-        setShowForm(showForm)
-        setSelectedUser(selectedUser)
-  };
+    };
     const closeForm=()=>{
-        setShowForm(false);
-        setSelectedUser(null);
+         setShowForm(false);
+           setSelectedUser(null);
     };
     const handleEdit=(user)=>{
         setSelectedUser(user);
@@ -96,72 +79,68 @@ const AdminPage=()=>{
                 console.error("Error deleting user data:", error);
             });
     };
-  return(
-    <>
-        <Typography variant="h4"  style={{ textAlign:"center", marginBottom:15,marginTop:10}}>Admin Page</Typography>
-        <Grid container spacing={2} justifyContent="center">
-            {showForm?(null):(
-                <Grid item style={{ marginBottom:10,}}>
-                    <Button variant="contained" onClick={() => setShowForm(true)}>Add User</Button>
-                </Grid>
-            )}
-        </Grid>
-        {showForm && (
-            <div style={{position: 'fixed',zIndex: 999,top:0,left:0,width:"100%",height:"100%",backgroundColor:"rgba(0,0,0,.5)"}}>
-                <div style={{position:"fixed", top:"50%", left:"50%", transform:"translate(-50%, -50%)"}}> 
-                    <UserForm
-                        onAddUser={addUser}
-                        user={selectedUser}
-                        onCloseForm={closeForm}
-                    />
+    return(
+        <>
+            <Typography variant="h4"  style={{ textAlign:"center", marginBottom:15,marginTop:10}}>Admin Page</Typography>
+            {showForm && (
+                <div style={{position: 'fixed',zIndex: 999,top:0,left:0,width:"100%",height:"100%",backgroundColor:"rgba(0,0,0,.5)"}}>
+                    <div style={{position:"fixed", top:"50%", left:"50%", transform:"translate(-50%, -50%)"}}> 
+                        <UserForm
+                            onAddUser={addUser}
+                            user={selectedUser}
+                            onCloseForm={closeForm}
+                        />
+                    </div>
                 </div>
-            </div>
-        )}
-        <CenteredButtonContainer>
-            <TableContainer component={Paper} style={{ width: '1000px',}}>
-                <Table>
-                <TableHead>
-                    <StyledTableRow>
-                    <StyledTableCell>Firstname</StyledTableCell>
-                    <StyledTableCell>Lastname</StyledTableCell>
-                    <StyledTableCell>Mobile number</StyledTableCell>
-                    <StyledTableCell>Designation</StyledTableCell>
-                    <StyledTableCell>Gender</StyledTableCell>
-                    <StyledTableCell>Action</StyledTableCell>
-                    </StyledTableRow>
-                </TableHead>
-                <TableBody>
-                    {users === null ? (
-                    <TableRow>
-                        <TableCell colSpan={6}>Loading...page</TableCell>
-                    </TableRow>
-                    ) : (
-                    users.map((user) => (
-                        <StyledTableRow key={user.id}>
-                            <StyledTableCell>{user.firstname}</StyledTableCell>
-                            <StyledTableCell>{user.lastname}</StyledTableCell>
-                            <StyledTableCell>{user.mobilenumber}</StyledTableCell>
-                            <StyledTableCell>{user.designation}</StyledTableCell>
-                            <StyledTableCell>{user.gender}</StyledTableCell>
-
-                            <StyledTableCell>
-                                <DeleteIcon
-                                    style={{marginRight:10}}
-                                    onClick={() => handleDelete(user)}
-                                />
-                                <EditIcon
-                                    onClick={() => handleEdit(user)}
-                                />
-                            </StyledTableCell>
+            )}
+            <CenteredButtonContainer>
+                <TableContainer component={Paper} style={{ width: '1000px',}}>
+                    <Table>
+                    <TableHead>
+                        <StyledTableRow>
+                        <StyledTableCell>Firstname</StyledTableCell>
+                        <StyledTableCell>Lastname</StyledTableCell>
+                        <StyledTableCell>Mobile number</StyledTableCell>
+                        <StyledTableCell>Designation</StyledTableCell>
+                        <StyledTableCell>Gender</StyledTableCell>
+                        <StyledTableCell>Action</StyledTableCell>
                         </StyledTableRow>
-                    ))
-                    )}
-                </TableBody>
-                </Table>
-            </TableContainer>
-        </CenteredButtonContainer>
-    </>
+                    </TableHead>
+                    <TableBody>
+                        {users===null?(
+                        <TableRow>
+                            <TableCell colSpan={6}>Loading...page</TableCell>
+                        </TableRow>
+                        ) : (
+                        users.map((user) => (
+                            <StyledTableRow key={user.id}>
+                                <StyledTableCell>{user.firstname}</StyledTableCell>
+                                <StyledTableCell>{user.lastname}</StyledTableCell>
+                                <StyledTableCell>{user.mobilenumber}</StyledTableCell>
+                                <StyledTableCell>{user.designation}</StyledTableCell>
+                                <StyledTableCell>{user.gender}</StyledTableCell>
+
+                                <StyledTableCell>
+                                    <DeleteIcon
+                                        style={{marginRight:10}}
+                                        onClick={() => handleDelete(user)}
+                                    />
+                                    <EditIcon
+                                        onClick={() => handleEdit(user)}
+                                    />
+                                </StyledTableCell>
+                            </StyledTableRow>
+                        ))
+                        )}
+                    </TableBody>
+                    </Table>
+                </TableContainer>
+            </CenteredButtonContainer>
+        </>
   );
 };
 
 export default AdminPage;
+
+
+
