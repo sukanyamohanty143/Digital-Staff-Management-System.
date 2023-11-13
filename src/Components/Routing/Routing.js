@@ -4,7 +4,7 @@ import Staff from '../Pages/Staff'
 import Home from '../Pages/Home'
 import Registration from '../Pages/Registration'
 import AdminPage from '../Pages/AdminPage/admin'
-import SupervisorPage from '../Pages/SupervisorTracker/SupervisorPage'
+import Supervisor from '../Pages/SupervisorComponent/Supervisor';
 import Footer from '../Pages/Footer';
 import Header from '../Pages/Header';
 function Routing() {
@@ -19,7 +19,10 @@ function Routing() {
         <Route path="/registration" element={<Registration />} />
         <Route path="/staff" element={<Staff />} />
         <Route path="/admin" element={<AdminPage />} />
-        <Route path="/supervisor" element={<SupervisorPage />} />
+        <Route path="/supervisor" element={<Supervisor />} />
+        <Route path="/outer" element={<Outer/>} />
+        <Route path="/profile" element={<Profile/>} />
+        <Route path="/table" element={<EmployeeTable />} />
       </Routes>
       <Footer/>
 
@@ -27,4 +30,3 @@ function Routing() {
   );
 }
 export default Routing;
-
