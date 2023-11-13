@@ -137,6 +137,24 @@
       "attendance": "Present",
       "date": "2023-11-13",
       "id": 33
+    },
+    {
+      "name": "kirti",
+      "attendance": "Present",
+      "date": "2023-11-13",
+      "id": 34
+    },
+    {
+      "name": "kirti",
+      "attendance": "Present",
+      "date": "2023-11-13",
+      "id": 35
+    },
+    {
+      "name": "soma",
+      "attendance": "Present",
+      "date": "2023-11-08",
+      "id": 36
     }
   ],
   "EmployeeProfile": [
@@ -179,6 +197,22 @@
       "JoiningDate": "2023-11-01",
       "ProfilePhotoURL": null,
       "id": 4
+    },
+    {
+      "Name": "kirti",
+      "Email": "khushboo@navgurukul,org",
+      "Password": "rgirgjtg",
+      "JoiningDate": "2023-11-13",
+      "ProfilePhotoURL": null,
+      "id": 5
+    },
+    {
+      "Name": "soma",
+      "Email": "laxmiyadav200410@gmail.com",
+      "Password": "dvfdkgf",
+      "JoiningDate": "2023-11-19",
+      "ProfilePhotoURL": null,
+      "id": 6
     }
   ]
 }
