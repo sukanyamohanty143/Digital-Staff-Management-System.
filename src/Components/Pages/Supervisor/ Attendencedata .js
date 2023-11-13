@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import { TableHead, Table, TableCell, TableRow, TableContainer, Box, Card,Select,MenuItem} from "@mui/material";
 
-const Attendence = () => {
+const Attendencedata = () => {
 
     const [selectedRange, setSelectedRange] = useState(null);
 
@@ -138,5 +138,5 @@ const Attendence = () => {
     );
 };
 
-export default Attendence;
+export default Attendencedata;
 
