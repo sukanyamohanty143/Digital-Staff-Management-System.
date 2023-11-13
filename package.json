@@ -21,8 +21,13 @@
     "jspdf-react": "^1.0.11",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+<<<<<<< HEAD
+    "react-router-dom": "^6.18.0",
+    "react-scripts": "5.0.1",
+=======
     "react-router-dom": "^6.17.0",
     "react-scripts": "^5.0.1",
+>>>>>>> f51b2081841ff7b42498ece3d505aa02a846565d
     "react-to-pdf": "^1.0.1",
     "react-to-print": "^2.14.15",
     "reactjs-popup": "^2.0.6",

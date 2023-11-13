@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-
+import { useNavigate } from 'react-router-dom';
 import { TextField, Button, Typography, Card, Box, MenuItem, Select} from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+
 const useStyles = makeStyles((theme) => ({
   container: {
     display: "flex",
@@ -32,11 +33,13 @@ const useStyles = makeStyles((theme) => ({
 
 
 const Staff = () => {
+  const navigate = useNavigate();
 
   const classes = useStyles();
   const [date, setDate] = useState();
   const [name, setName] = useState("");
   const [attendance, setAttendance] = useState("");
+
 
   const HandleName = (e) => {
     setName(e.target.value);
@@ -50,11 +53,33 @@ const Staff = () => {
     setDate(e.target.value);
   };
 
+  const ChackProfile = async (userName) => {
+    console.log('user name', userName)
+    try {
+      const res = await fetch("http://localhost:8000/EmployeeProfile");
+      const data = await res.json();
+
+      console.log(data, "hi");
+      const foundUser = data.find((vlu) => vlu["Name"] === userName);
+      console.log("found user data", foundUser)
+      if (foundUser) {
+        navigate('/outer', { state: { user: foundUser } });
+      } else {
+        navigate('/profile');
+      }
+    } catch (err) {
+      console.error(err);
+    }
+   
+  };
+
+ 
   const HandleClick = () => {
     
-
+    let userName = name
     if (name && date && attendance ) {
       const data = { name, attendance, date };
+      console.log('user data', data)
       fetch("http://localhost:8000/Attendence", {
         method: "POST",
         headers: {
@@ -68,10 +93,12 @@ const Staff = () => {
           setName("");
           setDate();
           setAttendance("Present");
+          ChackProfile(userName)
         })
         .catch((error) => {
           console.error(error);
         });
+      
     }  else {
       alert("Please fill all the information in the form");
     }
