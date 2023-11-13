@@ -1,14 +1,36 @@
 {
   "employees": [
     {
-      "firstname": "Sukanya",
-      "lastname": "Mohanty",
-      "mobilenumber": "1334211232",
+      "firstname": "ujala",
+      "lastname": "saini",
+      "mobilenumber": "1234567891",
+      "designation": "Staff",
+      "gender": "Male",
+      "id": 2
+    },
+    {
+      "firstname": "Vikas",
+      "lastname": "saini",
+      "mobilenumber": "1234567832",
       "designation": "Admin",
+      "gender": "Male",
+      "id": 3
+    },
+    {
+      "firstname": "Vishal ",
+      "lastname": "saini",
+      "mobilenumber": "121212121",
+      "designation": "Staff3",
+      "gender": "male",
+      "id": 4
+    },
+    {
+      "firstname": "Kumkum",
+      "lastname": "saini",
+      "mobilenumber": "2323232323",
+      "designation": "supervisor",
       "gender": "female",
-      "email": "sukanya@gmail.com",
-      "password": "Sukanya@123",
-      "id": 1
+      "id": 5
     }
   ],
   "Attendence": [
