@@ -1,9 +1,9 @@
 {
   "employees": [
     {
-      "firstname": "ujala",
+      "firstname": "Ujala",
       "lastname": "saini",
-      "mobilenumber": "1234567891",
+      "mobilenumber": "2234562133",
       "designation": "Staff",
       "gender": "Male",
       "id": 2
@@ -11,7 +11,7 @@
     {
       "firstname": "Vikas",
       "lastname": "saini",
-      "mobilenumber": "1234567832",
+      "mobilenumber": "1234567812",
       "designation": "Admin",
       "gender": "Male",
       "id": 3
@@ -20,7 +20,7 @@
       "firstname": "Vishal ",
       "lastname": "saini",
       "mobilenumber": "121212121",
-      "designation": "Staff3",
+      "designation": "Staff",
       "gender": "male",
       "id": 4
     },
