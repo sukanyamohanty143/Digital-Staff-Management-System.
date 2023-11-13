@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
-import { TextField, Button, Typography, Card, Box, MenuItem, Select} from "@material-ui/core";
+import { useNavigate } from "react-router-dom";
+import { TextField, Button, Typography, Card, Box, MenuItem, Select } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
@@ -8,13 +8,12 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-
   },
   card: {
     maxWidth: 400,
     marginBottom: 20,
     padding: theme.spacing(1),
-    marginTop: 30
+    marginTop: 30,
   },
   label: {
     marginBottom: theme.spacing(1),
@@ -27,22 +26,25 @@ const useStyles = makeStyles((theme) => ({
   },
   heading: {
     marginTop: 100,
-  }
+  },
 }));
-
-
 
 const Staff = () => {
   const navigate = useNavigate();
 
   const classes = useStyles();
-  const [date, setDate] = useState();
+  const [date, setDate] = useState(new Date().toISOString().slice(0, 10)); // Set the date to the current date
   const [name, setName] = useState("");
   const [attendance, setAttendance] = useState("");
 
-
   const HandleName = (e) => {
-    setName(e.target.value);
+    const inputName = e.target.value;
+
+    if (/^[A-Za-z\s]*$/.test(inputName)) {
+      setName(inputName);
+    } else {
+      alert("Please enter a valid name (alphabets and spaces only).");
+    }
   };
 
   const HandleAttendence = (e) => {
@@ -53,15 +55,12 @@ const Staff = () => {
     setDate(e.target.value);
   };
 
-  const ChackProfile = async (userName) => {
-    console.log('user name', userName)
+  const CheckProfile = async (userName) => {
     try {
       const res = await fetch("http://localhost:8000/EmployeeProfile");
       const data = await res.json();
-
-      console.log(data, "hi");
       const foundUser = data.find((vlu) => vlu["Name"] === userName);
-      console.log("found user data", foundUser)
+
       if (foundUser) {
         navigate('/outer', { state: { user: foundUser } });
       } else {
@@ -70,40 +69,33 @@ const Staff = () => {
     } catch (err) {
       console.error(err);
     }
-   
   };
 
- 
   const HandleClick = () => {
-    
-    let userName = name
-    if (name && date && attendance ) {
+    let userName = name;
+    if (name && date && attendance) {
       const data = { name, attendance, date };
-      console.log('user data', data)
-      fetch("http://localhost:8000/Attendence", {
+      fetch("http://localhost:8000/Attendance", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
       })
-
         .then((res) => {
           alert("Data saved successfully");
           setName("");
-          setDate();
-          setAttendance("Present");
-          ChackProfile(userName)
+          setDate(new Date().toISOString().slice(0, 10)); // Reset the date to the current date
+          setAttendance("");
+          CheckProfile(userName);
         })
         .catch((error) => {
           console.error(error);
         });
-      
-    }  else {
+    } else {
       alert("Please fill all the information in the form");
     }
   };
-
 
   return (
     <div className={classes.container}>
@@ -158,9 +150,7 @@ const Staff = () => {
           Submit
         </Button>
       </Card>
-  
     </div>
-    
   );
 };
 

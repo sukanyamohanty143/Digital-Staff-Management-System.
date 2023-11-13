@@ -11,7 +11,6 @@ const Outer = () => {
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     if (file) {
-      // You can save the uploaded file in state or use it for other purposes
       setProfilePhoto(URL.createObjectURL(file));
     }
   };
