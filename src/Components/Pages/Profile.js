@@ -9,9 +9,12 @@ import {
   Avatar,
   IconButton,
 } from '@mui/material';
-import PhotoCameraIcon from '@mui/icons-material/PhotoCamera'; // Import the camera icon
+import PhotoCameraIcon from '@mui/icons-material/PhotoCamera'; 
+import { useNavigate } from 'react-router-dom';
+
 
 const EmployeeProfile = () => {
+  const navigate = useNavigate();
   const [profile, setProfile] = useState({
     name: '',
     email: '',
@@ -55,17 +58,18 @@ const EmployeeProfile = () => {
       .then((response) => response.json())
       .then((data) => {
         console.log('Data added:', data);
+        setProfile({
+          name: '',
+          email: '',
+          password: '',
+          joinDate: '',
+          profilePhoto: null,
+        })
+        navigate('/outer', { state: { user: profileData } });
       })
       .catch((error) => {
         console.error('Error adding data:', error);
       });
-    setProfile({
-      name: '',
-      email: '',
-      password: '',
-      joinDate: '',
-      profilePhoto: null,
-    })
   };
 
   return (

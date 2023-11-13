@@ -6,7 +6,7 @@ function Profileavtar() {
         <>
             <Stack direction="row" spacing={1} sx={{ marginLeft: 'auto' }}>
                 <Avatar
-                    alt="Sonam"
+                    alt="Profile"
                 />
             </Stack>
         </>

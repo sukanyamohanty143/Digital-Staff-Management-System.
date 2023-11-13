@@ -35,7 +35,7 @@ const AdminPage=()=>{
     const [selectedUser, setSelectedUser] = useState(null);
 
     const fetchData=()=>{
-      fetch("http://localhost:3000/employees")
+      fetch("http://localhost:8000/employees")
         .then((response)=>response.json())
         .then((data)=>setUsers(data))
         .catch((error)=>{
@@ -48,7 +48,7 @@ const AdminPage=()=>{
 
     const addUser =(newUser)=>{
         if (selectedUser){
-            fetch(`http://localhost:3000/employees/${selectedUser.id}`,{
+            fetch(`http://localhost:8000/employees/${selectedUser.id}`,{
                 method:"PUT",
                 headers:{
                     "Content-Type": "application/json",
@@ -62,7 +62,7 @@ const AdminPage=()=>{
             setSelectedUser(null);
         } 
         else{
-            fetch("http://localhost:3000/employees",{
+            fetch("http://localhost:8000/employees",{
                 method:"POST",
                 headers:{
                     "Content-Type": "application/json",
@@ -88,7 +88,7 @@ const AdminPage=()=>{
         setShowForm(true);
     };
     const handleDelete=(user)=>{
-        fetch(`http://localhost:3000/employees/${user.id}`,{
+        fetch(`http://localhost:8000/employees/${user.id}`,{
             method: "DELETE",
         })
             .then(()=>fetchData())
@@ -138,9 +138,9 @@ const AdminPage=()=>{
                     ) : (
                     users.map((user) => (
                         <StyledTableRow key={user.id}>
-                            <StyledTableCell>{user.firstName}</StyledTableCell>
-                            <StyledTableCell>{user.lastName}</StyledTableCell>
-                            <StyledTableCell>{user.mobileNumber}</StyledTableCell>
+                            <StyledTableCell>{user.firstname}</StyledTableCell>
+                            <StyledTableCell>{user.lastname}</StyledTableCell>
+                            <StyledTableCell>{user.mobilenumber}</StyledTableCell>
                             <StyledTableCell>{user.designation}</StyledTableCell>
                             <StyledTableCell>{user.gender}</StyledTableCell>
 
