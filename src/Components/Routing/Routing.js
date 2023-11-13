@@ -5,12 +5,14 @@ import Home from '../Pages/Home'
 import Registration from '../Pages/Registration'
 import AdminPage from '../Pages/AdminPage/admin'
 import SupervisorPage from '../Pages/SupervisorTracker/SupervisorPage'
-
+import Footer from '../Pages/Footer';
+import Header from '../Pages/Header';
 function Routing() {
 
 
   return (
     <BrowserRouter>
+    <Header/>
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/login" element={<Login />} />
@@ -19,6 +21,8 @@ function Routing() {
         <Route path="/admin" element={<AdminPage />} />
         <Route path="/supervisor" element={<SupervisorPage />} />
       </Routes>
+      <Footer/>
+
     </BrowserRouter>
   );
 }

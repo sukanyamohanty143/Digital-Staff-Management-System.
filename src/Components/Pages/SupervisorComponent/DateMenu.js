@@ -4,7 +4,7 @@ function DateMenu({ handleDropdownChange, selectedRange }) {
         <>
             <Box sx={{ m: "20px" }}>
                 <FormControl sx={{minWidth: 120 }}>
-                    <InputLabel id="demo-simple-select-helper-label">Age</InputLabel>
+                    <InputLabel id="demo-simple-select-helper-label">Date</InputLabel>
                     <Select
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
