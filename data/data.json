@@ -62,12 +62,23 @@
       "date": "2023-10-30",
       "id": 2
     }
-  
   ],
-  "EmployeeProfile":[
+  "EmployeeProfile": [
     {
-
-      
+      "Name": "Laxmi Yadav",
+      "Email": "laxmiyadav21@navgurukul.org",
+      "Password": "navgurukul",
+      "JoiningDate": "2023-11-08",
+      "ProfilePhotoURL": "blob:http://localhost:3000/83095143-52d7-4335-92c5-eba3b0b5a607",
+      "id": 1
+    },
+    {
+      "Name": "khushboo",
+      "Email": "khushboo@navgurukul,org",
+      "Password": "khushboo@123",
+      "JoiningDate": "2023-11-12",
+      "ProfilePhotoURL": "",
+      "id": 2
     }
   ]
 }
