@@ -1,19 +1,27 @@
 import React, { useState } from "react";
-
-import { TextField, Button, Typography, Card, Box, MenuItem, Select} from "@material-ui/core";
+import { useNavigate } from "react-router-dom";
+import {
+  TextField,
+  Button,
+  Typography,
+  Card,
+  Box,
+  MenuItem,
+  Select,
+} from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+
 const useStyles = makeStyles((theme) => ({
   container: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-
   },
   card: {
     maxWidth: 400,
     marginBottom: 20,
     padding: theme.spacing(1),
-    marginTop: 30
+    marginTop: 30,
   },
   label: {
     marginBottom: theme.spacing(1),
@@ -26,57 +34,77 @@ const useStyles = makeStyles((theme) => ({
   },
   heading: {
     marginTop: 100,
-  }
+  },
 }));
 
-
-
 const Staff = () => {
+  const navigate = useNavigate();
 
   const classes = useStyles();
-  const [date, setDate] = useState();
+  const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
   const [name, setName] = useState("");
   const [attendance, setAttendance] = useState("");
+  
+  const [nameError, setNameError] = useState("");
 
-  const HandleName = (e) => {
-    setName(e.target.value);
+
+  const handleName = (e) => {
+    const inputName = e.target.value;
+
+    if (/^[A-Za-z\s]*$/.test(inputName) || inputName === "") {
+      setName(inputName);
+      setNameError("");
+    } 
+    else {
+      setNameError("'Only alphabetletters and spaces are allowed'");
+    }
   };
 
-  const HandleAttendence = (e) => {
+  const handleAttendance = (e) => {
     setAttendance(e.target.value);
   };
 
-  const HandleDate = (e) => {
-    setDate(e.target.value);
+  const CheckProfile = async (userName) => {
+    try {
+      const res = await fetch("http://localhost:8000/EmployeeProfile");
+      const data = await res.json();
+      const foundUser = data.find((vlu) => vlu["Name"] === userName);
+
+      if (foundUser) {
+        navigate('/outer', { state: { user: foundUser } });
+      } else {
+        navigate('/profile');
+      }
+    } catch (err) {
+      console.error(err);
+    }
   };
 
-  const HandleClick = () => {
-    
-
-    if (name && date && attendance ) {
+  const handleOnClick = () => {
+    let userName = name;
+    if (name && date && attendance) {
       const data = { name, attendance, date };
-      fetch("http://localhost:8000/Attendence", {
+      fetch("http://localhost:8000/Attendance", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
       })
-
         .then((res) => {
           alert("Data saved successfully");
           setName("");
-          setDate();
-          setAttendance("Present");
+          setDate(new Date().toISOString().slice(0, 10));
+          setAttendance("");
+          CheckProfile(userName);
         })
         .catch((error) => {
           console.error(error);
         });
-    }  else {
+    } else {
       alert("Please fill all the information in the form");
     }
   };
-
 
   return (
     <div className={classes.container}>
@@ -92,8 +120,10 @@ const Staff = () => {
             id="name"
             type="text"
             value={name}
-            onChange={HandleName}
+            onChange={handleName}
             className={classes.input}
+            error={Boolean(nameError)}
+            helperText={nameError}
           />
         </Box>
         <Box>
@@ -103,7 +133,7 @@ const Staff = () => {
           <Select
             id="attendance"
             value={attendance}
-            onChange={HandleAttendence}
+            onChange={handleAttendance}
             className={classes.input}
           >
             <MenuItem value="Present">Present</MenuItem>
@@ -116,9 +146,9 @@ const Staff = () => {
           </label>
           <TextField
             id="date"
-            type="date"
+            type="text"
             value={date}
-            onChange={HandleDate}
+            InputProps={{ readOnly: true }}
             className={classes.input}
           />
         </Box>
@@ -126,14 +156,12 @@ const Staff = () => {
           variant="contained"
           color="primary"
           className={classes.button}
-          onClick={HandleClick}
+          onClick={handleOnClick}
         >
           Submit
         </Button>
       </Card>
-  
     </div>
-    
   );
 };
 

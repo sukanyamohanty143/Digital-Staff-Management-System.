@@ -1,24 +1,38 @@
 {
   "employees": [
     {
-      "firstname": "Sukanya",
-      "lastname": "Mohanty",
-      "mobilenumber": "1334211232",
+      "firstname": "Ujala",
+      "lastname": "saini",
+      "mobilenumber": "2234562133",
+      "designation": "Staff",
+      "gender": "Male",
+      "id": 2
+    },
+    {
+      "firstname": "Vikas",
+      "lastname": "saini",
+      "mobilenumber": "1234567812",
       "designation": "Admin",
+      "gender": "Male",
+      "id": 3
+    },
+    {
+      "firstname": "Vishal ",
+      "lastname": "saini",
+      "mobilenumber": "121212121",
+      "designation": "Staff",
+      "gender": "male",
+      "id": 4
+    },
+    {
+      "firstname": "Kumkum",
+      "lastname": "saini",
+      "mobilenumber": "2323232323",
+      "designation": "supervisor",
       "gender": "female",
       "email": "sukanya@gmail.com",
       "password": "Sukanya@123",
       "id": 1
-    },
-    {
-      "firstname": "sonam",
-      "lastname": "kumari",
-      "mobilenumber": "8601387027",
-      "designation": "Supervisor",
-      "gender": "female",
-      "email": "sonamk@navgurukul.org",
-      "password": "sonam@123",
-      "id": 2
     }
   ],
   "Attendence": [
@@ -47,115 +61,190 @@
       "id": 2
     },
     {
-      "name": "Person 3",
-      "attendance": "Present",
-      "date": "2023-10-20",
-      "id": 3
+      "name": "Aman",
+      "attendance": "Absent",
+      "date": "2023-11-10",
+      "id": 21
     },
     {
-      "name": "Person 4",
+      "name": "Aman",
       "attendance": "Present",
-      "date": "2023-10-19",
-      "id": 4
+      "date": "2023-11-10",
+      "id": 22
     },
     {
-      "name": "Person 5",
+      "name": "Aman",
       "attendance": "Present",
-      "date": "2023-10-18",
-      "id": 5
+      "date": "2023-11-10",
+      "id": 23
     },
     {
-      "name": "Person 6",
-      "attendance": "Present",
-      "date": "2023-10-17",
-      "id": 6
+      "name": "Aman",
+      "attendance": "Absent",
+      "date": "2023-11-10",
+      "id": 24
     },
     {
-      "name": "Person 7",
+      "name": "Sukanya",
       "attendance": "Present",
-      "date": "2023-10-16",
-      "id": 7
+      "date": "2023-11-10",
+      "id": 25
     },
     {
-      "name": "Person 8",
-      "attendance": "Present",
-      "date": "2023-10-15",
-      "id": 8
+      "name": "Aman",
+      "attendance": "Absent",
+      "date": "2023-11-10",
+      "id": 26
     },
     {
-      "name": "Person 9",
-      "attendance": "Present",
-      "date": "2023-10-14",
-      "id": 9
+      "name": "Sukanya",
+      "attendance": "Absent",
+      "date": "2023-11-10",
+      "id": 27
     },
     {
-      "name": "Person 10",
+      "name": "Aman",
       "attendance": "Present",
-      "date": "2023-10-13",
+      "date": "2023-11-10",
+      "id": 28
+    },
+    {
+      "name": "Sukanya",
+      "attendance": "Present",
+      "date": "2023-11-10",
+      "id": 29
+    },
+    {
+      "name": "Aman",
+      "attendance": "Present",
+      "date": "2023-11-13",
+      "id": 30
+    },
+    {
+      "name": "Aman",
+      "attendance": "Present",
+      "date": "2023-11-13",
+      "id": 31
+    },
+    {
+      "name": "Aman",
+      "attendance": "Present",
+      "date": "2023-10-30",
+      "id": 2
+    },
+    {
+      "name": "Laxmi Yadav",
+      "attendance": "Present",
+      "date": "2023-11-10",
       "id": 10
     },
     {
-      "name": "Person 11",
+      "name": "Laxmi Yadav",
       "attendance": "Present",
-      "date": "2023-10-12",
+      "date": "2023-11-13",
       "id": 11
     },
     {
-      "name": "Person 12",
+      "name": "ujala",
       "attendance": "Present",
-      "date": "2023-10-11",
+      "date": "2023-11-13",
       "id": 12
     },
     {
-      "name": "Person 13",
+      "name": "Laxmi Yadav",
       "attendance": "Present",
-      "date": "2023-10-10",
-      "id": 13
+      "date": "2023-11-13",
+      "id": 32
     },
     {
-      "name": "Person 14",
+      "name": "Laxmi ",
       "attendance": "Present",
-      "date": "2023-10-09",
-      "id": 14
+      "date": "2023-11-13",
+      "id": 33
     },
     {
-      "name": "Person 15",
+      "name": "kirti",
       "attendance": "Present",
-      "date": "2023-10-08",
-      "id": 15
+      "date": "2023-11-13",
+      "id": 34
     },
     {
-      "name": "Person 16",
+      "name": "kirti",
       "attendance": "Present",
-      "date": "2023-10-07",
-      "id": 16
+      "date": "2023-11-13",
+      "id": 35
     },
     {
-      "name": "Person 17",
+      "name": "soma",
       "attendance": "Present",
-      "date": "2023-10-06",
-      "id": 17
-    },
-    {
-      "name": "Person 18",
-      "attendance": "Present",
-      "date": "2023-10-05",
-      "id": 18
-    },
-    {
-      "name": "Person 19",
-      "attendance": "Present",
-      "date": "2023-10-04",
-      "id": 19
-    },
-    {
-      "name": "Person 20",
-      "attendance": "Present",
-      "date": "2023-10-03",
-      "id": 20
+      "date": "2023-11-08",
+      "id": 36
     }
   ],
   "EmployeeProfile": [
-    {}
+    {
+      "Name": "Aman",
+      "Email": "aman@gmail.com",
+      "Password": "fhsjks@123",
+      "JoiningDate": "2023-11-02",
+      "ProfilePhotoURL": null,
+      "id": 1
+    },
+    {
+      "Name": "Laxmi Yadav",
+      "Email": "laxmiyadav21@navgurukul.org",
+      "Password": "navgurukul",
+      "JoiningDate": "2023-11-08",
+      "ProfilePhotoURL": "blob:http://localhost:3000/83095143-52d7-4335-92c5-eba3b0b5a607",
+      "id": 1
+    },
+    {
+      "Name": "khushboo",
+      "Email": "khushboo@navgurukul,org",
+      "Password": "khushboo@123",
+      "JoiningDate": "2023-11-12",
+      "ProfilePhotoURL": "",
+      "id": 2
+    },
+    {
+      "Name": "ujala",
+      "Email": "laxmiyadav21@navgurukul.org",
+      "Password": "yiuujj",
+      "JoiningDate": "2023-11-18",
+      "ProfilePhotoURL": "blob:http://localhost:3001/3edf6711-1689-4f17-994c-b9d0cde949ff",
+      "id": 3
+    },
+    {
+      "Name": "laxmi",
+      "Email": "laxmi200410@gmail.com",
+      "Password": "navgurukul",
+      "JoiningDate": "2023-11-01",
+      "ProfilePhotoURL": null,
+      "id": 4
+    },
+    {
+      "Name": "kirti",
+      "Email": "khushboo@navgurukul,org",
+      "Password": "rgirgjtg",
+      "JoiningDate": "2023-11-13",
+      "ProfilePhotoURL": null,
+      "id": 5
+    },
+    {
+      "Name": "soma",
+      "Email": "laxmiyadav200410@gmail.com",
+      "Password": "dvfdkgf",
+      "JoiningDate": "2023-11-19",
+      "ProfilePhotoURL": null,
+      "id": 6
+    },
+    {
+      "Name": "ujala ",
+      "Email": "dfv",
+      "Password": "3mq@nQEXi6v9Yym",
+      "JoiningDate": "2023-11-14",
+      "ProfilePhotoURL": "blob:http://localhost:3000/f60899dd-6f2b-4e1c-9abf-0abe79bfda73",
+      "id": 7
+    }
   ]
 }

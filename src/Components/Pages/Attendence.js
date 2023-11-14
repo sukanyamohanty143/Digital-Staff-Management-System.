@@ -13,7 +13,7 @@ import {
 
 function TableData({ data }) {
 
-    console.log(data, "filrt")
+    // console.log(data, "filrt")
 
     return (
 
@@ -25,7 +25,7 @@ function TableData({ data }) {
                             align="center"
                             container
                             direction="column"
-                            justify="center"
+                            // justify="center"
                             spacing={0}
                         >
                             <Grid item>

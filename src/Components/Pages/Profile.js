@@ -2,16 +2,19 @@ import React, { useState } from 'react';
 import {
   Container,
   TextField,
-Button,
+  Button,
   Grid,
   Paper,
   Typography,
   Avatar,
   IconButton,
 } from '@mui/material';
-import PhotoCameraIcon from '@mui/icons-material/PhotoCamera'; // Import the camera icon
+import PhotoCameraIcon from '@mui/icons-material/PhotoCamera'; 
+import { useNavigate } from 'react-router-dom';
+
 
 const EmployeeProfile = () => {
+  const navigate = useNavigate();
   const [profile, setProfile] = useState({
     name: '',
     email: '',
@@ -45,24 +48,32 @@ const EmployeeProfile = () => {
       JoiningDate: profile.joinDate,
       ProfilePhotoURL: profile.profilePhoto,
     };
-    fetch('http://localhost:8000/EmployeeProfile', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(profileData),
-      })
-        .then(response => response.json())
-        .then(data => {
-          console.log('Data added:', data);
+    fetch(`http://localhost:8000/EmployeeProfile`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(profileData),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('Data added:', data);
+        setProfile({
+          name: '',
+          email: '',
+          password: '',
+          joinDate: '',
+          profilePhoto: null,
         })
-        .catch(error => {
-          console.error('Error adding data:', error);
-        });
+        navigate('/outer', { state: { user: profileData } });
+      })
+      .catch((error) => {
+        console.error('Error adding data:', error);
+      });
   };
 
   return (
-    <Container>
+    <Container style={{ marginTop: "70px" }}>
       <Paper elevation={3} style={{ padding: '20px', margin: '20px', maxWidth: '600px' }}>
         <Typography variant="h5" gutterBottom>
           Employee Profile
@@ -75,8 +86,9 @@ const EmployeeProfile = () => {
                 component="span"
                 style={{
                   position: 'absolute',
-                  bottom: 0,
-                  right: 0,
+                  bottom: '50%',
+                  right: '50%',
+                  transform: 'translate(50%, 50%)',
                 }}
               >
                 <PhotoCameraIcon />
@@ -91,6 +103,7 @@ const EmployeeProfile = () => {
                 name="name"
                 value={profile.name}
                 onChange={handleChange}
+                margin="normal"
               />
             </Grid>
             <Grid item xs={12}>
@@ -100,6 +113,7 @@ const EmployeeProfile = () => {
                 name="email"
                 value={profile.email}
                 onChange={handleChange}
+                margin="normal"
               />
             </Grid>
             <Grid item xs={12}>
@@ -110,6 +124,7 @@ const EmployeeProfile = () => {
                 name="password"
                 value={profile.password}
                 onChange={handleChange}
+                margin="normal"
               />
             </Grid>
             <Grid item xs={12}>
@@ -123,6 +138,7 @@ const EmployeeProfile = () => {
                 InputLabelProps={{
                   shrink: true,
                 }}
+                margin="normal"
               />
             </Grid>
             <Grid item xs={12}>

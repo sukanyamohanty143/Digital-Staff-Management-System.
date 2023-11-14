@@ -98,6 +98,7 @@ const AttendenceData = () => {
                             <MenuItem value="2">8-14 days</MenuItem>
                             <MenuItem value="3">15-21 days</MenuItem>
                             <MenuItem value="4">22-30 days</MenuItem>
+                            
                         </Select>
 
 

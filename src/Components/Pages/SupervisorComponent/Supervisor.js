@@ -1,41 +1,63 @@
-
-import { useEffect } from "react";
-import { useState } from "react";
-import { Box, Button, TextField, Card } from "@mui/material";
-import SearchIcon from '@mui/icons-material/Search';
 import TableData from "./Table";
-import Attendence from "./DateAttendence";
-function Supervisor() {
+import React, { useEffect, useState } from "react";
+import DateMenu from "./DateMenu";
+import {
+    TextField,
+    Button,
+    Box,
+    Card
+} from "@mui/material";
 
-    const [attendance, setAttendance] = useState([])
-    const [search, setSearch] = useState("")
+import SearchIcon from '@mui/icons-material/Search';
+
+const Supervisor = () => {
+    const [selectedRange, setSelectedRange] = useState(null);
+    const [data, setData] = useState([]);
+    const [search, setSearch] = useState("");
+    const [filteredData, setFilteredData] = useState([]);
+
     const FetchData = () => {
-        fetch("http://localhost:8000/Attendence").then((res) => {
-            return res.json()
-        }).then((res) => {
-            setAttendance(res)
-        })
+        fetch("http://localhost:8000/Attendence")
+            .then((res) => res.json())
+            .then((res) => {
+                setData(res);
+                setFilteredData(res);
+            });
+    };
+
+    const HandleOnchange = (e) => {
+        setSearch(e.target.value);
     }
 
     useEffect(() => {
-        FetchData()
-    }, [])
+        FetchData();
+    }, []);
 
-    const HandleOnchange = (e) => {
-        setSearch(e.target.value)
-    }
+    const handleDropdownChange = (event) => {
+        const selectedValue = event.target.value;
+        setSelectedRange(selectedValue);
 
-    const HandleSearch = () => {
-        const filteredData = attendance.filter(item =>
-            (item.name.toLowerCase().includes(search.toLowerCase())) ||
-            (item.attendance.toLowerCase().includes(search.toLowerCase())) ||
-            (item.date.attendance && item.date.attendance.toLowerCase().includes(search.toLowerCase()))
-        );
-        setAttendance(filteredData);
+        if (selectedValue) {
+            const startDate = (selectedValue - 1) * 7 + 1;
+            const endDate = selectedValue * 7;
+            const filtered = data.filter((record) => {
+                const recordDate = new Date(record.date).getDate();
+                return recordDate >= startDate && recordDate <= endDate;
+            });
+            setFilteredData(filtered);
+        } else {
+
+            setFilteredData(data);
+        }
     };
 
+    const HandleSearch = () => {
+        const filtered = data.filter((record) => {
+            return record.name.toLowerCase().includes(search.toLowerCase());
+        });
+        setFilteredData(filtered);
+    };
 
-    console.log(attendance)
     return (
         <>
             <Card sx={{ m: '5rem', boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px" }}>
@@ -45,22 +67,23 @@ function Supervisor() {
                     display="flex"
                     justifyContent="flex-end"
                     alignItems="flex-end"
-                    sx={{ background: "#eeeeee" }}
                 >
-                    <Box sx={{ m: "20px" }}>
-                        <TextField sx={{ background: "white", m: "2px" }} variant="outlined" label="search here......." onChange={HandleOnchange} value={search} />
-                        <Button sx={{ height: "56px" }} variant="contained" onClick={HandleSearch}>
 
-                            <SearchIcon />
-                        </Button>
-                    </Box>
+                    <TextField sx={{ background: "white", position: "relative", bottom: "15px", left: "10px", width: "80%" }} variant="outlined" label="Search.." onChange={HandleOnchange} value={search} />
+
+                    <Button sx={{ height: "56px", width: "10%", bottom: "15px", left: "1px00" }} variant="contained" onClick={HandleSearch}>
+                        <SearchIcon sx={{ fontSize: "40px" }} />
+                    </Button>
+
+                    <DateMenu handleDropdownChange={handleDropdownChange} selectedRange={selectedRange} />
+
                 </Box>
 
-                <TableData attendance={attendance} />
-                <Attendence />
+                <TableData data={filteredData} />
 
             </Card>
         </>
-    )
-}
+    );
+};
+
 export default Supervisor;
