@@ -21,7 +21,7 @@ const Supervisor = () => {
             .then((res) => res.json())
             .then((res) => {
                 setData(res);
-                setFilteredData(res); 
+                setFilteredData(res);
             });
     };
 
@@ -46,7 +46,7 @@ const Supervisor = () => {
             });
             setFilteredData(filtered);
         } else {
-            
+
             setFilteredData(data);
         }
     };
@@ -61,25 +61,25 @@ const Supervisor = () => {
     return (
         <>
             <Card sx={{ m: '5rem', boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px" }}>
+
                 <Box
                     m={1}
                     display="flex"
                     justifyContent="flex-end"
                     alignItems="flex-end"
-                    sx={{ background: "#eeeeee" }}
                 >
 
-                    <TextField sx={{ background: "white", position: "relative", bottom: "20px", left: "15px" }} variant="outlined" label="search here......." onChange={HandleOnchange} value={search} />
+                    <TextField sx={{ background: "white", position: "relative", bottom: "15px", left: "10px", width: "80%" }} variant="outlined" label="Search.." onChange={HandleOnchange} value={search} />
 
-                    <Button sx={{ height: "56px", m: "20px" }} variant="contained" onClick={HandleSearch}>
-                        <SearchIcon />
+                    <Button sx={{ height: "56px", width: "10%", bottom: "15px", left: "1px00" }} variant="contained" onClick={HandleSearch}>
+                        <SearchIcon sx={{ fontSize: "40px" }} />
                     </Button>
 
                     <DateMenu handleDropdownChange={handleDropdownChange} selectedRange={selectedRange} />
 
                 </Box>
 
-                <TableData data={filteredData}/> 
+                <TableData data={filteredData} />
 
             </Card>
         </>

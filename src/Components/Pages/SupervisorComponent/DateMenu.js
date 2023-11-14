@@ -2,9 +2,12 @@ import { Select, MenuItem, Box, FormControl, InputLabel } from "@mui/material";
 function DateMenu({ handleDropdownChange, selectedRange }) {
     return (
         <>
-            <Box sx={{ m: "20px" }}>
-                <FormControl sx={{minWidth: 120 }}>
+            <Box sx={{ m: "20px",position:"relative",top:"3px" }}>
+                
+                <FormControl sx={{minWidth: 300 }}>
+                    
                     <InputLabel id="demo-simple-select-helper-label">Date</InputLabel>
+
                     <Select
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
