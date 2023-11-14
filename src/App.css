@@ -19,6 +19,7 @@ body {
   height: 500px;
   margin: auto;
   margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .footer-text {
@@ -76,6 +77,5 @@ body {
   }
 }
 
-.digital {
-  margin-top: 20px;
-}
+  
+

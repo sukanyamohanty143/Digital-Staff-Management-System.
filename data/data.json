@@ -30,7 +30,9 @@
       "mobilenumber": "2323232323",
       "designation": "supervisor",
       "gender": "female",
-      "id": 5
+      "email": "sukanya@gmail.com",
+      "password": "Sukanya@123",
+      "id": 1
     }
   ],
   "Attendence": [
