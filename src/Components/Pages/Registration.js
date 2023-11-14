@@ -6,23 +6,16 @@ import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import { Typography, Button, Card, CardContent } from '@mui/material';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { app } from '../Pages/Context/firebase'
 
-// data state variable store position like (staff,supervoiser,admin)
-const data = [
-  {
-    value: 'Admin',
-    position: 'Admin',
-  },
-  {
-    value: 'Supervisor',
-    position: 'Supervisor',
-  },
-  {
-    value: 'Staff',
-    position: 'Staff',
-  },
-];
-// this state for select gender.
+import IconButton from '@mui/material/IconButton';
+import InputAdornment from '@mui/material/InputAdornment';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+
+
+const auth = getAuth(app);
 const genderData = [
   {
     value: 'male',
@@ -34,7 +27,6 @@ const genderData = [
   },
 ];
 
-
 function Registration() {
 
   const navigate = useNavigate();
@@ -42,29 +34,35 @@ function Registration() {
     navigate("/login")
   }
 
+
+  const [showPassword, setShowPassword] = useState(false);
+  const handleTogglePassword = () => {
+    setShowPassword(!showPassword);
+  };
+
+
   const [submittedData, setSubmittedData] = useState(null);
-  
-  // formData store all user informetion.(firsname,lastname etc)
   const [formData, setFormData] = useState({
     firstname: '',
     lastname: '',
-    mobilenumber: '',
-    designation: '',
     gender: '',
-    email:'',
-    password:''
+    mobilenumber: '',
+    email: '',
+    password: ''
   });
   console.log("formData", formData);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData({ ...formData, [name]: value })
   };
 
 
   const handleSubmit = () => {
 
-    if (formData.firstname && formData.lastname && formData.mobilenumber && formData.designation && formData.gender && formData.email && formData.password) {
+    if (formData.firstname && formData.lastname && formData.gender && formData.mobilenumber  && formData.email && formData.password) {
+      createUserWithEmailAndPassword(auth, formData.email, formData.password).then(vlu => alert("Sign up Done"))
+
       fetch('http://localhost:8000/employees', {
         method: 'POST',
         headers: {
@@ -84,11 +82,10 @@ function Registration() {
       setFormData({
         firstname: '',
         lastname: '',
-        mobilenumber: '',
-        designation: '',
         gender: '',
         email: '',
-        password: ''
+        password: '',
+        mobilenumber: ''
       })
       goToLogin()
 
@@ -99,6 +96,7 @@ function Registration() {
 
   return (
     <>
+
       <Card className='registretion-card'>
         <CardContent>
           <Box style={{ textAlign: 'center', margin: '15px' }}>
@@ -109,12 +107,14 @@ function Registration() {
           <Box
             component="form"
             sx={{
-              '& .MuiTextField-root': {m:1, width: '55ch' },
+              '& .MuiTextField-root': { m: 1, width: '55ch' },
             }}
             noValidate
             autoComplete="off"
           >
+
             <div className="formcontainer">
+
               <TextField
                 name="firstname"
                 label="First Name"
@@ -122,71 +122,32 @@ function Registration() {
                 placeholder="Enter your name"
                 value={formData.firstname}
                 onChange={handleChange}
-                helperText={!formData.firstname ? "Name is required" : "Enter your name"}
+                helperText={
+                  !formData.firstname
+                    ? "Name is required"
+                    : !/^[a-zA-Z\s]*$/.test(formData.firstname)
+                      ? <span style={{ color: 'red' }}>Name should not contain numbers</span>
+                      : "Enter your name"
+                }
               />
-              <br />
 
               <TextField
                 name="lastname"
-                label="Last Name"
+                label="Lirst Name"
                 variant="standard"
+                placeholder="Enter your lastname"
                 value={formData.lastname}
                 onChange={handleChange}
-                helperText={!formData.lastname ? "Last name is required" : "Enter your last name"}
+                helperText={
+                  !formData.lastname
+                    ? "Last Name is required"
+                    : !/^[a-zA-Z\s]*$/.test(formData.lastname)
+                      ? <span style={{ color: 'red' }}>Last Name should not contain numbers</span>
+                      : "Enter your lastname"
+                }
               />
-              <br />
 
-              <TextField
-                name="email"
-                label="Email"
-                variant="standard"
-                placeholder="Enter your email"
-                value={formData.email}
-                onChange={handleChange}
-                helperText={!formData.email ? "email is required" : "Enter your email"}
-              />
               <br />
-
-              <TextField
-                name="password"
-                label="Password"
-                variant="standard"
-                placeholder="Enter your password"
-                value={formData.password}
-                onChange={handleChange}
-                helperText={!formData.password ? "password is required" : "Enter your password"}
-              />
-              <br />
-
-              <TextField
-        
-                name="mobilenumber"
-                label="Mobile Number"
-                variant="standard"
-                placeholder="Enter your mobile number"
-                value={formData.mobilenumber}
-                onChange={handleChange}
-                helperText={!formData.mobilenumber ? "mobilenumber is required" : "Enter your mobilenumber"}
-              />
-              <br />
-
-              <TextField
-                name="designation"
-                select
-                label="Select Designation"
-                variant="standard"
-                value={formData.designation}
-                onChange={handleChange}
-                helperText={!formData.designation ? "Designation is required" : "Enter your designation"}
-              >
-                {data.map((option) => (
-                  <MenuItem key={option.value} value={option.value}>
-                    {option.position}
-                  </MenuItem>
-                ))}
-              </TextField>
-              <br />
-
               <TextField
                 name="gender"
                 select
@@ -202,19 +163,107 @@ function Registration() {
                   </MenuItem>
                 ))}
               </TextField>
+
+              <TextField
+                name="email"
+                label="Email"
+                variant="standard"
+                placeholder="Enter your email"
+                value={formData.email}
+                onChange={handleChange}
+                helperText={
+                  !formData.email
+                    ? 'Email is required'
+                    : !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)
+                      ? <span style={{ color: "red" }}>Enter a valid email</span>
+                      : formData.email !== formData.email.toLowerCase()
+                        ? <span style={{ color: "red" }}>Email should be in lowercase</span>
+                        : ''
+                }
+              />
               <br />
 
-              <Button className="submitbtn" variant="contained" onClick={handleSubmit}>
+              <TextField
+                name="password"
+                label="Password"
+                variant="standard"
+                type={showPassword ? 'text' : 'password'}
+                placeholder="Enter your password"
+                value={formData.password}
+                onChange={handleChange}
+                helperText={
+                  !formData.password
+                    ? 'Password is required'
+                    : formData.password.length < 8
+                      ? <span style={{ color: "red" }}>Password should be at least 8 characters long</span>
+                      : !/\d/.test(formData.password)
+                        ? <span style={{ color: "red" }}>Password should contain at least one digit</span>
+                        : !/[A-Z]/.test(formData.password)
+                          ? <span style={{ color: "red" }}>Password should contain at least one uppercase letter</span>
+                          : !/[a-z]/.test(formData.password)
+                            ? <span style={{ color: "red" }}>Password should contain at least one lowercase letter</span>
+                            : !/[!@#$%^&*(),.?":{}|<>]/.test(formData.password)
+                              ? <span style={{ color: "red" }}>Password should contain at least one special character</span>
+                              : "Password is strong"
+                }
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment >
+                      <IconButton onClick={handleTogglePassword} >
+                        {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
+                      </IconButton>
+                    </InputAdornment>
+                  ),
+                }}
+              />
+
+              <br />
+
+              <TextField
+                name="mobilenumber"
+                label="Mobile Number"
+                variant="standard"
+                placeholder="Enter your mobile number"
+                value={formData.mobilenumber}
+                onChange={(e) => {
+                  if (e.target.value.length <= 10) {
+                    handleChange(e);
+                  }
+                }}
+                helperText={
+                  !formData.mobilenumber
+                    ? <span>Mobile number is required</span>
+                    : (/\D/.test(formData.mobilenumber))
+                      ? <span style={{ color: 'red' }}>Mobile number should contain only numbers </span>
+                      : (formData.mobilenumber.length < 10)
+                        ? <span style={{ color: 'red' }}>Mobile number should be at least 10 digits</span>
+                        : "Enter your mobile number"
+                }
+              />
+              <br />
+
+              <Button submittedData={submittedData} className="submitbtn" variant="contained" onClick={handleSubmit}>
                 Submit Button
               </Button>
             </div>
           </Box>
         </CardContent>
-      </Card>
+      </Card >
     </>
   );
 }
 export default Registration;
+
+
+
+
+
+
+
+
+
+
+
 
 
 

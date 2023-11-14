@@ -1,39 +1,82 @@
+
+
 import { TableHead, Table, TableCell, TableRow, TableContainer,Box,Grid } from "@mui/material";
+
+
 import { useReactToPrint } from "react-to-print";
+
+
 import React, { useRef } from "react";
-// import PaginationCom from "./Pegination";
+import PaginationCom from "./Pegination";
+
+
 import GeneratePdf from "./GeneratePdf";
-function TableData({ attendanceData }) {
+function TableData({attendance}) {
+
+
    const [page, setPage] = React.useState(1);
+
+
    const itemsPerPage = 10;
+
+
    const componentRef = useRef();
+
+
    const GenretePdfSave = useReactToPrint({
+
+
        content: () => componentRef.current,
+
+
    });
+
 
    // this is useReactprint hook for convert pdf
 
    const HandleChange = (event, value) => {
        setPage(value);
-   };   
+   };
+   
    // this is calucalation of pagination
+
+
    const startIdx = (page - 1) * itemsPerPage;
    const endIdx = startIdx + itemsPerPage;
-   const sortedData = attendanceData.sort(function (a, b) {
+
+
+   const sortedData = attendance.sort(function (a, b) {
+
 
        var nameA = a.name.toLowerCase(), nameB = b.name.toLowerCase();
+
+
        if (nameA < nameB)
+      
            return -1;
+
+
        if (nameA > nameB)
+
+
            return 1;
+
+
        return 0;
    });
 
+
    return (
        <>
+
+
            <Box ref={componentRef} sx={{ m: "20px", background: "#FAEBD7" }}>
+
+
                <TableContainer>
                    <Table>
+
+
                        <TableHead>
 
 
@@ -77,7 +120,7 @@ function TableData({ attendanceData }) {
                    <Grid item xs={9}>
 
 
-                       {/* <PaginationCom attendanceData={attendanceData} itemsPerPage={itemsPerPage} page={page}  HandleChange={HandleChange} /> */}
+                       <PaginationCom attendanceData={attendance} itemsPerPage={itemsPerPage} page={page}  HandleChange={HandleChange} />
 
 
                    </Grid>
@@ -85,18 +128,17 @@ function TableData({ attendanceData }) {
 
                    <Grid item xs={3}>
 
-
                        <GeneratePdf GenretePdfSave={GenretePdfSave} />
-
 
                    </Grid>
 
-
                </Grid>
+              
            </Box>
+
        </>
    )
 }
 
 
-export default TableData
+export default TableData;

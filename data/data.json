@@ -1,52 +1,24 @@
 {
   "employees": [
     {
-      "firstName": "Jane ",
-      "lastName": "Smith",
-      "mobileNumber": "5677555444",
-      "designation": "Staff",
-      "gender": "Male",
+      "firstname": "Sukanya",
+      "lastname": "Mohanty",
+      "mobilenumber": "1334211232",
+      "designation": "Admin",
+      "gender": "female",
+      "email": "sukanya@gmail.com",
+      "password": "Sukanya@123",
       "id": 1
     },
     {
-      "firstName": "ujala",
-      "lastName": "saini",
-      "mobileNumber": "12345432",
-      "designation": "developer",
+      "firstname": "sonam",
+      "lastname": "kumari",
+      "mobilenumber": "8601387027",
+      "designation": "Supervisor",
       "gender": "female",
+      "email": "sonamk@navgurukul.org",
+      "password": "sonam@123",
       "id": 2
-    },
-    {
-      "firstName": "pooja",
-      "lastName": "saini",
-      "mobileNumber": "6666666666",
-      "designation": "Student",
-      "gender": "female",
-      "id": 3
-    },
-    {
-      "firstName": "Vikash",
-      "lastName": "saini",
-      "mobileNumber": "1234567892",
-      "designation": "Staff",
-      "gender": "male",
-      "id": 4
-    },
-    {
-      "firstName": "Anup",
-      "lastName": "Bhaiya",
-      "mobileNumber": "6565655656",
-      "designation": "supervisor",
-      "gender": "Male",
-      "id": 5
-    },
-    {
-      "firstName": "Navgurukul ",
-      "lastName": "ji",
-      "mobileNumber": "1111111111",
-      "designation": "developer",
-      "gender": "male",
-      "id": 8
     }
   ],
   "Attendence": [
@@ -61,13 +33,129 @@
       "attendance": "Present",
       "date": "2023-10-30",
       "id": 2
-    }
-  
-  ],
-  "EmployeeProfile":[
+    },
     {
-
-      
+      "name": "Laxmi Yadav",
+      "attendance": "Present",
+      "date": "2023-10-21",
+      "id": 1
+    },
+    {
+      "name": "Sukanya",
+      "attendance": "Present",
+      "date": "2023-10-30",
+      "id": 2
+    },
+    {
+      "name": "Person 3",
+      "attendance": "Present",
+      "date": "2023-10-20",
+      "id": 3
+    },
+    {
+      "name": "Person 4",
+      "attendance": "Present",
+      "date": "2023-10-19",
+      "id": 4
+    },
+    {
+      "name": "Person 5",
+      "attendance": "Present",
+      "date": "2023-10-18",
+      "id": 5
+    },
+    {
+      "name": "Person 6",
+      "attendance": "Present",
+      "date": "2023-10-17",
+      "id": 6
+    },
+    {
+      "name": "Person 7",
+      "attendance": "Present",
+      "date": "2023-10-16",
+      "id": 7
+    },
+    {
+      "name": "Person 8",
+      "attendance": "Present",
+      "date": "2023-10-15",
+      "id": 8
+    },
+    {
+      "name": "Person 9",
+      "attendance": "Present",
+      "date": "2023-10-14",
+      "id": 9
+    },
+    {
+      "name": "Person 10",
+      "attendance": "Present",
+      "date": "2023-10-13",
+      "id": 10
+    },
+    {
+      "name": "Person 11",
+      "attendance": "Present",
+      "date": "2023-10-12",
+      "id": 11
+    },
+    {
+      "name": "Person 12",
+      "attendance": "Present",
+      "date": "2023-10-11",
+      "id": 12
+    },
+    {
+      "name": "Person 13",
+      "attendance": "Present",
+      "date": "2023-10-10",
+      "id": 13
+    },
+    {
+      "name": "Person 14",
+      "attendance": "Present",
+      "date": "2023-10-09",
+      "id": 14
+    },
+    {
+      "name": "Person 15",
+      "attendance": "Present",
+      "date": "2023-10-08",
+      "id": 15
+    },
+    {
+      "name": "Person 16",
+      "attendance": "Present",
+      "date": "2023-10-07",
+      "id": 16
+    },
+    {
+      "name": "Person 17",
+      "attendance": "Present",
+      "date": "2023-10-06",
+      "id": 17
+    },
+    {
+      "name": "Person 18",
+      "attendance": "Present",
+      "date": "2023-10-05",
+      "id": 18
+    },
+    {
+      "name": "Person 19",
+      "attendance": "Present",
+      "date": "2023-10-04",
+      "id": 19
+    },
+    {
+      "name": "Person 20",
+      "attendance": "Present",
+      "date": "2023-10-03",
+      "id": 20
     }
+  ],
+  "EmployeeProfile": [
+    {}
   ]
 }
