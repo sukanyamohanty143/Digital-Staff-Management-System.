@@ -1,28 +1,27 @@
 import React, { useState,useEffect } from 'react';
 import {List,ListItem,TextField,Card,Button} from '@mui/material';
 const UserForm = ({ onAddUser,onCloseForm,user}) => {
-    const [firstName,setFirstName]=useState('');
-    const [lastName,setLastName]=useState('');
-    const [mobileNumber,setMobileNumber]=useState('');
+    const [firstname,setFirstName]=useState('');
+    const [lastname,setLastName]=useState('');
+    const [mobilenumber,setMobileNumber]=useState('');
     const [designation,setDesignation]=useState('');
     const [gender,setGender]=useState('');
-    const [mobailNumErro,setMobailNumErro]=useState(false)
 
     useEffect(() => {
         if (user){
-          setFirstName(user.firstName);
-          setLastName(user.lastName);
-          setMobileNumber(user.mobileNumber);
+          setFirstName(user.firstname);
+          setLastName(user.lastname);
+          setMobileNumber(user.mobilenumber);
           setDesignation(user.designation);
           setGender(user.gender);
         }
-      },[user]);
+    },[user]);
       
     const addUser=()=>{
         const newUser={
-            firstName,
-            lastName,
-            mobileNumber,
+            firstname,
+            lastname,
+            mobilenumber,
             designation,
             gender,
         };
@@ -35,39 +34,28 @@ const UserForm = ({ onAddUser,onCloseForm,user}) => {
         setDesignation('');
         setGender('');
     };
-    const HandleMobailOnchange=(e)=>{
-        setMobileNumber(e.target.value)
-        if (mobileNumber.length>10){
-            setMobailNumErro(true)
-            alert("please enter 10 digit number!")
-        }
-        setMobailNumErro(false)
-
-    }
     return (
-        <Card sx={{maxWidth:400,marginBottom:2}}
-        >
+        <Card sx={{maxWidth:400,marginBottom:2}}>
             <List>
                 <ListItem>
                     <TextField
                         label="First Name"
-                        value={firstName}
+                        value={firstname}
                         onChange={(e)=>setFirstName(e.target.value)}
                     />
                 </ListItem>
                 <ListItem>
                     <TextField
                         label="Last Name"
-                        value={lastName}
+                        value={lastname}
                         onChange={(e) => setLastName(e.target.value)}
                     />
                 </ListItem>
                 <ListItem>
                     <TextField
                         label="Mobile Number"
-                        mobailNumErro={mobailNumErro}
-                        value={mobileNumber}
-                        onChange={HandleMobailOnchange}
+                        value={mobilenumber}
+                        onChange={(e)=> setMobileNumber(e.target.value)}
                         
                     />
                 </ListItem>
@@ -95,3 +83,6 @@ const UserForm = ({ onAddUser,onCloseForm,user}) => {
   );
 };
 export default UserForm;
+
+
+
