@@ -1,6 +1,14 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { TextField, Button, Typography, Card, Box, MenuItem, Select } from "@material-ui/core";
+import {
+  TextField,
+  Button,
+  Typography,
+  Card,
+  Box,
+  MenuItem,
+  Select,
+} from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
@@ -33,26 +41,27 @@ const Staff = () => {
   const navigate = useNavigate();
 
   const classes = useStyles();
-  const [date, setDate] = useState(new Date().toISOString().slice(0, 10)); // Set the date to the current date
+  const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
   const [name, setName] = useState("");
   const [attendance, setAttendance] = useState("");
+  
+  const [nameError, setNameError] = useState("");
 
-  const HandleName = (e) => {
+
+  const handleName = (e) => {
     const inputName = e.target.value;
 
-    if (/^[A-Za-z\s]*$/.test(inputName)) {
+    if (/^[A-Za-z\s]*$/.test(inputName) || inputName === "") {
       setName(inputName);
-    } else {
-      alert("Please enter a valid name (alphabets and spaces only).");
+      setNameError("");
+    } 
+    else {
+      setNameError("'Only alphabetletters and spaces are allowed'");
     }
   };
 
-  const HandleAttendence = (e) => {
+  const handleAttendance = (e) => {
     setAttendance(e.target.value);
-  };
-
-  const HandleDate = (e) => {
-    setDate(e.target.value);
   };
 
   const CheckProfile = async (userName) => {
@@ -71,7 +80,7 @@ const Staff = () => {
     }
   };
 
-  const HandleClick = () => {
+  const handleOnClick = () => {
     let userName = name;
     if (name && date && attendance) {
       const data = { name, attendance, date };
@@ -85,7 +94,7 @@ const Staff = () => {
         .then((res) => {
           alert("Data saved successfully");
           setName("");
-          setDate(new Date().toISOString().slice(0, 10)); // Reset the date to the current date
+          setDate(new Date().toISOString().slice(0, 10));
           setAttendance("");
           CheckProfile(userName);
         })
@@ -111,8 +120,10 @@ const Staff = () => {
             id="name"
             type="text"
             value={name}
-            onChange={HandleName}
+            onChange={handleName}
             className={classes.input}
+            error={Boolean(nameError)}
+            helperText={nameError}
           />
         </Box>
         <Box>
@@ -122,7 +133,7 @@ const Staff = () => {
           <Select
             id="attendance"
             value={attendance}
-            onChange={HandleAttendence}
+            onChange={handleAttendance}
             className={classes.input}
           >
             <MenuItem value="Present">Present</MenuItem>
@@ -135,9 +146,9 @@ const Staff = () => {
           </label>
           <TextField
             id="date"
-            type="date"
+            type="text"
             value={date}
-            onChange={HandleDate}
+            InputProps={{ readOnly: true }}
             className={classes.input}
           />
         </Box>
@@ -145,7 +156,7 @@ const Staff = () => {
           variant="contained"
           color="primary"
           className={classes.button}
-          onClick={HandleClick}
+          onClick={handleOnClick}
         >
           Submit
         </Button>
