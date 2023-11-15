@@ -1,43 +1,47 @@
 
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import user from "../assets/user.png"
-import { Typography, Grid, Link } from "@mui/material";
+import { Typography, Grid, Button, Stack } from "@mui/material";
 import { useNavigate } from 'react-router-dom';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 
 
 function Home() {
-    
+
     const navigate = useNavigate();
     const goToRegistration = () => {
         navigate("/registration")
     }
     return (
         <>
+
             <Typography variant='h4' style={{ textAlign: "center", marginTop: "40px" }} className='welcometext'>Welcome to Digital Staff Managment System</Typography>
-            <Card className='card' >
+            <Card className='card'>
                 <CardContent>
                     <Grid container spacing={2}>
                         <Grid xs={6}>
-                            <img className="images" src={user} alt="no images" style={{ width: "400px" }} />
+                            <img src={user} alt="no images" style={{ width: "380px", margin: "30px" }} />
                         </Grid>
                         <Grid xs={6}>
                             <Typography variant='h4' style={{ margin: "20px" }} className='typing-animation '>Welcome User ❤️</Typography>
                             <Typography variant='h5' style={{ margin: "20px" }} > Hello Friendes,👋</Typography>
                             <p style={{ padding: "10px", margin: "10px" }}> Welcome to our platform! We are delighted to have you here. At Digital staff Management System, we strive to provide an exceptional experience for our users, and we're excited to have you join our community.</p>
-                            
-                            <Link
+
+                            <Typography
                                 style={{ margin: "20px" }}
                                 underline={'hover'}
                                 size="small"
-                                onClick={goToRegistration}
-                                variant="contained"
+                                variant='h6'
                             >
-                                Go To Register Yourself<ArrowForwardIosIcon />
+                                Register Yourself For.....
 
-                            </Link>
+                            </Typography>
 
+                            <Stack spacing={1} direction="row">
+                                <Button variant="contained" onClick={goToRegistration} >Staff</Button>
+                                <Button variant="contained" onClick={goToRegistration} >Admin</Button>
+                                <Button variant="contained" onClick={goToRegistration} >Supervisor</Button>
+                            </Stack>
                         </Grid>
                     </Grid>
                 </CardContent>
@@ -48,6 +52,10 @@ function Home() {
     );
 }
 export default Home;
+
+
+
+
 
 
 

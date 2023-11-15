@@ -1,9 +1,9 @@
 {
   "employees": [
     {
-      "firstname": "ujala",
+      "firstname": "Ujala",
       "lastname": "saini",
-      "mobilenumber": "1234567891",
+      "mobilenumber": "2234562133",
       "designation": "Staff",
       "gender": "Male",
       "id": 2
@@ -11,7 +11,7 @@
     {
       "firstname": "Vikas",
       "lastname": "saini",
-      "mobilenumber": "1234567832",
+      "mobilenumber": "1234567812",
       "designation": "Admin",
       "gender": "Male",
       "id": 3
@@ -20,7 +20,7 @@
       "firstname": "Vishal ",
       "lastname": "saini",
       "mobilenumber": "121212121",
-      "designation": "Staff3",
+      "designation": "Staff",
       "gender": "male",
       "id": 4
     },
@@ -30,7 +30,9 @@
       "mobilenumber": "2323232323",
       "designation": "supervisor",
       "gender": "female",
-      "id": 5
+      "email": "sukanya@gmail.com",
+      "password": "Sukanya@123",
+      "id": 1
     }
   ],
   "Attendence": [
@@ -235,6 +237,14 @@
       "JoiningDate": "2023-11-19",
       "ProfilePhotoURL": null,
       "id": 6
+    },
+    {
+      "Name": "ujala ",
+      "Email": "dfv",
+      "Password": "3mq@nQEXi6v9Yym",
+      "JoiningDate": "2023-11-14",
+      "ProfilePhotoURL": "blob:http://localhost:3000/f60899dd-6f2b-4e1c-9abf-0abe79bfda73",
+      "id": 7
     }
   ]
 }
