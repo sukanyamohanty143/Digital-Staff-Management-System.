@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -108,11 +109,13 @@ const Staff = () => {
 
   return (
     <div className={classes.container}>
+
       <Typography variant="h3" className={classes.heading}>
         Staff Page
       </Typography>
       <Card className={classes.card}>
         <Box>
+
           <label className={classes.label} htmlFor="Name">
             Name
           </label>
