@@ -16,6 +16,7 @@ function Home() {
         <>
 
             <Typography variant='h4' style={{ textAlign: "center", marginTop: "40px" }} className='welcometext'>Welcome to Digital Staff Managment System</Typography>
+           
             <Card className='card'>
                 <CardContent>
                     <Grid container spacing={2}>
