@@ -18,7 +18,7 @@ function TableData({ data }) {
     return (
 
         <>
-            
+        
                 <Card container justifyContent="center" >
                     <CardContent>
                         <Grid

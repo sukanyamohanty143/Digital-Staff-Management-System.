@@ -15,6 +15,7 @@ import EmployeeTable from '../Pages/Table';
 function Routing() {
   return (
     <BrowserRouter>
+    <Header/>
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
@@ -27,6 +28,8 @@ function Routing() {
         <Route path="/table" element={<EmployeeTable />} />
         {/* <Route path="/logout" element={<Logout />} /> */}
       </Routes>
+      <Footer/>
+
     </BrowserRouter>
   );
 }

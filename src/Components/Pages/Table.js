@@ -41,7 +41,7 @@ const EmployeeTable = (props) => {
               <TableCell>Date</TableCell> 
               <TableCell>Name</TableCell>
               <TableCell>Attendance</TableCell>
-              {/* <TableCell>Date</TableCell>  */}
+          
             </TableRow>
           </TableHead>
           <TableBody>
