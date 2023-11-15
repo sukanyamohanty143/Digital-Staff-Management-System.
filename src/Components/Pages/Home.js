@@ -41,7 +41,6 @@ function Home() {
                                 <Button variant="contained" onClick={goToRegistration} >Staff</Button>
                                 <Button variant="contained" onClick={goToRegistration} >Admin</Button>
                                 <Button variant="contained" onClick={goToRegistration} >Supervisor</Button>
-
                             </Stack>
                         </Grid>
                     </Grid>
