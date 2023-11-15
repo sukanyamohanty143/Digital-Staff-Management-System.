@@ -102,13 +102,13 @@ function Footer() {
             <Grid container spacing={1}>
               <Grid item xs={4}>
                 <Typography variant="h5" style={{ margin: '15px' }}>
-                  <Tooltip title="This is icon for style" placement="top" arrow>
+                  <Tooltip title="This icon for style" placement="top" arrow>
                     <TwitterIcon style={iconStyle} />
                   </Tooltip>
-                  <Tooltip title="This is icon for style" arrow>
+                  <Tooltip title="This icon for style" arrow>
                     <FacebookIcon style={iconStyle} />
                   </Tooltip>
-                  <Tooltip title="This is icon for style" placement="top" arrow>
+                  <Tooltip title="This icon for style" placement="top" arrow>
                     <LinkedInIcon style={iconStyle} />
                   </Tooltip>
                 </Typography>
