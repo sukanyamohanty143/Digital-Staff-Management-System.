@@ -5,6 +5,7 @@ import Logout from './Logout';
 import Profileavtar from './Profileavtar'
 
 export default function Header() {
+
     return (
         <AppBar position='static'>
             <Toolbar>
