@@ -73,7 +73,7 @@ const Staff = () => {
       if (foundUser) {
         navigate('/outer', { state: { user: foundUser } });
       } else {
-        navigate('/profile');
+        alert("this user is not exist ");
       }
     } catch (err) {
       console.error(err);
