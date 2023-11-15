@@ -1,5 +1,4 @@
 
-
 import React, { useState } from 'react';
 import { Typography, Card, CardContent, CardMedia, Grid, Button, IconButton } from '@mui/material';
 import { useNavigate, useLocation } from 'react-router-dom';
@@ -23,17 +22,17 @@ const Outer = () => {
   };
 
   const handleEditClick = () => {
-
+    navigate('/profile', { state: { user } });
   };
 
   return (
 
     <>
-      <Card className='card' style={{ width: "600px", padding: "30px", boxShadow: '0 10px 15px rgba(0, 0, 0, 0.2)' }}>
+      <Card className='card' style={{ width: "600px", padding: "20px", boxShadow: '0 10px 15px rgba(0, 0, 0, 0.2)' }}>
 
         <Grid item xs={12}>
           <Typography variant="h4" style={{ textAlign: "center" }}>Profile of Employee
-            <EditIcon sx={{ marginLeft: '80px' }} />
+            <EditIcon sx={{ marginLeft: '80px'}} onClick={handleEditClick} />
           </Typography>
         </Grid>
 
@@ -83,10 +82,10 @@ const Outer = () => {
 
             <Grid xs={6}>
               <CardContent style={{marginTop:"30px" }}>
-                <Typography style={{padding:"10px" }} variant="h6">Name: {user.Name}</Typography>
-                <Typography style={{padding:"10px" }} variant="h6">Email: {user.Email}</Typography>
-                <Typography style={{padding:"10px" }} variant="h6">Password: {user.Password}</Typography>
-                <Typography style={{padding:"10px" }} variant="h6">Date of Joining: {user.JoiningDate}</Typography>
+                <Typography style={{padding:"5px" }} variant="h6">Name: {user.Name}</Typography>
+                <Typography style={{padding:"5px" }} variant="h6">Email: {user.Email}</Typography>
+                <Typography style={{padding:"5px" }} variant="h6">Password: {user.Password}</Typography>
+                <Typography style={{padding:"5px" }} variant="h6">Date of Joining: {user.JoiningDate}</Typography>
                 <Typography style={{padding:"10px" }} variant="h6">
                   <IconButton
                     color="primary"
