@@ -114,7 +114,7 @@ const Staff = () => {
   return (
     <div className={classes.container}>
       {/* <Typography variant="h4" className={classes.heading}>Staff Page</Typography> */}
-      <Card className={classes.card}>
+      <Card className={classes.card} style={{ boxShadow: '0 10px 15px rgba(0, 0, 0, 0.2)' }}>
         <Typography variant="h4" className={classes.heading}>Staff Page</Typography>
 
         <Box >
