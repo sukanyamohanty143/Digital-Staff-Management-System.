@@ -60,7 +60,7 @@ const Supervisor = () => {
 
     return (
         <>
-            <Card sx={{ m: '5rem', boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px"}}>
+            <Card sx={{ m: '10rem', boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",position:"relative",bottom:"60px"}}>
 
                 <Box
                     m={1}
