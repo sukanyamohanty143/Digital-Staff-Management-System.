@@ -8,13 +8,13 @@ import {
   Typography
 } from "@mui/material";
 import PersonIcon from '@mui/icons-material/Person';
+import GoogleIcon from '@mui/icons-material/Google';
 import { useNavigate } from 'react-router-dom';
 import { 
   getAuth, 
-  signInWithEmailAndPassword, 
+  signInWithEmailAndPassword,
   GoogleAuthProvider, 
-  signInWithPopup, 
-  onAuthStateChanged } from 'firebase/auth';
+  signInWithPopup } from 'firebase/auth';
 import { app } from '../Pages/Context/firebase'
 
 const auth = getAuth(app);
@@ -62,24 +62,30 @@ function Login() {
   const handleGoogleSignIn = async () => {
     const auth = getAuth(app);
     const provider = new GoogleAuthProvider();
-
+  
     try {
       const result = await signInWithPopup(auth, provider);
-
-      onAuthStateChanged(auth, (user) => {
-        if (user) {
-          const isUserInDatabase = userData.some((dbUser) => dbUser.email === user.email);
-          if (isUserInDatabase) {
-            navigate(`/${user.designation}`);
-          } else {
-            console.log("User not in the database. Redirect to registration or handle accordingly.");
-          }
-        }
-      });
+      const gLoginUser = result.user;
+      console.log("result", gLoginUser);
+     
+      const isUserInDatabase = userData.filter((dbUser) => {
+        if (dbUser.email === gLoginUser.email){
+          return dbUser
+        }});
+      console.log("user data ", isUserInDatabase);
+  
+      if (isUserInDatabase) {
+        navigate(`/${isUserInDatabase[0].designation}`)
+        console.log("User is in the database.");
+      } else {
+        console.log("User not in the database. Redirect to registration or handle accordingly.");
+      }
     } catch (error) {
       console.error("Google Sign-In Error:", error.message);
     }
   };
+  
+
 
   const goToRegistration = () => {
     navigate("/registration");
@@ -111,8 +117,8 @@ function Login() {
           fullWidth required />
 
         <Typography>
-          <Button variant="contained" style={buttonStyle} onClick={handleGoogleSignIn} fullWidth>
-            Sign In with Google
+          <Button variant="contained" style={buttonStyle} onClick={handleGoogleSignIn} underline="hover"sfullWidth>
+            <GoogleIcon/> Sign In with Google
           </Button>
         </Typography>
 

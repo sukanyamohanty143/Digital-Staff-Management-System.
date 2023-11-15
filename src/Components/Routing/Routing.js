@@ -1,5 +1,4 @@
 // Routing.js
-
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Login from '../Pages/Login';
@@ -18,7 +17,7 @@ function Routing() {
     <BrowserRouter>
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route exact path="/login" element={<Login />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/registration" element={<Registration />} />
         <Route path="/staff" element={<Staff />} />
         <Route path="/admin" element={<AdminPage />} />

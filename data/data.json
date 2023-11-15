@@ -34,6 +34,16 @@
       "email": "mohanty21@navgurukul.org",
       "password": "Mohanty@123",
       "id": 4
+    },
+    {
+      "firstname": "Sukanya",
+      "lastname": "Mohanty",
+      "mobilenumber": "4573948548",
+      "designation": "Supervisor",
+      "gender": "female",
+      "email": "sukanyamohanty@navgurukul.org",
+      "password": "Sukanya@1234",
+      "id": 5
     }
   ],
   "Attendence": [
