@@ -22,10 +22,11 @@ const Outer = () => {
 
   const handleEditClick = () => {
     
+    
   };
 
   return (
-    <Grid container spacing={3} justifyContent="center" marginTop={5}>
+    <Grid container spacing={3} justifyContent="center" marginTop={4}>
       <Grid item xs={4}>
         <Card xs={12} sm={4}>
           <Grid item xs={12}>
@@ -70,7 +71,7 @@ const Outer = () => {
           <CardContent>
             <Typography variant="h6">Name: {user.Name}</Typography>
             <Typography variant="h6">Email: {user.Email}</Typography>
-            <Typography variant="h6">Password: {user.Password}</Typography>
+            <Typography variant="h6">Password:"*********"</Typography>
             <Typography variant="h6">Date of Joining: {user.JoiningDate}</Typography>
             <Typography variant="h6">
               <IconButton
