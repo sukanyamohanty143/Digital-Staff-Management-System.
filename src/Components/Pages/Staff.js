@@ -19,27 +19,22 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
   },
   card: {
-    width: 600,
+    maxWidth: 400,
     marginBottom: 20,
-    marginTop: 80,
-    padding:30
-
+    padding: theme.spacing(1),
+    marginTop: 30,
   },
   label: {
-    marginLeft:10
+    marginBottom: theme.spacing(1),
   },
   input: {
-    width: "95%",
-    margin:15
+    width: "100%",
   },
   button: {
     marginTop: theme.spacing(2),
-    backgroundColor: '#337CCF',
-    marginLeft:10
   },
   heading: {
-    padding:40,
-    textAlign:"center"
+    marginTop: 100,
   },
 }));
 
@@ -50,7 +45,7 @@ const Staff = () => {
   const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
   const [name, setName] = useState("");
   const [attendance, setAttendance] = useState("");
-
+  
   const [nameError, setNameError] = useState("");
 
 
@@ -60,7 +55,7 @@ const Staff = () => {
     if (/^[A-Za-z\s]*$/.test(inputName) || inputName === "") {
       setName(inputName);
       setNameError("");
-    }
+    } 
     else {
       setNameError("'Only alphabetletters and spaces are allowed'");
     }
@@ -79,7 +74,7 @@ const Staff = () => {
       if (foundUser) {
         navigate('/outer', { state: { user: foundUser } });
       } else {
-        navigate('/profile');
+        alert("this user is not exist ");
       }
     } catch (err) {
       console.error(err);
@@ -114,11 +109,13 @@ const Staff = () => {
 
   return (
     <div className={classes.container}>
-      {/* <Typography variant="h4" className={classes.heading}>Staff Page</Typography> */}
-      <Card className={classes.card} style={{ boxShadow: '0 10px 15px rgba(0, 0, 0, 0.2)' }}>
-        <Typography variant="h4" className={classes.heading}>Staff Page</Typography>
 
-        <Box >
+      <Typography variant="h3" className={classes.heading}>
+        Staff Page
+      </Typography>
+      <Card className={classes.card}>
+        <Box>
+
           <label className={classes.label} htmlFor="Name">
             Name
           </label>
@@ -130,8 +127,6 @@ const Staff = () => {
             className={classes.input}
             error={Boolean(nameError)}
             helperText={nameError}
-            autoComplete="off"
-
           />
         </Box>
         <Box>
@@ -172,5 +167,4 @@ const Staff = () => {
     </div>
   );
 };
-
 export default Staff;
