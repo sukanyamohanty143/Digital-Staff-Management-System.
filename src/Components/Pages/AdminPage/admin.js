@@ -1,5 +1,5 @@
 import React, {useState,useEffect} from "react";
-import {TableContainer,Table,TableHead,TableBody,TableRow,Paper,Typography,Button,Grid} from "@mui/material";
+import {Container,TableContainer,Table,TableHead,TableBody,TableRow,Paper,Typography} from "@mui/material";
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
 import { styled } from "@mui/material/styles";
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -8,27 +8,20 @@ import UserForm from "./AddButton";
 
 const StyledTableCell=styled(TableCell)(({ theme })=>({
     [`&.${tableCellClasses.head}`]: {
-        backgroundColor: "blue",
-        color: theme.palette.common.white,
+        backgroundColor: '#83A2FF',
+        color: theme.palette.common.black,
     },
     [`&.${tableCellClasses.body}`]: {
         fontSize: 15,
     },
 }));
 const StyledTableRow=styled(TableRow)(({ theme })=>({
-    "&:nth-of-type(odd)": {
-        backgroundColor: theme.palette.action.hover,
-    },
+    // backgroundColor: theme.palette.action.hover,
+    backgroundColor:'#FFEBD8',
     "&:last-child td, &:last-child th": {
         border: 0,
     },
 }));
-const CenteredButtonContainer=styled('div')({
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-});
 const AdminPage=()=>{
     const [users, setUsers] = useState(null);
     const [showForm, setShowForm] = useState(false);
@@ -98,10 +91,27 @@ const AdminPage=()=>{
     };
     return(
         <>
-            <Typography variant="h4"  style={{ textAlign:"center", marginBottom:15,marginTop:10}}>Admin Page</Typography>
+            <Typography variant="h4" style={{ textAlign:"center", marginBottom:15, marginTop:10}}>Admin Page</Typography>
             {showForm && (
-                <div style={{position: 'fixed',zIndex: 999,top:0,left:0,width:"100%",height:"100%",backgroundColor:"rgba(0,0,0,.5)"}}>
-                    <div style={{position:"fixed", top:"50%", left:"50%", transform:"translate(-50%, -50%)"}}> 
+                <div 
+                    style={{
+                        position: 'fixed',
+                        zIndex: 999,
+                        top:0,
+                        left:0,
+                        width:"100%",
+                        height:"100%",
+                        backgroundColor:"rgba(0,0,0,.5)"
+                        }}
+                    >
+                    <div 
+                        style={{
+                            position:"fixed", 
+                            top:"50%", 
+                            left:"50%", 
+                            transform:"translate(-50%, -50%)"
+                            }}
+                        > 
                         <UserForm
                             onAddUser={addUser}
                             user={selectedUser}
@@ -110,8 +120,10 @@ const AdminPage=()=>{
                     </div>
                 </div>
             )}
-            <CenteredButtonContainer>
-                <TableContainer component={Paper} style={{ width: '1000px',}}>
+        
+      
+            <Container style={{ display: 'flex', justifyContent: 'center', mT: '20px' }}>
+                <TableContainer component={Paper} sx={{ width: '1000px', p: '20px', m: '20px' }}>
                     <Table>
                     <TableHead>
                         <StyledTableRow>
@@ -152,7 +164,8 @@ const AdminPage=()=>{
                     </TableBody>
                     </Table>
                 </TableContainer>
-            </CenteredButtonContainer>
+                
+            </Container>
         </>
   );
 };

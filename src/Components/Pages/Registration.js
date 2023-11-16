@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
@@ -97,7 +96,7 @@ function Registration() {
   return (
     <>
 
-      <Card className='registretion-card'>
+      <Card className='registretion-card' style={{ boxShadow: '0 10px 15px rgba(0, 0, 0, 0.2)' }}>
         <CardContent>
           <Box style={{ textAlign: 'center', margin: '15px' }}>
             <PeopleAltIcon />
@@ -243,7 +242,7 @@ function Registration() {
               <br />
 
               <Button submittedData={submittedData} className="submitbtn" variant="contained" onClick={handleSubmit}>
-                Submit Button
+                Create Account
               </Button>
             </div>
           </Box>
@@ -253,6 +252,23 @@ function Registration() {
   );
 }
 export default Registration;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

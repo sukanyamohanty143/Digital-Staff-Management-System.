@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -73,7 +74,7 @@ const Staff = () => {
       if (foundUser) {
         navigate('/outer', { state: { user: foundUser } });
       } else {
-        navigate('/profile');
+        alert("this user is not exist ");
       }
     } catch (err) {
       console.error(err);
@@ -108,11 +109,13 @@ const Staff = () => {
 
   return (
     <div className={classes.container}>
+
       <Typography variant="h3" className={classes.heading}>
         Staff Page
       </Typography>
       <Card className={classes.card}>
         <Box>
+
           <label className={classes.label} htmlFor="Name">
             Name
           </label>
@@ -164,5 +167,4 @@ const Staff = () => {
     </div>
   );
 };
-
 export default Staff;
