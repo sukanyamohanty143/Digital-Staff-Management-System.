@@ -9,7 +9,7 @@ import {
   Avatar,
   IconButton,
 } from '@mui/material';
-import PhotoCameraIcon from '@mui/icons-material/PhotoCamera'; 
+import PhotoCameraIcon from '@mui/icons-material/PhotoCamera';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -104,6 +104,15 @@ const EmployeeProfile = () => {
                 value={profile.name}
                 onChange={handleChange}
                 margin="normal"
+
+                helperText={
+                  !profile.name
+                    ? "Name is required"
+                    : !/^[a-zA-Z\s]*$/.test(profile.name)
+                      ? <span style={{ color: 'red' }}>Name should not contain numbers</span>
+                      : "Enter your name"
+                }
+
               />
             </Grid>
             <Grid item xs={12}>
@@ -114,6 +123,15 @@ const EmployeeProfile = () => {
                 value={profile.email}
                 onChange={handleChange}
                 margin="normal"
+                helperText={
+                  !profile.email
+                    ? 'Email is required'
+                    : !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(profile.email)
+                      ? <span style={{ color: "red" }}>Enter a valid email</span>
+                      : profile.email !== profile.email.toLowerCase()
+                        ? <span style={{ color: "red" }}>Email should be in lowercase</span>
+                        : ''
+                }
               />
             </Grid>
             <Grid item xs={12}>
@@ -125,6 +143,22 @@ const EmployeeProfile = () => {
                 value={profile.password}
                 onChange={handleChange}
                 margin="normal"
+
+                helperText={
+                  !profile.password
+                    ? 'Password is required'
+                    : profile.password.length < 8
+                      ? <span style={{ color: "red" }}>Password should be at least 8 characters long</span>
+                      : !/\d/.test(profile.password)
+                        ? <span style={{ color: "red" }}>Password should contain at least one digit</span>
+                        : !/[A-Z]/.test(profile.password)
+                          ? <span style={{ color: "red" }}>Password should contain at least one uppercase letter</span>
+                          : !/[a-z]/.test(profile.password)
+                            ? <span style={{ color: "red" }}>Password should contain at least one lowercase letter</span>
+                            : !/[!@#$%^&*(),.?":{}|<>]/.test(profile.password)
+                              ? <span style={{ color: "red" }}>Password should contain at least one special character</span>
+                              : "Password is strong"
+                }
               />
             </Grid>
             <Grid item xs={12}>
