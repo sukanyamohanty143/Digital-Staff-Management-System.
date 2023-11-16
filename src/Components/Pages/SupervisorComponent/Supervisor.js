@@ -61,7 +61,6 @@ const Supervisor = () => {
     return (
         <>
             <Card sx={{ m: '10rem', boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px", position: "relative", bottom: "60px" }}>
-                <DateMenu handleDropdownChange={handleDropdownChange} selectedRange={selectedRange} />
 
                 <Box
                     m={1}
@@ -69,10 +68,9 @@ const Supervisor = () => {
                     justifyContent="flex-end"
                     alignItems="flex-end"
                 >
-                <SearchBar HandleOnchange={HandleOnchange} search={search} HandleSearch={HandleSearch} />
-
+                    <DateMenu handleDropdownChange={handleDropdownChange} selectedRange={selectedRange} />
+                    <SearchBar HandleOnchange={HandleOnchange} search={search} HandleSearch={HandleSearch} />
                 </Box>
-
                 <TableData data={filteredData} setFilteredData={setFilteredData} />
 
             </Card>
