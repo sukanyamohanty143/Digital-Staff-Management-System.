@@ -1,22 +1,6 @@
 {
   "employees": [
     {
-      "firstname": "Ujala",
-      "lastname": "saini",
-      "mobilenumber": "2234562133",
-      "designation": "Staff",
-      "gender": "Male",
-      "id": 2
-    },
-    {
-      "firstname": "Vikas",
-      "lastname": "saini",
-      "mobilenumber": "1234567812",
-      "designation": "Admin",
-      "gender": "Male",
-      "id": 3
-    },
-    {
       "firstname": "Vishal ",
       "lastname": "saini",
       "mobilenumber": "121212121",
@@ -30,9 +14,74 @@
       "mobilenumber": "2323232323",
       "designation": "supervisor",
       "gender": "female",
-      "email": "sukanya@gmail.com",
-      "password": "Sukanya@123",
       "id": 1
+    },
+    {
+      "firstname": "Smith",
+      "lastname": "Das",
+      "mobilenumber": "754395893",
+      "designation": "Staff",
+      "gender": "Female",
+      "id": 2
+    },
+    {
+      "firstname": "Sujata",
+      "lastname": "Das",
+      "mobilenumber": "6556896846",
+      "designation": "Staff",
+      "gender": "female",
+      "email": "sujata12@gmail.com",
+      "password": "Sujata@123",
+      "id": 3
+    },
+    {
+      "firstname": "Sukanya",
+      "lastname": "Mohanty",
+      "mobilenumber": "4544343545",
+      "designation": "Supervisor",
+      "gender": "female",
+      "email": "mohanty21@navgurukul.org",
+      "password": "Mohanty@123",
+      "id": 4
+    },
+    {
+      "firstname": "Sukanya",
+      "lastname": "Mohanty",
+      "mobilenumber": "4573948548",
+      "designation": "Supervisor",
+      "gender": "female",
+      "email": "sukanyamohanty@navgurukul.org",
+      "password": "Sukanya@1234",
+      "id": 5
+    },
+    {
+      "firstname": "Komal",
+      "lastname": "Das",
+      "gender": "female",
+      "mobilenumber": "7236429222",
+      "email": "komal12@gmail.com",
+      "password": "Komal@123",
+      "id": 6
+    },
+    {
+      "firstname": "Sukanya",
+      "lastname": "Mohanta",
+      "gender": "female",
+      "mobilenumber": "6475768767",
+      "email": "sukanyamohanty7077@gmail.com",
+      "password": "Mohanty@123",
+      "designation": "admin",
+      "id": 7
+    },
+    {
+      "firstname": "Sonam",
+      "lastname": "Kumari",
+      "gender": "female",
+      "mobilenumber": "5547587867",
+      "email": "sonam123@gmail.com",
+      "password": "Sonam@1234",
+      "designation": "staff",
+      "id": 8
     }
   ],
   "Attendence": [
@@ -151,7 +200,7 @@
       "id": 12
     },
     {
-      "name": "Laxmi Yadav",
+      "name": "Aman",
       "attendance": "Present",
       "date": "2023-11-13",
       "id": 32
@@ -163,22 +212,16 @@
       "id": 33
     },
     {
-      "name": "kirti",
+      "name": "Amit Das",
       "attendance": "Present",
       "date": "2023-11-13",
       "id": 34
     },
     {
-      "name": "kirti",
-      "attendance": "Present",
+      "name": "Aman",
+      "attendance": "Absent",
       "date": "2023-11-13",
       "id": 35
-    },
-    {
-      "name": "soma",
-      "attendance": "Present",
-      "date": "2023-11-08",
-      "id": 36
     }
   ],
   "EmployeeProfile": [

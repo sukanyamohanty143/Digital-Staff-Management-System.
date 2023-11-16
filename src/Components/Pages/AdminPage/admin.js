@@ -54,7 +54,24 @@ const AdminPage=()=>{
                 });
             setSelectedUser(null);
         } 
-    };
+        else{
+            fetch("http://localhost:8000/employees",{
+                method:"POST",
+                headers:{
+                    "Content-Type": "application/json",
+                },
+                body:JSON.stringify(newUser),
+            })
+                .then(()=>fetchData())
+                .catch((error)=>{
+                  console.error("Error adding a new user:", error);
+                });
+        }
+        setShowForm(false);
+        setUsers(users)
+        setShowForm(showForm)
+        setSelectedUser(selectedUser)
+  };
     const closeForm=()=>{
          setShowForm(false);
            setSelectedUser(null);
