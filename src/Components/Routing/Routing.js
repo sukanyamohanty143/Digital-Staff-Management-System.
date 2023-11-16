@@ -4,6 +4,13 @@ import Staff from '../Pages/Staff'
 import Home from '../Pages/Home'
 import Registration from '../Pages/Registration'
 import AdminPage from '../Pages/AdminPage/admin'
+
+import Supervisor from '../Pages/SupervisorComponent/Supervisor';
+import Footer from '../Pages/Footer';
+import Outer from '../Pages/Outer';
+import Profile from "../Pages/Profile"
+import EmployeeTable from "../Pages/Table"
+
 import Supervisor from '../Pages/SupervisorComponent/Supervisor'
 import Outer from '../Pages/Outer';
 import Profile from '../Pages/Profile'

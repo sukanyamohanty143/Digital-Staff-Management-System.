@@ -2,15 +2,14 @@ import TableData from "./Table";
 import React, { useEffect, useState } from "react";
 import DateMenu from "./DateMenu";
 import {
-    TextField,
-    Button,
     Box,
     Card
 } from "@mui/material";
 
-import SearchIcon from '@mui/icons-material/Search';
+import SearchBar from "./SearchBar";
 
 const Supervisor = () => {
+    
     const [selectedRange, setSelectedRange] = useState(null);
     const [data, setData] = useState([]);
     const [search, setSearch] = useState("");
@@ -52,6 +51,7 @@ const Supervisor = () => {
     };
 
     const HandleSearch = () => {
+        setSearch("")
         const filtered = data.filter((record) => {
             return record.name.toLowerCase().includes(search.toLowerCase());
         });
@@ -60,7 +60,7 @@ const Supervisor = () => {
 
     return (
         <>
-            <Card sx={{ m: '5rem', boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px" }}>
+            <Card sx={{ m: '10rem', boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",position:"relative",bottom:"60px"}}>
 
                 <Box
                     m={1}
@@ -69,17 +69,12 @@ const Supervisor = () => {
                     alignItems="flex-end"
                 >
 
-                    <TextField sx={{ background: "white", position: "relative", bottom: "15px", left: "10px", width: "80%" }} variant="outlined" label="Search.." onChange={HandleOnchange} value={search} />
-
-                    <Button sx={{ height: "56px", width: "10%", bottom: "15px", left: "1px00" }} variant="contained" onClick={HandleSearch}>
-                        <SearchIcon sx={{ fontSize: "40px" }} />
-                    </Button>
-
+                     <SearchBar HandleOnchange={HandleOnchange} search={search} HandleSearch={HandleSearch}/>
                     <DateMenu handleDropdownChange={handleDropdownChange} selectedRange={selectedRange} />
 
                 </Box>
 
-                <TableData data={filteredData} />
+                <TableData data={filteredData} setFilteredData={setFilteredData}/>
 
             </Card>
         </>

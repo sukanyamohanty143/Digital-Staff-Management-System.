@@ -1,10 +1,13 @@
 import { Pagination } from "@mui/material";
-function PaginationCom({ page, attendanceData, itemsPerPage, HandleChange }) {
+function PaginationCom({pageCount,currentPage,handleChangePage}) {
     return (
         <>
-            <Pagination variant="outlined" color="primary" count={Math.ceil(attendanceData.length / itemsPerPage)}
-                page={page}
-                onChange={HandleChange} />
+            <Pagination
+                count={pageCount}
+                page={currentPage}
+                onChange={handleChangePage}
+                color="primary"
+            />
         </>
     )
 }
