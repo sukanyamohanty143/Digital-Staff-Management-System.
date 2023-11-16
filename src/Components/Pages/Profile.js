@@ -13,7 +13,7 @@ import PhotoCameraIcon from '@mui/icons-material/PhotoCamera';
 import { useNavigate } from 'react-router-dom';
 
 
-const EmployeeProfile = () => {
+const EmployeeProfile = (props) => {
   const navigate = useNavigate();
   const [profile, setProfile] = useState({
     name: '',

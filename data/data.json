@@ -293,6 +293,14 @@
       "JoiningDate": "2023-11-26",
       "ProfilePhotoURL": "blob:http://localhost:3000/10efeb9d-5b49-457a-bf80-3930204e30dd",
       "id": 13
+    },
+    {
+      "Name": "kajal",
+      "Email": "kajal20@navgurukul.org",
+      "Password": "Kajal@1234",
+      "JoiningDate": "2023-11-05",
+      "ProfilePhotoURL": null,
+      "id": 14
     }
   ]
 }
