@@ -16,6 +16,7 @@ import {
   GoogleAuthProvider, 
   signInWithPopup } from 'firebase/auth';
 import { app } from '../Pages/Context/firebase'
+import Profileavtar from './Profileavtar'
 
 const auth = getAuth(app);
 
@@ -25,6 +26,7 @@ function Login() {
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
   const [userData, setUserData] = useState([]);
+  const [loggedInUser, setLoggedInUser] = useState(null);
 
   useEffect(() => {
     fetch("http://localhost:8000/employees")
@@ -54,7 +56,10 @@ function Login() {
     const foundUsers = userData.filter((user) => {
       if (user.email === userEmail && user.password === userPassword) {
         signInWithEmailAndPassword(auth, userEmail, userPassword)
-          .then((vlu) => navigate(`/${user.designation}`));
+          .then((vlu) => {
+            setLoggedInUser(user);
+            navigate(`/${user.designation}`)
+          });
       }
     });
   };
@@ -70,6 +75,7 @@ function Login() {
      
       const isUserInDatabase = userData.filter((dbUser) => {
         if (dbUser.email === gLoginUser.email){
+          setLoggedInUser(dbUser);
           return dbUser
         }});
       console.log("user data ", isUserInDatabase);
@@ -139,6 +145,7 @@ function Login() {
         </Button>
 
       </Paper>
+      <Profileavtar user={loggedInUser} />
     </Grid>
   )
 }

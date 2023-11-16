@@ -62,6 +62,26 @@
       "email": "komal12@gmail.com",
       "password": "Komal@123",
       "id": 6
+    },
+    {
+      "firstname": "Sukanya",
+      "lastname": "Mohanta",
+      "gender": "female",
+      "mobilenumber": "6475768767",
+      "email": "sukanyamohanty7077@gmail.com",
+      "password": "Mohanty@123",
+      "designation": "admin",
+      "id": 7
+    },
+    {
+      "firstname": "Sonam",
+      "lastname": "Kumari",
+      "gender": "female",
+      "mobilenumber": "5547587867",
+      "email": "sonam123@gmail.com",
+      "password": "Sonam@1234",
+      "designation": "staff",
+      "id": 8
     }
   ],
   "Attendence": [

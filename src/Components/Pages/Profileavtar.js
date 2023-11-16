@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Avatar, Menu, MenuItem } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import useAuth from './useAuth';
+import useAuth from './Context/useAuth';
 
 const Profileavtar = ({ user }) => {
     const navigate = useNavigate();
@@ -25,8 +25,9 @@ const Profileavtar = ({ user }) => {
             } else {
                 console.error("User not authenticated.");
             }
+        }else if (option === 'outer') {
+            navigate('/outer', { state: { user } });
         }
-
         setSelectedOption(option);
         handleMenuClose();
     };
@@ -54,6 +55,8 @@ const Profileavtar = ({ user }) => {
                 <MenuItem onClick={() => handleMenuItemClick('outer')}>Profile</MenuItem>
                 <MenuItem onClick={() => handleMenuItemClick('login')}>Logout</MenuItem>
             </Menu>
+
+
         </div>
     );
 };
