@@ -12,8 +12,7 @@ import {
 import PhotoCameraIcon from '@mui/icons-material/PhotoCamera';
 import { useNavigate } from 'react-router-dom';
 
-
-const EmployeeProfile = (props) => {
+const EmployeeProfile = () => {
   const navigate = useNavigate();
   const [profile, setProfile] = useState({
     name: '',
@@ -41,40 +40,49 @@ const EmployeeProfile = (props) => {
   };
 
   const logProfileData = () => {
-    const profileData = {
-      Name: profile.name,
-      Email: profile.email,
-      Password: profile.password,
-      JoiningDate: profile.joinDate,
-      ProfilePhotoURL: profile.profilePhoto,
-    };
-    fetch(`http://localhost:8000/EmployeeProfile`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(profileData),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log('Data added:', data);
-        setProfile({
-          name: '',
-          email: '',
-          password: '',
-          joinDate: '',
-          profilePhoto: null,
-        })
-        navigate('/outer', { state: { user: profileData } });
+    const { name, email, password, joinDate, profilePhoto } = profile;
+
+    if (!name || !email || !password || !joinDate || !profilePhoto) {
+      alert('Please fill in all the information');
+    } else {
+      alert('Data saved successfully');
+
+      const profileData = {
+        Name: name,
+        Email: email,
+        Password: password,
+        JoiningDate: joinDate,
+        ProfilePhotoURL: profilePhoto,
+      };
+
+      fetch(`http://localhost:8000/EmployeeProfile`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(profileData),
       })
-      .catch((error) => {
-        console.error('Error adding data:', error);
-      });
+        .then((response) => response.json())
+        .then((data) => {
+          console.log('Data added:', data);
+          setProfile({
+            name: '',
+            email: '',
+            password: '',
+            joinDate: '',
+            profilePhoto: null,
+          });
+          navigate('/outer', { state: { user: profileData } });
+        })
+        .catch((error) => {
+          console.error('Error adding data:', error);
+        });
+    }
   };
 
   return (
-    <Container style={{ marginTop: "70px" }}>
-      <Paper elevation={3} style={{ padding: '20px', margin: '20px', maxWidth: '600px' }}>
+    <Container style={{ marginTop: '10px' }}>
+      <Paper elevation={1} style={{ padding: '10px', margin: 'auto', maxWidth: '600px' }}>
         <Typography variant="h5" gutterBottom>
           Employee Profile
         </Typography>
@@ -103,16 +111,14 @@ const EmployeeProfile = (props) => {
                 name="name"
                 value={profile.name}
                 onChange={handleChange}
-                margin="normal"
-
+                autoComplete="off"
                 helperText={
                   !profile.name
-                    ? "Name is required"
+                    ? 'Name is required'
                     : !/^[a-zA-Z\s]*$/.test(profile.name)
-                      ? <span style={{ color: 'red' }}>Name should not contain numbers</span>
-                      : "Enter your name"
+                    ? <span style={{ color: 'red' }}>Only alphabets and spaces are allowed</span>
+                    : 'Enter your name'
                 }
-
               />
             </Grid>
             <Grid item xs={12}>
@@ -122,15 +128,15 @@ const EmployeeProfile = (props) => {
                 name="email"
                 value={profile.email}
                 onChange={handleChange}
-                margin="normal"
+                autoComplete="off"
                 helperText={
                   !profile.email
                     ? 'Email is required'
                     : !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(profile.email)
-                      ? <span style={{ color: "red" }}>Enter a valid email</span>
-                      : profile.email !== profile.email.toLowerCase()
-                        ? <span style={{ color: "red" }}>Email should be in lowercase</span>
-                        : ''
+                    ? <span style={{ color: 'red' }}>Enter a valid email</span>
+                    : profile.email !== profile.email.toLowerCase()
+                    ? <span style={{ color: 'red' }}>Email should be in lowercase</span>
+                    : ''
                 }
               />
             </Grid>
@@ -142,22 +148,21 @@ const EmployeeProfile = (props) => {
                 name="password"
                 value={profile.password}
                 onChange={handleChange}
-                margin="normal"
-
+                autoComplete="off"
                 helperText={
                   !profile.password
                     ? 'Password is required'
                     : profile.password.length < 8
-                      ? <span style={{ color: "red" }}>Password should be at least 8 characters long</span>
-                      : !/\d/.test(profile.password)
-                        ? <span style={{ color: "red" }}>Password should contain at least one digit</span>
-                        : !/[A-Z]/.test(profile.password)
-                          ? <span style={{ color: "red" }}>Password should contain at least one uppercase letter</span>
-                          : !/[a-z]/.test(profile.password)
-                            ? <span style={{ color: "red" }}>Password should contain at least one lowercase letter</span>
-                            : !/[!@#$%^&*(),.?":{}|<>]/.test(profile.password)
-                              ? <span style={{ color: "red" }}>Password should contain at least one special character</span>
-                              : "Password is strong"
+                    ? <span style={{ color: 'red' }}>Password should be at least 8 characters long</span>
+                    : !/\d/.test(profile.password)
+                    ? <span style={{ color: 'red' }}>Password should contain at least one digit</span>
+                    : !/[A-Z]/.test(profile.password)
+                    ? <span style={{ color: 'red' }}>Password should contain at least one uppercase letter</span>
+                    : !/[a-z]/.test(profile.password)
+                    ? <span style={{ color: 'red' }}>Password should contain at least one lowercase letter</span>
+                    : !/[!@#$%^&*(),.?":{}|<>]/.test(profile.password)
+                    ? <span style={{ color: 'red' }}>Password should contain at least one special character</span>
+                    : 'Password is strong'
                 }
               />
             </Grid>
@@ -172,7 +177,6 @@ const EmployeeProfile = (props) => {
                 InputLabelProps={{
                   shrink: true,
                 }}
-                margin="normal"
               />
             </Grid>
             <Grid item xs={12}>
@@ -185,7 +189,7 @@ const EmployeeProfile = (props) => {
               />
             </Grid>
           </Grid>
-          <Button variant="contained" color="primary" style={{ marginTop: '20px' }} onClick={logProfileData}>
+          <Button variant="contained" color="primary" style={{ marginTop: '0px' }} onClick={logProfileData}>
             Save Profile
           </Button>
         </form>

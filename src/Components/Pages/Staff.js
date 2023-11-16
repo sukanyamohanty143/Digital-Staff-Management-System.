@@ -19,10 +19,11 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
   },
   card: {
-    maxWidth: 400,
-    marginBottom: 20,
-    padding: theme.spacing(1),
+    width: 600,
+    marginBottom: 30,
     marginTop: 30,
+    padding:30
+
   },
   label: {
     marginBottom: theme.spacing(1),

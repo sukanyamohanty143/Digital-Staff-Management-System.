@@ -3,10 +3,8 @@ import { Select, MenuItem, Box, FormControl, InputLabel } from "@mui/material";
 function DateMenu({ handleDropdownChange, selectedRange }) {
     return (
         <>
-            <Box sx={{ m: "20px", position: "relative", top: "6px" }}>
-
-                <FormControl sx={{ minWidth: 400 }}>
-
+            <Box sx={{ m: "18px", position: "relative" ,top:"5px"}}>
+                <FormControl sx={{ minWidth: 260 }}>
                     <InputLabel id="demo-simple-select-helper-label">Date
 
                        
