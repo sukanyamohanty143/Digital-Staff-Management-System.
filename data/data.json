@@ -245,6 +245,54 @@
       "JoiningDate": "2023-11-14",
       "ProfilePhotoURL": "blob:http://localhost:3000/f60899dd-6f2b-4e1c-9abf-0abe79bfda73",
       "id": 7
+    },
+    {
+      "Name": "",
+      "Email": "",
+      "Password": "",
+      "JoiningDate": "",
+      "ProfilePhotoURL": null,
+      "id": 8
+    },
+    {
+      "Name": "sonam",
+      "Email": "sonam20@navgurukul.org",
+      "Password": "sonam1234",
+      "JoiningDate": "2023-11-03",
+      "ProfilePhotoURL": null,
+      "id": 9
+    },
+    {
+      "Name": "anjali",
+      "Email": "anjali20@navgurukul.org",
+      "Password": "sonam1234",
+      "JoiningDate": "2023-11-11",
+      "ProfilePhotoURL": null,
+      "id": 10
+    },
+    {
+      "Name": "",
+      "Email": "",
+      "Password": "",
+      "JoiningDate": "",
+      "ProfilePhotoURL": null,
+      "id": 11
+    },
+    {
+      "Name": "",
+      "Email": "",
+      "Password": "",
+      "JoiningDate": "",
+      "ProfilePhotoURL": null,
+      "id": 12
+    },
+    {
+      "Name": "sonam",
+      "Email": "sonam20@navgurukul.org",
+      "Password": "jkhkjhkjhiuu9u",
+      "JoiningDate": "2023-11-26",
+      "ProfilePhotoURL": "blob:http://localhost:3000/10efeb9d-5b49-457a-bf80-3930204e30dd",
+      "id": 13
     }
   ]
 }
