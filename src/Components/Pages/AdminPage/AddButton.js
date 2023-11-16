@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-import React, { useState,useEffect } from 'react';
-import {List,ListItem,TextField,Card,Button} from '@mui/material';
-const UserForm = ({ onAddUser,onCloseForm,user}) => {
-    const [firstname,setFirstName]=useState('');
-    const [lastname,setLastName]=useState('');
-    const [mobilenumber,setMobileNumber]=useState('');
-    const [designation,setDesignation]=useState('');
-    const [gender,setGender]=useState('');
-    const [mobailNumErro,setMobailNumErro]=useState(false)
-=======
 import React, { useState, useEffect } from 'react';
 import { List, ListItem, TextField, Card, Button } from '@mui/material';
 
@@ -24,7 +13,6 @@ const UserForm = ({ onAddUser, onCloseForm, user }) => {
     const [mobilenumberError, setMobileNumberError] = useState('');
     const [designationError, setDesignationError] = useState('');
     const [genderError, setGenderError] = useState('');
->>>>>>> 56b8d36f3e264567281d5b89b15c46c5d8d2ad6f
 
     useEffect(() => {
         if (user) {
@@ -34,22 +22,7 @@ const UserForm = ({ onAddUser, onCloseForm, user }) => {
             setDesignation(user.designation);
             setGender(user.gender);
         }
-<<<<<<< HEAD
-      },[user]);
-      
-    const addUser=()=>{
-        const newUser={
-            firstname,
-            lastname,
-            mobilenumber,
-            designation,
-            gender,
-        };
-        onAddUser(newUser);
-        onCloseForm();
-=======
     }, [user]);
->>>>>>> 56b8d36f3e264567281d5b89b15c46c5d8d2ad6f
 
     const validateName = (name, setNameError) => {
         if (!name) {
@@ -60,13 +33,6 @@ const UserForm = ({ onAddUser, onCloseForm, user }) => {
             setNameError('');
         }
     };
-<<<<<<< HEAD
-    const HandleMobailOnchange=(e)=>{
-        setMobileNumber(e.target.value)
-        if (mobilenumber.length>10){
-            setMobailNumErro(true)
-            alert("please enter 10 digit number!")
-=======
 
     const validateMobileNumber = (number, setNumberError) => {
         if (!number) {
@@ -75,7 +41,6 @@ const UserForm = ({ onAddUser, onCloseForm, user }) => {
             setNumberError('Mobile number must be 10 digits long');
         } else {
             setNumberError('');
->>>>>>> 56b8d36f3e264567281d5b89b15c46c5d8d2ad6f
         }
     };
 
@@ -113,43 +78,29 @@ const UserForm = ({ onAddUser, onCloseForm, user }) => {
                     <TextField
                         label="First Name"
                         value={firstname}
-<<<<<<< HEAD
-                        onChange={(e)=>setFirstName(e.target.value)}
-=======
                         onChange={(e) => {
                             setFirstName(e.target.value);
                             validateName(e.target.value, setFirstNameError);
                         }}
                         error={Boolean(firstnameError)}
                         helperText={firstnameError}
->>>>>>> 56b8d36f3e264567281d5b89b15c46c5d8d2ad6f
                     />
                 </ListItem>
                 <ListItem>
                     <TextField
                         label="Last Name"
                         value={lastname}
-<<<<<<< HEAD
-                        onChange={(e) => setLastName(e.target.value)}
-=======
                         onChange={(e) => {
                             setLastName(e.target.value);
                             validateName(e.target.value, setLastNameError);
                         }}
                         error={Boolean(lastnameError)}
                         helperText={lastnameError}
->>>>>>> 56b8d36f3e264567281d5b89b15c46c5d8d2ad6f
                     />
                 </ListItem>
                 <ListItem>
                     <TextField
                         label="Mobile Number"
-<<<<<<< HEAD
-                        mobailNumErro={mobailNumErro}
-                        value={mobilenumber}
-                        onChange={HandleMobailOnchange}
-                        
-=======
                         value={mobilenumber}
                         onChange={(e) => {
                             setMobileNumber(e.target.value);
@@ -157,7 +108,6 @@ const UserForm = ({ onAddUser, onCloseForm, user }) => {
                         }}
                         error={Boolean(mobilenumberError)}
                         helperText={mobilenumberError}
->>>>>>> 56b8d36f3e264567281d5b89b15c46c5d8d2ad6f
                     />
                 </ListItem>
                 <ListItem>

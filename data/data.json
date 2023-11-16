@@ -1,27 +1,6 @@
 {
   "employees": [
     {
-<<<<<<< HEAD
-      "firstname": "Sukanya",
-      "lastname": "Mohanty",
-=======
-      "firstname": "Ujala",
-      "lastname": "saini",
-      "mobilenumber": "2234562133",
-      "designation": "Staff",
-      "gender": "Male",
-      "id": 2
-    },
-    {
-      "firstname": "Vikas",
-      "lastname": "saini",
-      "mobilenumber": "1234567812",
->>>>>>> 56b8d36f3e264567281d5b89b15c46c5d8d2ad6f
-      "designation": "Admin",
-      "gender": "Male",
-      "id": 3
-    },
-    {
       "firstname": "Vishal ",
       "lastname": "saini",
       "mobilenumber": "121212121",
@@ -74,6 +53,15 @@
       "email": "sukanyamohanty@navgurukul.org",
       "password": "Sukanya@1234",
       "id": 5
+    },
+    {
+      "firstname": "Komal",
+      "lastname": "Das",
+      "gender": "female",
+      "mobilenumber": "7236429222",
+      "email": "komal12@gmail.com",
+      "password": "Komal@123",
+      "id": 6
     }
   ],
   "Attendence": [
@@ -204,33 +192,16 @@
       "id": 33
     },
     {
-<<<<<<< HEAD
       "name": "Amit Das",
-=======
-      "name": "kirti",
->>>>>>> 56b8d36f3e264567281d5b89b15c46c5d8d2ad6f
       "attendance": "Present",
       "date": "2023-11-13",
       "id": 34
     },
     {
-<<<<<<< HEAD
       "name": "Aman",
       "attendance": "Absent",
       "date": "2023-11-13",
       "id": 35
-=======
-      "name": "kirti",
-      "attendance": "Present",
-      "date": "2023-11-13",
-      "id": 35
-    },
-    {
-      "name": "soma",
-      "attendance": "Present",
-      "date": "2023-11-08",
-      "id": 36
->>>>>>> 56b8d36f3e264567281d5b89b15c46c5d8d2ad6f
     }
   ],
   "EmployeeProfile": [

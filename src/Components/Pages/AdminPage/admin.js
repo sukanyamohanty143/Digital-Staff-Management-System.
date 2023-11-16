@@ -61,7 +61,6 @@ const AdminPage=()=>{
                 });
             setSelectedUser(null);
         } 
-<<<<<<< HEAD
         else{
             fetch("http://localhost:8000/employees",{
                 method:"POST",
@@ -80,9 +79,6 @@ const AdminPage=()=>{
         setShowForm(showForm)
         setSelectedUser(selectedUser)
   };
-=======
-    };
->>>>>>> 56b8d36f3e264567281d5b89b15c46c5d8d2ad6f
     const closeForm=()=>{
          setShowForm(false);
            setSelectedUser(null);
@@ -113,46 +109,6 @@ const AdminPage=()=>{
                         />
                     </div>
                 </div>
-<<<<<<< HEAD
-            </div>
-        )}
-        <CenteredButtonContainer>
-            <TableContainer component={Paper} style={{ width: '1000px',}}>
-                <Table>
-                <TableHead>
-                    <StyledTableRow>
-                    <StyledTableCell>Firstname</StyledTableCell>
-                    <StyledTableCell>Lastname</StyledTableCell>
-                    <StyledTableCell>Mobile number</StyledTableCell>
-                    <StyledTableCell>Designation</StyledTableCell>
-                    <StyledTableCell>Gender</StyledTableCell>
-                    <StyledTableCell>Action</StyledTableCell>
-                    </StyledTableRow>
-                </TableHead>
-                <TableBody>
-                    {users === null ? (
-                    <TableRow>
-                        <TableCell colSpan={6}>Loading...page</TableCell>
-                    </TableRow>
-                    ) : (
-                    users.map((user) => (
-                        <StyledTableRow key={user.id}>
-                            <StyledTableCell>{user.firstname}</StyledTableCell>
-                            <StyledTableCell>{user.lastname}</StyledTableCell>
-                            <StyledTableCell>{user.mobilenumber}</StyledTableCell>
-                            <StyledTableCell>{user.designation}</StyledTableCell>
-                            <StyledTableCell>{user.gender}</StyledTableCell>
-
-                            <StyledTableCell>
-                                <DeleteIcon
-                                    style={{marginRight:10}}
-                                    onClick={() => handleDelete(user)}
-                                />
-                                <EditIcon
-                                    onClick={() => handleEdit(user)}
-                                />
-                            </StyledTableCell>
-=======
             )}
             <CenteredButtonContainer>
                 <TableContainer component={Paper} style={{ width: '1000px',}}>
@@ -165,7 +121,6 @@ const AdminPage=()=>{
                         <StyledTableCell>Designation</StyledTableCell>
                         <StyledTableCell>Gender</StyledTableCell>
                         <StyledTableCell>Action</StyledTableCell>
->>>>>>> 56b8d36f3e264567281d5b89b15c46c5d8d2ad6f
                         </StyledTableRow>
                     </TableHead>
                     <TableBody>

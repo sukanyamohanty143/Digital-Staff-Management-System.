@@ -1,10 +1,15 @@
 import React from 'react';
-import { AppBar, Toolbar, Typography, IconButton, Stack} from '@mui/material';
+import { AppBar, Toolbar, Typography, IconButton, Stack } from '@mui/material';
 import CoPresentIcon from '@mui/icons-material/CoPresent';
-import Logout from './Logout';
-import Profileavtar from './Profileavtar'
+import Logout from './LoginButton';
+import Profileavtar from './Profileavtar';
+import { useLocation } from 'react-router-dom';
 
 export default function Header() {
+    const location = useLocation();
+    const currentRoute = location.pathname;
+
+    // console.log("current location", currentRoute);
 
     return (
         <AppBar position='static'>
@@ -16,9 +21,11 @@ export default function Header() {
                     Digital Staff Management System
                 </Typography>
 
-                <Stack direction="row" spacing={2} sx={{ marginLeft: 'auto'}}>
-                    <Profileavtar/>
-                    <Logout/>
+                <Stack direction="row" spacing={2} sx={{ marginLeft: 'auto'}}>                    
+                    
+                    {currentRoute === '/' ? (
+                        <Logout />
+                    ) : currentRoute.includes('/registration') || currentRoute.includes('/login')? null : (<Profileavtar />)}
                 </Stack>
 
             </Toolbar>

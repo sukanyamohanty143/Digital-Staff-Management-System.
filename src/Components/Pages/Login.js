@@ -117,7 +117,7 @@ function Login() {
           fullWidth required />
 
         <Typography>
-          <Button variant="contained" style={buttonStyle} onClick={handleGoogleSignIn} underline="hover"sfullWidth>
+          <Button variant="contained" style={buttonStyle} onClick={handleGoogleSignIn} underline="hover" fullWidth>
             <GoogleIcon/> Sign In with Google
           </Button>
         </Typography>

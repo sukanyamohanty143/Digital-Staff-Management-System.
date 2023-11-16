@@ -10,7 +10,9 @@ import Supervisor from '../Pages/SupervisorComponent/Supervisor';
 import Outer from '../Pages/Outer';
 import Profile from '../Pages/Profile';
 import EmployeeTable from '../Pages/Table';
-// import Logout from '../Pages/Logout';
+import Header from '../Pages/Header';
+import Footer from '../Pages/Footer';
+import LoginButton from '../Pages/LoginButton';
 
 function Routing() {
   return (
@@ -26,10 +28,9 @@ function Routing() {
         <Route path="/outer" element={<Outer />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/table" element={<EmployeeTable />} />
-        {/* <Route path="/logout" element={<Logout />} /> */}
+        <Route path="/login" element={<LoginButton />} />
       </Routes>
       <Footer/>
-
     </BrowserRouter>
   );
 }
