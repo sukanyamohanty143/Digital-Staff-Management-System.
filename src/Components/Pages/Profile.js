@@ -41,6 +41,7 @@ const EmployeeProfile = () => {
 
   const logProfileData = () => {
     const { name, email, password, joinDate, profilePhoto } = profile;
+
     if (!name || !email || !password || !joinDate || !profilePhoto) {
       alert('Please fill in all the information');
     } else {
