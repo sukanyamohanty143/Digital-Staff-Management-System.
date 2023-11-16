@@ -245,6 +245,22 @@
       "JoiningDate": "2023-11-14",
       "ProfilePhotoURL": "blob:http://localhost:3000/f60899dd-6f2b-4e1c-9abf-0abe79bfda73",
       "id": 7
+    },
+    {
+      "Name": "laxmi",
+      "Email": "laxmiyadav21@navgurukul.org",
+      "Password": "L@123897kj",
+      "JoiningDate": "2023-11-16",
+      "ProfilePhotoURL": "blob:http://localhost:3000/61053416-c95c-4292-b996-d9cda49ff6cb",
+      "id": 8
+    },
+    {
+      "Name": "ujala",
+      "Email": "ujala21@gmail.com",
+      "Password": "Ujala21@",
+      "JoiningDate": "2023-11-10",
+      "ProfilePhotoURL": "blob:http://localhost:3000/d4478a4c-2252-44c1-9a05-b206120b5e21",
+      "id": 9
     }
   ]
 }
