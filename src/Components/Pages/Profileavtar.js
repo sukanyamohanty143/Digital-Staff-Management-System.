@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Avatar, Menu, MenuItem } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import useAuth from './Context/useAuth';
 
-const Profileavtar = ({ user }) => {
+const Profileavtar = () => {
+    const user = JSON.parse(localStorage.getItem('user'))
+    console.log("user data", user)
     const navigate = useNavigate();
+    
     const { user: authUser } = useAuth();
 
     const [anchorEl, setAnchorEl] = useState(null);
@@ -20,13 +23,15 @@ const Profileavtar = ({ user }) => {
 
     const handleMenuItemClick = (option) => {
         if (option === 'login') {
+            localStorage.clear()
             if (authUser) {
                 console.log("User successfully logged out from Firebase");
             } else {
                 console.error("User not authenticated.");
             }
         }else if (option === 'outer') {
-            navigate('/outer', { state: { user } });
+            
+            navigate('/outer');
         }
         setSelectedOption(option);
         handleMenuClose();
@@ -42,7 +47,7 @@ const Profileavtar = ({ user }) => {
     return (
         <div>
             <Avatar
-                src={user?.avatar}
+                src={user?.avatar || user?.profilePhotoURL}
                 alt="User Avatar"
                 onClick={handleMenuOpen}
                 style={{ cursor: 'pointer' }}
