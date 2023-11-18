@@ -55,10 +55,13 @@ function Login() {
   const handleClick = () => {
     const foundUsers = userData.filter((user) => {
       if (user.email === userEmail && user.password === userPassword) {
+        console.log("user1", user)
+        localStorage.setItem('user', JSON.stringify(user))
+        setLoggedInUser(user);
+
         signInWithEmailAndPassword(auth, userEmail, userPassword)
           .then((vlu) => {
-            setLoggedInUser(user);
-            navigate(`/${user.designation}`)
+            navigate(`/${user.designation}`, { state: { loggedInUser } })
           });
       }
     });
@@ -75,14 +78,17 @@ function Login() {
      
       const isUserInDatabase = userData.filter((dbUser) => {
         if (dbUser.email === gLoginUser.email){
+          localStorage.setItem('user', JSON.stringify(dbUser))
           setLoggedInUser(dbUser);
+          // console.log("LoggedInUse", loggedInUser)
           return dbUser
         }});
       console.log("user data ", isUserInDatabase);
   
       if (isUserInDatabase) {
-        navigate(`/${isUserInDatabase[0].designation}`)
-        console.log("User is in the database.");
+        console.log("loggedInUser before navigating:", loggedInUser);
+        navigate(`/${isUserInDatabase[0].designation}`);
+                console.log("User is in the database.");
       } else {
         console.log("User not in the database. Redirect to registration or handle accordingly.");
       }
@@ -97,7 +103,7 @@ function Login() {
     navigate("/registration");
   };
 
-
+console.log("sukanya", loggedInUser)
   return (
     <Grid style={{ marginTop: "70px" }}>
       <Paper elevation={10} style={paperStyle}>
@@ -145,7 +151,7 @@ function Login() {
         </Button>
 
       </Paper>
-      <Profileavtar user={loggedInUser} />
+      {/* <Profileavtar user={loggedInUser} /> */}
     </Grid>
   )
 }
