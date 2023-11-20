@@ -16,8 +16,6 @@ const EmployeeProfile = () => {
   const navigate = useNavigate();
   const [profile, setProfile] = useState({
     name: '',
-    email: '',
-    password: '',
     joinDate: '',
     profilePhoto: null,
   });
@@ -40,17 +38,15 @@ const EmployeeProfile = () => {
   };
 
   const logProfileData = () => {
-    const { name, email, password, joinDate, profilePhoto } = profile;
+    const { name, joinDate, profilePhoto } = profile;
 
-    if (!name || !email || !password || !joinDate || !profilePhoto) {
+    if (!name || !joinDate || !profilePhoto) {
       alert('Please fill in all the information');
     } else {
       alert('Data saved successfully');
 
       const profileData = {
         Name: name,
-        Email: email,
-        Password: password,
         JoiningDate: joinDate,
         ProfilePhotoURL: profilePhoto,
       };
@@ -67,8 +63,6 @@ const EmployeeProfile = () => {
           console.log('Data added:', data);
           setProfile({
             name: '',
-            email: '',
-            password: '',
             joinDate: '',
             profilePhoto: null,
           });
@@ -116,56 +110,12 @@ const EmployeeProfile = () => {
                   !profile.name
                     ? 'Name is required'
                     : !/^[a-zA-Z\s]*$/.test(profile.name)
-                    ? <span style={{ color: 'red' }}>Only alphabets and spaces are allowed</span>
-                    : 'Enter your name'
+                      ? <span style={{ color: 'red' }}>Only alphabets and spaces are allowed</span>
+                      : 'Enter your name'
                 }
               />
             </Grid>
-            <Grid item xs={12}>
-              <TextField
-                label="Email"
-                fullWidth
-                name="email"
-                value={profile.email}
-                onChange={handleChange}
-                autoComplete="off"
-                helperText={
-                  !profile.email
-                    ? 'Email is required'
-                    : !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(profile.email)
-                    ? <span style={{ color: 'red' }}>Enter a valid email</span>
-                    : profile.email !== profile.email.toLowerCase()
-                    ? <span style={{ color: 'red' }}>Email should be in lowercase</span>
-                    : ''
-                }
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                label="Password"
-                type="password"
-                fullWidth
-                name="password"
-                value={profile.password}
-                onChange={handleChange}
-                autoComplete="off"
-                helperText={
-                  !profile.password
-                    ? 'Password is required'
-                    : profile.password.length < 8
-                    ? <span style={{ color: 'red' }}>Password should be at least 8 characters long</span>
-                    : !/\d/.test(profile.password)
-                    ? <span style={{ color: 'red' }}>Password should contain at least one digit</span>
-                    : !/[A-Z]/.test(profile.password)
-                    ? <span style={{ color: 'red' }}>Password should contain at least one uppercase letter</span>
-                    : !/[a-z]/.test(profile.password)
-                    ? <span style={{ color: 'red' }}>Password should contain at least one lowercase letter</span>
-                    : !/[!@#$%^&*(),.?":{}|<>]/.test(profile.password)
-                    ? <span style={{ color: 'red' }}>Password should contain at least one special character</span>
-                    : 'Password is strong'
-                }
-              />
-            </Grid>
+
             <Grid item xs={12}>
               <TextField
                 label="Joining Date"
