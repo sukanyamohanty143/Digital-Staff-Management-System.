@@ -33,12 +33,10 @@ function Registration() {
     navigate("/login")
   }
 
-
   const [showPassword, setShowPassword] = useState(false);
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
   };
-
 
   const [submittedData, setSubmittedData] = useState(null);
   const [formData, setFormData] = useState({
@@ -56,10 +54,8 @@ function Registration() {
     setFormData({ ...formData, [name]: value })
   };
 
-
   const handleSubmit = () => {
-
-    if (formData.firstname && formData.lastname && formData.gender && formData.mobilenumber  && formData.email && formData.password) {
+    if (formData.firstname && formData.lastname && formData.gender && formData.mobilenumber && formData.email && formData.password) {
       createUserWithEmailAndPassword(auth, formData.email, formData.password).then(vlu => alert("Sign up Done"))
 
       fetch('http://localhost:8000/employees', {

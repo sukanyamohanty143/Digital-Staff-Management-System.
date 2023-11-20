@@ -17,8 +17,8 @@ const EmployeeProfile = (props) => {
   const navigate = useNavigate();
   const [profile, setProfile] = useState({
     name: '',
-    email: '',
-    password: '',
+    // email: '',
+    // password: '',
     joinDate: '',
     profilePhoto: null,
   });
@@ -41,13 +41,15 @@ const EmployeeProfile = (props) => {
   };
 
   const logProfileData = () => {
+
     const profileData = {
       Name: profile.name,
-      Email: profile.email,
-      Password: profile.password,
+      // Email: profile.email,
+      // Password: profile.password,
       JoiningDate: profile.joinDate,
       ProfilePhotoURL: profile.profilePhoto,
     };
+    
     fetch(`http://localhost:8000/EmployeeProfile`, {
       method: 'POST',
       headers: {
@@ -60,8 +62,8 @@ const EmployeeProfile = (props) => {
         console.log('Data added:', data);
         setProfile({
           name: '',
-          email: '',
-          password: '',
+          // email: '',
+          // password: '',
           joinDate: '',
           profilePhoto: null,
         })
@@ -104,6 +106,7 @@ const EmployeeProfile = (props) => {
                 value={profile.name}
                 onChange={handleChange}
                 margin="normal"
+                autoComplete="off"
 
                 helperText={
                   !profile.name
@@ -115,7 +118,8 @@ const EmployeeProfile = (props) => {
 
               />
             </Grid>
-            <Grid item xs={12}>
+
+            {/* <Grid item xs={12}>
               <TextField
                 label="Email"
                 fullWidth
@@ -123,6 +127,8 @@ const EmployeeProfile = (props) => {
                 value={profile.email}
                 onChange={handleChange}
                 margin="normal"
+                autoComplete="off"
+
                 helperText={
                   !profile.email
                     ? 'Email is required'
@@ -143,6 +149,7 @@ const EmployeeProfile = (props) => {
                 value={profile.password}
                 onChange={handleChange}
                 margin="normal"
+                autoComplete="off"
 
                 helperText={
                   !profile.password
@@ -160,7 +167,9 @@ const EmployeeProfile = (props) => {
                               : "Password is strong"
                 }
               />
-            </Grid>
+            </Grid> */}
+
+
             <Grid item xs={12}>
               <TextField
                 label="Joining Date"

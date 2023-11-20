@@ -33,6 +33,24 @@
       "email": "sukanya@gmail.com",
       "password": "Sukanya@123",
       "id": 1
+    },
+    {
+      "firstname": "Amit",
+      "lastname": "Singh",
+      "gender": "male",
+      "mobilenumber": "7698467984",
+      "email": "amit@gmail.com",
+      "password": "Amit@123445",
+      "id": 5
+    },
+    {
+      "firstname": "Anshu",
+      "lastname": "singh",
+      "gender": "female",
+      "mobilenumber": "4387539459",
+      "email": "anshu@gmail.com",
+      "password": "Anshu@1234",
+      "id": 6
     }
   ],
   "Attendence": [
@@ -301,6 +319,76 @@
       "JoiningDate": "2023-11-05",
       "ProfilePhotoURL": null,
       "id": 14
+    },
+    {
+      "Name": "Sonam Shinghaniya",
+      "Email": "sonamk@navgurukul.org",
+      "Password": "Sonam@123",
+      "JoiningDate": "2023-11-10",
+      "ProfilePhotoURL": null,
+      "id": 15
+    },
+    {
+      "Name": "",
+      "Email": "",
+      "Password": "",
+      "JoiningDate": "",
+      "ProfilePhotoURL": null,
+      "id": 16
+    },
+    {
+      "Name": "",
+      "Email": "",
+      "Password": "",
+      "JoiningDate": "",
+      "ProfilePhotoURL": null,
+      "id": 17
+    },
+    {
+      "Name": "",
+      "Email": "",
+      "Password": "",
+      "JoiningDate": "",
+      "ProfilePhotoURL": null,
+      "id": 18
+    },
+    {
+      "Name": "",
+      "Email": "",
+      "Password": "",
+      "JoiningDate": "",
+      "ProfilePhotoURL": null,
+      "id": 19
+    },
+    {
+      "Name": "",
+      "Email": "",
+      "Password": "",
+      "JoiningDate": "",
+      "ProfilePhotoURL": null,
+      "id": 20
+    },
+    {
+      "Name": "",
+      "Email": "",
+      "Password": "",
+      "JoiningDate": "",
+      "ProfilePhotoURL": null,
+      "id": 21
+    },
+    {
+      "Name": "",
+      "Email": "",
+      "Password": "",
+      "JoiningDate": "",
+      "ProfilePhotoURL": null,
+      "id": 22
+    },
+    {
+      "Name": "sonam",
+      "JoiningDate": "2023-11-02",
+      "ProfilePhotoURL": null,
+      "id": 23
     }
   ]
 }
