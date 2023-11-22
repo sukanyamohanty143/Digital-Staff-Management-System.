@@ -118,7 +118,9 @@ console.log("sukanya", loggedInUser)
           placeholder='Enter email'
           value={userEmail}
           onChange={(e) => { setUserEmail(e.target.value) }}
-          fullWidth required />
+          fullWidth 
+          autoComplete="off"
+          required />
 
         <TextField
           label="Password"
