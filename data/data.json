@@ -48,6 +48,26 @@
       "password": "Sonam@1234",
       "designation": "staff",
       "id": 8
+    },
+    {
+      "firstname": "Laxmi",
+      "lastname": "Yadab",
+      "gender": "male",
+      "mobilenumber": "7453980942",
+      "email": "laxmi12@gmail.com",
+      "password": "Laxmi@1234",
+      "designation": "admin",
+      "id": 9
+    },
+    {
+      "firstname": "Khushboo",
+      "lastname": "Kumari",
+      "gender": "female",
+      "mobilenumber": "9846854643",
+      "email": "khushboo123@gmail.com",
+      "password": "Khushboo@123",
+      "designation": "supervisor",
+      "id": 10
     }
   ],
   "Attendence": [

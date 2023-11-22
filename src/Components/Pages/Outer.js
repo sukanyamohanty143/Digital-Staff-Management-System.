@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Typography, Card, CardContent, CardMedia, Grid, Button, IconButton } from '@mui/material';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import EditIcon from '@mui/icons-material/Edit';
 
 const Outer = () => {
