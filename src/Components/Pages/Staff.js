@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(2),
   },
   heading: {
-    marginTop: 100,
+    textAlign:"center"
   },
 }));
 
@@ -111,10 +111,12 @@ const Staff = () => {
   return (
     <div className={classes.container}>
 
+      
+      <Card className={classes.card}>
+
       <Typography variant="h3" className={classes.heading}>
         Staff Page
       </Typography>
-      <Card className={classes.card}>
         <Box>
 
           <label className={classes.label} htmlFor="Name">
