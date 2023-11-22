@@ -46,22 +46,41 @@ const EmployeeProfile = () => {
       alert('Please fill in all the information');
     } else {
       alert('Data saved successfully');
-
+      const fullName = name.split(" ")
       const profileData = {
-        Name: name,
-        Email: email,
-        Password: password,
-        JoiningDate: joinDate,
-        ProfilePhotoURL: profilePhoto,
+        firstname: fullName[0],
+        lastname:fullName.length>1 && fullName[1],
+        email: email,
+        password: password,
+        joiningDate: joinDate,
+        profilePhotoURL: profilePhoto,
       };
+      const prevUser = JSON.parse(localStorage.getItem('user'))
+      localStorage.setItem('user',JSON.stringify({...prevUser,...profileData}))
+      function _objectWithoutProperties(obj, keys) {
+        var target = {};
+        for (var i in obj) {
+          if (keys.indexOf(i) >= 0) continue;
+          if (!Object.prototype.hasOwnProperty.call(obj, i)) continue;
+          target[i] = obj[i];
+        }
+        return target;
+      }
+      
+      
+      
+      var removeId = _objectWithoutProperties(prevUser, ["id"]);
+      console.log("removeId", profileData);
 
-      fetch(`http://localhost:8000/EmployeeProfile`, {
-        method: 'POST',
+      fetch(`http://localhost:8000/employees?id=${prevUser.id}`, {
+        method: 'PUT',
         headers: {
+
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(profileData),
+        body: JSON.stringify({...removeId,...profileData}),
       })
+
         .then((response) => response.json())
         .then((data) => {
           console.log('Data added:', data);
@@ -72,7 +91,7 @@ const EmployeeProfile = () => {
             joinDate: '',
             profilePhoto: null,
           });
-          navigate('/outer', { state: { user: profileData } });
+          navigate('/outer');
         })
         .catch((error) => {
           console.error('Error adding data:', error);
