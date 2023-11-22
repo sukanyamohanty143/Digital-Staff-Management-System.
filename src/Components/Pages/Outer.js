@@ -84,7 +84,7 @@ const Outer = () => {
               <CardContent style={{marginTop:"30px" }}>
                 <Typography style={{padding:"5px" }} variant="h6">{user.Name}</Typography>
                 <Typography style={{padding:"5px" }} variant="h6">{user.Email}</Typography>
-                {/* <Typography style={{padding:"5px" }} variant="h6">{user.Password}</Typography> */}
+                
                 <Typography style={{padding:"5px" }} variant="h6">{user.JoiningDate}</Typography>
                 <Typography style={{padding:"10px" }} variant="h6">
                   <IconButton
