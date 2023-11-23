@@ -7,7 +7,7 @@ import {
 } from "@mui/material";
 
 import SearchBar from "./SearchBar";
-
+import Task from "./Task";
 const Supervisor = () => {
 
     const [selectedRange, setSelectedRange] = useState(null);
@@ -74,6 +74,8 @@ const Supervisor = () => {
                 <TableData data={filteredData} setFilteredData={setFilteredData} />
 
             </Card>
+            <Task/>
+
         </>
     );
 };
