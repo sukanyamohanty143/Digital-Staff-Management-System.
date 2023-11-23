@@ -4,12 +4,12 @@ import Staff from '../Pages/Staff'
 import Home from '../Pages/Home'
 import Registration from '../Pages/Registration'
 import AdminPage from '../Pages/AdminPage/admin'
-
-
 import Supervisor from '../Pages/SupervisorComponent/Supervisor'
 import Outer from '../Pages/Outer';
 import Profile from '../Pages/Profile'
 import EmployeeTable from '../Pages/Table'
+import Header from '../Pages/Header'
+import Footer from '../Pages/Footer'
 
 
 function Routing() {
@@ -17,6 +17,7 @@ function Routing() {
 
   return (
     <BrowserRouter>
+      <Header/>
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/login" element={<Login />} />
@@ -28,6 +29,7 @@ function Routing() {
         <Route path="/profile" element={<Profile/>} />
         <Route path="/table" element={<EmployeeTable />} />
       </Routes>
+      <Footer/>
     </BrowserRouter>
   );
 }
