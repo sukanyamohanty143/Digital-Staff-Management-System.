@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { Typography, Card, CardContent, CardMedia, Grid, Button, IconButton } from '@mui/material';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import EditIcon from '@mui/icons-material/Edit';
 
 const Outer = () => {
-  const location = useLocation();
-  const user = location.state?.user || {}; 
+  const user = JSON.parse(localStorage.getItem('user'))
   const navigate = useNavigate();
   const [profilePhoto, setProfilePhoto] = useState(null);
 
@@ -52,10 +51,10 @@ const Outer = () => {
                   flexDirection: 'column',
                 }}
               >
-                {profilePhoto ? (
+                {profilePhoto || user.profilePhotoURL ? (
                   <CardMedia
                     component="img"
-                    src={profilePhoto}
+                    src={profilePhoto || user.profilePhotoURL}
                     alt="Employee Image"
                     style={{ width: '100%', height: '100%' }}
                   />
@@ -81,9 +80,9 @@ const Outer = () => {
 
             <Grid xs={6}>
               <CardContent style={{marginTop:"30px" }}>
-                <Typography style={{padding:"5px" }} variant="h6">{user.Name}</Typography>
-                <Typography style={{padding:"5px" }} variant="h6">{user.Email}</Typography>
-                
+                <Typography style={{padding:"5px" }} variant="h6">{user.firstname + " "+user.lastname }</Typography>
+                <Typography style={{padding:"5px" }} variant="h6">{user.email}</Typography>
+                <Typography style={{padding:"5px" }} variant="h6">{user.mobilenumber}</Typography>
                 <Typography style={{padding:"5px" }} variant="h6">{user.JoiningDate}</Typography>
                 <Typography style={{padding:"10px" }} variant="h6">
                   <IconButton

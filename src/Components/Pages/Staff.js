@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -20,26 +19,21 @@ const useStyles = makeStyles((theme) => ({
   },
   card: {
     width: 600,
-    marginBottom: 20,
-    marginTop: 80,
+    marginBottom: 30,
+    marginTop: 200,
     padding:30
 
   },
   label: {
     marginBottom: theme.spacing(1),
-    marginLeft:10
   },
   input: {
-    width: "95%",
-    margin:15
+    width: "100%",
   },
   button: {
     marginTop: theme.spacing(2),
-    backgroundColor: '#337CCF',
-    marginLeft:10
   },
   heading: {
-    padding:40,
     textAlign:"center"
   },
 }));
@@ -115,10 +109,15 @@ const Staff = () => {
 
   return (
     <div className={classes.container}>
-      <Card className={classes.card} style={{ boxShadow: '0 10px 15px rgba(0, 0, 0, 0.2)' }}>
-        <Typography variant="h4" className={classes.heading}>Staff Page</Typography>
 
-        <Box >
+      
+      <Card className={classes.card}>
+
+      <Typography variant="h3" className={classes.heading}>
+        Staff Page
+      </Typography>
+        <Box>
+
           <label className={classes.label} htmlFor="Name">
             Name
           </label>
@@ -130,8 +129,6 @@ const Staff = () => {
             className={classes.input}
             error={Boolean(nameError)}
             helperText={nameError}
-            autoComplete="off"
-
           />
         </Box>
         <Box>
@@ -173,3 +170,4 @@ const Staff = () => {
   );
 };
 export default Staff;
+

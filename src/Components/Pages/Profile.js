@@ -8,6 +8,7 @@ import {
   Typography,
   Avatar,
   IconButton,
+  MenuItem,
 } from '@mui/material';
 import PhotoCameraIcon from '@mui/icons-material/PhotoCamera';
 import { useNavigate } from 'react-router-dom';
@@ -16,6 +17,8 @@ const EmployeeProfile = () => {
   const navigate = useNavigate();
   const [profile, setProfile] = useState({
     name: '',
+    email: '',
+    password: '',
     joinDate: '',
     profilePhoto: null,
   });
@@ -38,35 +41,58 @@ const EmployeeProfile = () => {
   };
 
   const logProfileData = () => {
-    const { name, joinDate, profilePhoto } = profile;
+    const { name, email, password, joinDate, profilePhoto } = profile;
 
-    if (!name || !joinDate || !profilePhoto) {
+    if (!name || !email || !password || !joinDate || !profilePhoto) {
       alert('Please fill in all the information');
     } else {
       alert('Data saved successfully');
-
+      const fullName = name.split(" ")
       const profileData = {
-        Name: name,
-        JoiningDate: joinDate,
-        ProfilePhotoURL: profilePhoto,
+        firstname: fullName[0],
+        lastname:fullName.length>1 && fullName[1],
+        email: email,
+        password: password,
+        joiningDate: joinDate,
+        profilePhotoURL: profilePhoto,
       };
+      const prevUser = JSON.parse(localStorage.getItem('user'))
+      localStorage.setItem('user',JSON.stringify({...prevUser,...profileData}))
+      function _objectWithoutProperties(obj, keys) {
+        var target = {};
+        for (var i in obj) {
+          if (keys.indexOf(i) >= 0) continue;
+          if (!Object.prototype.hasOwnProperty.call(obj, i)) continue;
+          target[i] = obj[i];
+        }
+        return target;
+      }
+      
+      
+      
+      var removeId = _objectWithoutProperties(prevUser, ["id"]);
+      console.log("removeId", profileData);
 
-      fetch(`http://localhost:8000/EmployeeProfile`, {
-        method: 'POST',
+      fetch(`http://localhost:8000/employees?id=${prevUser.id}`, {
+        method: 'PUT',
         headers: {
+
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(profileData),
+        body: JSON.stringify({...removeId,...profileData}),
       })
+
         .then((response) => response.json())
         .then((data) => {
           console.log('Data added:', data);
           setProfile({
             name: '',
+            email: '',
+            password: '',
             joinDate: '',
             profilePhoto: null,
           });
-          navigate('/outer', { state: { user: profileData } });
+          navigate('/outer');
         })
         .catch((error) => {
           console.error('Error adding data:', error);
@@ -75,7 +101,7 @@ const EmployeeProfile = () => {
   };
 
   return (
-    <Container style={{ marginTop: '10px' }}>
+    <Container style={{ marginTop: '100px' }}>
       <Paper elevation={1} style={{ padding: '10px', margin: 'auto', maxWidth: '600px' }}>
         <Typography variant="h5" gutterBottom>
           Employee Profile
@@ -110,12 +136,27 @@ const EmployeeProfile = () => {
                   !profile.name
                     ? 'Name is required'
                     : !/^[a-zA-Z\s]*$/.test(profile.name)
-                      ? <span style={{ color: 'red' }}>Only alphabets and spaces are allowed</span>
-                      : 'Enter your name'
+                    ? <span style={{ color: 'red' }}>Only alphabets and spaces are allowed</span>
+                    : 'Enter your name'
                 }
               />
             </Grid>
-
+            <Grid item xs={12}>
+              <TextField
+              label="Designation"
+              fullWidth
+              select
+              value={profile.designation}
+              onChange={handleChange}
+              name="designation"
+              helperText="Select your designation"
+            >
+              <MenuItem value="staff">Staff</MenuItem>
+              <MenuItem value="supervisor">Supervisor</MenuItem>
+              <MenuItem value="Admin">Admin</MenuItem>
+            </TextField>
+          </Grid>
+             
             <Grid item xs={12}>
               <TextField
                 label="Joining Date"

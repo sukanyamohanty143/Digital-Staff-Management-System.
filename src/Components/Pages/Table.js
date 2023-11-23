@@ -38,10 +38,10 @@ const EmployeeTable = (props) => {
           <TableHead>
             <TableRow>
               <TableCell>ID</TableCell>
-              <TableCell>Date</TableCell> 
+              <TableCell>Date</TableCell>
               <TableCell>Name</TableCell>
               <TableCell>Attendance</TableCell>
-          
+         
             </TableRow>
           </TableHead>
           <TableBody>
@@ -67,3 +67,4 @@ const EmployeeTable = (props) => {
 };
 
 export default EmployeeTable;
+
