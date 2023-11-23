@@ -85,7 +85,14 @@
 import Task from "./Task";
 function Supervisor(){
     return(
+<<<<<<< HEAD
         <Task/>
+=======
+        <>
+        <Task/>
+         
+        </>
+>>>>>>> a179dc15970d9f3007639da08c9b2c7e82726826
     )
 }
 export default Supervisor;
