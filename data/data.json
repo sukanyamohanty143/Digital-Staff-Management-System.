@@ -199,6 +199,12 @@
       "attendance": "Present",
       "date": "2023-11-08",
       "id": 36
+    },
+    {
+      "name": "Kumkum saini",
+      "attendance": "Present",
+      "date": "2023-11-23",
+      "id": 37
     }
   ],
   "EmployeeProfile": [
