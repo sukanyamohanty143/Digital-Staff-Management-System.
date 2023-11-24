@@ -85,7 +85,7 @@ const Staff = () => {
     let userName = name;
     if (name && date && attendance) {
       const data = { name, attendance, date };
-      fetch("http://localhost:8000/Attendance", {
+      fetch(`http://localhost:8000/Attendence`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
