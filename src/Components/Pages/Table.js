@@ -28,8 +28,6 @@ const EmployeeTable = (props) => {
   }, [user]);
   console.log("all user data", employeeData)
 
-
-  
   return (
     <div>
       <Typography variant="h5" gutterBottom>
@@ -40,10 +38,10 @@ const EmployeeTable = (props) => {
           <TableHead>
             <TableRow>
               <TableCell>ID</TableCell>
-              <TableCell>Date</TableCell> 
+              <TableCell>Date</TableCell>
               <TableCell>Name</TableCell>
               <TableCell>Attendance</TableCell>
-          
+         
             </TableRow>
           </TableHead>
           <TableBody>
@@ -69,3 +67,4 @@ const EmployeeTable = (props) => {
 };
 
 export default EmployeeTable;
+

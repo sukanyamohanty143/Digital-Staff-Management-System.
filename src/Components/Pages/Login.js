@@ -16,7 +16,6 @@ import {
   GoogleAuthProvider, 
   signInWithPopup } from 'firebase/auth';
 import { app } from '../Pages/Context/firebase'
-import Profileavtar from './Profileavtar'
 
 const auth = getAuth(app);
 
@@ -80,7 +79,6 @@ function Login() {
         if (dbUser.email === gLoginUser.email){
           localStorage.setItem('user', JSON.stringify(dbUser))
           setLoggedInUser(dbUser);
-          // console.log("LoggedInUse", loggedInUser)
           return dbUser
         }});
       console.log("user data ", isUserInDatabase);
@@ -118,7 +116,9 @@ console.log("sukanya", loggedInUser)
           placeholder='Enter email'
           value={userEmail}
           onChange={(e) => { setUserEmail(e.target.value) }}
-          fullWidth required />
+          fullWidth 
+          autoComplete="off"
+          required />
 
         <TextField
           label="Password"
@@ -128,19 +128,6 @@ console.log("sukanya", loggedInUser)
           onChange={(e) => { setUserPassword(e.target.value) }}
           fullWidth required />
 
-        <Typography>
-          <Button variant="contained" style={buttonStyle} onClick={handleGoogleSignIn} underline="hover" fullWidth>
-            <GoogleIcon/> Sign In with Google
-          </Button>
-        </Typography>
-
-        <Typography>
-          Do you have an account ?
-          <Button onClick={goToRegistration} underline="hover">
-            Create account
-          </Button>
-        </Typography>
-
         <Button
           variant="contained"
           style={buttonStyle}
@@ -149,6 +136,19 @@ console.log("sukanya", loggedInUser)
           disabled={!userEmail || !userPassword}>
           Sign In
         </Button>
+
+        <Typography>
+          Do you have an account ?
+          <Button onClick={goToRegistration} underline="hover">
+            Create account
+          </Button>
+        </Typography>
+
+        <Typography>
+          <Button variant="contained" style={buttonStyle} onClick={handleGoogleSignIn} underline="hover" fullWidth>
+            <GoogleIcon/> Sign In with Google
+          </Button>
+        </Typography>
 
       </Paper>
       {/* <Profileavtar user={loggedInUser} /> */}

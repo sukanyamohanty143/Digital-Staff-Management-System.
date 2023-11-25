@@ -1,7 +1,6 @@
-
 import React, { useState } from 'react';
 import { Typography, Card, CardContent, CardMedia, Grid, Button, IconButton } from '@mui/material';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import EditIcon from '@mui/icons-material/Edit';
 
 const Outer = () => {
@@ -81,10 +80,10 @@ const Outer = () => {
 
             <Grid xs={6}>
               <CardContent style={{marginTop:"30px" }}>
-                <Typography style={{padding:"5px" }} variant="h6">Name :- {user.firstname + " "+user.lastname }</Typography>
-                <Typography style={{padding:"5px" }} variant="h6">Email :- {user.email}</Typography>
-                <Typography style={{padding:"5px" }} variant="h6">mobilenumber :- {user.mobilenumber}</Typography>
-                <Typography style={{padding:"5px" }} variant="h6">JoiningDate :- {user.JoiningDate}</Typography>
+                <Typography style={{padding:"5px" }} variant="h6">{user.firstname + " "+user.lastname }</Typography>
+                <Typography style={{padding:"5px" }} variant="h6">{user.email}</Typography>
+                <Typography style={{padding:"5px" }} variant="h6">{user.mobilenumber}</Typography>
+                <Typography style={{padding:"5px" }} variant="h6">{user.JoiningDate}</Typography>
                 <Typography style={{padding:"10px" }} variant="h6">
                   <IconButton
                     color="primary"

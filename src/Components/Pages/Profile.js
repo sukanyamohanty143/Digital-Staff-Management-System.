@@ -8,6 +8,7 @@ import {
   Typography,
   Avatar,
   IconButton,
+  MenuItem,
 } from '@mui/material';
 import PhotoCameraIcon from '@mui/icons-material/PhotoCamera';
 import { useNavigate } from 'react-router-dom';
@@ -94,8 +95,8 @@ const EmployeeProfile = () => {
   };
 
   return (
-    <Container style={{ marginTop: '50px' ,}}>
-      <Paper elevation={1} style={{padding: '30px', margin: 'auto', maxWidth: '600px' ,boxShadow: '0 10px 15px rgba(0, 0, 0, 0.2)'  }}>
+    <Container style={{ marginTop: '100px' }}>
+      <Paper elevation={1} style={{ padding: '10px', margin: 'auto', maxWidth: '600px' }}>
         <Typography variant="h5" gutterBottom>
           Employee Profile
         </Typography>
@@ -117,6 +118,7 @@ const EmployeeProfile = () => {
               </IconButton>
             </Avatar>
           </label>
+          <br></br>
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <TextField
@@ -135,8 +137,22 @@ const EmployeeProfile = () => {
                 }
               />
             </Grid>
-
-
+            <Grid item xs={12}>
+              <TextField
+              label="Designation"
+              fullWidth
+              select
+              value={profile.designation}
+              onChange={handleChange}
+              name="designation"
+              helperText="Select your designation"
+            >
+              <MenuItem value="staff">Staff</MenuItem>
+              <MenuItem value="supervisor">Supervisor</MenuItem>
+              <MenuItem value="Admin">Admin</MenuItem>
+            </TextField>
+          </Grid>
+             
             <Grid item xs={12}>
               <TextField
                 label="Joining Date"
