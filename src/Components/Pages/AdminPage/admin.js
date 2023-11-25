@@ -76,10 +76,12 @@ const AdminPage=()=>{
          setShowForm(false);
            setSelectedUser(null);
     };
+
     const handleEdit=(user)=>{
         setSelectedUser(user);
         setShowForm(true);
     };
+    
     const handleDelete=(user)=>{
         fetch(`http://localhost:8000/employees/${user.id}`,{
             method: "DELETE",

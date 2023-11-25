@@ -29,6 +29,9 @@ function Routing() {
         <Route path="/profile" element={<Profile/>} />
         <Route path="/table" element={<EmployeeTable />} />
       </Routes>
+
+      
+
       <Footer/>
     </BrowserRouter>
   );
