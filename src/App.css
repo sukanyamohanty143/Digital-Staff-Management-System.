@@ -29,13 +29,7 @@ body {
   font-style: italic;
 }
 
-/* .footer-text {
-  margin-right: 500px;
-  margin-top: 50px;
-  font-size: smaller;
-  font-style: italic;
-  
-} */
+
 
 .registretion-card {
   width: 700px;
@@ -44,7 +38,14 @@ body {
   margin-top: 54px;
   margin-bottom: 50px;
 }
+.tast-card{
+  width: 655px;
+  height:auto;
+  margin: auto;
+  margin-top: 54px;
+  margin-bottom: 50px;
 
+}
 .cardcontainer {
   width: 800px;
   height: 500px;
@@ -66,6 +67,46 @@ body {
   text-shadow: 2px 2px 5px gray;
 }
 
+.tastbox{
+  width: 269px;
+  height: 37px;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 15px;
+}
+
+.removebtn , .editbtn{
+  float: right;
+}
+
+.secondcard{
+  width: 620px;
+  height:auto;
+  margin: auto;
+  margin-top: 54px;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+.boxone{
+  text-align: center;
+  margin-top: 20px;
+}
+
+.addbtn{
+  background-color: green;
+  color: white;
+  font-size: large;
+  border: 2px solid;
+
+}
+.editbtn{
+  margin-left: 20px;
+}
+
+
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -86,6 +127,7 @@ body {
 }
 
   
+
 
 
 

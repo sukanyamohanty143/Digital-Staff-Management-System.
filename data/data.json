@@ -1,56 +1,91 @@
 {
   "employees": [
     {
-      "firstname": "Ujala",
-      "lastname": "saini",
-      "mobilenumber": "2234562133",
-      "designation": "Staff",
-      "gender": "Male",
-      "id": 2
-    },
-    {
-      "firstname": "Vikas",
-      "lastname": "saini",
-      "mobilenumber": "1234567812",
-      "designation": "Admin",
-      "gender": "Male",
-      "id": 3
-    },
-    {
-      "firstname": "Vishal ",
-      "lastname": "saini",
-      "mobilenumber": "121212121",
-      "designation": "Staff",
-      "gender": "male",
+      "firstname": "Sukanya",
+      "lastname": "Mohanty",
+      "mobilenumber": "4544343545",
+      "designation": "Supervisor",
+      "gender": "female",
+      "email": "mohanty21@navgurukul.org",
+      "password": "Mohanty@123",
       "id": 4
     },
     {
-      "firstname": "Kumkum",
-      "lastname": "saini",
-      "mobilenumber": "2323232323",
-      "designation": "supervisor",
+      "firstname": "Sukanya",
+      "lastname": "Mohanty",
+      "mobilenumber": "4573948548",
+      "designation": "Supervisor",
+      "gender": "female",
+      "email": "sukanyamohanty@navgurukul.org",
+      "password": "Sukanya@1234",
+      "id": 5
+    },
+    {
+      "firstname": "Komal",
+      "lastname": "Das",
+      "gender": "female",
+      "mobilenumber": "7236429222",
+      "email": "komal12@gmail.com",
+      "password": "Komal@123",
+      "id": 6
+    },
+    {
+      "firstname": "Sukanya",
+      "lastname": "Mohanta",
+      "gender": "female",
+      "mobilenumber": "6475768767",
+      "email": "sukanyamohanty7077@gmail.com",
+      "password": "Mohanty@123",
+      "designation": "admin",
+      "id": 7
+    },
+    {
+      "firstname": "Sonam",
+      "lastname": "Kumari",
       "gender": "female",
       "email": "sukanya@gmail.com",
       "password": "Sukanya@123",
       "id": 1
     },
     {
-      "firstname": "Amit",
-      "lastname": "Singh",
-      "gender": "male",
-      "mobilenumber": "7698467984",
-      "email": "amit@gmail.com",
-      "password": "Amit@123445",
-      "id": 5
+      "firstname": "deepu",
+      "lastname": "M",
+      "gender": "female",
+      "mobilenumber": "8098098609",
+      "email": "deepu@navgurukul.org",
+      "password": "Deepu@123",
+      "designation": "admin",
+      "id": 8
     },
     {
-      "firstname": "Anshu",
-      "lastname": "singh",
+      "firstname": "Nikita",
+      "lastname": "sharma",
       "gender": "female",
-      "mobilenumber": "4387539459",
-      "email": "anshu@gmail.com",
-      "password": "Anshu@1234",
-      "id": 6
+      "mobilenumber": "7632785438",
+      "email": "nikita@gmail.com",
+      "password": "Nikita@123",
+      "designation": "supervisor",
+      "id": 9
+    },
+    {
+      "firstname": "Sangeeta",
+      "lastname": "passwan",
+      "gender": "female",
+      "mobilenumber": "7594367364",
+      "email": "sangeeta@gmail.com",
+      "password": "Sangeeta@123",
+      "designation": "admin",
+      "id": 10
+    },
+    {
+      "firstname": "shubhashini",
+      "lastname": "maurya",
+      "gender": "female",
+      "mobilenumber": "6874853468",
+      "email": "shubhashini@gmail.com",
+      "password": "Shubhashini@123",
+      "designation": "staff",
+      "id": 11
     }
   ],
   "Attendence": [
@@ -169,7 +204,7 @@
       "id": 12
     },
     {
-      "name": "Laxmi Yadav",
+      "name": "Aman",
       "attendance": "Present",
       "date": "2023-11-13",
       "id": 32
@@ -181,14 +216,14 @@
       "id": 33
     },
     {
-      "name": "kirti",
+      "name": "Amit Das",
       "attendance": "Present",
       "date": "2023-11-13",
       "id": 34
     },
     {
-      "name": "kirti",
-      "attendance": "Present",
+      "name": "Aman",
+      "attendance": "Absent",
       "date": "2023-11-13",
       "id": 35
     },
@@ -311,84 +346,6 @@
       "JoiningDate": "2023-11-26",
       "ProfilePhotoURL": "blob:http://localhost:3000/10efeb9d-5b49-457a-bf80-3930204e30dd",
       "id": 13
-    },
-    {
-      "Name": "kajal",
-      "Email": "kajal20@navgurukul.org",
-      "Password": "Kajal@1234",
-      "JoiningDate": "2023-11-05",
-      "ProfilePhotoURL": null,
-      "id": 14
-    },
-    {
-      "Name": "Sonam Shinghaniya",
-      "Email": "sonamk@navgurukul.org",
-      "Password": "Sonam@123",
-      "JoiningDate": "2023-11-10",
-      "ProfilePhotoURL": null,
-      "id": 15
-    },
-    {
-      "Name": "",
-      "Email": "",
-      "Password": "",
-      "JoiningDate": "",
-      "ProfilePhotoURL": null,
-      "id": 16
-    },
-    {
-      "Name": "",
-      "Email": "",
-      "Password": "",
-      "JoiningDate": "",
-      "ProfilePhotoURL": null,
-      "id": 17
-    },
-    {
-      "Name": "",
-      "Email": "",
-      "Password": "",
-      "JoiningDate": "",
-      "ProfilePhotoURL": null,
-      "id": 18
-    },
-    {
-      "Name": "",
-      "Email": "",
-      "Password": "",
-      "JoiningDate": "",
-      "ProfilePhotoURL": null,
-      "id": 19
-    },
-    {
-      "Name": "",
-      "Email": "",
-      "Password": "",
-      "JoiningDate": "",
-      "ProfilePhotoURL": null,
-      "id": 20
-    },
-    {
-      "Name": "",
-      "Email": "",
-      "Password": "",
-      "JoiningDate": "",
-      "ProfilePhotoURL": null,
-      "id": 21
-    },
-    {
-      "Name": "",
-      "Email": "",
-      "Password": "",
-      "JoiningDate": "",
-      "ProfilePhotoURL": null,
-      "id": 22
-    },
-    {
-      "Name": "sonam",
-      "JoiningDate": "2023-11-02",
-      "ProfilePhotoURL": null,
-      "id": 23
     }
   ]
 }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
@@ -26,12 +26,19 @@ const genderData = [
   },
 ];
 
-function Registration() {
-
+function Registration(props) {
+  console.log("props", props)
   const navigate = useNavigate();
+  const location = useLocation();
+  console.log(location)
+  const designation = location?.state?.designation || '';
+  console.log("Designation in Registration component:", designation);
   const goToLogin = () => {
     navigate("/login")
   }
+  // const { location } = props;
+  // const designation = location?.state?.designation || '';
+  // console.log("Designation in Registration component:", designation);
 
   const [showPassword, setShowPassword] = useState(false);
   const handleTogglePassword = () => {
@@ -45,7 +52,8 @@ function Registration() {
     gender: '',
     mobilenumber: '',
     email: '',
-    password: ''
+    password: '',
+    designation: designation,
   });
   console.log("formData", formData);
 
@@ -203,11 +211,12 @@ function Registration() {
                 }
                 InputProps={{
                   endAdornment: (
-                    <InputAdornment >
-                      <IconButton onClick={handleTogglePassword} >
+                    <InputAdornment position="end">
+                      <IconButton onClick={handleTogglePassword}>
                         {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
                       </IconButton>
                     </InputAdornment>
+
                   ),
                 }}
               />
@@ -237,9 +246,10 @@ function Registration() {
               />
               <br />
 
-              <Button submittedData={submittedData} className="submitbtn" variant="contained" onClick={handleSubmit}>
+              <Button submitteddata={submittedData} className="submitbtn" variant="contained" onClick={handleSubmit}>
                 Create Account
               </Button>
+
             </div>
           </Box>
         </CardContent>

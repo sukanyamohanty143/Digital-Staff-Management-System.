@@ -9,14 +9,16 @@ import CardContent from '@mui/material/CardContent';
 function Home() {
 
     const navigate = useNavigate();
-    const goToRegistration = () => {
-        navigate("/registration")
+    const goToRegistration = (designation) => {
+        console.log("Navigating to registration with designation:", designation);
+
+        navigate("/registration", { state: { designation } });
     }
     return (
         <>
 
             <Typography variant='h4' style={{ textAlign: "center", marginTop: "40px" }} className='welcometext'>Welcome to Digital Staff Managment System</Typography>
-           
+
             <Card className='card'>
                 <CardContent>
                     <Grid container spacing={2}>
@@ -39,9 +41,9 @@ function Home() {
                             </Typography>
 
                             <Stack spacing={1} direction="row">
-                                <Button variant="contained" onClick={goToRegistration} >Staff</Button>
-                                <Button variant="contained" onClick={goToRegistration} >Admin</Button>
-                                <Button variant="contained" onClick={goToRegistration} >Supervisor</Button>
+                                <Button variant="contained" onClick={() => goToRegistration('staff')} >Staff</Button>
+                                <Button variant="contained" onClick={() => goToRegistration('admin')} >Admin</Button>
+                                <Button variant="contained" onClick={() => goToRegistration('supervisor')} >Supervisor</Button>
                             </Stack>
                         </Grid>
                     </Grid>
