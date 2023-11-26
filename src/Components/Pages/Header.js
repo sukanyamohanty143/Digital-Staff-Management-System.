@@ -9,7 +9,6 @@ export default function Header() {
     const location = useLocation();
     const currentRoute = location.pathname;
 
-    // console.log("current location", currentRoute);
 
     return (
         <AppBar position='static'>

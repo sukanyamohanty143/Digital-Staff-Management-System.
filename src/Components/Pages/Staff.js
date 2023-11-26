@@ -1,5 +1,3 @@
-
-
 import React, { useState } from "react";
 import {
   TextField,
@@ -10,9 +8,7 @@ import {
   MenuItem,
   Select,
 } from "@material-ui/core";
-
-
-
+import { useNavigate } from 'react-router-dom';
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
@@ -24,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
   card: {
     width: 600,
     marginBottom: 30,
-    marginTop: 30,
+    marginTop: 200,
     padding: 30
 
   },
@@ -41,7 +37,6 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: 10
   },
   heading: {
-    padding: 40,
     textAlign: "center"
   },
 }));
@@ -50,11 +45,14 @@ const useStyles = makeStyles((theme) => ({
 
 const Staff = () => {
 
+  const navigate = useNavigate();
   const classes = useStyles();
   const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
   const [name, setName] = useState("");
   const [attendance, setAttendance] = useState("");
   const [nameError, setNameError] = useState("");
+
+
 
   const handleName = (e) => {
     const inputName = e.target.value;
@@ -72,27 +70,27 @@ const Staff = () => {
     setAttendance(e.target.value);
   };
 
-  // const CheckProfile = async (userName) => {
-  //   try {
-  //     const res = await fetch("http://localhost:8000/EmployeeProfile");
-  //     const data = await res.json();
-  //     const foundUser = data.find((vlu) => vlu["Name"] === userName);
+  const CheckProfile = async (userName) => {
+    try {
+      const res = await fetch("http://localhost:8000/EmployeeProfile");
+      const data = await res.json();
+      const foundUser = data.find((vlu) => vlu["Name"] === userName);
 
-  //     if (foundUser) {
-  //       navigate('/outer', { state: { user: foundUser } });
-  //     } else {
-  //       alert("this user is not exist ");
-  //     }
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  // };
+      if (foundUser) {
+        navigate('/outer', { state: { user: foundUser } });
+      } else {
+        alert("this user is not exist ");
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
 
   const handleOnClick = () => {
     if (name && date && attendance) {
       const data = { name, attendance, date };
-      fetch("http://localhost:8000/Attendance", {
+      fetch(`http://localhost:8000/Attendence`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -104,6 +102,7 @@ const Staff = () => {
           setName("");
           setDate(new Date().toISOString().slice(0, 10));
           setAttendance("");
+          CheckProfile(userName);
         })
         .catch((error) => {
           console.error(error);
@@ -118,8 +117,8 @@ const Staff = () => {
     <div className={classes.container}>
       <Card className={classes.card} style={{ boxShadow: '0 10px 15px rgba(0, 0, 0, 0.2)' }}>
         <Typography variant="h4" className={classes.heading}>Staff Page</Typography>
+        <Box>
 
-        <Box >
           <label className={classes.label} htmlFor="Name">
             Name
           </label>
@@ -177,3 +176,4 @@ const Staff = () => {
 };
 
 export default Staff;
+
