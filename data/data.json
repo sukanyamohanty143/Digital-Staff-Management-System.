@@ -43,7 +43,27 @@
       "id": 8
     },
     {
-      "firstname": "Laxmi",
+      "firstname": "Nikita",
+      "lastname": "sharma",
+      "gender": "female",
+      "mobilenumber": "7632785438",
+      "email": "nikita@gmail.com",
+      "password": "Nikita@123",
+      "designation": "supervisor",
+      "id": 9
+    },
+    {
+      "firstname": "Roshan",
+      "lastname": "kumar",
+      "gender": "male",
+      "mobilenumber": "5685486769",
+      "email": "roshan@gmail.com",
+      "password": "Roshan@123",
+      "designation": "staff",
+      "id": 11
+    },
+    {
+       "firstname": "Laxmi",
       "lastname": "Yadab",
       "gender": "male",
       "mobilenumber": "7453980942",
@@ -61,26 +81,7 @@
       "password": "Khushboo@123",
       "designation": "supervisor",
       "id": 10
-    },
-    {
-      "firstname": "Roshan",
-      "lastname": "kumar",
-      "gender": "male",
-      "mobilenumber": "5685486769",
-      "email": "roshan@gmail.com",
-      "password": "Roshan@123",
-      "designation": "staff",
-      "id": 11
-    },
-    {
-      "firstname": "priya",
-      "lastname": "singh",
-      "gender": "female",
-      "mobilenumber": "8609587965",
-      "email": "priya@gmail.com",
-      "password": "Priya@123",
-      "designation": "admin",
-      "id": 12
+
     }
   ],
   "Attendence": [
@@ -221,55 +222,8 @@
       "attendance": "Present",
       "date": "2023-11-13",
       "id": 35
-    },
-    {
-      "name": "soma",
-      "attendance": "Present",
-      "date": "2023-11-08",
-      "id": 36
-    },
-    {
-      "name": "Kumkum saini",
-      "attendance": "Present",
-      "date": "2023-11-23",
-      "id": 37
-    },
-    {
-      "name": "sonam",
-      "attendance": "Absent",
-      "date": "2023-11-25",
-      "id": 38
-    },
-    {
-      "name": "sonam",
-      "attendance": "Present",
-      "date": "2023-11-25",
-      "id": 39
-    },
-    {
-      "name": "sona",
-      "attendance": "Absent",
-      "date": "2023-11-25",
-      "id": 40
-    },
-    {
-      "name": "laxmi",
-      "attendance": "Absent",
-      "date": "2023-11-25",
-      "id": 41
-    },
-    {
-      "name": "ujala",
-      "attendance": "Absent",
-      "date": "2023-11-25",
-      "id": 42
-    },
-    {
-      "name": "Ujala",
-      "attendance": "Absent",
-      "date": "2023-11-25",
-      "id": 43
     }
+  
   ],
   "EmployeeProfile": [
     {
@@ -320,14 +274,7 @@
       "ProfilePhotoURL": null,
       "id": 5
     },
-    {
-      "Name": "soma",
-      "Email": "laxmiyadav200410@gmail.com",
-      "Password": "dvfdkgf",
-      "JoiningDate": "2023-11-19",
-      "ProfilePhotoURL": null,
-      "id": 6
-    },
+   
     {
       "Name": "ujala ",
       "Email": "dfv",
