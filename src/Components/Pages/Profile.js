@@ -96,10 +96,8 @@ const EmployeeProfile = () => {
 
   return (
     <Container style={{ marginTop: '100px' }}>
-      <Paper elevation={1} style={{ padding: '10px', margin: 'auto', maxWidth: '600px' }}>
-        <Typography variant="h5" gutterBottom>
-          Employee Profile
-        </Typography>
+      <Paper elevation={1} style={{ padding: '40px', margin: 'auto', maxWidth: '600px' }}>
+        <Typography variant='h4' style={{textAlign:"center"}}> Employee Profile </Typography>
         <form>
           <label htmlFor="profilePhoto" style={{marginTop: '40px'}}>
             <Avatar src={profile.profilePhoto} alt="Profile" style={{ width: 80, height: 80 ,marginTop:"20"}}>

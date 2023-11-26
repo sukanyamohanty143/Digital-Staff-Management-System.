@@ -8,9 +8,7 @@ import {
   MenuItem,
   Select,
 } from "@material-ui/core";
-
-
-
+import { useNavigate } from 'react-router-dom';
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
@@ -47,11 +45,14 @@ const useStyles = makeStyles((theme) => ({
 
 const Staff = () => {
 
+  const navigate = useNavigate();
   const classes = useStyles();
   const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
   const [name, setName] = useState("");
   const [attendance, setAttendance] = useState("");
   const [nameError, setNameError] = useState("");
+
+
 
   const handleName = (e) => {
     const inputName = e.target.value;
@@ -116,10 +117,6 @@ const Staff = () => {
     <div className={classes.container}>
       <Card className={classes.card} style={{ boxShadow: '0 10px 15px rgba(0, 0, 0, 0.2)' }}>
         <Typography variant="h4" className={classes.heading}>Staff Page</Typography>
-
-        <Typography variant="h3" className={classes.heading}>
-          Staff Page
-        </Typography>
         <Box>
 
           <label className={classes.label} htmlFor="Name">

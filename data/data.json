@@ -27,9 +27,9 @@
     {
       "firstname": "Kumkum",
       "lastname": "saini",
+      "mobilenumber": "9858978777",
+      "designation": "admin",
       "gender": "female",
-      "email": "sukanya@gmail.com",
-      "password": "Sukanya@123",
       "id": 1
     },
     {
@@ -53,14 +53,14 @@
       "id": 9
     },
     {
-      "firstname": "Sangeeta",
-      "lastname": "passwan",
-      "gender": "female",
-      "mobilenumber": "7594367364",
-      "email": "sangeeta@gmail.com",
-      "password": "Sangeeta@123",
-      "designation": "admin",
-      "id": 10
+      "firstname": "Roshan",
+      "lastname": "kumar",
+      "gender": "male",
+      "mobilenumber": "5685486769",
+      "email": "roshan@gmail.com",
+      "password": "Roshan@123",
+      "designation": "staff",
+      "id": 11
     },
     {
        "firstname": "Laxmi",
@@ -222,9 +222,8 @@
       "attendance": "Present",
       "date": "2023-11-13",
       "id": 35
-    },
-   
-
+    }
+  
   ],
   "EmployeeProfile": [
     {
@@ -275,14 +274,7 @@
       "ProfilePhotoURL": null,
       "id": 5
     },
-    {
-      "Name": "soma",
-      "Email": "laxmiyadav200410@gmail.com",
-      "Password": "dvfdkgf",
-      "JoiningDate": "2023-11-19",
-      "ProfilePhotoURL": null,
-      "id": 6
-    },
+   
     {
       "Name": "ujala ",
       "Email": "dfv",
@@ -292,47 +284,6 @@
       "id": 7
     },
     {
-
-    {
-      "Name": "sonam",
-      "Email": "sonam20@navgurukul.org",
-      "Password": "sonam1234",
-      "JoiningDate": "2023-11-03",
-      "ProfilePhotoURL": null,
-      "id": 9
-    },
-    {
-      "Name": "anjali",
-      "Email": "anjali20@navgurukul.org",
-      "Password": "sonam1234",
-      "JoiningDate": "2023-11-11",
-      "ProfilePhotoURL": null,
-      "id": 10
-    },
-    {
-      "Name": "",
-      "Email": "",
-      "Password": "",
-      "JoiningDate": "",
-      "ProfilePhotoURL": null,
-      "id": 11
-    },
-    {
-      "Name": "",
-      "Email": "",
-      "Password": "",
-      "JoiningDate": "",
-      "ProfilePhotoURL": null,
-      "id": 12
-    },
-    {
-      "Name": "sonam",
-      "Email": "sonam20@navgurukul.org",
-      "Password": "jkhkjhkjhiuu9u",
-      "JoiningDate": "2023-11-26",
-      "ProfilePhotoURL": "blob:http://localhost:3000/10efeb9d-5b49-457a-bf80-3930204e30dd",
-      "id": 13
-
       "Name": "laxmi",
       "Email": "laxmiyadav21@navgurukul.org",
       "Password": "L@123897kj",
