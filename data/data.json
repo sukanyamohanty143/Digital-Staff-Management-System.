@@ -54,6 +54,27 @@
       "userName": "kirti",
       "task": "sdmsabsnbdsndsndmsbfmdsfbsdmnfds",
       "id": 11
+    },
+    {
+      "userName": "Laxmi Yadav",
+      "task": "change ui",
+      "status": [
+        "panding",
+        "completed",
+        "goingOn"
+      ],
+      "id": 12
+    },
+    {
+      "userName": "Laxmi Yadav",
+      "task": "home page",
+      "status": [
+        "panding",
+        "completed",
+        "goingOn",
+        "NoStarted"
+      ],
+      "id": 13
     }
   ],
   "employees": [
@@ -120,7 +141,7 @@
       "id": 11
     },
     {
-       "firstname": "Laxmi",
+      "firstname": "Laxmi",
       "lastname": "Yadab",
       "gender": "male",
       "mobilenumber": "7453980942",
@@ -138,7 +159,6 @@
       "password": "Khushboo@123",
       "designation": "supervisor",
       "id": 10
-
     }
   ],
   "Attendence": [
@@ -280,7 +300,6 @@
       "date": "2023-11-13",
       "id": 35
     }
-  
   ],
   "EmployeeProfile": [
     {
@@ -331,7 +350,6 @@
       "ProfilePhotoURL": null,
       "id": 5
     },
-   
     {
       "Name": "ujala ",
       "Email": "dfv",
