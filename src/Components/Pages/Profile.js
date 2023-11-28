@@ -17,8 +17,6 @@ const EmployeeProfile = () => {
   const navigate = useNavigate();
   const [profile, setProfile] = useState({
     name: '',
-    email: '',
-    password: '',
     joinDate: '',
     profilePhoto: null,
   });
@@ -41,9 +39,9 @@ const EmployeeProfile = () => {
   };
 
   const logProfileData = () => {
-    const { name, email, password, joinDate, profilePhoto } = profile;
+    const { name, joinDate, profilePhoto } = profile;
 
-    if (!name || !email || !password || !joinDate || !profilePhoto) {
+    if (!name || !joinDate || !profilePhoto) {
       alert('Please fill in all the information');
     } else {
       alert('Data saved successfully');
@@ -51,8 +49,6 @@ const EmployeeProfile = () => {
       const profileData = {
         firstname: fullName[0],
         lastname:fullName.length>1 && fullName[1],
-        email: email,
-        password: password,
         joiningDate: joinDate,
         profilePhotoURL: profilePhoto,
       };
@@ -87,8 +83,6 @@ const EmployeeProfile = () => {
           console.log('Data added:', data);
           setProfile({
             name: '',
-            email: '',
-            password: '',
             joinDate: '',
             profilePhoto: null,
           });
@@ -102,13 +96,11 @@ const EmployeeProfile = () => {
 
   return (
     <Container style={{ marginTop: '100px' }}>
-      <Paper elevation={1} style={{ padding: '10px', margin: 'auto', maxWidth: '600px' }}>
-        <Typography variant="h5" gutterBottom>
-          Employee Profile
-        </Typography>
+      <Paper elevation={1} style={{ padding: '40px', margin: 'auto', maxWidth: '600px' }}>
+        <Typography variant='h4' style={{textAlign:"center"}}> Employee Profile </Typography>
         <form>
-          <label htmlFor="profilePhoto">
-            <Avatar src={profile.profilePhoto} alt="Profile" style={{ width: 80, height: 80 }}>
+          <label htmlFor="profilePhoto" style={{marginTop: '40px'}}>
+            <Avatar src={profile.profilePhoto} alt="Profile" style={{ width: 80, height: 80 ,marginTop:"20"}}>
               <IconButton
                 color="primary"
                 component="span"
@@ -117,6 +109,7 @@ const EmployeeProfile = () => {
                   bottom: '50%',
                   right: '50%',
                   transform: 'translate(50%, 50%)',
+                 
                 }}
               >
                 <PhotoCameraIcon />
