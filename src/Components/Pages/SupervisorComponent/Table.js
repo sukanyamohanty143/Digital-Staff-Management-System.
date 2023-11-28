@@ -22,6 +22,10 @@ function TableData({ data, setFilteredData }) {
   const [openForm, setOpenForm] = useState(false);
 
   const [taskData, setTaskData] = useState([]);
+
+
+  const [status,setStatus]=useState(["panding","completed","goingOn","NoStarted"])
+
   const itemsPerPage = 10;
 
   const componentRef = useRef();
@@ -36,7 +40,7 @@ function TableData({ data, setFilteredData }) {
       return;
     }
 
-    const item = { userName: clickedItem.name, task };
+    const item = { userName: clickedItem.name, task,status:status};
 
     fetch("http://localhost:8000/userTask", {
       method: "POST",
@@ -154,7 +158,7 @@ function TableData({ data, setFilteredData }) {
           </Grid>
         </Grid>
       </Box>
-      <DataTask openForm={openForm} handleClose={handleClose} name={name} HandleChange={HandleChange} fetchData={fetchData} taskData={taskData} handleFormSubmit={handleFormSubmit} />
+      <DataTask openForm={openForm} handleClose={handleClose} name={name} HandleChange={HandleChange} fetchData={fetchData} taskData={taskData} handleFormSubmit={handleFormSubmit} fetchDataApi={fetchDataApi}/>
     </>
   );
 }

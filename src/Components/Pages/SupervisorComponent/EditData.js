@@ -1,82 +1,44 @@
-
-import React, { useEffect, useState } from "react";
-
-function PutMethod() {
-  const [update, setUpdate] = useState("");
-  const [data, setData] = useState([]);
-  const [editingItemId, setEditingItemId] = useState(null);
-
-  const fetchGet = () => {
-    fetch("http://localhost:3000/Employee")
-      .then((res) => res.json())
-      .then((res) => {
-        setData(res);
-      });
-  };
-
-  useEffect(() => {
-    fetchGet();
-  }, []);
-
-  const fetchData = (itemId) => {
-    fetch(`http://localhost:3000/Employee/${itemId}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ name: update }),
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        console.log("Update successful", res);
-        
-        fetchGet();
-        setEditingItemId(null);
-      })
-      .catch((error) => {
-        console.error("Error updating data:", error);
-      });
-  };
-
-  const handleChange = (e) => {
-    setUpdate(e.target.value);
-  };
-
-  const handleEditClick = (itemId) => {
-    setEditingItemId(itemId);
-    const item = data.find((item) => item.id === itemId);
-    setUpdate(item.name);
-  };
-
-  const handleUserTask = (itemId) => {
-    fetchData(itemId);
-  };
+import { TextField,Button,Typography } from "@mui/material";
+function EditData({ taskData, name, editTaskId, setEditTaskText, handleEditSubmit, handleEditClick ,editTaskText}) {
 
   return (
     <>
-      <center>
-        {data.map((item) => (
-          <div key={item.id}>
-            {editingItemId === item.id ? (
-              <>
-                <input
-                  value={update}
-                  onChange={handleChange}
-                  placeholder="Enter new name"
-                />
-                <button onClick={() => handleUserTask(item.id)}>Update</button>
-              </>
-            ) : (
-              <>
-                <p>{item.name}</p>
-                <button onClick={() => handleEditClick(item.id)}>edit</button>
-              </>
-            )}
-          </div>
-        ))}
-      </center>
+      <ul>
+        {taskData
+          .filter((item) => item.userName === name)
+          .map((taskItem) => (
+            <div key={taskItem.id}>
+              {editTaskId === taskItem.id ? (
+                <>
+                  <TextField
+                    id="outlined-basic"
+                    label="Edit Task"
+                    variant="outlined"
+                    style={{ margin: "10px", width: "70%" }}
+                    onChange={(e) => setEditTaskText(e.target.value)}
+                    value={editTaskText}
+                  />
+                  <Button variant="contained" onClick={handleEditSubmit}>
+                    Save
+                  </Button>
+                </>
+              ) : (
+                <>
+                  <Typography style={{ fontSize: "20px" }}>{taskItem.task}</Typography>
+                  <Button variant="contained" onClick={() => handleEditClick(taskItem.id, taskItem.task)}>
+                    Edit
+                  </Button>
+                </>
+              )}
+            </div>
+          ))}
+      </ul>
     </>
-  );
-}
 
-export default PutMethod;
+  )
+}
+export default EditData;
+
+
+
+{/* <EditData taskData={taskData} name={name} editTaskId={editTaskId } setEditTaskText={setEditTaskText}  handleEditSubmit={handleEditSubmit} handleEditClick={handleEditClick}  /> */ }
