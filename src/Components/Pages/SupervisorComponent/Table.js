@@ -154,7 +154,7 @@ function TableData({ data, setFilteredData }) {
           </Grid>
         </Grid>
       </Box>
-      <DataTask openForm={openForm} handleClose={handleClose} name={name} HandleChange={HandleChange} fetchData={fetchData} taskData={taskData} handleFormSubmit={handleFormSubmit} />
+      <DataTask openForm={openForm} handleClose={handleClose} name={name} HandleChange={HandleChange} fetchData={fetchData} taskData={taskData} handleFormSubmit={handleFormSubmit} fetchDataApi={fetchDataApi}/>
     </>
   );
 }
