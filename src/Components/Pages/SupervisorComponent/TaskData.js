@@ -2,7 +2,7 @@ import EditData from "./EditData";
 
 import React, { useState } from "react";
 import AddIcon from '@mui/icons-material/Add';
-import {Card, Box, Dialog, DialogContent, Typography, TextField, Button, DialogTitle } from "@mui/material";
+import { Card, Box, Dialog, DialogContent, Typography, TextField, Button, DialogTitle } from "@mui/material";
 
 function DataTask({ openForm, handleClose, name, HandleChange, fetchData, taskData, handleFormSubmit }) {
 
@@ -84,31 +84,35 @@ function DataTask({ openForm, handleClose, name, HandleChange, fetchData, taskDa
 
     return (
 
-        <Dialog fullScreen open={openForm} onClose={handleClose}>     
+        <Dialog fullScreen open={openForm} onClose={handleClose}>
             <DialogContent>
                 <Box margin='auto'
                     justifyContent='center'
-                    style={{ width: "50%", border: "1px solid red",position:"relative",top:"100px",boxShadow: "rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px"}}
+                    style={{ width: "40%", position: "relative", top: "100px"}}
 
                 >
-                    <Typography  style={{textAlign: "center",position:"relative",top:"20px",fontSize:"30px"}}>Task For {name}</Typography>
-                    <Card sx={{m:"40px",border:"1px solid red",boxShadow:"rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset"}}>
-                        <TextField
 
+                    <Card sx={{ m: "40px", border: "1px solid red", boxShadow: "rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset", background: " rgba(255,255,255, .4)" }}>
+                        <Typography style={{ textAlign: "center", position: "relative", top: "20px", fontSize: "30px" }}>Task For {name}</Typography>
+                        <TextField
                             id="outlined-basic"
                             label="Add Task"
                             variant="outlined"
-                            style={{ margin: "10px", width: "86%"}}
+                            sx={{ m: "30px", width: "77%", background: "white" }}
                             onChange={(e) => setNewTaskText(e.target.value)}
                             value={newTaskText}
                         />
-                        <Button variant="contained" onClick={handleAddTask} style={{height:"60px",position:"relative",top:"10px",borderRadius:"50px",background:"#e25734"}}>
+
+
+                        <Button variant="contained" onClick={handleAddTask} style={{ height: "60px", position: "relative", top: "30px", right: "20px", borderRadius: "50px", background: "#ff4081" }}>
                             <AddIcon />
                         </Button>
 
                         <EditData taskData={taskData} name={name} editTaskId={editTaskId} setEditTaskText={setEditTaskText} handleEditSubmit={handleEditSubmit} handleEditClick={handleEditClick} editTaskText={editTaskText} />
 
-                        <Button variant="contained" onClick={handleFormSubmit} style={{textAlign: "center"}}>
+                        <Button
+
+                            variant="contained" onClick={handleFormSubmit} sx={{ m: "30px", position: "relative", left: "50px", bottom: "30px", fontSize: "20px", background: "#F89267" }}>
                             Submit
 
                         </Button>

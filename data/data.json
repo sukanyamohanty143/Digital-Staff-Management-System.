@@ -1,4 +1,49 @@
 {
+  "userTask": [
+    {
+      "id": 1,
+      "task": "chnage ui",
+      "userName": "Sukanya"
+    },
+    {
+      "id": 2,
+      "task": "home page create",
+      "userName": "Sukanya"
+    },
+    {
+      "task": "Database table",
+      "userName": "Aman",
+      "status": [
+        "Panding",
+        "Completed",
+        "goingOn",
+        "NOt Started"
+      ],
+      "id": 3
+    },
+    {
+      "task": "table",
+      "userName": "Aman",
+      "status": [
+        "Panding",
+        "Completed",
+        "goingOn",
+        "NOt Started"
+      ],
+      "id": 4
+    },
+    {
+      "task": "Read React js",
+      "userName": "kirti",
+      "status": [
+        "Panding",
+        "Completed",
+        "goingOn",
+        "NOt Started"
+      ],
+      "id": 5
+    }
+  ],
   "employees": [
     {
       "firstname": "Ujala",
