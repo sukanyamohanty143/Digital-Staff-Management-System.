@@ -8,7 +8,7 @@ import {
   MenuItem,
   Select,
 } from "@material-ui/core";
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Staff = () => {
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const classes = useStyles();
   const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
   const [name, setName] = useState("");
@@ -70,21 +70,21 @@ const Staff = () => {
     setAttendance(e.target.value);
   };
 
-  const CheckProfile = async (userName) => {
-    try {
-      const res = await fetch("http://localhost:8000/EmployeeProfile");
-      const data = await res.json();
-      const foundUser = data.find((vlu) => vlu["Name"] === userName);
+  // const CheckProfile = async (userName) => {
+  //   try {
+  //     const res = await fetch("http://localhost:8000/EmployeeProfile");
+  //     const data = await res.json();
+  //     const foundUser = data.find((vlu) => vlu["Name"] === userName);
 
-      if (foundUser) {
-        navigate('/outer', { state: { user: foundUser } });
-      } else {
-        alert("this user is not exist ");
-      }
-    } catch (err) {
-      console.error(err);
-    }
-  };
+  //     if (foundUser) {
+  //       navigate('/outer', { state: { user: foundUser } });
+  //     } else {
+  //       alert("this user is not exist ");
+  //     }
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
+  // };
 
 
   const handleOnClick = () => {

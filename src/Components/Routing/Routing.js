@@ -31,13 +31,11 @@ function Routing() {
         <Route path="/table" element={<EmployeeTable />} />
         <Route path="/newtask" element={<Newtask/>} />
 
-
       </Routes>
-
-      
-
       <Footer/>
     </BrowserRouter>
+
+
   );
 }
 export default Routing;

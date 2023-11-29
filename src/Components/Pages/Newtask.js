@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
 
     },
     card: {
-        width: 700,
+        width: 900,
         marginBottom: 30,
         marginTop: 40,
         padding: 30,
@@ -206,7 +206,11 @@ function Newtask() {
                                         <>
                                             <Grid container spacing={2}>
                                                 <Grid item xs={6} >
-                                                    <Typography variant="h5">{item.task}</Typography>
+                                                    <Typography variant="h6">{item.userName}</Typography>
+                                                    <p variant="h6">{item.task}</p>
+                                                    {/* <Typography variant="h6">{item.status}</Typography> */}
+                                                    {/* <Typography variant="h6">{item.task}</Typography> */}
+
                                                 </Grid>
 
                                                 <Grid item xs={6}>
@@ -259,6 +263,45 @@ function Newtask() {
 }
 
 export default Newtask;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
