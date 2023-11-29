@@ -1,26 +1,14 @@
 {
   "userTask": [
     {
+      "id": 1,
       "task": "chnage ui",
-      "userName": "Sukanya",
-      "status": [
-        "Panding",
-        "Completed",
-        "goingOn",
-        "NOt Started"
-      ],
-      "id": 1
+      "userName": "Sukanya"
     },
     {
+      "id": 2,
       "task": "home page create",
-      "userName": "Sukanya",
-      "status": [
-        "Panding",
-        "Completed",
-        "goingOn",
-        "NOt Started"
-      ],
-      "id": 2
+      "userName": "Sukanya"
     },
     {
       "task": "Database table",
