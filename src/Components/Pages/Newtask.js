@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import {
     TextField,
@@ -27,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
 
     },
     card: {
-        width: 700,
+        width: 900,
         marginBottom: 30,
         marginTop: 40,
         padding: 30,
@@ -99,7 +98,7 @@ function Newtask() {
         const updatedTask = { task: editTask };
         const taskId = data[index].id;
 
-        fetch(`http://localhost:8000/userTask/${taskId}`, {
+        fetch(`http://localhost:8000/Task/${taskId}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -121,7 +120,7 @@ function Newtask() {
 
 
     useEffect(() => {
-        fetch("http://localhost:8000/userTask")
+        fetch("http://localhost:8000/Task")
             .then(res => res.json())
             .then(data => {
                 console.log("data", data);
@@ -135,7 +134,7 @@ function Newtask() {
 
     const addTask = () => {
         const newTask = { task: task };
-        fetch("http://localhost:8000/userTask", {
+        fetch("http://localhost:8000/Task", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -155,7 +154,7 @@ function Newtask() {
 
     const removeActivity = (id) => {
         const taskId = data[id].id;
-        fetch(`http://localhost:8000/userTask/${taskId}`, {
+        fetch(`http://localhost:8000/Task/${taskId}`, {
             method: "DELETE",
         })
             .then(response => response.json())
@@ -207,7 +206,11 @@ function Newtask() {
                                         <>
                                             <Grid container spacing={2}>
                                                 <Grid item xs={6} >
-                                                    <Typography variant="h5">{item.task}</Typography>
+                                                    <Typography variant="h6">{item.userName}</Typography>
+                                                    <p variant="h6">{item.task}</p>
+                                                    {/* <Typography variant="h6">{item.status}</Typography> */}
+                                                    {/* <Typography variant="h6">{item.task}</Typography> */}
+
                                                 </Grid>
 
                                                 <Grid item xs={6}>
@@ -260,6 +263,44 @@ function Newtask() {
 }
 
 export default Newtask;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
