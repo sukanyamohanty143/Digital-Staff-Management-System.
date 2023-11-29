@@ -377,5 +377,15 @@
       "ProfilePhotoURL": "blob:http://localhost:3000/c6ac1f0a-86e7-4450-9f6d-858e7e0ef90a",
       "id": 12
     }
+  ],
+  "Task": [
+    {
+      "task": " python3",
+      "id": 1
+    },
+    {
+      "task": "bootstrap",
+      "id": 4
+    }
   ]
 }
