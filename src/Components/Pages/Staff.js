@@ -102,7 +102,7 @@ const Staff = () => {
           setName("");
           setDate(new Date().toISOString().slice(0, 10));
           setAttendance("");
-          CheckProfile(userName);
+          // CheckProfile(userName);
         })
         .catch((error) => {
           console.error(error);
@@ -118,7 +118,6 @@ const Staff = () => {
       <Card className={classes.card} style={{ boxShadow: '0 10px 15px rgba(0, 0, 0, 0.2)' }}>
         <Typography variant="h4" className={classes.heading}>Staff Page</Typography>
         <Box>
-
           <label className={classes.label} htmlFor="Name">
             Name
           </label>

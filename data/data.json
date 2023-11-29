@@ -63,7 +63,7 @@
       "id": 11
     },
     {
-       "firstname": "Laxmi",
+      "firstname": "Laxmi",
       "lastname": "Yadab",
       "gender": "male",
       "mobilenumber": "7453980942",
@@ -81,7 +81,6 @@
       "password": "Khushboo@123",
       "designation": "supervisor",
       "id": 10
-
     }
   ],
   "Attendence": [
@@ -223,7 +222,6 @@
       "date": "2023-11-13",
       "id": 35
     }
-  
   ],
   "EmployeeProfile": [
     {
@@ -274,7 +272,6 @@
       "ProfilePhotoURL": null,
       "id": 5
     },
-   
     {
       "Name": "ujala ",
       "Email": "dfv",
@@ -322,6 +319,16 @@
       "JoiningDate": "2023-11-22",
       "ProfilePhotoURL": "blob:http://localhost:3000/c6ac1f0a-86e7-4450-9f6d-858e7e0ef90a",
       "id": 12
+    }
+  ],
+  "Task": [
+    {
+      "task": " python3",
+      "id": 1
+    },
+    {
+      "task": "bootstrap",
+      "id": 4
     }
   ]
 }

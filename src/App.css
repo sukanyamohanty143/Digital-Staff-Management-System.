@@ -68,12 +68,12 @@ body {
 }
 
 .tastbox{
-  width: 269px;
-  height: 37px;
+  width: auto;
+  height: auto;
   border: 1px solid black;
   border-radius: 10px;
-  padding: 5px;
-  margin: 15px;
+  padding: 10px;
+  margin: 18px;
 }
 
 .removebtn , .editbtn{
@@ -94,16 +94,11 @@ body {
   margin-top: 20px;
 }
 
-.addbtn{
-  background-color: green;
-  color: white;
-  font-size: large;
-  border: 2px solid;
 
-}
 .editbtn{
   margin-left: 20px;
 }
+
 
 
 
