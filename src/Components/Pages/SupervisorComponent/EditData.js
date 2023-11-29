@@ -1,5 +1,6 @@
-import { TextField,Button,Typography } from "@mui/material";
-function EditData({ taskData, name, editTaskId, setEditTaskText, handleEditSubmit, handleEditClick ,editTaskText}) {
+import { TextField, Button, Typography, Box } from "@mui/material";
+import EditIcon from '@mui/icons-material/Edit';
+function EditData({ taskData, name, editTaskId, setEditTaskText, handleEditSubmit, handleEditClick, editTaskText }) {
 
   return (
     <>
@@ -14,7 +15,7 @@ function EditData({ taskData, name, editTaskId, setEditTaskText, handleEditSubmi
                     id="outlined-basic"
                     label="Edit Task"
                     variant="outlined"
-                    style={{ margin: "10px", width: "70%" }}
+
                     onChange={(e) => setEditTaskText(e.target.value)}
                     value={editTaskText}
                   />
@@ -24,10 +25,19 @@ function EditData({ taskData, name, editTaskId, setEditTaskText, handleEditSubmi
                 </>
               ) : (
                 <>
-                  <Typography style={{ fontSize: "20px" }}>{taskItem.task}</Typography>
-                  <Button variant="contained" onClick={() => handleEditClick(taskItem.id, taskItem.task)}>
-                    Edit
-                  </Button>
+                  <Box style={{ display: "flex" }}>
+
+                    <Box sx={{ width: "90%", m: "20px", borderRadius: "50px" }}>
+                      <ul>
+                        <li>{taskItem.task}</li>
+                      </ul>
+                    </Box>
+
+                    <Button variant="contained" onClick={() => handleEditClick(taskItem.id, taskItem.task)} sx={{ width: "10%", m: "20px", borderRadius: "40px" }}>
+                      <EditIcon />
+                    </Button>
+
+                  </Box>
                 </>
               )}
             </div>
@@ -41,4 +51,3 @@ export default EditData;
 
 
 
-{/* <EditData taskData={taskData} name={name} editTaskId={editTaskId } setEditTaskText={setEditTaskText}  handleEditSubmit={handleEditSubmit} handleEditClick={handleEditClick}  /> */ }

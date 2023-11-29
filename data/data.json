@@ -1,12 +1,59 @@
 {
   "userTask": [
     {
-      "task": "task home p",
+      "task": "chnage ui",
+      "userName": "Sukanya",
+      "status": [
+        "Panding",
+        "Completed",
+        "goingOn",
+        "NOt Started"
+      ],
       "id": 1
     },
     {
-      "task": "Registration page",
+      "task": "home page create",
+      "userName": "Sukanya",
+      "status": [
+        "Panding",
+        "Completed",
+        "goingOn",
+        "NOt Started"
+      ],
       "id": 2
+    },
+    {
+      "task": "Database table",
+      "userName": "Aman",
+      "status": [
+        "Panding",
+        "Completed",
+        "goingOn",
+        "NOt Started"
+      ],
+      "id": 3
+    },
+    {
+      "task": "table",
+      "userName": "Aman",
+      "status": [
+        "Panding",
+        "Completed",
+        "goingOn",
+        "NOt Started"
+      ],
+      "id": 4
+    },
+    {
+      "task": "Read React js",
+      "userName": "kirti",
+      "status": [
+        "Panding",
+        "Completed",
+        "goingOn",
+        "NOt Started"
+      ],
+      "id": 5
     }
   ],
   "employees": [
