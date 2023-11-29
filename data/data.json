@@ -1,94 +1,59 @@
 {
   "userTask": [
     {
-      "id": 1,
-      "task": "task home page i am puja i awanjdf",
-      "userName": "Sukanya"
+      "task": "chnage ui",
+      "userName": "Sukanya",
+      "status": [
+        "Panding",
+        "Completed",
+        "goingOn",
+        "NOt Started"
+      ],
+      "id": 1
     },
     {
-      "id": 2,
-      "task": "task khhh i am khushbooo",
-      "userName": "Laxmi Yadav"
+      "task": "home page create",
+      "userName": "Sukanya",
+      "status": [
+        "Panding",
+        "Completed",
+        "goingOn",
+        "NOt Started"
+      ],
+      "id": 2
     },
     {
+      "task": "Database table",
       "userName": "Aman",
-      "task": "home page",
+      "status": [
+        "Panding",
+        "Completed",
+        "goingOn",
+        "NOt Started"
+      ],
       "id": 3
     },
     {
-      "userName": "Kumkum saini",
-      "task": "change home page",
+      "task": "table",
+      "userName": "Aman",
+      "status": [
+        "Panding",
+        "Completed",
+        "goingOn",
+        "NOt Started"
+      ],
       "id": 4
     },
     {
-      "userName": "soma",
-      "task": "page of home ",
+      "task": "Read React js",
+      "userName": "kirti",
+      "status": [
+        "Panding",
+        "Completed",
+        "goingOn",
+        "NOt Started"
+      ],
       "id": 5
-    },
-    {
-      "userName": "kirti",
-      "task": "task of ganga",
-      "id": 6
-    },
-    {
-      "userName": "Aman",
-      "task": "tak",
-      "id": 7
-    },
-    {
-      "id": 8,
-      "task": "pag page ",
-      "userName": "Aman"
-    },
-    {
-      "userName": "kirti",
-      "task": "jjjjj",
-      "id": 9
-    },
-    {
-      "userName": "soma",
-      "task": "database",
-      "id": 10
-    },
-    {
-      "userName": "kirti",
-      "task": "sdmsabsnbdsndsndmsbfmdsfbsdmnfds",
-      "id": 11
-    },
-    {
-      "id": 12,
-      "task": "task kkkk iirtireteoite sdhkjsdfhkjdsf",
-      "userName": "Sukanya"
-    },
-    {
-      "userName": "Aman",
-      "task": "home pag",
-      "id": 13
-    },
-    {
-      "userName": "Aman",
-      "task": "home pag ",
-      "id": 14
-    },
-    {
-      "task": "tasnk ",
-      "userName": "Aman",
-      "id": 15
-    },
-    {
-      "task": "task",
-      "userName": "Laxmi Yadav",
-      "id": 16
-    },
-    {
-      "task": "i am khushbooo",
-      "userName": "Laxmi Yadav",
-      "id": 17
-    },
-    {
-      "task": "i am puja",
-      "userName": "Laxmi Yadav",
-      "id": 18
     }
   ],
   "employees": [
