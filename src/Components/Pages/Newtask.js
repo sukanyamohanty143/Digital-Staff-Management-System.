@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import {
     TextField,
@@ -98,7 +99,7 @@ function Newtask() {
         const updatedTask = { task: editTask };
         const taskId = data[index].id;
 
-        fetch(`http://localhost:8000/Task/${taskId}`, {
+        fetch(`http://localhost:8000/userTask/${taskId}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -120,7 +121,7 @@ function Newtask() {
 
 
     useEffect(() => {
-        fetch("http://localhost:8000/Task")
+        fetch("http://localhost:8000/userTask")
             .then(res => res.json())
             .then(data => {
                 console.log("data", data);
@@ -134,7 +135,7 @@ function Newtask() {
 
     const addTask = () => {
         const newTask = { task: task };
-        fetch("http://localhost:8000/Task", {
+        fetch("http://localhost:8000/userTask", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -154,7 +155,7 @@ function Newtask() {
 
     const removeActivity = (id) => {
         const taskId = data[id].id;
-        fetch(`http://localhost:8000/Task/${taskId}`, {
+        fetch(`http://localhost:8000/userTask/${taskId}`, {
             method: "DELETE",
         })
             .then(response => response.json())
@@ -259,6 +260,7 @@ function Newtask() {
 }
 
 export default Newtask;
+
 
 
 
