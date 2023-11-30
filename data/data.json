@@ -1,49 +1,4 @@
 {
-  "userTask": [
-    {
-      "id": 1,
-      "task": "chnage ui",
-      "userName": "Sukanya"
-    },
-    {
-      "id": 2,
-      "task": "home page create",
-      "userName": "Sukanya"
-    },
-    {
-      "task": "Database table",
-      "userName": "Aman",
-      "status": [
-        "Panding",
-        "Completed",
-        "goingOn",
-        "NOt Started"
-      ],
-      "id": 3
-    },
-    {
-      "task": "table",
-      "userName": "Aman",
-      "status": [
-        "Panding",
-        "Completed",
-        "goingOn",
-        "NOt Started"
-      ],
-      "id": 4
-    },
-    {
-      "task": "Read React js",
-      "userName": "kirti",
-      "status": [
-        "Panding",
-        "Completed",
-        "goingOn",
-        "NOt Started"
-      ],
-      "id": 5
-    }
-  ],
   "employees": [
     {
       "firstname": "Ujala",
@@ -126,6 +81,16 @@
       "password": "Khushboo@123",
       "designation": "supervisor",
       "id": 10
+    },
+    {
+      "firstname": "sonam",
+      "lastname": "kuamri",
+      "gender": "female",
+      "mobilenumber": "376985986",
+      "email": "sonam32@gmail.com",
+      "password": "Sonam12334",
+      "designation": "staff",
+      "id": 12
     }
   ],
   "userTask": [
@@ -312,6 +277,12 @@
       "attendance": "Present",
       "date": "2023-11-13",
       "id": 35
+    },
+    {
+      "name": "sonam",
+      "attendance": "Absent",
+      "date": "2023-11-29",
+      "id": 36
     }
   ],
   "EmployeeProfile": [
@@ -414,27 +385,23 @@
   ],
   "Task": [
     {
-      "task": "js",
-      "id": 1
-    },
-    {
-      "task": "ES6",
+      "task": "javascript",
       "id": 2
     },
     {
-      "task": "react",
+      "task": "react js",
       "id": 3
     },
     {
-      "task": "bootstrap",
+      "task": "Node",
       "id": 4
     },
     {
-      "task": "lskjdksldj",
+      "task": "css",
       "id": 6
     },
     {
-      "task": " akjak",
+      "task": " jhjakd",
       "id": 7
     }
   ]

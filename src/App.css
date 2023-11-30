@@ -70,11 +70,26 @@ body {
 .tastbox{
   width: auto;
   height: auto;
-  border: 1px solid black;
+  /* border: 2px solid black; */
+  border: 2px solid green;
+
   border-radius: 10px;
   padding: 10px;
   margin: 18px;
 }
+
+.statusbox{
+  width: auto;
+  height: auto;
+  /* border: 2px solid black; */
+  border: 2px solid green;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 18px;
+}
+
+
+
 
 .removebtn , .editbtn{
   float: right;
