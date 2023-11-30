@@ -2,7 +2,7 @@
   "userTask": [
     {
       "id": 1,
-      "task": "chnage ui",
+      "task": "chnage ui ",
       "userName": "Sukanya"
     },
     {
@@ -41,6 +41,49 @@
         "goingOn",
         "NOt Started"
       ],
+      "id": 5
+    },
+    {
+      "task": "Read about Javascript",
+      "userName": "Sukanya",
+      "status": [
+        "Panding",
+        "Completed",
+        "goingOn",
+        "NOt Started"
+      ],
+      "id": 6
+    }
+  ],
+  "userStatus": [
+    {
+      "id": 1,
+      "task": "chnage ui",
+      "userName": "Sukanya",
+      "status": "Completed"
+    },
+    {
+      "id": 2,
+      "task": "home page create",
+      "userName": "Sukanya",
+      "status": "panding"
+    },
+    {
+      "task": "Database table",
+      "userName": "Aman",
+      "status": "not Started",
+      "id": 3
+    },
+    {
+      "task": "table",
+      "userName": "Aman",
+      "status": "panding",
+      "id": 4
+    },
+    {
+      "task": "Read React js",
+      "userName": "kirti",
+      "status": "starrted",
       "id": 5
     }
   ],
@@ -126,52 +169,6 @@
       "password": "Khushboo@123",
       "designation": "supervisor",
       "id": 10
-    }
-  ],
-  "userTask": [
-    {
-      "task": "Database table",
-      "userName": "Aman",
-      "status": [
-        "Panding",
-        "Completed",
-        "goingOn",
-        "NOt Started"
-      ]
-    },
-    {
-      "task": "Database table",
-      "userName": "Aman",
-      "status": [
-        "Pending",
-        "Completed",
-        "Going On",
-        "Not Started"
-      ]
-    },
-    {
-      "task": "API Integration",
-      "userName": "John",
-      "status": [
-        "Pending",
-        "Not Started"
-      ]
-    },
-    {
-      "task": "Frontend Design",
-      "userName": "Sarah",
-      "status": [
-        "Completed",
-        "Not Started"
-      ]
-    },
-    {
-      "task": "Testing",
-      "userName": "David",
-      "status": [
-        "Going On",
-        "Not Started"
-      ]
     }
   ],
   "Attendence": [

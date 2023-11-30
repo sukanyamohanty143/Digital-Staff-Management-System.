@@ -10,7 +10,11 @@ import {
   TableHead,
   TableCell,
   TableRow,
+  MenuItem,
+  InputLabel
 } from "@mui/material";
+import FormControl from '@mui/material/FormControl';
+import { Select } from '@mui/material';
 import PaginationCom from "./Pegination";
 import GeneratePdf from "./GeneratePdf";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
@@ -24,7 +28,7 @@ function TableData({ data, setFilteredData }) {
   const [taskData, setTaskData] = useState([]);
 
 
-  const [status,setStatus]=useState(["panding","completed","goingOn","NoStarted"])
+  const [status, setStatus] = useState(["panding", "completed", "goingOn", "NoStarted"])
 
   const itemsPerPage = 10;
 
@@ -40,7 +44,7 @@ function TableData({ data, setFilteredData }) {
       return;
     }
 
-    const item = { userName: clickedItem.name, task,status:status};
+    const item = { userName: clickedItem.name, task, status: status };
 
     fetch("http://localhost:8000/userTask", {
       method: "POST",
@@ -122,11 +126,12 @@ function TableData({ data, setFilteredData }) {
                 <TableCell sx={{ textAlign: "center", fontSize: "25px" }}>
                   Date <ArrowDropDownIcon onClick={HandelDate} />
                 </TableCell>
+                <TableCell sx={{ textAlign: "center", fontSize: "25px" }}>Status</TableCell>
               </TableRow>
             </TableHead>
-
             {currentItems && currentItems.length > 0 ? (
               currentItems.map((item, index) => (
+
                 <TableRow key={index}>
                   <>
                     <TableCell sx={{ textAlign: "center" }} onClick={() => handleClick(item)}>
@@ -134,9 +139,22 @@ function TableData({ data, setFilteredData }) {
                     </TableCell>
                     <TableCell sx={{ textAlign: "center" }}>{item.attendance}</TableCell>
                     <TableCell sx={{ textAlign: "center" }}>{item.date}</TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                         <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+                         <InputLabel>Status</InputLabel>
+                         <Select label="Status">
+                              <MenuItem value=""></MenuItem>
+                              <MenuItem value="">Completed</MenuItem>
+                              <MenuItem value="">Panding</MenuItem>
+                              <MenuItem value="">Not Started</MenuItem>
+                              <MenuItem value="">Started</MenuItem>
+                        </Select>
+                     </FormControl>
+                  </TableCell>
                   </>
                 </TableRow>
               ))
+
             ) : (
               <TableRow>
                 <TableCell colSpan={3} sx={{ textAlign: "center" }}>
@@ -158,9 +176,40 @@ function TableData({ data, setFilteredData }) {
           </Grid>
         </Grid>
       </Box>
-      <DataTask openForm={openForm} handleClose={handleClose} name={name} HandleChange={HandleChange} fetchData={fetchData} taskData={taskData} handleFormSubmit={handleFormSubmit} fetchDataApi={fetchDataApi}/>
+      <DataTask openForm={openForm} handleClose={handleClose} name={name} HandleChange={HandleChange} fetchData={fetchData} taskData={taskData} handleFormSubmit={handleFormSubmit} fetchDataApi={fetchDataApi} />
     </>
   );
 }
 
 export default TableData;
+
+
+
+// import * as React from 'react';
+// import InputLabel from '@mui/material/InputLabel';
+// import MenuItem from '@mui/material/MenuItem';
+// import FormControl from '@mui/material/FormControl';
+// import { Select } from '@mui/material';
+// function Selectoption() {
+//   return (
+//     <div>
+//       <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+//         <InputLabel>Status</InputLabel>
+//         <Select
+         
+//           label="Status"
+//         >
+//           <MenuItem value="">
+//           </MenuItem>
+//           <MenuItem value="">Completed</MenuItem>
+//           <MenuItem value="">Panding</MenuItem>
+//           <MenuItem value="">Not Started</MenuItem>
+//           <MenuItem value="">Started</MenuItem>
+//         </Select>
+//       </FormControl>
+     
+//     </div>
+//   );
+// }
+
+// export default Selectoption;
