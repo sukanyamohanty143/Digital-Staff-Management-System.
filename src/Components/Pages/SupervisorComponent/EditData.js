@@ -4,6 +4,7 @@ import SaveAltIcon from '@mui/icons-material/SaveAlt';
 import { useEffect, useState } from "react";
 
 function EditData({ taskData, name, editTaskId, setEditTaskText, handleEditSubmit, handleEditClick, editTaskText }) {
+  
   const [statustsak, setTaskStatus] = useState([]);
 
   const fetchData = () => {
@@ -19,10 +20,16 @@ function EditData({ taskData, name, editTaskId, setEditTaskText, handleEditSubmi
   console.log(statustsak, "khushboooooo");
 
   const getUserStatus = (userName) => {
-    console.log(userName, "pujaaaaa....")
     const userStatus = statustsak.filter((status) => status.userName === userName);
-    return userStatus ? userStatus.status : "No Status";
+    console.log(userStatus, "puja.....");
+    return userStatus.length > 0 ? userStatus[0].status : "No Status";
   };
+
+  console.log(statustsak, "user........");
+
+  useEffect(() => {
+    getUserStatus(name);
+  }, [name]);
 
   return (
     <>
@@ -52,11 +59,10 @@ function EditData({ taskData, name, editTaskId, setEditTaskText, handleEditSubmi
                   <Box style={{ display: "flex" }}>
                     <Box sx={{ width: "90%", m: "20px", borderRadius: "50px" }}>
                       <ul style={{ display: "flex" }}>
-                        <div style={{display:"flex"}}>
+                        <div style={{ display: "flex" }}>
                           <li>{taskItem.task}</li>
-                          <Typography style={{position:"relative",left:"30px",color:"red"}}>Not Started</Typography>
+                          <Typography style={{ position: "relative", left: "30px", color: "red" }}>{getUserStatus(name)}</Typography>
                         </div>
-                        <Typography>{getUserStatus(taskItem.userName)}</Typography>
                       </ul>
                     </Box>
                     <EditIcon style={{ color: "red" }} onClick={() => handleEditClick(taskItem.id, taskItem.task)} sx={{ width: "10%", m: "20px", borderRadius: "40px", position: "relative", right: "30px", color: "#79DB79" }} />
