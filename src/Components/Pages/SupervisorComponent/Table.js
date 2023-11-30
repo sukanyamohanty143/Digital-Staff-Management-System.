@@ -24,7 +24,7 @@ function TableData({ data, setFilteredData }) {
   const [taskData, setTaskData] = useState([]);
 
 
-  const [status,setStatus]=useState(["panding","completed","goingOn","NoStarted"])
+  const [status, setStatus] = useState(["panding", "completed", "goingOn", "NoStarted"])
 
   const itemsPerPage = 10;
 
@@ -40,7 +40,7 @@ function TableData({ data, setFilteredData }) {
       return;
     }
 
-    const item = { userName: clickedItem.name, task,status:status};
+    const item = { userName: clickedItem.name, task, status: status };
 
     fetch("http://localhost:8000/userTask", {
       method: "POST",
@@ -81,7 +81,7 @@ function TableData({ data, setFilteredData }) {
     data.sort((a, b) => new Date(a.date) - new Date(b.date));
   };
 
-  const indexOfLastItem = currentPage * itemsPerPage; 
+  const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
   const pageCount = Math.ceil(data.length / itemsPerPage);
@@ -124,7 +124,6 @@ function TableData({ data, setFilteredData }) {
                 </TableCell>
               </TableRow>
             </TableHead>
-
             {currentItems && currentItems.length > 0 ? (
               currentItems.map((item, index) => (
                 <TableRow key={index}>
@@ -158,7 +157,7 @@ function TableData({ data, setFilteredData }) {
           </Grid>
         </Grid>
       </Box>
-      <DataTask openForm={openForm} handleClose={handleClose} name={name} HandleChange={HandleChange} fetchData={fetchData} taskData={taskData} handleFormSubmit={handleFormSubmit} fetchDataApi={fetchDataApi}/>
+      <DataTask openForm={openForm} handleClose={handleClose} name={name} HandleChange={HandleChange} fetchData={fetchData} taskData={taskData} handleFormSubmit={handleFormSubmit} fetchDataApi={fetchDataApi} />
     </>
   );
 }
