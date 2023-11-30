@@ -81,7 +81,7 @@ function TableData({ data, setFilteredData }) {
     data.sort((a, b) => new Date(a.date) - new Date(b.date));
   };
 
-  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfLastItem = currentPage * itemsPerPage; 
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
   const pageCount = Math.ceil(data.length / itemsPerPage);
