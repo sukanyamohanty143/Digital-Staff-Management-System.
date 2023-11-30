@@ -2,7 +2,7 @@
   "userTask": [
     {
       "id": 1,
-      "task": "chnage ui",
+      "task": "chnage ui ",
       "userName": "Sukanya"
     },
     {
@@ -42,6 +42,17 @@
         "NOt Started"
       ],
       "id": 5
+    },
+    {
+      "task": "Read about Javascript",
+      "userName": "Sukanya",
+      "status": [
+        "Panding",
+        "Completed",
+        "goingOn",
+        "NOt Started"
+      ],
+      "id": 6
     }
   ],
   "userStatus": [

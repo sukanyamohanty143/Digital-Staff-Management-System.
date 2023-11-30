@@ -85,14 +85,14 @@ function DataTask({ openForm, handleClose, name, HandleChange, fetchData, taskDa
     return (
 
         <Dialog fullScreen open={openForm} onClose={handleClose}>
-            <DialogContent>
+            <DialogContent style={{background:"#9EA3B0"}}>
                 <Box margin='auto'
                     justifyContent='center'
                     style={{ width: "40%", position: "relative", top: "100px"}}
 
                 >
 
-                    <Card sx={{ m: "40px", border: "1px solid red", boxShadow: "rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset", background: " rgba(255,255,255, .4)" }}>
+                    <Card sx={{ m: "40px", boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px;",background:"#E0D3DE" }}>
                         <Typography style={{ textAlign: "center", position: "relative", top: "20px", fontSize: "30px" }}>Task For {name}</Typography>
                         <TextField
                             id="outlined-basic"
@@ -104,7 +104,7 @@ function DataTask({ openForm, handleClose, name, HandleChange, fetchData, taskDa
                         />
 
 
-                        <Button variant="contained" onClick={handleAddTask} style={{ height: "60px", position: "relative", top: "30px", right: "20px", borderRadius: "50px", background: "#ff4081" }}>
+                        <Button variant="contained" onClick={handleAddTask} style={{ height: "60px", position: "relative", top: "30px", right: "20px", borderRadius: "50px" }}>
                             <AddIcon />
                         </Button>
 

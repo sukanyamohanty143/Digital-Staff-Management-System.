@@ -52,14 +52,14 @@ function EditData({ taskData, name, editTaskId, setEditTaskText, handleEditSubmi
                   <Box style={{ display: "flex" }}>
                     <Box sx={{ width: "90%", m: "20px", borderRadius: "50px" }}>
                       <ul style={{ display: "flex" }}>
-                        <li>{taskItem.task}</li>
-
+                        <div style={{display:"flex"}}>
+                          <li>{taskItem.task}</li>
+                          <Typography style={{position:"relative",left:"30px",color:"red"}}>Not Started</Typography>
+                        </div>
                         <Typography>{getUserStatus(taskItem.userName)}</Typography>
                       </ul>
                     </Box>
-
                     <EditIcon style={{ color: "red" }} onClick={() => handleEditClick(taskItem.id, taskItem.task)} sx={{ width: "10%", m: "20px", borderRadius: "40px", position: "relative", right: "30px", color: "#79DB79" }} />
-
                   </Box>
                 </>
               )}
@@ -69,5 +69,4 @@ function EditData({ taskData, name, editTaskId, setEditTaskText, handleEditSubmi
     </>
   );
 }
-
 export default EditData;
