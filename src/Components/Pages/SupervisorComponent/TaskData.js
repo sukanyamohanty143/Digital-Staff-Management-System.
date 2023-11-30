@@ -89,7 +89,6 @@ function DataTask({ openForm, handleClose, name, HandleChange, fetchData, taskDa
                 <Box margin='auto'
                     justifyContent='center'
                     style={{ width: "40%", position: "relative", top: "100px"}}
-
                 >
 
                     <Card sx={{ m: "40px", boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px;",background:"#E0D3DE" }}>
