@@ -1,22 +1,36 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import NotificationsIcon from '@mui/icons-material/Notifications';
+import { IconButton, Menu, MenuItem, Badge } from '@mui/material';
 
-const Notifications = ({ notificationCount, notificationMessage }) => {
-  const [isNotificationClicked, setIsNotificationClicked] = useState(false);
-  useEffect(() => {
-    if (notificationCount > 0 && isNotificationClicked) {
-      alert(notificationMessage);
-      setIsNotificationClicked(false);
-    }
-  }, [notificationCount, notificationMessage, isNotificationClicked]);
-  const handleNotificationClick = () => {
-    setIsNotificationClicked(true);
+const Notifications = ({ notificationCount, allNotifications }) => {
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const handleNotificationClick = (event) => {
+    setAnchorEl(event.currentTarget);
   };
+
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+  };
+
   return (
     <>
-      <NotificationsIcon onClick={handleNotificationClick} />
-      <span>{notificationCount > 0 && `(${notificationCount})`}</span>
+      <IconButton color="inherit" onClick={handleNotificationClick}>
+        <Badge badgeContent={notificationCount} color="error">
+          <NotificationsIcon />
+        </Badge>
+      </IconButton>
+      <Menu
+        anchorEl={anchorEl}
+        open={Boolean(anchorEl)}
+        onClose={handleMenuClose}
+      >
+        {allNotifications && allNotifications.map((message, index) => (
+          <MenuItem key={index}>{message}</MenuItem>
+        ))}
+      </Menu>
     </>
   );
 };
+
 export default Notifications;

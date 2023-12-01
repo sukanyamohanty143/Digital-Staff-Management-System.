@@ -125,6 +125,16 @@
       "password": "Khushboo@123",
       "designation": "supervisor",
       "id": 10
+    },
+    {
+      "firstname": "soniya",
+      "lastname": "kumari",
+      "gender": "female",
+      "mobilenumber": "4343212343",
+      "email": "soniya@gmail.com",
+      "password": "Soniya@123",
+      "designation": "staff",
+      "id": 12
     }
   ],
   "employeestatus": [],
