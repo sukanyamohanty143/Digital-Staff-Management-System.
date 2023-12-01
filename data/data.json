@@ -1,90 +1,46 @@
 {
   "userTask": [
     {
-      "id": 1,
-      "task": "chnage ui ",
-      "userName": "Sukanya"
+      "task": "About Javscript",
+      "userName": "Laxmi Yadav",
+      "status": "Not Started",
+      "userRoll": "BackEnd",
+      "id": 1
     },
     {
-      "id": 2,
-      "task": "home page create",
-      "userName": "Sukanya"
+      "task": "Read About React js",
+      "userName": "Sukanya",
+      "status": "Not Started",
+      "userRoll": "Design (UI/UX Design)",
+      "id": 2
     },
     {
-      "task": "Database table",
+      "task": "Read About Mui",
       "userName": "Aman",
-      "status": [
-        "Panding",
-        "Completed",
-        "goingOn",
-        "NOt Started"
-      ],
+      "status": "Not Started",
+      "userRoll": "Design (UI/UX Design)",
       "id": 3
     },
     {
-      "task": "table",
+      "task": "Read About Bootstrap",
       "userName": "Aman",
-      "status": [
-        "Panding",
-        "Completed",
-        "goingOn",
-        "NOt Started"
-      ],
+      "status": "Not Started",
+      "userRoll": "Design (UI/UX Design)",
       "id": 4
     },
     {
-      "task": "Read React js",
-      "userName": "kirti",
-      "status": [
-        "Panding",
-        "Completed",
-        "goingOn",
-        "NOt Started"
-      ],
+      "task": "Read About Kothon",
+      "userName": "Laxmi Yadav",
+      "status": "Not Started",
+      "userRoll": "Design (UI/UX Design)",
       "id": 5
     },
     {
-      "task": "Read about Javascript",
+      "task": "Read About Python",
       "userName": "Sukanya",
-      "status": [
-        "Panding",
-        "Completed",
-        "goingOn",
-        "NOt Started"
-      ],
+      "status": "Not Started",
+      "userRoll": "Frontend Development (Frontend)",
       "id": 6
-    }
-  ],
-  "userStatus": [
-    {
-      "id": 1,
-      "task": "chnage ui",
-      "userName": "Sukanya",
-      "status": "Completed"
-    },
-    {
-      "id": 2,
-      "task": "home page create",
-      "userName": "Sukanya",
-      "status": "panding"
-    },
-    {
-      "task": "Database table",
-      "userName": "Aman",
-      "status": "not Started",
-      "id": 3
-    },
-    {
-      "task": "table",
-      "userName": "Aman",
-      "status": "panding",
-      "id": 4
-    },
-    {
-      "task": "Read React js",
-      "userName": "kirti",
-      "status": "starrted",
-      "id": 5
     }
   ],
   "employees": [
@@ -181,6 +137,7 @@
       "id": 12
     }
   ],
+  "employeestatus": [],
   "Attendence": [
     {
       "name": "Laxmi Yadav",

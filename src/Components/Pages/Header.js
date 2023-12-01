@@ -17,7 +17,6 @@ export default function Header() {
                 <Typography variant='h5' className='digital'>
                     Digital Staff Management System
                 </Typography>
-
                 <Stack direction="row" spacing={2} sx={{ marginLeft: 'auto'}}>                    
                     
                     {currentRoute === '/' ? (

@@ -1,7 +1,6 @@
-
 import React, { useEffect, useRef, useState } from "react";
 import { useReactToPrint } from "react-to-print";
-import DataTask from "./TaskData"
+import DataTask from "./TaskData";
 import {
   Box,
   Grid,
@@ -10,7 +9,11 @@ import {
   TableHead,
   TableCell,
   TableRow,
+  MenuItem,
+  InputLabel,
 } from "@mui/material";
+import FormControl from "@mui/material/FormControl";
+import { Select } from "@mui/material";
 import PaginationCom from "./Pegination";
 import GeneratePdf from "./GeneratePdf";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
@@ -20,11 +23,8 @@ function TableData({ data, setFilteredData }) {
   const [currentPage, setCurrentPage] = useState(1);
   const [clickedItem, setClickedItem] = useState(null);
   const [openForm, setOpenForm] = useState(false);
-
   const [taskData, setTaskData] = useState([]);
-
-
-  const [status, setStatus] = useState(["panding", "completed", "goingOn", "NoStarted"])
+  const [employeStatus, setEmployeStatus] = useState("");
 
   const itemsPerPage = 10;
 
@@ -33,26 +33,6 @@ function TableData({ data, setFilteredData }) {
   const GenretePdfSave = useReactToPrint({
     content: () => componentRef.current,
   });
-
-  const fetchData = () => {
-    if (!task || !clickedItem) {
-      alert("Please enter the task and select a user.");
-      return;
-    }
-
-    const item = { userName: clickedItem.name, task, status: status };
-
-    fetch("http://localhost:8000/userTask", {
-      method: "POST",
-      headers: {
-        "content-Type": "application/json"
-      },
-      body: JSON.stringify(item)
-    }).then((res) => {
-      alert("succefully save data in json")
-    })
-
-  };
 
   const fetchDataApi = () => {
     fetch("http://localhost:8000/userTask")
@@ -107,20 +87,41 @@ function TableData({ data, setFilteredData }) {
   const HandleChange = (e) => {
     setTask(e.target.value);
   };
-  const name = clickedItem?.name
+
+  const getUserRoll = (userName) => {
+    const userTask = taskData.find((task) => task.userName === userName);
+    return userTask ? userTask.userRoll : "";
+  };
+
   return (
     <>
       <Box sx={{ m: "20px", background: "#FAEBD7" }} ref={componentRef}>
         <TableContainer>
           <Table>
-            <TableHead sx={{ background: "#eeeeee", height: "100px", m: "10px", p: "20px", fontFamily: "Trirong" }}>
+            <TableHead
+              sx={{
+                background: "#eeeeee",
+                height: "100px",
+                m: "10px",
+                p: "20px",
+                fontFamily: "Trirong",
+              }}
+            >
               <TableRow>
                 <TableCell sx={{ textAlign: "center", fontSize: "25px" }}>
                   Name <ArrowDropDownIcon onClick={handleSort} />
                 </TableCell>
-                <TableCell sx={{ textAlign: "center", fontSize: "25px" }}>attendance</TableCell>
+                <TableCell sx={{ textAlign: "center", fontSize: "25px" }}>
+                  attendance
+                </TableCell>
                 <TableCell sx={{ textAlign: "center", fontSize: "25px" }}>
                   Date <ArrowDropDownIcon onClick={HandelDate} />
+                </TableCell>
+                <TableCell sx={{ textAlign: "center", fontSize: "25px" }}>
+                  Status
+                </TableCell>
+                <TableCell sx={{ textAlign: "center", fontSize: "25px" }}>
+                  Roll
                 </TableCell>
               </TableRow>
             </TableHead>
@@ -128,11 +129,27 @@ function TableData({ data, setFilteredData }) {
               currentItems.map((item, index) => (
                 <TableRow key={index}>
                   <>
-                    <TableCell sx={{ textAlign: "center" }} onClick={() => handleClick(item)}>
+                    <TableCell
+                      sx={{ textAlign: "center" }}
+                      onClick={() => handleClick(item)}
+                    >
                       {item.name}
                     </TableCell>
-                    <TableCell sx={{ textAlign: "center" }}>{item.attendance}</TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {item.attendance}
+                    </TableCell>
                     <TableCell sx={{ textAlign: "center" }}>{item.date}</TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+                        <InputLabel>Status</InputLabel>
+                        <Select label="Status">
+
+                        </Select>
+                      </FormControl>
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {getUserRoll(item.name)}
+                    </TableCell>
                   </>
                 </TableRow>
               ))
@@ -150,16 +167,27 @@ function TableData({ data, setFilteredData }) {
       <Box sx={{ flexGrow: 1, m: "30px" }}>
         <Grid container spacing={2}>
           <Grid item xs={9}>
-            <PaginationCom pageCount={pageCount} currentPage={currentPage} handleChangePage={handleChangePage} />
+            <PaginationCom
+              pageCount={pageCount}
+              currentPage={currentPage}
+              handleChangePage={handleChangePage}
+            />
           </Grid>
           <Grid item xs={3}>
             <GeneratePdf GenretePdfSave={GenretePdfSave} />
           </Grid>
         </Grid>
       </Box>
-      <DataTask openForm={openForm} handleClose={handleClose} name={name} HandleChange={HandleChange} fetchData={fetchData} taskData={taskData} handleFormSubmit={handleFormSubmit} fetchDataApi={fetchDataApi} />
+      <DataTask
+        openForm={openForm}
+        handleClose={handleClose}
+        name={clickedItem?.name}
+        HandleChange={HandleChange}
+        taskData={taskData}
+        handleFormSubmit={handleFormSubmit}
+        fetchDataApi={fetchDataApi}
+      />
     </>
   );
 }
-
 export default TableData;
