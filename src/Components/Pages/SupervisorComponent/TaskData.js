@@ -2,9 +2,9 @@ import EditData from "./EditData";
 
 import React, { useState } from "react";
 import AddIcon from '@mui/icons-material/Add';
-import { Card, Box, Dialog, DialogContent, Typography, TextField, Button, DialogTitle } from "@mui/material";
+import { Card, Box, Dialog, DialogContent, Typography, TextField, Button } from "@mui/material";
 
-function DataTask({ openForm, handleClose, name, HandleChange, fetchData, taskData, handleFormSubmit }) {
+function DataTask({ openForm, handleClose, name,  fetchData, taskData, handleFormSubmit }) {
 
     const [editTaskId, setEditTaskId] = useState(null);
     const [editTaskText, setEditTaskText] = useState("");
@@ -14,6 +14,7 @@ function DataTask({ openForm, handleClose, name, HandleChange, fetchData, taskDa
     const handleEditClick = (taskId, taskText) => {
         setEditTaskId(taskId);
         setEditTaskText(taskText);
+        
     };
 
     const handleEditSubmit = () => {

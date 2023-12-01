@@ -136,7 +136,7 @@ function Registration(props) {
 
               <TextField
                 name="lastname"
-                label="Lirst Name"
+                label="Last Name"
                 variant="standard"
                 placeholder="Enter your lastname"
                 value={formData.lastname}
