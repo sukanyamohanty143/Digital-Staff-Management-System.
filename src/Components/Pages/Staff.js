@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -21,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
   card: {
     width: 600,
     marginBottom: 30,
-    marginTop: 30,
+    marginTop: 200,
     padding:30
 
   },
@@ -66,21 +65,21 @@ const Staff = () => {
     setAttendance(e.target.value);
   };
 
-  // const CheckProfile = async (userName) => {
-  //   try {
-  //     const res = await fetch("http://localhost:8000/EmployeeProfile");
-  //     const data = await res.json();
-  //     const foundUser = data.find((vlu) => vlu["Name"] === userName);
+  const CheckProfile = async (userName) => {
+    try {
+      const res = await fetch("http://localhost:8000/EmployeeProfile");
+      const data = await res.json();
+      const foundUser = data.find((vlu) => vlu["Name"] === userName);
 
-  //     if (foundUser) {
-  //       navigate('/outer', { state: { user: foundUser } });
-  //     } else {
-  //       alert("this user is not exist ");
-  //     }
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  // };
+      if (foundUser) {
+        navigate('/outer', { state: { user: foundUser } });
+      } else {
+        alert("this user is not exist ");
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   const handleOnClick = () => {
     let userName = name;
@@ -98,7 +97,7 @@ const Staff = () => {
           setName("");
           setDate(new Date().toISOString().slice(0, 10));
           setAttendance("");
-          // CheckProfile(userName);
+          CheckProfile(userName);
         })
         .catch((error) => {
           console.error(error);
@@ -171,3 +170,4 @@ const Staff = () => {
   );
 };
 export default Staff;
+

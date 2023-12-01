@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Avatar, Menu, MenuItem } from '@mui/material';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import useAuth from './Context/useAuth';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 const Profileavtar = () => {
     const user = JSON.parse(localStorage.getItem('user'))
@@ -57,8 +59,8 @@ const Profileavtar = () => {
                 open={Boolean(anchorEl)}
                 onClose={handleMenuClose}
             >
-                <MenuItem onClick={() => handleMenuItemClick('outer')}>Profile</MenuItem>
-                <MenuItem onClick={() => handleMenuItemClick('login')}>Logout</MenuItem>
+                <MenuItem onClick={() => handleMenuItemClick('outer')}><AccountCircleIcon/>Profile</MenuItem>
+                <MenuItem onClick={() => handleMenuItemClick('login')}><LogoutIcon/>Logout</MenuItem>
             </Menu>
 
 

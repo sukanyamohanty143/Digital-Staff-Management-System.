@@ -25,14 +25,16 @@
       "id": 4
     },
     {
-      "firstname": "Kumkum",
-      "lastname": "saini",
+      "firstname": "Sonam",
+      "lastname": "Kumari",
       "gender": "female",
       "mobilenumber": "5547587867",
       "email": "sonam123@gmail.com",
       "password": "Sonam@1234",
-      "designation": "staff",
-      "id": 8
+      "designation": "Admin",
+      "id": 8,
+      "joiningDate": "2023-11-18",
+      "profilePhotoURL": "blob:http://localhost:3000/22abfbd2-98fd-4e01-997a-10848ee88be1"
     },
     {
       "firstname": "Laxmi",
@@ -53,6 +55,28 @@
       "password": "Khushboo@123",
       "designation": "supervisor",
       "id": 10
+    },
+    {
+      "firstname": "Ujala",
+      "lastname": "Yadav",
+      "gender": "female",
+      "mobilenumber": "6539565368",
+      "email": "ujala123@gmail.com",
+      "password": "Ujala@123",
+      "designation": "Admin",
+      "id": 11,
+      "joiningDate": "2023-11-17",
+      "profilePhotoURL": "blob:http://localhost:3000/373d6afa-cf28-4809-8194-ca9ce0b26492"
+    },
+    {
+      "firstname": "Muskan",
+      "lastname": "Mohanty",
+      "gender": "female",
+      "mobilenumber": "8758734359",
+      "email": "muskan123@gmail.com",
+      "password": "Muskan@123",
+      "designation": "Staff",
+      "id": 12
     }
   ],
   "Attendence": [
@@ -205,112 +229,12 @@
       "attendance": "Present",
       "date": "2023-11-23",
       "id": 37
-    }
-  ],
-  "EmployeeProfile": [
-    {
-      "Name": "Aman",
-      "Email": "aman@gmail.com",
-      "Password": "fhsjks@123",
-      "JoiningDate": "2023-11-02",
-      "ProfilePhotoURL": null,
-      "id": 1
     },
     {
-      "Name": "Laxmi Yadav",
-      "Email": "laxmiyadav21@navgurukul.org",
-      "Password": "navgurukul",
-      "JoiningDate": "2023-11-08",
-      "ProfilePhotoURL": "blob:http://localhost:3000/83095143-52d7-4335-92c5-eba3b0b5a607",
-      "id": 1
-    },
-    {
-      "Name": "khushboo",
-      "Email": "khushboo@navgurukul,org",
-      "Password": "khushboo@123",
-      "JoiningDate": "2023-11-12",
-      "ProfilePhotoURL": "",
-      "id": 2
-    },
-    {
-      "Name": "ujala",
-      "Email": "laxmiyadav21@navgurukul.org",
-      "Password": "yiuujj",
-      "JoiningDate": "2023-11-18",
-      "ProfilePhotoURL": "blob:http://localhost:3001/3edf6711-1689-4f17-994c-b9d0cde949ff",
-      "id": 3
-    },
-    {
-      "Name": "laxmi",
-      "Email": "laxmi200410@gmail.com",
-      "Password": "navgurukul",
-      "JoiningDate": "2023-11-01",
-      "ProfilePhotoURL": null,
-      "id": 4
-    },
-    {
-      "Name": "kirti",
-      "Email": "khushboo@navgurukul,org",
-      "Password": "rgirgjtg",
-      "JoiningDate": "2023-11-13",
-      "ProfilePhotoURL": null,
-      "id": 5
-    },
-    {
-      "Name": "soma",
-      "Email": "laxmiyadav200410@gmail.com",
-      "Password": "dvfdkgf",
-      "JoiningDate": "2023-11-19",
-      "ProfilePhotoURL": null,
-      "id": 6
-    },
-    {
-      "Name": "ujala ",
-      "Email": "dfv",
-      "Password": "3mq@nQEXi6v9Yym",
-      "JoiningDate": "2023-11-14",
-      "ProfilePhotoURL": "blob:http://localhost:3000/f60899dd-6f2b-4e1c-9abf-0abe79bfda73",
-      "id": 7
-    },
-    {
-      "Name": "laxmi",
-      "Email": "laxmiyadav21@navgurukul.org",
-      "Password": "L@123897kj",
-      "JoiningDate": "2023-11-16",
-      "ProfilePhotoURL": "blob:http://localhost:3000/61053416-c95c-4292-b996-d9cda49ff6cb",
-      "id": 8
-    },
-    {
-      "Name": "ujala",
-      "Email": "ujala21@gmail.com",
-      "Password": "Ujala21@",
-      "JoiningDate": "2023-11-10",
-      "ProfilePhotoURL": "blob:http://localhost:3000/d4478a4c-2252-44c1-9a05-b206120b5e21",
-      "id": 9
-    },
-    {
-      "Name": "niki",
-      "Email": "niki@gmail.com",
-      "Password": "Naki@123",
-      "JoiningDate": "2023-11-19",
-      "ProfilePhotoURL": "blob:http://localhost:3001/ddd4c4e0-43b9-4f12-a636-a4d6e571ba21",
-      "id": 10
-    },
-    {
-      "Name": "Aman sharama",
-      "Email": "aman@gmail.com",
-      "Password": "navhu",
-      "JoiningDate": "2023-11-22",
-      "ProfilePhotoURL": "blob:http://localhost:3000/9b25effe-787e-4848-93fb-ca0202941dfd",
-      "id": 11
-    },
-    {
-      "Name": "laxmi",
-      "Email": "aman@gmail.com",
-      "Password": "Navgurukul1@",
-      "JoiningDate": "2023-11-22",
-      "ProfilePhotoURL": "blob:http://localhost:3000/c6ac1f0a-86e7-4450-9f6d-858e7e0ef90a",
-      "id": 12
+      "name": "Ujala Das",
+      "attendance": "Absent",
+      "date": "2023-11-29",
+      "id": 38
     }
   ]
 }

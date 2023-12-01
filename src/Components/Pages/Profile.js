@@ -8,6 +8,7 @@ import {
   Typography,
   Avatar,
   IconButton,
+  MenuItem,
 } from '@mui/material';
 import PhotoCameraIcon from '@mui/icons-material/PhotoCamera';
 import { useNavigate } from 'react-router-dom';
@@ -16,8 +17,7 @@ const EmployeeProfile = () => {
   const navigate = useNavigate();
   const [profile, setProfile] = useState({
     name: '',
-    email: '',
-    password: '',
+    designation: '',
     joinDate: '',
     profilePhoto: null,
   });
@@ -40,67 +40,60 @@ const EmployeeProfile = () => {
   };
 
   const logProfileData = () => {
-    const { name, email, password, joinDate, profilePhoto } = profile;
+    const { name, designation, joinDate, profilePhoto } = profile;
 
-    if (!name || !email || !password || !joinDate || !profilePhoto) {
+    if (!name || !designation || !joinDate || !profilePhoto) {
       alert('Please fill in all the information');
     } else {
-      alert('Data saved successfully');
+      // alert('Data saved successfully');
       const fullName = name.split(" ")
       const profileData = {
         firstname: fullName[0],
-        lastname:fullName.length>1 && fullName[1],
-        email: email,
-        password: password,
+        lastname: fullName.length > 1 && fullName[1],
+        designation: designation,
         joiningDate: joinDate,
         profilePhotoURL: profilePhoto,
       };
       const prevUser = JSON.parse(localStorage.getItem('user'))
-      localStorage.setItem('user',JSON.stringify({...prevUser,...profileData}))
-      function _objectWithoutProperties(obj, keys) {
-        var target = {};
-        for (var i in obj) {
-          if (keys.indexOf(i) >= 0) continue;
-          if (!Object.prototype.hasOwnProperty.call(obj, i)) continue;
-          target[i] = obj[i];
-        }
-        return target;
-      }
+      localStorage.setItem('user', JSON.stringify({ ...prevUser, ...profileData }))
       
-      
-      
-      var removeId = _objectWithoutProperties(prevUser, ["id"]);
-      console.log("removeId", profileData);
-
-      fetch(`http://localhost:8000/employees?id=${prevUser.id}`, {
-        method: 'PUT',
+      fetch(`http://localhost:8000/employees/${prevUser.id}`, {
+        method: 'PATCH',
         headers: {
-
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({...removeId,...profileData}),
+        body: JSON.stringify({ ...profileData }),
       })
-
-        .then((response) => response.json())
+        .then((response) => {
+          if (!response.ok) {
+            if (response.status === 404) {
+              throw new Error(`Resource not found for ID ${prevUser.id}`);
+            } else {
+              throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+          }
+          return response.json();
+        })
         .then((data) => {
-          console.log('Data added:', data);
+          console.log('Data updated:', data);
           setProfile({
             name: '',
-            email: '',
-            password: '',
+            designation: '',
             joinDate: '',
             profilePhoto: null,
           });
+          alert('Data saved successfully');
           navigate('/outer');
         })
         .catch((error) => {
-          console.error('Error adding data:', error);
+          console.error('Error updating data:', error.message);
         });
+
     }
   };
 
   return (
-    <Container style={{ marginTop: '10px' }}>
+    <Container style={{ marginTop: '100px' }}>
       <Paper elevation={1} style={{ padding: '10px', margin: 'auto', maxWidth: '600px' }}>
         <Typography variant="h5" gutterBottom>
           Employee Profile
@@ -122,6 +115,7 @@ const EmployeeProfile = () => {
               </IconButton>
             </Avatar>
           </label>
+          <br></br>
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <TextField
@@ -135,56 +129,27 @@ const EmployeeProfile = () => {
                   !profile.name
                     ? 'Name is required'
                     : !/^[a-zA-Z\s]*$/.test(profile.name)
-                    ? <span style={{ color: 'red' }}>Only alphabets and spaces are allowed</span>
-                    : 'Enter your name'
+                      ? <span style={{ color: 'red' }}>Only alphabets and spaces are allowed</span>
+                      : 'Enter your name'
                 }
               />
             </Grid>
             <Grid item xs={12}>
               <TextField
-                label="Email"
+                label="Designation"
                 fullWidth
-                name="email"
-                value={profile.email}
+                select
+                value={profile.designation}
                 onChange={handleChange}
-                autoComplete="off"
-                helperText={
-                  !profile.email
-                    ? 'Email is required'
-                    : !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(profile.email)
-                    ? <span style={{ color: 'red' }}>Enter a valid email</span>
-                    : profile.email !== profile.email.toLowerCase()
-                    ? <span style={{ color: 'red' }}>Email should be in lowercase</span>
-                    : ''
-                }
-              />
+                name="designation"
+                helperText="Select your designation"
+              >
+                <MenuItem value="staff">Staff</MenuItem>
+                <MenuItem value="supervisor">Supervisor</MenuItem>
+                <MenuItem value="Admin">Admin</MenuItem>
+              </TextField>
             </Grid>
-            <Grid item xs={12}>
-              <TextField
-                label="Password"
-                type="password"
-                fullWidth
-                name="password"
-                value={profile.password}
-                onChange={handleChange}
-                autoComplete="off"
-                helperText={
-                  !profile.password
-                    ? 'Password is required'
-                    : profile.password.length < 8
-                    ? <span style={{ color: 'red' }}>Password should be at least 8 characters long</span>
-                    : !/\d/.test(profile.password)
-                    ? <span style={{ color: 'red' }}>Password should contain at least one digit</span>
-                    : !/[A-Z]/.test(profile.password)
-                    ? <span style={{ color: 'red' }}>Password should contain at least one uppercase letter</span>
-                    : !/[a-z]/.test(profile.password)
-                    ? <span style={{ color: 'red' }}>Password should contain at least one lowercase letter</span>
-                    : !/[!@#$%^&*(),.?":{}|<>]/.test(profile.password)
-                    ? <span style={{ color: 'red' }}>Password should contain at least one special character</span>
-                    : 'Password is strong'
-                }
-              />
-            </Grid>
+
             <Grid item xs={12}>
               <TextField
                 label="Joining Date"
