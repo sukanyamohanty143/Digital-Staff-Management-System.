@@ -24,7 +24,7 @@ export default function Header() {
                     
                     {currentRoute === '/' ? (
                         <Logout />
-                    ) : currentRoute.includes('/registration') || currentRoute.includes('/login')? null : (<Profileavtar />)}
+                    ) : currentRoute.includes('/registration') || currentRoute.includes('/login')? null : ( <Profileavtar />)}
                 </Stack>
 
             </Toolbar>

@@ -1,5 +1,6 @@
 import { Button, Stack } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+// import LoginIcon from '@mui/icons-material/Login';
 
 function LoginButton() {
     const navigate = useNavigate();
@@ -12,7 +13,7 @@ function LoginButton() {
         <>
             <Stack direction="row" spacing={1} sx={{ marginLeft: 'auto' }}>
                 <Button color="inherit" style={{ border: '1px solid white' }} onClick={handleLoginClick}>
-                    Log In
+                 Log In 
                 </Button>
             </Stack>
         </>
