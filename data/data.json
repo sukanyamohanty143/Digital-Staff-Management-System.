@@ -1,22 +1,28 @@
 {
   "userTask": [
     {
-      "status": "Not Started",
+      "status": "prossesing",
       "userName": "Sonam",
       "task": "React Js",
       "id": 1
     },
     {
-      "status": "prossesing",
+      "status": "Not Started",
       "userName": "Sangeeta",
       "task": "Node js",
       "id": 2
     },
     {
-      "status": "completed",
+      "status": "Not Started",
       "userName": "pooja singh",
       "task": "Node js",
       "id": 3
+    },
+    {
+      "status": "Not Started",
+      "userName": "khushboo",
+      "task": "js",
+      "id": 4
     }
   ],
   "employees": [
@@ -111,6 +117,28 @@
       "password": "Sonam12334",
       "designation": "staff",
       "id": 12
+    },
+    {
+      "firstname": "Kranti",
+      "lastname": "Wagmare",
+      "gender": "female",
+      "role": "tech",
+      "mobilenumber": "8768778479",
+      "email": "kranti@gmail.com",
+      "password": "Kranti@1234",
+      "designation": "",
+      "id": 13
+    },
+    {
+      "firstname": "anjali",
+      "lastname": "kumari",
+      "gender": "female",
+      "role": "non tech",
+      "mobilenumber": "9867676756",
+      "email": "anjali@gmail.com",
+      "password": "Anjali@123",
+      "designation": "staff",
+      "id": 14
     }
   ],
   "Attendence": [
@@ -257,6 +285,12 @@
       "attendance": "Absent",
       "date": "2023-11-29",
       "id": 36
+    },
+    {
+      "name": "anjali",
+      "attendance": "Absent",
+      "date": "2023-12-01",
+      "id": 37
     }
   ],
   "EmployeeProfile": [
