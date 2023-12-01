@@ -2,7 +2,7 @@ import EditData from "./EditData";
 
 import React, { useState } from "react";
 import AddIcon from '@mui/icons-material/Add';
-import { Card, Box, Dialog, DialogContent, Typography, TextField, Button, DialogTitle } from "@mui/material";
+import { Card, Box, Dialog, DialogContent, Typography, TextField, Button, DialogTitle, MenuItem, InputLabel, FormControl, Select } from "@mui/material";
 
 function DataTask({ openForm, handleClose, name, HandleChange, fetchData, taskData, handleFormSubmit }) {
 
@@ -10,7 +10,11 @@ function DataTask({ openForm, handleClose, name, HandleChange, fetchData, taskDa
     const [editTaskText, setEditTaskText] = useState("");
     const [newTaskText, setNewTaskText] = useState("");
 
-    const [status, setStatus] = useState(["Panding", "Completed", "goingOn", "NOt Started"])
+    const [roll, setRoll] = useState("")
+
+    const emplyeeroll = ["Backend Development", "Frontend Development (Frontend)", "Testing (QA or Testing)", "Design (UI/UX Design)"]
+
+    const [status, setStatus] = useState("Not Started")
     const handleEditClick = (taskId, taskText) => {
         setEditTaskId(taskId);
         setEditTaskText(taskText);
@@ -34,7 +38,6 @@ function DataTask({ openForm, handleClose, name, HandleChange, fetchData, taskDa
                 if (response.ok) {
                     return response.json();
                 }
-                console.error("Failed to update task");
                 throw new Error("Failed to update task");
             })
             .then((data) => {
@@ -49,12 +52,17 @@ function DataTask({ openForm, handleClose, name, HandleChange, fetchData, taskDa
             });
     };
 
+    const HandleUserRoll=(e)=>{
+        setRoll(e.target.value)
+
+    }
     const handleAddTask = () => {
 
         const newTask = {
             task: newTaskText,
             userName: name,
-            status: status
+            status: status,
+            userRoll:roll
         };
 
         fetch("http://localhost:8000/userTask", {
@@ -85,25 +93,38 @@ function DataTask({ openForm, handleClose, name, HandleChange, fetchData, taskDa
     return (
 
         <Dialog fullScreen open={openForm} onClose={handleClose}>
-            <DialogContent style={{background:"#9EA3B0"}}>
+            <DialogContent style={{ background: "#9EA3B0" }}>
                 <Box margin='auto'
                     justifyContent='center'
-                    style={{ width: "40%", position: "relative", top: "100px"}}
+                    style={{ width: "40%", position: "relative", top: "100px" }}
                 >
 
-                    <Card sx={{ m: "40px", boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px;",background:"#E0D3DE" }}>
+                    <Card sx={{ m: "40px", boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px;", background: "#E0D3DE" }}>
                         <Typography style={{ textAlign: "center", position: "relative", top: "20px", fontSize: "30px" }}>Task For {name}</Typography>
+                        <FormControl style={{ width: "30%", position: "relative", top: "30px", left: "30px" }}>
+                            <InputLabel id="demo-simple-select-label">Age</InputLabel>
+                            <Select
+                                labelId="demo-simple-select-label"
+                                id="demo-simple-select"
+                                onChange={HandleUserRoll}
+
+
+                            >
+                                {emplyeeroll.map((item) => (
+                                    <MenuItem>{item}</MenuItem>
+                                ))}
+                            </Select>
+                        </FormControl>
                         <TextField
                             id="outlined-basic"
                             label="Add Task"
                             variant="outlined"
-                            sx={{ m: "30px", width: "77%", background: "white" }}
+                            sx={{ m: "30px", width: "40%", background: "white", position: "relative", left: "20px" }}
                             onChange={(e) => setNewTaskText(e.target.value)}
                             value={newTaskText}
                         />
 
-
-                        <Button variant="contained" onClick={handleAddTask} style={{ height: "60px", position: "relative", top: "30px", right: "20px", borderRadius: "50px" }}>
+                        <Button variant="contained" onClick={handleAddTask} style={{ height: "60px", position: "relative", top: "30px", borderRadius: "50px" }}>
                             <AddIcon />
                         </Button>
 

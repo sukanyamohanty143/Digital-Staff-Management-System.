@@ -1,58 +1,60 @@
 {
   "userTask": [
     {
-      "id": 1,
-      "task": "chnage ui ",
-      "userName": "Sukanya"
-    },
-    {
-      "id": 2,
-      "task": "home page create",
-      "userName": "Sukanya"
-    },
-    {
-      "task": "Database table",
-      "userName": "Aman",
-      "status": [
-        "Panding",
-        "Completed",
-        "goingOn",
-        "NOt Started"
-      ],
-      "id": 3
-    },
-    {
-      "task": "table",
-      "userName": "Aman",
-      "status": [
-        "Panding",
-        "Completed",
-        "goingOn",
-        "NOt Started"
-      ],
-      "id": 4
-    },
-    {
-      "task": "Read React js",
-      "userName": "kirti",
-      "status": [
-        "Panding",
-        "Completed",
-        "goingOn",
-        "NOt Started"
-      ],
-      "id": 5
+      "task": "React Read",
+      "userName": "Laxmi Yadav",
+      "status": "Not Started",
+      "userRoll": "Backend Development",
+      "id": 1
     },
     {
       "task": "Read about Javascript",
       "userName": "Sukanya",
-      "status": [
-        "Panding",
-        "Completed",
-        "goingOn",
-        "NOt Started"
-      ],
+      "status": "Not Started",
+      "userRoll": "Frontend Development (Frontend)",
+      "id": 2
+    },
+    {
+      "task": "Read about Bootstrap",
+      "userName": "Laxmi Yadav",
+      "status": "Not Started",
+      "userRoll": "Design (UI/UX Design)",
+      "id": 3
+    },
+    {
+      "task": "Read about Mui",
+      "userName": "Aman",
+      "status": "Not Started",
+      "userRoll": "Frontend Development (Frontend)",
+      "id": 4
+    },
+    {
+      "task": "Create UI of Home Page",
+      "userName": "Sukanya",
+      "status": "Not Started",
+      "userRoll": "Testing (QA or Testing)",
+      "id": 5
+    },
+    {
+      "task": "Show Notification",
+      "userName": "ujala",
+      "status": "Not Started",
+      "userRoll": "Frontend Development (Frontend)",
       "id": 6
+    },
+    {
+      "task": "Read of Database",
+      "userName": "kirti",
+      "status": "Not Started",
+      "userRoll": "Backend Development",
+      "id": 7
+    },
+    {
+      "task": "Next Js",
+      "userName": "Laxmi ",
+      "status": "Not Started",
+      "userRoll": "Testing (QA or Testing)",
+      "id": 8
     }
   ],
   "userStatus": [
@@ -87,6 +89,7 @@
       "id": 5
     }
   ],
+  "employeeStatus": [],
   "employees": [
     {
       "firstname": "Ujala",
@@ -171,6 +174,7 @@
       "id": 10
     }
   ],
+  "employeestatus": [],
   "Attendence": [
     {
       "name": "Laxmi Yadav",
