@@ -52,17 +52,18 @@ function DataTask({ openForm, handleClose, name, HandleChange, fetchData, taskDa
             });
     };
 
-    const HandleUserRoll=(e)=>{
+    const HandleUserRoll = (e) => {
         setRoll(e.target.value)
 
     }
+    console.log(roll, "pppppp")
     const handleAddTask = () => {
 
         const newTask = {
             task: newTaskText,
             userName: name,
             status: status,
-            userRoll:roll
+            userRoll: roll
         };
 
         fetch("http://localhost:8000/userTask", {
@@ -107,9 +108,10 @@ function DataTask({ openForm, handleClose, name, HandleChange, fetchData, taskDa
                                 labelId="demo-simple-select-label"
                                 id="demo-simple-select"
                                 onChange={HandleUserRoll}
+                                value={roll}
                             >
                                 {emplyeeroll.map((item) => (
-                                    <MenuItem>{item}</MenuItem>
+                                    <MenuItem key={item} value={item}>{item}</MenuItem>
                                 ))}
                             </Select>
                         </FormControl>

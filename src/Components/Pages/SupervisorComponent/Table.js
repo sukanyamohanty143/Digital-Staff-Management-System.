@@ -187,7 +187,6 @@ function TableData({ data, setFilteredData }) {
         handleFormSubmit={handleFormSubmit}
         fetchDataApi={fetchDataApi}
       />
-
     </>
   );
 }
