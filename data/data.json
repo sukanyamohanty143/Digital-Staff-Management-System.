@@ -1,60 +1,60 @@
+      
+      
 {
   "userTask": [
     {
-      "task": "React Read",
-      "userName": "Laxmi Yadav",
-      "status": "Not Started",
-      "userRoll": "Backend Development",
-      "id": 1
+      "id": 1,
+      "task": "chnage ui ",
+      "userName": "Sukanya"
+    },
+    {
+      "id": 2,
+      "task": "home page create",
+      "userName": "Sukanya"
+    },
+    {
+      "task": "Database table",
+      "userName": "Aman",
+      "status": [
+        "Panding",
+        "Completed",
+        "goingOn",
+        "NOt Started"
+      ],
+      "id": 3
+    },
+    {
+      "task": "table",
+      "userName": "Aman",
+      "status": [
+        "Panding",
+        "Completed",
+        "goingOn",
+        "NOt Started"
+      ],
+      "id": 4
+    },
+    {
+      "task": "Read React js",
+      "userName": "kirti",
+      "status": [
+        "Panding",
+        "Completed",
+        "goingOn",
+        "NOt Started"
+      ],
+      "id": 5
     },
     {
       "task": "Read about Javascript",
       "userName": "Sukanya",
-      "status": "Not Started",
-      "userRoll": "Frontend Development (Frontend)",
-      "id": 2
-    },
-    {
-      "task": "Read about Bootstrap",
-      "userName": "Laxmi Yadav",
-      "status": "Not Started",
-      "userRoll": "Design (UI/UX Design)",
-      "id": 3
-    },
-    {
-      "task": "Read about Mui",
-      "userName": "Aman",
-      "status": "Not Started",
-      "userRoll": "Frontend Development (Frontend)",
-      "id": 4
-    },
-    {
-      "task": "Create UI of Home Page",
-      "userName": "Sukanya",
-      "status": "Not Started",
-      "userRoll": "Testing (QA or Testing)",
-      "id": 5
-    },
-    {
-      "task": "Show Notification",
-      "userName": "ujala",
-      "status": "Not Started",
-      "userRoll": "Frontend Development (Frontend)",
+      "status": [
+        "Panding",
+        "Completed",
+        "goingOn",
+        "NOt Started"
+      ],
       "id": 6
-    },
-    {
-      "task": "Read of Database",
-      "userName": "kirti",
-      "status": "Not Started",
-      "userRoll": "Backend Development",
-      "id": 7
-    },
-    {
-      "task": "Next Js",
-      "userName": "Laxmi ",
-      "status": "Not Started",
-      "userRoll": "Testing (QA or Testing)",
-      "id": 8
     }
   ],
   "userStatus": [
@@ -81,12 +81,6 @@
       "userName": "Aman",
       "status": "panding",
       "id": 4
-    },
-    {
-      "task": "Read React js",
-      "userName": "kirti",
-      "status": "starrted",
-      "id": 5
     }
   ],
   "employeeStatus": [],
@@ -172,6 +166,50 @@
       "password": "Khushboo@123",
       "designation": "supervisor",
       "id": 10
+    },
+    {
+      "firstname": "sonam",
+      "lastname": "kuamri",
+      "gender": "female",
+      "mobilenumber": "376985986",
+      "email": "sonam32@gmail.com",
+      "password": "Sonam12334",
+      "designation": "staff",
+      "id": 12
+    },
+    {
+      "firstname": "Kranti",
+      "lastname": "Wagmare",
+      "gender": "female",
+      "mobilenumber": "8758734359",
+      "email": "muskan123@gmail.com",
+      "password": "Muskan@123",
+      "designation": "supervisor",
+      "id": 12,
+      "joiningDate": "2023-11-27",
+      "profilePhotoURL": "blob:http://localhost:3001/cf7504b5-4a6f-4171-8147-0ca9979a8d1b"
+    },
+    {
+      "firstname": "Laxmi",
+      "lastname": "Yadav",
+      "gender": "female",
+      "mobilenumber": "5687696052",
+      "email": "laxmi123@gmail.com",
+      "password": "Laxmi21@",
+      "designation": "staff",
+      "id": 13,
+      "joiningDate": "2023-11-26",
+      "profilePhotoURL": "blob:http://localhost:3002/29d0ae83-b523-4294-b213-3d5efa3e60c3"
+    },
+    {
+      "firstname": "Ujala",
+      "lastname": "Saini",
+      "gender": "female",
+      "mobilenumber": "8799086536",
+      "email": "ujala21@gmail.com",
+      "password": "Ujala@123",
+      "designation": "staff",
+      "id": 14
     }
   ],
   "employeestatus": [],
@@ -313,6 +351,72 @@
       "attendance": "Present",
       "date": "2023-11-13",
       "id": 35
+    },
+    {
+      "name": "sonam",
+      "attendance": "Absent",
+      "date": "2023-11-29",
+      "id": 36
+    },
+    {
+      "name": "anjali",
+      "attendance": "Absent",
+      "date": "2023-11-29",
+      "id": 38
+    },
+    {
+      "name": "Muskan Mohanty",
+      "attendance": "Present",
+      "date": "2023-12-01",
+      "id": 39
+    },
+    {
+      "name": "Muskan Mohanty",
+      "attendance": "Present",
+      "date": "2023-12-01",
+      "id": 40
+    },
+    {
+      "name": "Muskan Mohanty",
+      "attendance": "Present",
+      "date": "2023-12-01",
+      "id": 41
+    },
+    {
+      "name": "Laxmi Yadav",
+      "attendance": "Present",
+      "date": "2023-12-01",
+      "id": 42
+    },
+    {
+      "name": "Laxmi Yadav",
+      "attendance": "Present",
+      "date": "2023-12-01",
+      "id": 43
+    },
+    {
+      "name": "Ujala Saini",
+      "attendance": "Present",
+      "date": "2023-12-01",
+      "id": 44
+    },
+    {
+      "name": "Laxmi yadav",
+      "attendance": "Present",
+      "date": "2023-12-01",
+      "id": 45
+    },
+    {
+      "name": "Laxmi Yadav",
+      "attendance": "Present",
+      "date": "2023-12-01",
+      "id": 46
+    },
+    {
+      "name": "Laxmi Yadav",
+      "attendance": "Present",
+      "date": "2023-12-01",
+      "id": 47
     }
   ],
   "EmployeeProfile": [
@@ -415,28 +519,47 @@
   ],
   "Task": [
     {
-      "task": "js",
-      "id": 1
-    },
-    {
-      "task": "ES6",
+      "task": "javascript",
       "id": 2
     },
     {
-      "task": "react",
+      "task": "react js",
       "id": 3
     },
     {
-      "task": "bootstrap",
+      "task": "Node",
       "id": 4
     },
     {
-      "task": "lskjdksldj",
+      "task": "css",
       "id": 6
     },
     {
-      "task": " akjak",
+      "task": " jhjakd",
       "id": 7
     }
   ]
 }
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      

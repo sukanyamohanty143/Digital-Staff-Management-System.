@@ -207,6 +207,7 @@ const EmployeeProfile = () => {
   const navigate = useNavigate();
   const [profile, setProfile] = useState({
     name: '',
+    designation: '',
     joinDate: '',
     profilePhoto: null,
   });
@@ -252,54 +253,55 @@ const EmployeeProfile = () => {
   };
   
   const logProfileData = () => {
-    const { name, joinDate, profilePhoto } = profile;
+    const { name, designation, joinDate, profilePhoto } = profile;
 
-    if (!name || !joinDate || !profilePhoto) {
+    if (!name || !designation || !joinDate || !profilePhoto) {
       alert('Please fill in all the information');
     } else {
-      alert('Data saved successfully');
+      // alert('Data saved successfully');
       const fullName = name.split(" ")
       const profileData = {
         firstname: fullName[0],
-        lastname:fullName.length>1 && fullName[1],
+        lastname: fullName.length > 1 && fullName[1],
+        designation: designation,
         joiningDate: joinDate,
         profilePhotoURL: profilePhoto,
       };
       const prevUser = JSON.parse(localStorage.getItem('user'))
-      localStorage.setItem('user',JSON.stringify({...prevUser,...profileData}))
-      function _objectWithoutProperties(obj, keys) {
-        var target = {};
-        for (var i in obj) {
-          if (keys.indexOf(i) >= 0) continue;
-          if (!Object.prototype.hasOwnProperty.call(obj, i)) continue;
-          target[i] = obj[i];
-        }
-        return target;
-      }
-      var removeId = _objectWithoutProperties(prevUser, ["id"]);
-      console.log("removeId", profileData);
-
-      fetch(`http://localhost:8000/employees?id=${prevUser.id}`, {
-        method: 'PUT',
+      localStorage.setItem('user', JSON.stringify({ ...prevUser, ...profileData }))
+      
+      fetch(`http://localhost:8000/employees/${prevUser.id}`, {
+        method: 'PATCH',
         headers: {
-
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({...removeId,...profileData}),
+        body: JSON.stringify({ ...profileData }),
       })
-        .then((response) => response.json())
+        .then((response) => {
+          if (!response.ok) {
+            if (response.status === 404) {
+              throw new Error(`Resource not found for ID ${prevUser.id}`);
+            } else {
+              throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+          }
+          return response.json();
+        })
         .then((data) => {
-          console.log('Data added:', data);
+          console.log('Data updated:', data);
           setProfile({
             name: '',
+            designation: '',
             joinDate: '',
             profilePhoto: null,
           });
+          alert('Data saved successfully');
           navigate('/outer');
         })
         .catch((error) => {
-          console.error('Error adding data:', error);
+          console.error('Error updating data:', error.message);
         });
+
     }
   };
   return (
@@ -338,26 +340,27 @@ const EmployeeProfile = () => {
                   !profile.name
                     ? 'Name is required'
                     : !/^[a-zA-Z\s]*$/.test(profile.name)
-                    ? <span style={{ color: 'red' }}>Only alphabets and spaces are allowed</span>
-                    : 'Enter your name'
+                      ? <span style={{ color: 'red' }}>Only alphabets and spaces are allowed</span>
+                      : 'Enter your name'
                 }
               />
             </Grid>
             <Grid item xs={12}>
               <TextField
-              label="Designation"
-              fullWidth
-              select
-              value={profile.designation}
-              onChange={handleChange}
-              name="designation"
-              helperText="Select your designation"
-            >
-              <MenuItem value="staff">Staff</MenuItem>
-              <MenuItem value="supervisor">Supervisor</MenuItem>
-              <MenuItem value="Admin">Admin</MenuItem>
-            </TextField>
-          </Grid> 
+                label="Designation"
+                fullWidth
+                select
+                value={profile.designation}
+                onChange={handleChange}
+                name="designation"
+                helperText="Select your designation"
+              >
+                <MenuItem value="staff">Staff</MenuItem>
+                <MenuItem value="supervisor">Supervisor</MenuItem>
+                <MenuItem value="Admin">Admin</MenuItem>
+              </TextField>
+            </Grid>
+
             <Grid item xs={12}>
               <TextField
                 label="Joining Date"
