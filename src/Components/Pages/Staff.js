@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import {
   TextField,
   Button,
@@ -9,6 +8,7 @@ import {
   MenuItem,
   Select,
 } from "@material-ui/core";
+// import { useNavigate } from 'react-router-dom';
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
@@ -21,32 +21,37 @@ const useStyles = makeStyles((theme) => ({
     width: 600,
     marginBottom: 30,
     marginTop: 200,
-    padding:30
+    padding: 30
 
   },
   label: {
-    marginBottom: theme.spacing(1),
+    marginLeft: 10
   },
   input: {
-    width: "100%",
+    width: "95%",
+    margin: 15
   },
   button: {
     marginTop: theme.spacing(2),
+    backgroundColor: '#337CCF',
+    marginLeft: 10
   },
   heading: {
-    textAlign:"center"
+    textAlign: "center"
   },
 }));
 
-const Staff = () => {
-  const navigate = useNavigate();
 
+
+const Staff = () => {
+
+  // const navigate = useNavigate();
   const classes = useStyles();
   const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
   const [name, setName] = useState("");
   const [attendance, setAttendance] = useState("");
-  
   const [nameError, setNameError] = useState("");
+
 
 
   const handleName = (e) => {
@@ -55,7 +60,7 @@ const Staff = () => {
     if (/^[A-Za-z\s]*$/.test(inputName) || inputName === "") {
       setName(inputName);
       setNameError("");
-    } 
+    }
     else {
       setNameError("'Only alphabetletters and spaces are allowed'");
     }
@@ -65,24 +70,24 @@ const Staff = () => {
     setAttendance(e.target.value);
   };
 
-  const CheckProfile = async (userName) => {
-    try {
-      const res = await fetch("http://localhost:8000/EmployeeProfile");
-      const data = await res.json();
-      const foundUser = data.find((vlu) => vlu["Name"] === userName);
+  // const CheckProfile = async (userName) => {
+  //   try {
+  //     const res = await fetch("http://localhost:8000/EmployeeProfile");
+  //     const data = await res.json();
+  //     const foundUser = data.find((vlu) => vlu["Name"] === userName);
 
-      if (foundUser) {
-        navigate('/outer', { state: { user: foundUser } });
-      } else {
-        alert("this user is not exist ");
-      }
-    } catch (err) {
-      console.error(err);
-    }
-  };
+  //     if (foundUser) {
+  //       navigate('/outer', { state: { user: foundUser } });
+  //     } else {
+  //       alert("this user is not exist ");
+  //     }
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
+  // };
+
 
   const handleOnClick = () => {
-    let userName = name;
     if (name && date && attendance) {
       const data = { name, attendance, date };
       fetch(`http://localhost:8000/Attendence`, {
@@ -97,7 +102,7 @@ const Staff = () => {
           setName("");
           setDate(new Date().toISOString().slice(0, 10));
           setAttendance("");
-          CheckProfile(userName);
+          // CheckProfile(userName);
         })
         .catch((error) => {
           console.error(error);
@@ -107,17 +112,12 @@ const Staff = () => {
     }
   };
 
+
   return (
     <div className={classes.container}>
-
-      
-      <Card className={classes.card}>
-
-      <Typography variant="h3" className={classes.heading}>
-        Staff Page
-      </Typography>
+      <Card className={classes.card} style={{ boxShadow: '0 10px 15px rgba(0, 0, 0, 0.2)' }}>
+        <Typography variant="h4" className={classes.heading}>Staff Page</Typography>
         <Box>
-
           <label className={classes.label} htmlFor="Name">
             Name
           </label>
@@ -129,6 +129,8 @@ const Staff = () => {
             className={classes.input}
             error={Boolean(nameError)}
             helperText={nameError}
+            autoComplete="off"
+
           />
         </Box>
         <Box>
@@ -166,8 +168,11 @@ const Staff = () => {
           Submit
         </Button>
       </Card>
+
+
     </div>
   );
 };
+
 export default Staff;
 

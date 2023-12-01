@@ -1,4 +1,92 @@
 {
+  "userTask": [
+    {
+      "id": 1,
+      "task": "chnage ui ",
+      "userName": "Sukanya"
+    },
+    {
+      "id": 2,
+      "task": "home page create",
+      "userName": "Sukanya"
+    },
+    {
+      "task": "Database table",
+      "userName": "Aman",
+      "status": [
+        "Panding",
+        "Completed",
+        "goingOn",
+        "NOt Started"
+      ],
+      "id": 3
+    },
+    {
+      "task": "table",
+      "userName": "Aman",
+      "status": [
+        "Panding",
+        "Completed",
+        "goingOn",
+        "NOt Started"
+      ],
+      "id": 4
+    },
+    {
+      "task": "Read React js",
+      "userName": "kirti",
+      "status": [
+        "Panding",
+        "Completed",
+        "goingOn",
+        "NOt Started"
+      ],
+      "id": 5
+    },
+    {
+      "task": "Read about Javascript",
+      "userName": "Sukanya",
+      "status": [
+        "Panding",
+        "Completed",
+        "goingOn",
+        "NOt Started"
+      ],
+      "id": 6
+    }
+  ],
+  "userStatus": [
+    {
+      "id": 1,
+      "task": "chnage ui",
+      "userName": "Sukanya",
+      "status": "Completed"
+    },
+    {
+      "id": 2,
+      "task": "home page create",
+      "userName": "Sukanya",
+      "status": "panding"
+    },
+    {
+      "task": "Database table",
+      "userName": "Aman",
+      "status": "not Started",
+      "id": 3
+    },
+    {
+      "task": "table",
+      "userName": "Aman",
+      "status": "panding",
+      "id": 4
+    },
+    {
+      "task": "Read React js",
+      "userName": "kirti",
+      "status": "starrted",
+      "id": 5
+    }
+  ],
   "employees": [
     {
       "firstname": "Ujala",
@@ -35,6 +123,26 @@
       "id": 8,
       "joiningDate": "2023-11-18",
       "profilePhotoURL": "blob:http://localhost:3000/22abfbd2-98fd-4e01-997a-10848ee88be1"
+    },
+    {
+      "firstname": "Nikita",
+      "lastname": "sharma",
+      "gender": "female",
+      "mobilenumber": "7632785438",
+      "email": "nikita@gmail.com",
+      "password": "Nikita@123",
+      "designation": "supervisor",
+      "id": 9
+    },
+    {
+      "firstname": "Roshan",
+      "lastname": "kumar",
+      "gender": "male",
+      "mobilenumber": "5685486769",
+      "email": "roshan@gmail.com",
+      "password": "Roshan@123",
+      "designation": "staff",
+      "id": 11
     },
     {
       "firstname": "Laxmi",
@@ -235,6 +343,32 @@
       "attendance": "Absent",
       "date": "2023-11-29",
       "id": 38
+    }
+  ],
+  "Task": [
+    {
+      "task": "js",
+      "id": 1
+    },
+    {
+      "task": "ES6",
+      "id": 2
+    },
+    {
+      "task": "react",
+      "id": 3
+    },
+    {
+      "task": "bootstrap",
+      "id": 4
+    },
+    {
+      "task": "lskjdksldj",
+      "id": 6
+    },
+    {
+      "task": " akjak",
+      "id": 7
     }
   ]
 }

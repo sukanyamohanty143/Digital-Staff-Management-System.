@@ -8,6 +8,7 @@ import Supervisor from '../Pages/SupervisorComponent/Supervisor'
 import Outer from '../Pages/Outer';
 import Profile from '../Pages/Profile'
 import EmployeeTable from '../Pages/Table'
+import Newtask from '../Pages/Newtask';
 import Header from '../Pages/Header'
 import Footer from '../Pages/Footer'
 
@@ -28,9 +29,13 @@ function Routing() {
         <Route path="/outer" element={<Outer/>} />
         <Route path="/profile" element={<Profile/>} />
         <Route path="/table" element={<EmployeeTable />} />
+        <Route path="/newtask" element={<Newtask/>} />
+
       </Routes>
       <Footer/>
     </BrowserRouter>
+
+
   );
 }
 export default Routing;

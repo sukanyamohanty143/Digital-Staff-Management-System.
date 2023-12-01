@@ -5,14 +5,15 @@ import {
     Box,
     Card
 } from "@mui/material";
-
+import './Style.css'
 import SearchBar from "./SearchBar";
-import Task from "./Task";
+
 const Supervisor = () => {
 
     const [selectedRange, setSelectedRange] = useState(null);
     const [data, setData] = useState([]);
     const [search, setSearch] = useState("");
+    
     const [filteredData, setFilteredData] = useState([]);
 
     const FetchData = () => {
@@ -33,15 +34,21 @@ const Supervisor = () => {
     }, []);
 
     const handleDropdownChange = (event) => {
+
         const selectedValue = event.target.value;
         setSelectedRange(selectedValue);
 
         if (selectedValue) {
+
             const startDate = (selectedValue - 1) * 7 + 1;
+        
             const endDate = selectedValue * 7;
+
             const filtered = data.filter((record) => {
+
                 const recordDate = new Date(record.date).getDate();
                 return recordDate >= startDate && recordDate <= endDate;
+
             });
             setFilteredData(filtered);
         } else {
@@ -51,6 +58,7 @@ const Supervisor = () => {
     };
 
     const HandleSearch = () => {
+
         setSearch("")
         const filtered = data.filter((record) => {
             return record.name.toLowerCase().includes(search.toLowerCase());
@@ -74,7 +82,7 @@ const Supervisor = () => {
                 <TableData data={filteredData} setFilteredData={setFilteredData} />
 
             </Card>
-            <Task/>
+
 
         </>
     );
