@@ -69,25 +69,21 @@ body {
 
 .tastbox{
   width: auto;
-  height: auto;
-  /* border: 2px solid black; */
-  border: 2px solid green;
-
+  height: 76px;
+  border: 2px solid rgb(159, 157, 157);
   border-radius: 10px;
-  padding: 10px;
-  margin: 18px;
+  padding: 5px;
+  margin: 19px;
 }
 
 .statusbox{
   width: auto;
   height: auto;
-  /* border: 2px solid black; */
-  border: 2px solid green;
+  border: 2px solid rgb(159, 157, 157);
   border-radius: 10px;
-  padding: 10px;
-  margin: 18px;
+  padding: 5px;
+  margin: 22px;
 }
-
 
 
 

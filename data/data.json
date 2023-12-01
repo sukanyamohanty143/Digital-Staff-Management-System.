@@ -1,4 +1,24 @@
 {
+  "userTask": [
+    {
+      "status": "Not Started",
+      "userName": "Sonam",
+      "task": "React Js",
+      "id": 1
+    },
+    {
+      "status": "prossesing",
+      "userName": "Sangeeta",
+      "task": "Node js",
+      "id": 2
+    },
+    {
+      "status": "completed",
+      "userName": "pooja singh",
+      "task": "Node js",
+      "id": 3
+    }
+  ],
   "employees": [
     {
       "firstname": "Ujala",
@@ -91,52 +111,6 @@
       "password": "Sonam12334",
       "designation": "staff",
       "id": 12
-    }
-  ],
-  "userTask": [
-    {
-      "task": "Database table",
-      "userName": "Aman",
-      "status": [
-        "Panding",
-        "Completed",
-        "goingOn",
-        "NOt Started"
-      ]
-    },
-    {
-      "task": "Database table",
-      "userName": "Aman",
-      "status": [
-        "Pending",
-        "Completed",
-        "Going On",
-        "Not Started"
-      ]
-    },
-    {
-      "task": "API Integration",
-      "userName": "John",
-      "status": [
-        "Pending",
-        "Not Started"
-      ]
-    },
-    {
-      "task": "Frontend Design",
-      "userName": "Sarah",
-      "status": [
-        "Completed",
-        "Not Started"
-      ]
-    },
-    {
-      "task": "Testing",
-      "userName": "David",
-      "status": [
-        "Going On",
-        "Not Started"
-      ]
     }
   ],
   "Attendence": [
