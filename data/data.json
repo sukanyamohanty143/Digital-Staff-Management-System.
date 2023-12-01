@@ -1,5 +1,3 @@
-      
-      
 {
   "userTask": [
     {
@@ -153,6 +151,17 @@
       "password": "Ujala@123",
       "designation": "staff",
       "id": 14
+    },
+    {
+      "firstname": "Anu",
+      "lastname": "Yadav",
+      "gender": "female",
+      "role": "tech",
+      "mobilenumber": "8746593023",
+      "email": "anu21@gmail.com",
+      "password": "Navgurukul12@",
+      "designation": "staff",
+      "id": 15
     }
   ],
   "Attendence": [
@@ -359,6 +368,12 @@
       "attendance": "Present",
       "date": "2023-12-01",
       "id": 47
+    },
+    {
+      "name": "Anu Yadav",
+      "attendance": "Present",
+      "date": "2023-12-01",
+      "id": 48
     }
   ],
   "EmployeeProfile": [
@@ -482,26 +497,3 @@
     }
   ]
 }
-    
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
