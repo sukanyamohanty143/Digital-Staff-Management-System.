@@ -83,6 +83,7 @@ const Outer = () => {
                 <Typography style={{padding:"5px" }} variant="h6">{user.firstname + " "+user.lastname }</Typography>
                 <Typography style={{padding:"5px" }} variant="h6">{user.email}</Typography>
                 <Typography style={{padding:"5px" }} variant="h6">{user.mobilenumber}</Typography>
+                <Typography style={{padding:"5px" }} variant="h6">{user.designation}</Typography>
                 <Typography style={{padding:"5px" }} variant="h6">{user.JoiningDate}</Typography>
                 <Typography style={{padding:"5px" }} variant="h6">{user.designation}</Typography>
                 <Typography style={{padding:"5px" }} variant="h6">{user.role}</Typography>
