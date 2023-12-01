@@ -183,8 +183,32 @@
       "mobilenumber": "8758734359",
       "email": "muskan123@gmail.com",
       "password": "Muskan@123",
-      "designation": "Staff",
-      "id": 12
+      "designation": "supervisor",
+      "id": 12,
+      "joiningDate": "2023-11-27",
+      "profilePhotoURL": "blob:http://localhost:3001/cf7504b5-4a6f-4171-8147-0ca9979a8d1b"
+    },
+    {
+      "firstname": "Laxmi",
+      "lastname": "Yadav",
+      "gender": "female",
+      "mobilenumber": "5687696052",
+      "email": "laxmi123@gmail.com",
+      "password": "Laxmi21@",
+      "designation": "staff",
+      "id": 13,
+      "joiningDate": "2023-11-26",
+      "profilePhotoURL": "blob:http://localhost:3002/29d0ae83-b523-4294-b213-3d5efa3e60c3"
+    },
+    {
+      "firstname": "Ujala",
+      "lastname": "Saini",
+      "gender": "female",
+      "mobilenumber": "8799086536",
+      "email": "ujala21@gmail.com",
+      "password": "Ujala@123",
+      "designation": "staff",
+      "id": 14
     }
   ],
   "Attendence": [
@@ -343,6 +367,54 @@
       "attendance": "Absent",
       "date": "2023-11-29",
       "id": 38
+    },
+    {
+      "name": "Muskan Mohanty",
+      "attendance": "Present",
+      "date": "2023-12-01",
+      "id": 39
+    },
+    {
+      "name": "Muskan Mohanty",
+      "attendance": "Present",
+      "date": "2023-12-01",
+      "id": 40
+    },
+    {
+      "name": "Muskan Mohanty",
+      "attendance": "Present",
+      "date": "2023-12-01",
+      "id": 41
+    },
+    {
+      "name": "Laxmi Yadav",
+      "attendance": "Present",
+      "date": "2023-12-01",
+      "id": 42
+    },
+    {
+      "name": "Laxmi Yadav",
+      "attendance": "Present",
+      "date": "2023-12-01",
+      "id": 43
+    },
+    {
+      "name": "Ujala Saini",
+      "attendance": "Present",
+      "date": "2023-12-01",
+      "id": 44
+    },
+    {
+      "name": "Laxmi yadav",
+      "attendance": "Present",
+      "date": "2023-12-01",
+      "id": 45
+    },
+    {
+      "name": "Laxmi Yadav",
+      "attendance": "Present",
+      "date": "2023-12-01",
+      "id": 46
     }
   ],
   "Task": [
