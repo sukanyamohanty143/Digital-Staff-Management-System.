@@ -40,11 +40,13 @@ const EmployeeProfile = ({setNotificationCount, setAllNotifications}) => {
       setNotificationCount(wordCount);
       setNotificationMessage(message);
       setAllNotifications([message]);
-    } else {
-      const message = `New update: ${value}`;
+    } 
+    else {
+      const message=`New update: ${value}`
       setNotificationCount((prevCount) => prevCount + 1);
       setNotificationMessage(message);
       setAllNotifications((prevNotifications) => [...prevNotifications, message]);
+
     }
   };
 
@@ -59,26 +61,26 @@ const EmployeeProfile = ({setNotificationCount, setAllNotifications}) => {
     const message = 'Profile photo updated';
     setNotificationCount((prevCount) => prevCount + 1);
     setNotificationMessage(message);
-    setAllNotifications((prevNotifications) => [...prevNotifications, message]);
-  };
-
+    setAllNotifications((prevNotifications) => [...prevNotifications, message])
+    };
+  
   const logProfileData = () => {
-    const { name, joinDate, profilePhoto, designation } = profile;
+    const { name, joinDate, profilePhoto } = profile;
 
-    if (!name || !joinDate || !profilePhoto || !designation) {
+    if (!name || !joinDate || !profilePhoto) {
       alert('Please fill in all the information');
     } else {
       alert('Data saved successfully');
-      const fullName = name.split(' ');
+      const fullName = name.split(" ")
       const profileData = {
         firstname: fullName[0],
-        lastname: fullName.length > 1 && fullName[1],
+        lastname:fullName.length>1 && fullName[1],
         joiningDate: joinDate,
         profilePhotoURL: profilePhoto,
         designation, //
       };
-      const prevUser = JSON.parse(localStorage.getItem('user'));
-      localStorage.setItem('user', JSON.stringify({ ...prevUser, ...profileData }));
+      const prevUser = JSON.parse(localStorage.getItem('user'))
+      localStorage.setItem('user',JSON.stringify({...prevUser,...profileData}))
       function _objectWithoutProperties(obj, keys) {
         var target = {};
         for (var i in obj) {
@@ -88,15 +90,16 @@ const EmployeeProfile = ({setNotificationCount, setAllNotifications}) => {
         }
         return target;
       }
-      var removeId = _objectWithoutProperties(prevUser, ['id']);
-      console.log('removeId', profileData);
+      var removeId = _objectWithoutProperties(prevUser, ["id"]);
+      console.log("removeId", profileData);
 
       fetch(`http://localhost:8000/employees?id=${prevUser.id}`, {
         method: 'PUT',
         headers: {
+
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ ...removeId, ...profileData }),
+        body: JSON.stringify({...removeId,...profileData}),
       })
         .then((response) => response.json())
         .then((data) => {
@@ -150,26 +153,26 @@ const EmployeeProfile = ({setNotificationCount, setAllNotifications}) => {
                   !profile.name
                     ? 'Name is required'
                     : !/^[a-zA-Z\s]*$/.test(profile.name)
-                      ? <span style={{ color: 'red' }}>Only alphabets and spaces are allowed</span>
-                      : 'Enter your name'
+                    ? <span style={{ color: 'red' }}>Only alphabets and spaces are allowed</span>
+                    : 'Enter your name'
                 }
               />
             </Grid>
             <Grid item xs={12}>
               <TextField
-                label="Designation"
-                fullWidth
-                select
-                value={profile.designation}
-                onChange={handleChange}
-                name="designation"
-                helperText="Select your designation"
-              >
-                <MenuItem value="staff">Staff</MenuItem>
-                <MenuItem value="supervisor">Supervisor</MenuItem>
-                <MenuItem value="Admin">Admin</MenuItem>
-              </TextField>
-            </Grid>
+              label="Designation"
+              fullWidth
+              select
+              value={profile.designation}
+              onChange={handleChange}
+              name="designation"
+              helperText="Select your designation"
+            >
+              <MenuItem value="staff">Staff</MenuItem>
+              <MenuItem value="supervisor">Supervisor</MenuItem>
+              <MenuItem value="Admin">Admin</MenuItem>
+            </TextField>
+          </Grid> 
             <Grid item xs={12}>
               <TextField
                 label="Joining Date"
@@ -202,7 +205,6 @@ const EmployeeProfile = ({setNotificationCount, setAllNotifications}) => {
             Save Profile
           </Button>
         </form>
-        
       </Paper>
     </Container>
   );
