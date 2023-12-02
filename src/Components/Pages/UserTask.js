@@ -515,7 +515,6 @@ function UserTask() {
     };
 
 
-
     const removeActivity = (id) => {
         const taskId = data[id].id;
         fetch(` http://localhost:8000/userTask/${taskId}`, {
@@ -544,11 +543,23 @@ function UserTask() {
 
                 <Box className="boxone" >
                     <Typography variant="h6" >Add Task Here</Typography>
-                    <TextField type="text" placeholder="add task" value={task} onChange={(e) => setTask(e.target.value)} />
-                    <Button style={{ width: "100", height: "70", backgroundColor: "green", color: "white" }} onClick={addTask}>add task
+                    <TextField
+                        type="text"
+                        placeholder="add task"
+                        value={task}
+                        onChange={(e) => setTask(e.target.value)}
+                        style={{ marginBottom: '10px' }}
+                    />
+                    <Button
+
+                        style={{ width: "100", height: "70", backgroundColor: "green", color: "white", marginLeft: '20px' }}
+                        onClick={addTask}
+                    >
+                        add task
                         <AddCircleOutlineIcon />
                     </Button>
                 </Box>
+
 
                 <CardContent className={classes.card}>
 
@@ -594,9 +605,6 @@ function UserTask() {
                                 </Box>
                             ))}
                         </Grid>
-                        {/* <span>
-                            <ArrowRightAltIcon />
-                        </span> */}
 
 
                         <Grid item xs={4}>

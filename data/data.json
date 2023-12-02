@@ -1,15 +1,13 @@
-      
-      
 {
   "userTask": [
     {
-      "status": "prossesing",
+      "status": "completed",
       "userName": "Sonam",
       "task": "React Js",
       "id": 1
     },
     {
-      "status": "Not Started",
+      "status": "prossesing",
       "userName": "Sangeeta",
       "task": "Node js",
       "id": 2
@@ -113,11 +111,9 @@
     {
       "firstname": "sonam",
       "lastname": "kuamri",
-      "gender": "female",
       "mobilenumber": "376985986",
-      "email": "sonam32@gmail.com",
-      "password": "Sonam12334",
       "designation": "staff",
+      "gender": "female",
       "id": 12
     },
     {
@@ -141,6 +137,28 @@
       "password": "Anjali@123",
       "designation": "staff",
       "id": 14
+    },
+    {
+      "firstname": "Annu",
+      "lastname": "kumari",
+      "gender": "female",
+      "role": "non tech",
+      "mobilenumber": "9869796795",
+      "email": "annu@gmail.com",
+      "password": "Annu@1223",
+      "designation": "supervisor",
+      "id": 15
+    },
+    {
+      "firstname": "kajal",
+      "lastname": "rawat",
+      "gender": "female",
+      "role": "tech",
+      "mobilenumber": "0965897658",
+      "email": "kajal@gamil.com",
+      "password": "Kajal!233",
+      "designation": "supervisor",
+      "id": 16
     }
   ],
   "Attendence": [
@@ -293,6 +311,18 @@
       "attendance": "Absent",
       "date": "2023-12-01",
       "id": 37
+    },
+    {
+      "name": "kajal",
+      "attendance": "Present",
+      "date": "2023-12-01",
+      "id": 38
+    },
+    {
+      "name": "anjali ",
+      "attendance": "Present",
+      "date": "2023-12-01",
+      "id": 39
     }
   ],
   "EmployeeProfile": [
@@ -416,26 +446,3 @@
     }
   ]
 }
-    
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      

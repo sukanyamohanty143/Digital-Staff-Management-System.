@@ -9,7 +9,6 @@ export default function Header() {
     const location = useLocation();
     const currentRoute = location.pathname;
 
-
     return (
         <AppBar position='static'>
             <Toolbar>
@@ -20,11 +19,10 @@ export default function Header() {
                     Digital Staff Management System
                 </Typography>
 
-                <Stack direction="row" spacing={2} sx={{ marginLeft: 'auto'}}>                    
-                    
+                <Stack direction="row" spacing={2} sx={{ marginLeft: 'auto' }}>
                     {currentRoute === '/' ? (
                         <Logout />
-                    ) : currentRoute.includes('/registration') || currentRoute.includes('/login')? null : ( <Profileavtar />)}
+                    ) : currentRoute.includes('/registration') || currentRoute.includes('/login') ? null : (<Profileavtar />)}
                 </Stack>
 
             </Toolbar>
