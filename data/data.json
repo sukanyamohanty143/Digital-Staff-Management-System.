@@ -1,21 +1,23 @@
 {
   "userTask": [
     {
-      "status": "completed",
-      "userName": "Sonam",
-      "task": "React Js",
+      "task": "About Javscript",
+      "userName": "Laxmi Yadav",
+      "status": "Completed",
+      "userRoll": "BackEnd",
       "id": 1
     },
     {
-      "status": "prossesing",
-      "userName": "Sangeeta",
-      "task": "Node js",
+      "task": "Read About React js",
+      "userName": "Sukanya",
+      "status": "Completed",
+      "userRoll": "Design (UI/UX Design)",
       "id": 2
     },
     {
       "task": "Read About Mui",
       "userName": "Aman",
-      "status": "Not Started",
+      "status": "Pending",
       "userRoll": "Design (UI/UX Design)",
       "id": 3
     },
@@ -39,6 +41,27 @@
       "status": "Not Started",
       "userRoll": "Frontend Development (Frontend)",
       "id": 6
+    },
+    {
+      "task": "About Javscript ",
+      "userName": "kirti",
+      "status": "Pending",
+      "userRoll": "Testing (QA or Testing)",
+      "id": 7
+    },
+    {
+      "task": "Teach to Student",
+      "userName": "Laxmi ",
+      "status": "Not Started",
+      "userRoll": "Backend Development",
+      "id": 8
+    },
+    {
+      "task": "Read About Css",
+      "userName": "kirti",
+      "status": "Not Started",
+      "userRoll": "Testing (QA or Testing)",
+      "id": 9
     }
   ],
   "employees": [
@@ -125,36 +148,15 @@
       "id": 10
     },
     {
-      "firstname": "soniya",
-      "lastname": "kumari",
-      "gender": "female",
-      "mobilenumber": "4343212343",
-      "email": "soniya@gmail.com",
-      "password": "Soniya@123",
-      "designation": "staff",
-      "id": 14
-    },
-    {
-      "firstname": "Annu",
-      "lastname": "kumari",
-      "gender": "female",
-      "role": "non tech",
-      "mobilenumber": "9869796795",
-      "email": "annu@gmail.com",
-      "password": "Annu@1223",
-      "designation": "supervisor",
-      "id": 15
-    },
-    {
-      "firstname": "kajal",
-      "lastname": "rawat",
+      "firstname": "puja",
+      "lastname": "rani",
       "gender": "female",
       "role": "tech",
-      "mobilenumber": "0965897658",
-      "email": "kajal@gamil.com",
-      "password": "Kajal!233",
-      "designation": "supervisor",
-      "id": 16
+      "mobilenumber": "3231231313",
+      "email": "pujarani@gmail.com",
+      "password": "Pujarani123@",
+      "designation": "staff",
+      "id": 12
     }
   ],
   "employeestatus": [],
