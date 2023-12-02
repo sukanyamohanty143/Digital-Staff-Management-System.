@@ -22,18 +22,9 @@
       "id": 3
     },
     {
-      "task": "Read About Bootstrap",
-      "userName": "Aman",
-      "status": "Not Started",
-      "userRoll": "Design (UI/UX Design)",
-      "id": 4
-    },
-    {
+      "id": 5,
       "task": "Read About Kothon",
-      "userName": "Laxmi Yadav",
-      "status": "Not Started",
-      "userRoll": "Design (UI/UX Design)",
-      "id": 5
+      "userName": "Laxmi Yadav"
     },
     {
       "task": "Read About Python",

@@ -31,9 +31,9 @@ const Profileavtar = () => {
             } else {
                 console.error("User not authenticated.");
             }
-        }else if (option === 'outer') {
+        }else {
             
-            navigate('/outer');
+            navigate(`/${option}`);
         }
         setSelectedOption(option);
         handleMenuClose();
@@ -60,7 +60,9 @@ const Profileavtar = () => {
                 onClose={handleMenuClose}
             >
                 <MenuItem onClick={() => handleMenuItemClick('outer')}><AccountCircleIcon style={{marginRight:"10"}}/>Profile</MenuItem>
+                <MenuItem onClick={() => handleMenuItemClick('usertask')}><LogoutIcon style={{marginRight:"10"}} />Task</MenuItem>
                 <MenuItem onClick={() => handleMenuItemClick('login')}><LogoutIcon style={{marginRight:"10"}} />Logout</MenuItem>
+
             </Menu>
 
 
