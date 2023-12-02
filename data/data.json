@@ -1,17 +1,15 @@
 {
   "userTask": [
     {
-      "task": "About Javscript",
-      "userName": "Laxmi Yadav",
-      "status": "Not Started",
-      "userRoll": "BackEnd",
+      "status": "completed",
+      "userName": "Sonam",
+      "task": "React Js",
       "id": 1
     },
     {
-      "task": "Read About React js",
-      "userName": "Sukanya",
-      "status": "Not Started",
-      "userRoll": "Design (UI/UX Design)",
+      "status": "prossesing",
+      "userName": "Sangeeta",
+      "task": "Node js",
       "id": 2
     },
     {
@@ -134,7 +132,29 @@
       "email": "soniya@gmail.com",
       "password": "Soniya@123",
       "designation": "staff",
-      "id": 12
+      "id": 14
+    },
+    {
+      "firstname": "Annu",
+      "lastname": "kumari",
+      "gender": "female",
+      "role": "non tech",
+      "mobilenumber": "9869796795",
+      "email": "annu@gmail.com",
+      "password": "Annu@1223",
+      "designation": "supervisor",
+      "id": 15
+    },
+    {
+      "firstname": "kajal",
+      "lastname": "rawat",
+      "gender": "female",
+      "role": "tech",
+      "mobilenumber": "0965897658",
+      "email": "kajal@gamil.com",
+      "password": "Kajal!233",
+      "designation": "supervisor",
+      "id": 16
     }
   ],
   "employeestatus": [],
