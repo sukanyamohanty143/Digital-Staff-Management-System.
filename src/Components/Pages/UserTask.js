@@ -422,6 +422,9 @@ function UserTask() {
     const [editTask, setEditTask] = useState("");
 
 
+    const user = JSON.parse(localStorage.getItem('user'));
+
+
     const handleSelect = (event, index) => {
         const { value } = event.target;
         const updatedData = [...data];
@@ -495,7 +498,11 @@ function UserTask() {
 
 
     const addTask = () => {
-        const newTask = { task: task };
+        const newTask = { task: task,
+            user:user.firstname + user.lastname
+         };
+
+        
         fetch(" http://localhost:8000/userTask", {
             method: "POST",
             headers: {
@@ -513,7 +520,6 @@ function UserTask() {
                 console.error("Error adding new task:", error);
             });
     };
-
 
 
     const removeActivity = (id) => {
@@ -544,18 +550,32 @@ function UserTask() {
 
                 <Box className="boxone" >
                     <Typography variant="h6" >Add Task Here</Typography>
-                    <TextField type="text" placeholder="add task" value={task} onChange={(e) => setTask(e.target.value)} />
-                    <Button style={{ width: "100", height: "70", backgroundColor: "green", color: "white" }} onClick={addTask}>add task
+                    <TextField
+                        type="text"
+                        placeholder="add task"
+                        value={task}
+                        onChange={(e) => setTask(e.target.value)}
+                        style={{ marginBottom: '10px' }}
+                    />
+                    <Button
+
+                        style={{ width: "100", height: "70", backgroundColor: "green", color: "white", marginLeft: '20px' }}
+                        onClick={addTask}
+                    >
+                        add task
                         <AddCircleOutlineIcon />
                     </Button>
                 </Box>
+
 
                 <CardContent className={classes.card}>
 
                     <Grid container spacing={2}>
                         <Grid item xs={8}>
                             <Typography style={{ textAlign: "center" }} variant="h5">Tasks</Typography>
+
                             {data.map((item, id) => (
+                            
                                 <Box className="tastbox" key={id} marginBottom={2}>
                                     {editIndex === id ? (
                                         <>
@@ -570,7 +590,6 @@ function UserTask() {
                                         <>
                                             <Grid container spacing={4}>
                                                 <Grid item xs={3} >
-                                                    <Typography variant="h6">{item.name}</Typography>
                                                     <p variant="h6">{item.userName}</p>
                                                 </Grid>
 
@@ -594,9 +613,6 @@ function UserTask() {
                                 </Box>
                             ))}
                         </Grid>
-                        {/* <span>
-                            <ArrowRightAltIcon />
-                        </span> */}
 
 
                         <Grid item xs={4}>

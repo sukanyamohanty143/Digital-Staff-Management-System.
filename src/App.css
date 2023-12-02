@@ -1,7 +1,12 @@
-body {
+
+
+body{
   margin: 0%;
   padding: 0%;
-  background-color: rgb(245, 243, 243);
+  background-image: url("../src/Components/assets/bg1.jpeg");
+  background-size: cover; 
+  background-repeat: no-repeat; 
+ 
 }
 
 .navigetiontitle {
@@ -22,6 +27,20 @@ body {
   margin-bottom: 50px;
 }
 
+.outercard{
+
+  width: 1000px;
+  height: 500px;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  border: 2px solid rgb(161, 158, 158);
+  border-radius: 50px;
+
+}
+
+
+
 .footer-text {
   text-align: "center";
   margin-top: 20px;
@@ -37,6 +56,7 @@ body {
   margin: auto;
   margin-top: 54px;
   margin-bottom: 50px;
+  /* background-image: url('../src/Components/assets/bg.jpg'); */
 }
 .tast-card{
   width: 655px;
@@ -53,9 +73,12 @@ body {
   margin-top: 40px;
 }
 
-.welcometext {
+.welcometext{
   animation: fadeIn 1.5s ease-in-out;
   text-shadow: 2px 2px 5px rgb(65, 69, 149);
+}
+ .outercard ,.registretion-card{
+  animation: fadeIn 1.20s ease-in-out;
 }
 
 .typing-animation {
@@ -86,7 +109,6 @@ body {
 }
 
 
-
 .removebtn , .editbtn{
   float: right;
 }
@@ -109,7 +131,6 @@ body {
 .editbtn{
   margin-left: 20px;
 }
-
 
 
 

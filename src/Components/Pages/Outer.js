@@ -1,3 +1,5 @@
+
+
 import React, { useState } from 'react';
 import { Typography, Card, CardContent, CardMedia, Grid, Button, IconButton } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
@@ -26,7 +28,7 @@ const Outer = () => {
   return (
 
     <>
-      <Card className='card' style={{ width: "600px", padding: "20px", boxShadow: '0 10px 15px rgba(0, 0, 0, 0.2)' }}>
+      <Card className='outercard' style={{ width: "550px", padding: "20px", boxShadow: '0 10px 15px rgba(0, 0, 0, 0.2)',backgroundColor:"#EDF6E5" }}>
 
         <Grid item xs={12}>
           <Typography variant="h4" style={{ textAlign: "center" }}>Profile of Employee
@@ -86,6 +88,8 @@ const Outer = () => {
                 <Typography style={{padding:"5px" }} variant="h6">{user.designation}</Typography>
                 <Typography style={{padding:"5px" }} variant="h6">{user.role}</Typography>
                 <Typography style={{padding:"5px" }} variant="h6">{user.JoiningDate}</Typography>
+                
+          
                 <Typography style={{padding:"10px" }} variant="h6">
                   <IconButton
                     color="primary"
