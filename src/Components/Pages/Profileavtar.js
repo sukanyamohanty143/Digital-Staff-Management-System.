@@ -59,8 +59,8 @@ const Profileavtar = () => {
                 open={Boolean(anchorEl)}
                 onClose={handleMenuClose}
             >
-                <MenuItem onClick={() => handleMenuItemClick('outer')}><AccountCircleIcon/>Profile</MenuItem>
-                <MenuItem onClick={() => handleMenuItemClick('login')}><LogoutIcon/>Logout</MenuItem>
+                <MenuItem onClick={() => handleMenuItemClick('outer')}><AccountCircleIcon style={{marginRight:"10"}}/>Profile</MenuItem>
+                <MenuItem onClick={() => handleMenuItemClick('login')}><LogoutIcon style={{marginRight:"10"}} />Logout</MenuItem>
             </Menu>
 
 

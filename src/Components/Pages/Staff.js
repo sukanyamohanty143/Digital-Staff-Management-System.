@@ -21,7 +21,8 @@ const useStyles = makeStyles((theme) => ({
     width: 600,
     marginBottom: 30,
     marginTop: 200,
-    padding: 30
+    padding: 30,
+    border:'2px solid gray'
 
   },
   label: {
@@ -115,7 +116,7 @@ const Staff = () => {
 
   return (
     <div className={classes.container}>
-      <Card className={classes.card} style={{ boxShadow: '0 10px 15px rgba(0, 0, 0, 0.2)' }}>
+      <Card  className={classes.card} style={{ boxShadow: '0 10px 15px rgba(0, 0, 0, 0.2)' }}>
         <Typography variant="h4" className={classes.heading}>Staff Page</Typography>
         <Box>
           <label className={classes.label} htmlFor="Name">
