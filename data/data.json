@@ -13,16 +13,32 @@
       "id": 2
     },
     {
+      "task": "Read About Mui",
+      "userName": "Aman",
       "status": "Not Started",
-      "userName": "pooja singh",
-      "task": "Node js",
+      "userRoll": "Design (UI/UX Design)",
       "id": 3
     },
     {
+      "task": "Read About Bootstrap",
+      "userName": "Aman",
       "status": "Not Started",
-      "userName": "khushboo",
-      "task": "js",
+      "userRoll": "Design (UI/UX Design)",
       "id": 4
+    },
+    {
+      "task": "Read About Kothon",
+      "userName": "Laxmi Yadav",
+      "status": "Not Started",
+      "userRoll": "Design (UI/UX Design)",
+      "id": 5
+    },
+    {
+      "task": "Read About Python",
+      "userName": "Sukanya",
+      "status": "Not Started",
+      "userRoll": "Frontend Development (Frontend)",
+      "id": 6
     }
   ],
   "employees": [
@@ -109,32 +125,12 @@
       "id": 10
     },
     {
-      "firstname": "sonam",
-      "lastname": "kuamri",
-      "mobilenumber": "376985986",
-      "designation": "staff",
-      "gender": "female",
-      "id": 12
-    },
-    {
-      "firstname": "Kranti",
-      "lastname": "Wagmare",
-      "gender": "female",
-      "role": "tech",
-      "mobilenumber": "8768778479",
-      "email": "kranti@gmail.com",
-      "password": "Kranti@1234",
-      "designation": "",
-      "id": 13
-    },
-    {
-      "firstname": "anjali",
+      "firstname": "soniya",
       "lastname": "kumari",
       "gender": "female",
-      "role": "non tech",
-      "mobilenumber": "9867676756",
-      "email": "anjali@gmail.com",
-      "password": "Anjali@123",
+      "mobilenumber": "4343212343",
+      "email": "soniya@gmail.com",
+      "password": "Soniya@123",
       "designation": "staff",
       "id": 14
     },
@@ -161,6 +157,7 @@
       "id": 16
     }
   ],
+  "employeestatus": [],
   "Attendence": [
     {
       "name": "Laxmi Yadav",
@@ -299,30 +296,6 @@
       "attendance": "Present",
       "date": "2023-11-13",
       "id": 35
-    },
-    {
-      "name": "sonam",
-      "attendance": "Absent",
-      "date": "2023-11-29",
-      "id": 36
-    },
-    {
-      "name": "anjali",
-      "attendance": "Absent",
-      "date": "2023-12-01",
-      "id": 37
-    },
-    {
-      "name": "kajal",
-      "attendance": "Present",
-      "date": "2023-12-01",
-      "id": 38
-    },
-    {
-      "name": "anjali ",
-      "attendance": "Present",
-      "date": "2023-12-01",
-      "id": 39
     }
   ],
   "EmployeeProfile": [
@@ -425,23 +398,27 @@
   ],
   "Task": [
     {
-      "task": "javascript",
+      "task": "js",
+      "id": 1
+    },
+    {
+      "task": "ES6",
       "id": 2
     },
     {
-      "task": "react js",
+      "task": "react",
       "id": 3
     },
     {
-      "task": "Node",
+      "task": "bootstrap",
       "id": 4
     },
     {
-      "task": "css",
+      "task": "lskjdksldj",
       "id": 6
     },
     {
-      "task": " jhjakd",
+      "task": " akjak",
       "id": 7
     }
   ]

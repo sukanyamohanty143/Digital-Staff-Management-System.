@@ -8,7 +8,7 @@ function EditData({ taskData, name, editTaskId, setEditTaskText, handleEditSubmi
   const [statustsak, setTaskStatus] = useState([]);
 
   const fetchData = () => {
-    fetch("http://localhost:8000/userStatus")
+    fetch("http://localhost:8000/userTask")
       .then((res) => res.json())
       .then((res) => setTaskStatus(res));
   };
