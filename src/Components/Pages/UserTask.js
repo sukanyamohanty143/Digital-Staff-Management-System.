@@ -422,6 +422,9 @@ function UserTask() {
     const [editTask, setEditTask] = useState("");
 
 
+    const user = JSON.parse(localStorage.getItem('user'));
+
+
     const handleSelect = (event, index) => {
         const { value } = event.target;
         const updatedData = [...data];
@@ -495,7 +498,11 @@ function UserTask() {
 
 
     const addTask = () => {
-        const newTask = { task: task };
+        const newTask = { task: task,
+            user:user.firstname + user.lastname
+         };
+
+        
         fetch(" http://localhost:8000/userTask", {
             method: "POST",
             headers: {
@@ -566,7 +573,9 @@ function UserTask() {
                     <Grid container spacing={2}>
                         <Grid item xs={8}>
                             <Typography style={{ textAlign: "center" }} variant="h5">Tasks</Typography>
+
                             {data.map((item, id) => (
+                            
                                 <Box className="tastbox" key={id} marginBottom={2}>
                                     {editIndex === id ? (
                                         <>
@@ -581,7 +590,6 @@ function UserTask() {
                                         <>
                                             <Grid container spacing={4}>
                                                 <Grid item xs={3} >
-                                                    <Typography variant="h6">{item.name}</Typography>
                                                     <p variant="h6">{item.userName}</p>
                                                 </Grid>
 
