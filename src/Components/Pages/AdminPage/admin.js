@@ -27,6 +27,7 @@ const AdminPage = () => {
     const [users, setUsers] = useState(null);
     const [showForm, setShowForm] = useState(false);
     const [selectedUser, setSelectedUser] = useState(null);
+    
 
     const fetchData = () => {
         fetch("http://localhost:8000/employees")
@@ -165,11 +166,14 @@ const AdminPage = () => {
                 </div>
             )}
 
-
             <Container style={{ display: 'flex', justifyContent: 'center', mT: '20px' }}>
-
-                <TableContainer component={Paper} sx={{ width: '2000px', p: '20px', m: '20px' }}>
-                    
+                <TableContainer component={Paper} sx={{ width: '1000px', p: '20px', m: '20px' }}>
+                    <Box sx={{
+                        display: "flex", m: "30px", alignItems: "center", justifyContent: "center", width: "93%", height: "70px", boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"
+                    }}>
+                        <Button variant="contained" sx={{ m: "10px", borderRadius: "20px", background: "#49b293" }}>Supervisor</Button>
+                        <Button variant="contained" style={{ borderRadius: "20px", background: "#49b293" }}>Admin</Button>
+                    </Box>
                     <Table>
                         <TableHead>
                             <StyledTableRow>
