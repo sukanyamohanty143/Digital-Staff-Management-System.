@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import useAuth from './Context/useAuth';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LogoutIcon from '@mui/icons-material/Logout';
+import TaskIcon from '@mui/icons-material/Task';
+
 
 const Profileavtar = () => {
     const user = JSON.parse(localStorage.getItem('user'))
@@ -60,7 +62,7 @@ const Profileavtar = () => {
                 onClose={handleMenuClose}
             >
                 <MenuItem onClick={() => handleMenuItemClick('outer')}><AccountCircleIcon style={{marginRight:"10"}}/>Profile</MenuItem>
-                <MenuItem onClick={() => handleMenuItemClick('usertask')}><LogoutIcon style={{marginRight:"10"}} />Task</MenuItem>
+                <MenuItem onClick={() => handleMenuItemClick('usertask')}><TaskIcon style={{marginRight:"10"}} />Task</MenuItem>
                 <MenuItem onClick={() => handleMenuItemClick('login')}><LogoutIcon style={{marginRight:"10"}} />Logout</MenuItem>
 
             </Menu>

@@ -49,9 +49,6 @@ function Registration(props) {
   const goToLogin = () => {
     navigate("/login")
   }
-  // const { location } = props;
-  // const designation = location?.state?.designation || '';
-  // console.log("Designation in Registration component:", designation);
 
   const [showPassword, setShowPassword] = useState(false);
   const handleTogglePassword = () => {
@@ -114,7 +111,7 @@ function Registration(props) {
 
   return (
     <>
-    
+
       <div className='registerback'>
         <Card className='registretion-card' style={{ boxShadow: '0 10px 15px rgba(0, 0, 0, 0.2)' }}>
           <CardContent>
