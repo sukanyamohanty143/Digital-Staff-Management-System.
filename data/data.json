@@ -148,6 +148,17 @@
       "password": "Pujarani123@",
       "designation": "staff",
       "id": 12
+    },
+    {
+      "firstname": "Laxmi ",
+      "lastname": "Yadav",
+      "gender": "female",
+      "role": "tech",
+      "mobilenumber": "8579039485",
+      "email": "laxmiyadav@gmail.com",
+      "password": "Laxmi@123",
+      "designation": "staff",
+      "id": 13
     }
   ],
   "employeestatus": [],
@@ -289,6 +300,12 @@
       "attendance": "Present",
       "date": "2023-11-13",
       "id": 35
+    },
+    {
+      "name": "Laxmi yadav",
+      "attendance": "Present",
+      "date": "2023-12-04",
+      "id": 36
     }
   ],
   "EmployeeProfile": [
