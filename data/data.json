@@ -259,6 +259,17 @@
       "password": "Anu@1234",
       "designation": "staff",
       "id": 14
+    },
+    {
+      "firstname": "Mansa",
+      "lastname": "Yadav",
+      "gender": "female",
+      "role": "tech",
+      "mobilenumber": "5698549493",
+      "email": "mansa@gmail.com",
+      "password": "Mansa@!23",
+      "designation": "staff",
+      "id": 15
     }
   ],
   "employeestatus": [],
@@ -412,6 +423,12 @@
       "attendance": "Present",
       "date": "2023-12-04",
       "id": 37
+    },
+    {
+      "name": "Mansa Yadav",
+      "attendance": "Present",
+      "date": "2023-12-04",
+      "id": 38
     }
   ],
   "EmployeeProfile": [
