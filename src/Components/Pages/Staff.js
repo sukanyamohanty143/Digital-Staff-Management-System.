@@ -8,7 +8,6 @@ import {
   MenuItem,
   Select,
 } from "@material-ui/core";
-// import { useNavigate } from 'react-router-dom';
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
@@ -46,7 +45,6 @@ const useStyles = makeStyles((theme) => ({
 
 const Staff = () => {
 
-  // const navigate = useNavigate();
   const classes = useStyles();
   const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
   const [name, setName] = useState("");
