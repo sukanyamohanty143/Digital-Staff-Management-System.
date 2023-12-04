@@ -121,6 +121,39 @@
       "password": "Pujarani123@",
       "designation": "staff",
       "id": 12
+    },
+    {
+      "firstname": "Laxmi ",
+      "lastname": "Yadav",
+      "gender": "female",
+      "role": "tech",
+      "mobilenumber": "8579039485",
+      "email": "laxmiyadav@gmail.com",
+      "password": "Laxmi@123",
+      "designation": "staff",
+      "id": 13
+    },
+    {
+      "firstname": "Anu",
+      "lastname": "Yadav",
+      "gender": "female",
+      "role": "tech",
+      "mobilenumber": "8798654543",
+      "email": "anu@123gmail.com",
+      "password": "Anu@1234",
+      "designation": "staff",
+      "id": 14
+    },
+    {
+      "firstname": "Mansa",
+      "lastname": "Yadav",
+      "gender": "female",
+      "role": "tech",
+      "mobilenumber": "5698549493",
+      "email": "mansa@gmail.com",
+      "password": "Mansa@!23",
+      "designation": "staff",
+      "id": 15
     }
   ],
   "employeestatus": [],
@@ -262,6 +295,24 @@
       "attendance": "Present",
       "date": "2023-11-13",
       "id": 35
+    },
+    {
+      "name": "Laxmi yadav",
+      "attendance": "Present",
+      "date": "2023-12-04",
+      "id": 36
+    },
+    {
+      "name": "Anu yadav",
+      "attendance": "Present",
+      "date": "2023-12-04",
+      "id": 37
+    },
+    {
+      "name": "Mansa Yadav",
+      "attendance": "Present",
+      "date": "2023-12-04",
+      "id": 38
     }
   ],
   "EmployeeProfile": [
