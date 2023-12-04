@@ -35,7 +35,8 @@
       "mobilenumber": "2234562133",
       "designation": "Staff",
       "gender": "Male",
-      "id": 2
+      "id": 2,
+      "roll":"tech"
     },
     {
       "firstname": "Vikas",
@@ -43,7 +44,8 @@
       "mobilenumber": "1234567812",
       "designation": "Admin",
       "gender": "Male",
-      "id": 3
+      "id": 3,
+      "roll":"non-tech"
     },
     {
       "firstname": "Vishal ",
@@ -51,7 +53,8 @@
       "mobilenumber": "121212121",
       "designation": "Staff",
       "gender": "male",
-      "id": 4
+      "id": 4,
+      "roll":"tech"
     },
     {
       "firstname": "Kumkum",
@@ -59,7 +62,8 @@
       "mobilenumber": "9858978777",
       "designation": "admin",
       "gender": "female",
-      "id": 1
+      "id": 1,
+      "roll":"non-tech"
     },
     {
       "firstname": "deepu",
@@ -69,7 +73,8 @@
       "email": "deepu@navgurukul.org",
       "password": "Deepu@123",
       "designation": "admin",
-      "id": 8
+      "id": 8,
+      "roll":"tech"
     },
     {
       "firstname": "Nikita",
@@ -79,7 +84,8 @@
       "email": "nikita@gmail.com",
       "password": "Nikita@123",
       "designation": "supervisor",
-      "id": 9
+      "id": 9,
+      "roll":"non-tech"
     },
     {
       "firstname": "Roshan",
@@ -89,7 +95,8 @@
       "email": "roshan@gmail.com",
       "password": "Roshan@123",
       "designation": "staff",
-      "id": 11
+      "id": 11,
+      "roll":"non-tech"
     },
     {
       "firstname": "Laxmi",
@@ -99,17 +106,17 @@
       "email": "laxmi12@gmail.com",
       "password": "Laxmi@1234",
       "designation": "admin",
-      "id": 9
+      "id": 9,
+      "roll":"tech"
     },
     {
       "firstname": "Khushboo",
       "lastname": "Kumari",
-      "gender": "female",
       "mobilenumber": "9846854643",
-      "email": "khushboo123@gmail.com",
-      "password": "Khushboo@123",
       "designation": "supervisor",
-      "id": 10
+      "gender": "female",
+      "id": 10,
+      "roll":"non-tech"
     },
     {
       "firstname": "puja",
@@ -120,7 +127,8 @@
       "email": "pujarani@gmail.com",
       "password": "Pujarani123@",
       "designation": "staff",
-      "id": 12
+      "id": 12,
+      "roll":"non-tech"
     },
     {
       "firstname": "Laxmi ",
@@ -154,6 +162,17 @@
       "password": "Mansa@!23",
       "designation": "staff",
       "id": 15
+    },
+    {
+      "firstname": "khushi",
+      "lastname": "kumari",
+      "gender": "female",
+      "role": "tech",
+      "mobilenumber": "8798579867",
+      "email": "khushi@gmail.com",
+      "password": "Khushi@1233",
+      "designation": "",
+      "id": 16
     }
   ],
   "employeestatus": [],
