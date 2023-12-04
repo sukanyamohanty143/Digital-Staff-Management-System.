@@ -8,6 +8,7 @@ import {
   TableRow,
   Paper,
   Typography,
+  Container,
 } from '@mui/material';
 
 const EmployeeTable = () => {
@@ -22,26 +23,25 @@ const EmployeeTable = () => {
 
   return (
     <div>
-      <Typography variant="h5" gutterBottom>
-        Employee Data
+      <Typography variant="h5" gutterBottom style={{justifyContent: 'center', display: 'flex'}} marginTop={3}>
+        Employee Attendance data 
       </Typography>
-      <TableContainer component={Paper}>
+      <Container style={{ display: 'flex', justifyContent: 'center', mT: '20px' }}>
+
+      <TableContainer component={Paper} sx={{ width: '2000px', p: '20px', m: '20px' }} >
         <Table>
           <TableHead>
-            <TableRow>
-              <TableCell>ID</TableCell>
-              <TableCell>Date</TableCell> 
+            <TableRow sx={{ backgroundColor: "#83A2FF" }}>
               <TableCell>Name</TableCell>
+              <TableCell>Date</TableCell> 
               <TableCell>Attendance</TableCell>
-              {/* <TableCell>Date</TableCell>  */}
             </TableRow>
           </TableHead>
-          <TableBody>
+          <TableBody sx={{ backgroundColor: '#FFEBD8' }}>
             {employeeData.map((Attendence) => (
               <TableRow key={Attendence.id}>
-                <TableCell>{Attendence.id}</TableCell>
-                <TableCell>{Attendence.date}</TableCell> 
                 <TableCell>{Attendence.name}</TableCell>
+                <TableCell>{Attendence.date}</TableCell> 
                 <TableCell>{Attendence.attendance}</TableCell>
         
               </TableRow>
@@ -49,6 +49,7 @@ const EmployeeTable = () => {
           </TableBody>
         </Table>
       </TableContainer>
+      </Container>
     </div>
   );
 };

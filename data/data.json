@@ -248,6 +248,17 @@
       "password": "Laxmi@123",
       "designation": "staff",
       "id": 13
+    },
+    {
+      "firstname": "Anu",
+      "lastname": "Yadav",
+      "gender": "female",
+      "role": "tech",
+      "mobilenumber": "8798654543",
+      "email": "anu@123gmail.com",
+      "password": "Anu@1234",
+      "designation": "staff",
+      "id": 14
     }
   ],
   "employeestatus": [],
@@ -395,6 +406,12 @@
       "attendance": "Present",
       "date": "2023-12-04",
       "id": 36
+    },
+    {
+      "name": "Anu yadav",
+      "attendance": "Present",
+      "date": "2023-12-04",
+      "id": 37
     }
   ],
   "EmployeeProfile": [
