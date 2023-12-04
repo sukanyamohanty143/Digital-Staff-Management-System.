@@ -36,17 +36,8 @@
 //     label: {
 //         marginLeft: 10
 //     },
-//     input: {
-//         width: "95%",
-//         margin: 15
-//     },
-//     button: {
-//         marginTop: theme.spacing(2),
-//         backgroundColor: '#337CCF',
-//         marginLeft: 10
-//     },
 //     heading: {
-//         padding: 40,
+//         padding: 20,
 //         textAlign: "center"
 //     },
 // }));
@@ -81,6 +72,9 @@
 //     const [listData, setListData] = useState([]);
 //     const [editIndex, setEditIndex] = useState(null);
 //     const [editTask, setEditTask] = useState("");
+
+
+//     const user = JSON.parse(localStorage.getItem('user'));
 
 
 //     const handleSelect = (event, index) => {
@@ -156,7 +150,11 @@
 
 
 //     const addTask = () => {
-//         const newTask = { task: task };
+//         const newTask = { task: task,
+//             user:user.firstname + user.lastname
+//          };
+
+        
 //         fetch(" http://localhost:8000/userTask", {
 //             method: "POST",
 //             headers: {
@@ -174,6 +172,7 @@
 //                 console.error("Error adding new task:", error);
 //             });
 //     };
+
 
 //     const removeActivity = (id) => {
 //         const taskId = data[id].id;
@@ -203,87 +202,97 @@
 
 //                 <Box className="boxone" >
 //                     <Typography variant="h6" >Add Task Here</Typography>
-//                     <TextField type="text" placeholder="add task" value={task} onChange={(e) => setTask(e.target.value)} />
-//                     <Button style={{ width: "100", height: "70", backgroundColor: "green", color: "white" }} onClick={addTask}>add task
+//                     <TextField
+//                         type="text"
+//                         placeholder="add task"
+//                         value={task}
+//                         onChange={(e) => setTask(e.target.value)}
+//                         style={{ marginBottom: '10px' }}
+//                     />
+//                     <Button
+
+//                         style={{ width: "100", height: "70", backgroundColor: "green", color: "white", marginLeft: '20px' }}
+//                         onClick={addTask}
+//                     >
+//                         add task
 //                         <AddCircleOutlineIcon />
 //                     </Button>
 //                 </Box>
 
+
 //                 <CardContent className={classes.card}>
 
-//                         <Grid container spacing={2}>
-//                             <Grid item xs={8}>
-//                                 <Typography style={{ textAlign: "center" }} variant="h5">Tasks</Typography>
-//                                 {data.map((item, id) => (
-//                                     <Box className="tastbox" key={id} marginBottom={2}>
-//                                         {editIndex === id ? (
-//                                             <>
-//                                                 <TextField
-//                                                     type="text"
-//                                                     value={editTask}
-//                                                     onChange={(e) => setEditTask(e.target.value)}
-//                                                 />
-//                                                 <DataSaverOnIcon onClick={() => saveEdit(id)}></DataSaverOnIcon>
-//                                             </>
-//                                         ) : (
-//                                             <>
-//                                                 <Grid container spacing={4}>
-//                                                     <Grid item xs={3} >
-//                                                         <Typography variant="h6">{item.name}</Typography>
-//                                                         <p variant="h6">{item.userName}</p>
-//                                                     </Grid>
+//                     <Grid container spacing={2}>
+//                         <Grid item xs={8}>
+//                             <Typography style={{ textAlign: "center" }} variant="h5">Tasks</Typography>
 
-//                                                     <Grid item xs={3}>
-//                                                         <p variant="h6">{item.task}</p>
-//                                                     </Grid>
-//                                                     <Grid item xs={3}>
-//                                                         <p variant="h6">{item.status}</p>
-//                                                     </Grid>
-
-//                                                     <Grid item xs={3}>
-//                                                         <DeleteIcon className="removebtn" onClick={() => removeActivity(id)} />
-//                                                         <EditIcon className="editbtn" style={{ marginLeft: "20px" }} onClick={() => editTaskone(id)}>
-//                                                             Edit
-//                                                         </EditIcon>
-//                                                     </Grid>
-
+//                             {data.map((item, id) => (
+                            
+//                                 <Box className="tastbox" key={id} marginBottom={2}>
+//                                     {editIndex === id ? (
+//                                         <>
+//                                             <TextField
+//                                                 type="text"
+//                                                 value={editTask}
+//                                                 onChange={(e) => setEditTask(e.target.value)}
+//                                             />
+//                                             <DataSaverOnIcon onClick={() => saveEdit(id)}></DataSaverOnIcon>
+//                                         </>
+//                                     ) : (
+//                                         <>
+//                                             <Grid container spacing={4}>
+//                                                 <Grid item xs={3} >
+//                                                     <p variant="h6">{item.userName}</p>
 //                                                 </Grid>
-//                                             </>
-//                                         )}
-//                                     </Box>
-//                                 ))}
-//                             </Grid>
 
+//                                                 <Grid item xs={3}>
+//                                                     <p variant="h6">{item.task}</p>
+//                                                 </Grid>
+//                                                 <Grid item xs={3}>
+//                                                     <p variant="h6">{item.status}</p>
+//                                                 </Grid>
 
-//                             <Grid item xs={4}>
-//                                 <Typography variant="h5" style={{ textAlign: "center" }}>Status</Typography>
-//                                 {data.map((item, i) => (
-//                                     <Box className="statusbox" key={i} marginBottom={2} style={{ textAlign: "center" }}>
-//                                         <TextField
-//                                             name="status"
-//                                             select
-//                                             label="Status"
-//                                             value={item.status}
-//                                             onChange={(event) => handleSelect(event, i)}
-//                                             helperText={!item.status ? 'Choose status' : 'Select Status from here'}
-//                                         >
-//                                             {selectStatus.map((item) => (
-//                                                 <MenuItem key={item.value} value={item.value}>
-//                                                     {item.status}
-//                                                 </MenuItem>
-//                                             ))}
+//                                                 <Grid item xs={3}>
+//                                                     <DeleteIcon className="removebtn" onClick={() => removeActivity(id)} />
+//                                                     <EditIcon className="editbtn" style={{ marginLeft: "20px" }} onClick={() => editTaskone(id)}>
+//                                                         Edit
+//                                                     </EditIcon>
+//                                                 </Grid>
 
-//                                         </TextField>
-//                                     </Box> 
-
-//                                 ))}
-//                             </Grid>
-//                             <hr />
-
+//                                             </Grid>
+//                                         </>
+//                                     )}
+//                                 </Box>
+//                             ))}
 //                         </Grid>
 
 
+//                         <Grid item xs={4}>
+//                             <Typography variant="h5" style={{ textAlign: "center" }}>Status</Typography>
+//                             {data.map((item, i) => (
+//                                 <Box className="statusbox" key={i} marginBottom={2} style={{ textAlign: "center" }}>
+//                                     <TextField
+//                                         name="status"
+//                                         select
+//                                         label="Status"
+//                                         value={item.status}
+//                                         onChange={(event) => handleSelect(event, i)}
+//                                         helperText={!item.status ? 'Choose status' : 'Select Status from here'}
+//                                     >
+//                                         {selectStatus.map((item) => (
+//                                             <MenuItem key={item.value} value={item.value}>
+//                                                 {item.status}
+//                                             </MenuItem>
+//                                         ))}
 
+//                                     </TextField>
+//                                 </Box>
+
+//                             ))}
+//                         </Grid>
+
+
+//                     </Grid>
 //                 </CardContent>
 //             </Card>
 
@@ -292,22 +301,6 @@
 // }
 
 // export default UserTask;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -422,6 +415,9 @@ function UserTask() {
     const [editTask, setEditTask] = useState("");
 
 
+    const user = JSON.parse(localStorage.getItem('user'))
+
+
     const handleSelect = (event, index) => {
         const { value } = event.target;
         const updatedData = [...data];
@@ -495,7 +491,11 @@ function UserTask() {
 
 
     const addTask = () => {
-        const newTask = { task: task };
+        const newTask = { task: task,
+            user:user.firstname + user.lastname
+         };
+
+        
         fetch(" http://localhost:8000/userTask", {
             method: "POST",
             headers: {
@@ -566,7 +566,9 @@ function UserTask() {
                     <Grid container spacing={2}>
                         <Grid item xs={8}>
                             <Typography style={{ textAlign: "center" }} variant="h5">Tasks</Typography>
+
                             {data.map((item, id) => (
+                            
                                 <Box className="tastbox" key={id} marginBottom={2}>
                                     {editIndex === id ? (
                                         <>
@@ -581,7 +583,6 @@ function UserTask() {
                                         <>
                                             <Grid container spacing={4}>
                                                 <Grid item xs={3} >
-                                                    <Typography variant="h6">{item.name}</Typography>
                                                     <p variant="h6">{item.userName}</p>
                                                 </Grid>
 

@@ -1,10 +1,9 @@
 {
   "userTask": [
     {
-      "task": "About Javscript",
+      "status": "started",
       "userName": "Laxmi Yadav",
-      "status": "Completed",
-      "userRoll": "BackEnd",
+      "task": "About Javscript",
       "id": 1
     },
     {
@@ -20,20 +19,6 @@
       "status": "Pending",
       "userRoll": "Design (UI/UX Design)",
       "id": 3
-    },
-    {
-      "task": "Read About Bootstrap",
-      "userName": "Aman",
-      "status": "Not Started",
-      "userRoll": "Design (UI/UX Design)",
-      "id": 4
-    },
-    {
-      "task": "Read About Kothon",
-      "userName": "Laxmi Yadav",
-      "status": "Not Started",
-      "userRoll": "Design (UI/UX Design)",
-      "id": 5
     },
     {
       "task": "Read About Python",
@@ -62,6 +47,101 @@
       "status": "Not Started",
       "userRoll": "Testing (QA or Testing)",
       "id": 9
+    },
+    {
+      "task": " sona",
+      "user": "soniyakumari",
+      "id": 10
+    },
+    {
+      "task": "",
+      "user": "soniyakumari",
+      "id": 11
+    },
+    {
+      "task": "",
+      "user": "soniyakumari",
+      "id": 12
+    },
+    {
+      "task": "",
+      "user": "soniyakumari",
+      "id": 13
+    },
+    {
+      "task": "",
+      "user": "soniyakumari",
+      "id": 14
+    },
+    {
+      "task": "",
+      "user": "soniyakumari",
+      "id": 15
+    },
+    {
+      "task": "",
+      "user": "soniyakumari",
+      "id": 16
+    },
+    {
+      "task": "",
+      "user": "soniyakumari",
+      "id": 17
+    },
+    {
+      "task": "",
+      "user": "soniyakumari",
+      "id": 18
+    },
+    {
+      "task": "",
+      "user": "soniyakumari",
+      "id": 19
+    },
+    {
+      "task": "",
+      "user": "soniyakumari",
+      "id": 20
+    },
+    {
+      "task": "",
+      "user": "soniyakumari",
+      "id": 21
+    },
+    {
+      "task": "",
+      "user": "soniyakumari",
+      "id": 22
+    },
+    {
+      "task": "",
+      "user": "soniyakumari",
+      "id": 23
+    },
+    {
+      "task": "",
+      "user": "soniyakumari",
+      "id": 24
+    },
+    {
+      "task": "",
+      "user": "soniyakumari",
+      "id": 25
+    },
+    {
+      "task": "",
+      "user": "soniyakumari",
+      "id": 26
+    },
+    {
+      "task": "",
+      "user": "soniyakumari",
+      "id": 27
+    },
+    {
+      "task": "",
+      "user": "soniyakumari",
+      "id": 28
     }
   ],
   "employees": [
@@ -157,6 +237,39 @@
       "password": "Pujarani123@",
       "designation": "staff",
       "id": 12
+    },
+    {
+      "firstname": "Laxmi ",
+      "lastname": "Yadav",
+      "gender": "female",
+      "role": "tech",
+      "mobilenumber": "8579039485",
+      "email": "laxmiyadav@gmail.com",
+      "password": "Laxmi@123",
+      "designation": "staff",
+      "id": 13
+    },
+    {
+      "firstname": "Anu",
+      "lastname": "Yadav",
+      "gender": "female",
+      "role": "tech",
+      "mobilenumber": "8798654543",
+      "email": "anu@123gmail.com",
+      "password": "Anu@1234",
+      "designation": "staff",
+      "id": 14
+    },
+    {
+      "firstname": "Mansa",
+      "lastname": "Yadav",
+      "gender": "female",
+      "role": "tech",
+      "mobilenumber": "5698549493",
+      "email": "mansa@gmail.com",
+      "password": "Mansa@!23",
+      "designation": "staff",
+      "id": 15
     }
   ],
   "employeestatus": [],
@@ -298,6 +411,24 @@
       "attendance": "Present",
       "date": "2023-11-13",
       "id": 35
+    },
+    {
+      "name": "Laxmi yadav",
+      "attendance": "Present",
+      "date": "2023-12-04",
+      "id": 36
+    },
+    {
+      "name": "Anu yadav",
+      "attendance": "Present",
+      "date": "2023-12-04",
+      "id": 37
+    },
+    {
+      "name": "Mansa Yadav",
+      "attendance": "Present",
+      "date": "2023-12-04",
+      "id": 38
     }
   ],
   "EmployeeProfile": [
@@ -396,32 +527,6 @@
       "JoiningDate": "2023-11-22",
       "ProfilePhotoURL": "blob:http://localhost:3000/c6ac1f0a-86e7-4450-9f6d-858e7e0ef90a",
       "id": 12
-    }
-  ],
-  "Task": [
-    {
-      "task": "js",
-      "id": 1
-    },
-    {
-      "task": "ES6",
-      "id": 2
-    },
-    {
-      "task": "react",
-      "id": 3
-    },
-    {
-      "task": "bootstrap",
-      "id": 4
-    },
-    {
-      "task": "lskjdksldj",
-      "id": 6
-    },
-    {
-      "task": " akjak",
-      "id": 7
     }
   ]
 }
