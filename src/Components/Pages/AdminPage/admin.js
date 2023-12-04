@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Container, TableContainer, Table, TableHead, TableBody, TableRow, Paper, Typography, Button, Box } from "@mui/material";
+import {Grid,TextField, Button,Container, TableContainer, Table, TableHead, TableBody, TableRow, Paper,  MenuItem, Box } from "@mui/material";
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
 import { styled } from "@mui/material/styles";
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -93,9 +93,49 @@ const AdminPage = () => {
             });
     };
     return (
-        <>
-            <Typography variant="h4" style={{ textAlign: "center", marginBottom: 15, marginTop: 10 }}>Admin Page</Typography>
 
+        <>
+            
+            <Box sx={{
+                        display: "flex", m: "30px", alignItems: "center", justifyContent: "center", width: "93%", height: "70px", boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"
+                    }}>
+                        <Grid item xs={12}>
+                            <TextField
+                                label="Designation"
+                                size="small"
+                                fullWidth
+                                select
+                                name="designation"
+                                helperText="Select your designation"
+                                >
+                                <MenuItem value="staff">Staff</MenuItem>
+                                <MenuItem value="supervisor">Supervisor</MenuItem>
+                            </TextField>
+                        </Grid>
+                        <Grid  item xs={12} marginLeft={2} >
+                            <TextField
+                                label="Role"
+                                size="small"
+                                fullWidth
+                                select
+                                name="designation"
+                                helperText="Select your Role"
+                            >
+                                <MenuItem value="Tech">Tech</MenuItem>
+                                <MenuItem value="Non-Tech">Non-Tech</MenuItem>
+                           </TextField>
+                        </Grid>
+                        <Grid  item xs={12} marginLeft={2} marginBottom={3}>
+                            <TextField
+                                label="Search here "
+                                size="small"
+                                fullWidth
+                                name="search here"
+                                // helperText="Select your Role"
+                            ></TextField>
+                            </Grid>
+                        <Button variant="contained" size="medium" sx={{ marginLeft: '20px',marginBottom:"25px"}}>Search</Button>
+                    </Box>
             {showForm && (
                 <div
                     style={{
@@ -128,15 +168,8 @@ const AdminPage = () => {
 
             <Container style={{ display: 'flex', justifyContent: 'center', mT: '20px' }}>
 
-                <TableContainer component={Paper} sx={{ width: '1000px', p: '20px', m: '20px' }}>
+                <TableContainer component={Paper} sx={{ width: '2000px', p: '20px', m: '20px' }}>
                     
-                    <Box sx={{
-                        display: "flex", m: "30px", alignItems: "center", justifyContent: "center", width: "93%", height: "70px", boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"
-                    }}>
-                        
-                        <Button variant="contained" sx={{ m: "10px", borderRadius: "20px", background: "#49b293" }}>Supervisor</Button>
-                        <Button variant="contained" style={{ borderRadius: "20px", background: "#49b293" }}>Admin</Button>
-                    </Box>
                     <Table>
                         <TableHead>
                             <StyledTableRow>
