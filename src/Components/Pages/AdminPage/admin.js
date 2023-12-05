@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Grid, TextField, Button, Container, TableContainer, Table, TableHead, TableBody, TableRow, Paper, MenuItem, Box } from "@mui/material";
+import { Grid, TextField, Button, Container, TableContainer, Table, TableHead, TableBody, TableRow, Paper, MenuItem, Box, Select } from "@mui/material";
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
 import { styled } from "@mui/material/styles";
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import UserForm from "./AddButton";
-
-
+import { FormControl, InputLabel } from "@mui/material";
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
         backgroundColor: '#83A2FF',
@@ -18,7 +17,6 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 }));
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
-
     backgroundColor: '#FFEBD8',
     "&:last-child td, &:last-child th": {
         border: 0,
@@ -26,40 +24,35 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 const AdminPage = () => {
-
     const [users, setUsers] = useState(null);
-
     const [showForm, setShowForm] = useState(false);
     const [selectedUser, setSelectedUser] = useState(null);
-
-    const [searchTerm, setSearchTerm] = useState("")
-
-    const [filteredData, setFilteredData] = useState([])
+    const [searchTerm, setSearchTerm] = useState("");
+    const [filteredData, setFilteredData] = useState([]);
+    const [selectedRoll, setSelectedRoll] = useState("");
 
     const fetchData = () => {
-        fetch("http://localhost:8000/employees")
+        let apiUrl = "http://localhost:8000/employees";
+        if (selectedRoll) {
+
+            apiUrl += `?roll=${selectedRoll}`;
+
+        }
+
+        fetch(apiUrl)
             .then((response) => response.json())
             .then((data) => {
-                setUsers(data)
-                setFilteredData(data)
-
+                setUsers(data);
+                setFilteredData(data);
             })
-
-            // .then((data) =>
-            //     setUsers(data),
-            //     setFilteredData(data)
-            // )
-
             .catch((error) => {
                 console.error("Error fetching data:", error);
             });
     };
 
-    // console.log(filteredData,"data.....")
-
     useEffect(() => {
         fetchData();
-    }, []);
+    }, [selectedRoll]);
 
     const addUser = (newUser) => {
         if (selectedUser) {
@@ -76,24 +69,8 @@ const AdminPage = () => {
                 });
             setSelectedUser(null);
         }
-        else {
-            fetch("http://localhost:8000/employees", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(newUser),
-            })
-                .then(() => fetchData())
-                .catch((error) => {
-                    console.error("Error adding a new user:", error);
-                });
-        }
-        setShowForm(false);
-        setUsers(users)
-        setShowForm(showForm)
-        setSelectedUser(selectedUser)
     };
+
     const closeForm = () => {
         setShowForm(false);
         setSelectedUser(null);
@@ -113,65 +90,55 @@ const AdminPage = () => {
                 console.error("Error deleting user data:", error);
             });
     };
-    const HandleChange = (e) => {
-        setSearchTerm(e.target.value)
-    }
 
-    const HandleSerach = () => {
-        setSearchTerm("")
+    const handleChange = (e) => {
+        setSearchTerm(e.target.value);
+    };
+
+    const handleSearch = () => {
         const filtered = users.filter((item) => {
-            return item.firstname.toLowerCase().includes(searchTerm.toLowerCase());
+            return (
+                item.firstname.toLowerCase().includes(searchTerm.toLowerCase()) &&
+                (!selectedRoll || item.roll === selectedRoll)
+            );
         });
         setFilteredData(filtered);
-    }
+        setSearchTerm("");
+    };
+
     return (
         <>
-
             <Box sx={{
                 display: "flex", m: "30px", alignItems: "center", justifyContent: "center", width: "93%", height: "70px", boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"
             }}>
-                <Grid item xs={12}>
-                    <TextField
-                        label="Designation"
-                        size="small"
-                        fullWidth
-                        select
-                        name="designation"
-                        helperText="Select your designation"
-
+                <FormControl style={{ width: "10%" }}>
+                    <InputLabel id="demo-simple-select-label">Roll of user's</InputLabel>
+                    <Select
+                        labelId="demo-simple-select-label"
+                        id="demo-simple-select"
+                        label="Roll of user's"
+                        onChange={(e) => setSelectedRoll(e.target.value)}
+                        value={selectedRoll}
                     >
-                        <MenuItem value="staff">Staff</MenuItem>
-                        <MenuItem value="supervisor">Supervisor</MenuItem>
-                    </TextField>
-                </Grid>
-                <Grid item xs={12} marginLeft={2} >
-                    <TextField
-                        label="Role"
-                        size="small"
-                        fullWidth
-                        select
-                        name="designation"
-                        helperText="Select your Role"
+                        <MenuItem value="tech">Tech</MenuItem>
+                        <MenuItem value="non-tech">Non-Tech</MenuItem>
 
+                    </Select>
+                </FormControl>
 
-                    >
-                        <MenuItem value="Tech">Tech</MenuItem>
-                        <MenuItem value="Non-Tech">Non-Tech</MenuItem>
-                    </TextField>
-                </Grid>
+               
                 <Grid item xs={12} marginLeft={2} marginBottom={3}>
                     <TextField
-
-                        label="Search here "
+                        label="Search here"
                         size="small"
                         fullWidth
                         name="search here....."
-                        onChange={HandleChange}
-
+                        onChange={handleChange}
                     ></TextField>
                 </Grid>
-                <Button variant="contained" size="medium" sx={{ marginLeft: '20px', marginBottom: "25px" }} onClick={HandleSerach}>Search</Button>
+                <Button variant="contained" size="medium" sx={{ marginLeft: '20px', marginBottom: "25px" }} onClick={handleSearch}>Search</Button>
             </Box>
+
             {showForm && (
                 <div
                     style={{
@@ -220,36 +187,39 @@ const AdminPage = () => {
                                     <TableCell colSpan={6}>Loading...page</TableCell>
                                 </TableRow>
                             ) : (
-                                filteredData.map((user) => (
-                                    <StyledTableRow key={user.id}>
-                                        <StyledTableCell>{user.firstname}</StyledTableCell>
-                                        <StyledTableCell>{user.lastname}</StyledTableCell>
-                                        <StyledTableCell>{user.mobilenumber}</StyledTableCell>
-                                        <StyledTableCell>{user.designation}</StyledTableCell>
-                                        <StyledTableCell>{user.gender}</StyledTableCell>
+                                filteredData.map((user) => {
+                                    if (!selectedRoll || user.roll === selectedRoll) {
+                                        return (
+                                            <StyledTableRow key={user.id}>
+                                                <StyledTableCell>{user.firstname}</StyledTableCell>
+                                                <StyledTableCell>{user.lastname}</StyledTableCell>
+                                                <StyledTableCell>{user.mobilenumber}</StyledTableCell>
+                                                <StyledTableCell>{user.designation}</StyledTableCell>
+                                                <StyledTableCell>{user.gender}</StyledTableCell>
+                                                <StyledTableCell>{user.roll}</StyledTableCell>
 
-                                        <StyledTableCell>
-                                            <DeleteIcon
-                                                style={{ marginRight: 10 }}
-                                                onClick={() => handleDelete(user)}
-                                            />
-                                            <EditIcon
-                                                onClick={() => handleEdit(user)}
-                                            />
-                                        </StyledTableCell>
-                                    </StyledTableRow>
-                                ))
+                                                <StyledTableCell>
+                                                    <DeleteIcon
+                                                        style={{ marginRight: 10 }}
+                                                        onClick={() => handleDelete(user)}
+                                                    />
+                                                    <EditIcon
+                                                        onClick={() => handleEdit(user)}
+                                                    />
+                                                </StyledTableCell>
+                                            </StyledTableRow>
+                                        );
+                                    } else {
+                                        return null;
+                                    }
+                                })
                             )}
                         </TableBody>
                     </Table>
                 </TableContainer>
-
             </Container>
         </>
     );
 };
 
 export default AdminPage;
-
-
-
