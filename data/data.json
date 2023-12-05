@@ -270,6 +270,17 @@
       "password": "Mansa@!23",
       "designation": "staff",
       "id": 15
+    },
+    {
+      "firstname": "kajal",
+      "lastname": "Yadav",
+      "gender": "female",
+      "role": "tech",
+      "mobilenumber": "8956843049",
+      "email": "kajal@123gmail.com",
+      "password": "Kajal@123",
+      "designation": "staff",
+      "id": 16
     }
   ],
   "employeestatus": [],
@@ -429,6 +440,12 @@
       "attendance": "Present",
       "date": "2023-12-04",
       "id": 38
+    },
+    {
+      "name": "kajal yadav",
+      "attendance": "Present",
+      "date": "2023-12-05",
+      "id": 39
     }
   ],
   "EmployeeProfile": [
