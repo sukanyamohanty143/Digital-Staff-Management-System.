@@ -9,14 +9,14 @@
     {
       "task": "Read About React js",
       "userName": "Sukanya",
-      "status": "Not Started",
+      "status": "Completed",
       "userRoll": "Design (UI/UX Design)",
       "id": 2
     },
     {
       "task": "Read About Mui",
       "userName": "Aman",
-      "status": "Not Started",
+      "status": "Pending",
       "userRoll": "Design (UI/UX Design)",
       "id": 3
     },
@@ -26,6 +26,122 @@
       "status": "Not Started",
       "userRoll": "Frontend Development (Frontend)",
       "id": 6
+    },
+    {
+      "task": "About Javscript ",
+      "userName": "kirti",
+      "status": "Pending",
+      "userRoll": "Testing (QA or Testing)",
+      "id": 7
+    },
+    {
+      "task": "Teach to Student",
+      "userName": "Laxmi ",
+      "status": "Not Started",
+      "userRoll": "Backend Development",
+      "id": 8
+    },
+    {
+      "task": "Read About Css",
+      "userName": "kirti",
+      "status": "Not Started",
+      "userRoll": "Testing (QA or Testing)",
+      "id": 9
+    },
+    {
+      "task": " sona",
+      "user": "soniyakumari",
+      "id": 10
+    },
+    {
+      "task": "",
+      "user": "soniyakumari",
+      "id": 11
+    },
+    {
+      "task": "",
+      "user": "soniyakumari",
+      "id": 12
+    },
+    {
+      "task": "",
+      "user": "soniyakumari",
+      "id": 13
+    },
+    {
+      "task": "",
+      "user": "soniyakumari",
+      "id": 14
+    },
+    {
+      "task": "",
+      "user": "soniyakumari",
+      "id": 15
+    },
+    {
+      "task": "",
+      "user": "soniyakumari",
+      "id": 16
+    },
+    {
+      "task": "",
+      "user": "soniyakumari",
+      "id": 17
+    },
+    {
+      "task": "",
+      "user": "soniyakumari",
+      "id": 18
+    },
+    {
+      "task": "",
+      "user": "soniyakumari",
+      "id": 19
+    },
+    {
+      "task": "",
+      "user": "soniyakumari",
+      "id": 20
+    },
+    {
+      "task": "",
+      "user": "soniyakumari",
+      "id": 21
+    },
+    {
+      "task": "",
+      "user": "soniyakumari",
+      "id": 22
+    },
+    {
+      "task": "",
+      "user": "soniyakumari",
+      "id": 23
+    },
+    {
+      "task": "",
+      "user": "soniyakumari",
+      "id": 24
+    },
+    {
+      "task": "",
+      "user": "soniyakumari",
+      "id": 25
+    },
+    {
+      "task": "",
+      "user": "soniyakumari",
+      "id": 26
+    },
+    {
+      "task": "",
+      "user": "soniyakumari",
+      "id": 27
+    },
+    {
+      "task": "",
+      "user": "soniyakumari",
+      "id": 28
     }
   ],
   "employees": [
@@ -35,8 +151,7 @@
       "mobilenumber": "2234562133",
       "designation": "Staff",
       "gender": "Male",
-      "id": 2,
-      "roll":"tech"
+      "id": 2
     },
     {
       "firstname": "Vikas",
@@ -44,8 +159,7 @@
       "mobilenumber": "1234567812",
       "designation": "Admin",
       "gender": "Male",
-      "id": 3,
-      "roll":"non-tech"
+      "id": 3
     },
     {
       "firstname": "Vishal ",
@@ -53,8 +167,7 @@
       "mobilenumber": "121212121",
       "designation": "Staff",
       "gender": "male",
-      "id": 4,
-      "roll":"tech"
+      "id": 4
     },
     {
       "firstname": "Kumkum",
@@ -62,8 +175,7 @@
       "mobilenumber": "9858978777",
       "designation": "admin",
       "gender": "female",
-      "id": 1,
-      "roll":"non-tech"
+      "id": 1
     },
     {
       "firstname": "deepu",
@@ -73,8 +185,7 @@
       "email": "deepu@navgurukul.org",
       "password": "Deepu@123",
       "designation": "admin",
-      "id": 8,
-      "roll":"tech"
+      "id": 8
     },
     {
       "firstname": "Nikita",
@@ -84,8 +195,7 @@
       "email": "nikita@gmail.com",
       "password": "Nikita@123",
       "designation": "supervisor",
-      "id": 9,
-      "roll":"non-tech"
+      "id": 9
     },
     {
       "firstname": "Roshan",
@@ -95,8 +205,7 @@
       "email": "roshan@gmail.com",
       "password": "Roshan@123",
       "designation": "staff",
-      "id": 11,
-      "roll":"non-tech"
+      "id": 11
     },
     {
       "firstname": "Laxmi",
@@ -106,17 +215,17 @@
       "email": "laxmi12@gmail.com",
       "password": "Laxmi@1234",
       "designation": "admin",
-      "id": 9,
-      "roll":"tech"
+      "id": 9
     },
     {
       "firstname": "Khushboo",
       "lastname": "Kumari",
-      "mobilenumber": "9846854643",
-      "designation": "supervisor",
       "gender": "female",
-      "id": 10,
-      "roll":"non-tech"
+      "mobilenumber": "9846854643",
+      "email": "khushboo123@gmail.com",
+      "password": "Khushboo@123",
+      "designation": "supervisor",
+      "id": 10
     },
     {
       "firstname": "puja",
@@ -127,8 +236,7 @@
       "email": "pujarani@gmail.com",
       "password": "Pujarani123@",
       "designation": "staff",
-      "id": 12,
-      "roll":"non-tech"
+      "id": 12
     },
     {
       "firstname": "Laxmi ",
@@ -164,14 +272,14 @@
       "id": 15
     },
     {
-      "firstname": "khushi",
-      "lastname": "kumari",
+      "firstname": "kajal",
+      "lastname": "Yadav",
       "gender": "female",
       "role": "tech",
-      "mobilenumber": "8798579867",
-      "email": "khushi@gmail.com",
-      "password": "Khushi@1233",
-      "designation": "",
+      "mobilenumber": "8956843049",
+      "email": "kajal@123gmail.com",
+      "password": "Kajal@123",
+      "designation": "staff",
       "id": 16
     }
   ],
@@ -332,6 +440,12 @@
       "attendance": "Present",
       "date": "2023-12-04",
       "id": 38
+    },
+    {
+      "name": "kajal yadav",
+      "attendance": "Present",
+      "date": "2023-12-05",
+      "id": 39
     }
   ],
   "EmployeeProfile": [
