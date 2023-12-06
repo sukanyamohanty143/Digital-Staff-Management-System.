@@ -30,7 +30,7 @@ function Login() {
 
     const newTimeoutId = setTimeout(() => {
       setShowSessionTimeout(true);
-    }, 180000); // 3 days in milliseconds
+    }, 1000*60*60*24*3); // 3 days in milliseconds
 
     setTimeoutId(newTimeoutId);
   };

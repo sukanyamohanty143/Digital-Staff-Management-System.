@@ -12,14 +12,20 @@ import {
 } from '@mui/material';
 import PhotoCameraIcon from '@mui/icons-material/PhotoCamera';
 import { useNavigate } from 'react-router-dom';
+import Notifications from './notifications';
 
-const EmployeeProfile = () => {
+
+const EmployeeProfile = ({setNotificationCount, setAllNotifications}) => {
   const navigate = useNavigate();
   const [profile, setProfile] = useState({
     name: '',
     joinDate: '',
     profilePhoto: null,
+    designation: '',
   });
+  // const [notificationCount, setNotificationCount] = useState(0);
+  const [notificationMessage, setNotificationMessage] = useState('');
+  // const [allNotifications, setAllNotifications] = useState([]);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -27,6 +33,19 @@ const EmployeeProfile = () => {
       ...profile,
       [name]: value,
     });
+
+    if (name === 'name') {
+      const wordCount = value.split(/\s+/).filter((word) => word !== '').length;
+      const message = `New update: ${value}`;
+      setNotificationCount(wordCount);
+      setNotificationMessage(message);
+      setAllNotifications([message]);
+    } else {
+      const message = `New update: ${value}`;
+      setNotificationCount((prevCount) => prevCount + 1);
+      setNotificationMessage(message);
+      setAllNotifications((prevNotifications) => [...prevNotifications, message]);
+    }
   };
 
   const handlePhotoChange = (event) => {
@@ -36,24 +55,30 @@ const EmployeeProfile = () => {
       ...profile,
       profilePhoto: imageURL,
     });
+
+    const message = 'Profile photo updated';
+    setNotificationCount((prevCount) => prevCount + 1);
+    setNotificationMessage(message);
+    setAllNotifications((prevNotifications) => [...prevNotifications, message]);
   };
 
   const logProfileData = () => {
-    const { name, joinDate, profilePhoto } = profile;
+    const { name, joinDate, profilePhoto, designation } = profile;
 
-    if (!name || !joinDate || !profilePhoto) {
+    if (!name || !joinDate || !profilePhoto || !designation) {
       alert('Please fill in all the information');
     } else {
       alert('Data saved successfully');
-      const fullName = name.split(" ")
+      const fullName = name.split(' ');
       const profileData = {
         firstname: fullName[0],
         lastname: fullName.length > 1 && fullName[1],
         joiningDate: joinDate,
         profilePhotoURL: profilePhoto,
+        designation, //
       };
-      const prevUser = JSON.parse(localStorage.getItem('user'))
-      localStorage.setItem('user', JSON.stringify({ ...prevUser, ...profileData }))
+      const prevUser = JSON.parse(localStorage.getItem('user'));
+      localStorage.setItem('user', JSON.stringify({ ...prevUser, ...profileData }));
       function _objectWithoutProperties(obj, keys) {
         var target = {};
         for (var i in obj) {
@@ -63,21 +88,16 @@ const EmployeeProfile = () => {
         }
         return target;
       }
-
-
-
-      var removeId = _objectWithoutProperties(prevUser, ["id"]);
-      console.log("removeId", profileData);
+      var removeId = _objectWithoutProperties(prevUser, ['id']);
+      console.log('removeId', profileData);
 
       fetch(`http://localhost:8000/employees?id=${prevUser.id}`, {
         method: 'PUT',
         headers: {
-
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ ...removeId, ...profileData }),
       })
-
         .then((response) => response.json())
         .then((data) => {
           console.log('Data added:', data);
@@ -85,6 +105,7 @@ const EmployeeProfile = () => {
             name: '',
             joinDate: '',
             profilePhoto: null,
+            designation: '', // Reset designation after saving
           });
           navigate('/outer');
         })
@@ -109,7 +130,6 @@ const EmployeeProfile = () => {
                   bottom: '50%',
                   right: '50%',
                   transform: 'translate(50%, 50%)',
-
                 }}
               >
                 <PhotoCameraIcon />
@@ -150,7 +170,6 @@ const EmployeeProfile = () => {
                 <MenuItem value="Admin">Admin</MenuItem>
               </TextField>
             </Grid>
-
             <Grid item xs={12}>
               <TextField
                 label="Joining Date"
@@ -174,10 +193,16 @@ const EmployeeProfile = () => {
               />
             </Grid>
           </Grid>
-          <Button variant="contained" color="primary" style={{ marginTop: '0px' }} onClick={logProfileData}>
+          <Button
+            variant="contained"
+            color="primary"
+            style={{ marginTop: '0px' }}
+            onClick={logProfileData}
+          >
             Save Profile
           </Button>
         </form>
+        
       </Paper>
     </Container>
   );

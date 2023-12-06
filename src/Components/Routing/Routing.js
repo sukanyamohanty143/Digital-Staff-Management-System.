@@ -11,12 +11,15 @@ import EmployeeTable from '../Pages/Table'
 import UserTask from '../Pages/UserTask';
 import Header from '../Pages/Header'
 import Footer from '../Pages/Footer'
+import { useState } from 'react';
 
 
 function Routing() {
+  const [notificationCount, setNotificationCount] = useState(0);
+  const [allNotifications, setAllNotifications] = useState([]);
   return (
     <BrowserRouter>
-      <Header/>
+      <Header  {...{notificationCount, allNotifications}}/>
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/login" element={<Login />} />
@@ -25,7 +28,7 @@ function Routing() {
         <Route path="/admin" element={<AdminPage />} />
         <Route path="/supervisor" element={<Supervisor />} />
         <Route path="/outer" element={<Outer/>} />
-        <Route path="/profile" element={<Profile/>} />
+        <Route path="/profile" element={<Profile {...{setNotificationCount, setAllNotifications}}/>} />
         <Route path="/table" element={<EmployeeTable />} />
         <Route path="/usertask" element={<UserTask/>} />
       </Routes>
