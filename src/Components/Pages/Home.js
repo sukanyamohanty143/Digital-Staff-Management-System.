@@ -30,7 +30,7 @@ function Home() {
                         />
                     </Grid>
 
-                    <Grid item md={6} sm={12} xs={12} style={{backgroundColor:"white"}}>
+                    <Grid item md={6} sm={12} xs={12} style={{ backgroundColor: "white" }}>
                         <Typography variant='h4' style={{ margin: "20px" }} className='typing-animation '>Welcome User ❤️</Typography>
                         <Typography variant='h5' style={{ margin: "20px" }} > Hello Friendes,👋</Typography>
                         <p style={{ padding: "10px", margin: "10px" }}> Welcome to our platform! We are delighted to have you here. At Digital staff Management System, we strive to provide an exceptional experience for our users, and we're excited to have you join our community.</p>

@@ -1,3 +1,5 @@
+
+
 import React, { useState } from "react";
 import {
   TextField,
@@ -17,41 +19,40 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
   },
   card: {
-    width: 600,
-    marginBottom: 30,
-    marginTop: 200,
-    padding: 30,
-    border:'2px solid gray'
-
+    width: "95%",
+    maxWidth: 600,
+    marginBottom: theme.spacing(3),
+    marginTop: theme.spacing(10),
+    padding: theme.spacing(3),
+    border: '2px solid gray',
+    boxShadow: '0 10px 15px rgba(0, 0, 0, 0.2)',
+    [theme.breakpoints.down('sm')]: {
+      width: "90%",
+    },
   },
   label: {
-    marginLeft: 10
+    marginLeft: theme.spacing(1),
   },
   input: {
-    width: "95%",
-    margin: 15
+    width: "100%",
+    margin: theme.spacing(1),
   },
   button: {
     marginTop: theme.spacing(2),
     backgroundColor: '#337CCF',
-    marginLeft: 10
+    marginLeft: theme.spacing(1),
   },
   heading: {
-    textAlign: "center"
+    textAlign: "center",
   },
 }));
 
-
-
 const Staff = () => {
-
   const classes = useStyles();
   const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
   const [name, setName] = useState("");
   const [attendance, setAttendance] = useState("");
   const [nameError, setNameError] = useState("");
-
-
 
   const handleName = (e) => {
     const inputName = e.target.value;
@@ -59,32 +60,14 @@ const Staff = () => {
     if (/^[A-Za-z\s]*$/.test(inputName) || inputName === "") {
       setName(inputName);
       setNameError("");
-    }
-    else {
-      setNameError("'Only alphabetletters and spaces are allowed'");
+    } else {
+      setNameError("'Only alphabet letters and spaces are allowed'");
     }
   };
 
   const handleAttendance = (e) => {
     setAttendance(e.target.value);
   };
-
-  // const CheckProfile = async (userName) => {
-  //   try {
-  //     const res = await fetch("http://localhost:8000/EmployeeProfile");
-  //     const data = await res.json();
-  //     const foundUser = data.find((vlu) => vlu["Name"] === userName);
-
-  //     if (foundUser) {
-  //       navigate('/outer', { state: { user: foundUser } });
-  //     } else {
-  //       alert("this user is not exist ");
-  //     }
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  // };
-
 
   const handleOnClick = () => {
     if (name && date && attendance) {
@@ -101,63 +84,59 @@ const Staff = () => {
           setName("");
           setDate(new Date().toISOString().slice(0, 10));
           setAttendance("");
-          // CheckProfile(userName);
         })
         .catch((error) => {
           console.error(error);
         });
     } else {
-      alert("Please fill all the information in the form");
+      alert("Please fill in all the information in the form");
     }
   };
 
-
   return (
-    <div className={classes.container}>
-      <Card  className={classes.card} style={{ boxShadow: '0 10px 15px rgba(0, 0, 0, 0.2)' }}>
-        <Typography variant="h4" className={classes.heading}>Staff Page</Typography>
-        <Box>
-          <label className={classes.label} htmlFor="Name">
-            Name
-          </label>
-          <TextField
-            id="name"
-            type="text"
-            value={name}
-            onChange={handleName}
-            className={classes.input}
-            error={Boolean(nameError)}
-            helperText={nameError}
-            autoComplete="off"
+    <Box className={classes.container}>
+      <Card className={classes.card}>
+        <Typography variant="h4" className={classes.heading}>
+          Staff Page
+        </Typography>
+        <label className={classes.label} htmlFor="Name">
+          Name
+        </label>
+        <TextField
+          id="name"
+          type="text"
+          value={name}
+          onChange={handleName}
+          className={classes.input}
+          error={Boolean(nameError)}
+          helperText={nameError}
+          autoComplete="off"
+        />
 
-          />
-        </Box>
-        <Box>
-          <label className={classes.label} htmlFor="Attendance">
-            Attendance
-          </label>
-          <Select
-            id="attendance"
-            value={attendance}
-            onChange={handleAttendance}
-            className={classes.input}
-          >
-            <MenuItem value="Present">Present</MenuItem>
-            <MenuItem value="Absent">Absent</MenuItem>
-          </Select>
-        </Box>
-        <Box>
-          <label className={classes.label} htmlFor="date">
-            Date
-          </label>
-          <TextField
-            id="date"
-            type="text"
-            value={date}
-            InputProps={{ readOnly: true }}
-            className={classes.input}
-          />
-        </Box>
+        <label className={classes.label} htmlFor="Attendance">
+          Attendance
+        </label>
+        <Select
+          id="attendance"
+          value={attendance}
+          onChange={handleAttendance}
+          className={classes.input}
+        >
+          <MenuItem value="Present">Present</MenuItem>
+          <MenuItem value="Absent">Absent</MenuItem>
+        </Select>
+
+        <label className={classes.label} htmlFor="date">
+          Date
+        </label>
+        <TextField
+          id="date"
+          type="text"
+          value={date}
+          InputProps={{ readOnly: true }}
+          className={classes.input}
+        />
+
         <Button
           variant="contained"
           color="primary"
@@ -167,11 +146,8 @@ const Staff = () => {
           Submit
         </Button>
       </Card>
-
-
-    </div>
+    </Box>
   );
 };
 
 export default Staff;
-

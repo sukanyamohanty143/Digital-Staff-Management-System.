@@ -154,6 +154,28 @@
       "password": "Mansa@!23",
       "designation": "staff",
       "id": 15
+    },
+    {
+      "firstname": "vijaylaxmi",
+      "lastname": "bharti",
+      "gender": "female",
+      "role": "non tech",
+      "mobilenumber": "7987596759",
+      "email": "vijaylaxmi@gmail.com",
+      "password": "Vijaylaxmi@123",
+      "designation": "",
+      "id": 16
+    },
+    {
+      "firstname": "chhaya",
+      "lastname": "kumari",
+      "gender": "female",
+      "role": "non tech",
+      "mobilenumber": "9809486598",
+      "email": "chhaya@gmail.com",
+      "password": "Chhaya@1234",
+      "designation": "staff",
+      "id": 17
     }
   ],
   "employeestatus": [],
@@ -313,6 +335,12 @@
       "attendance": "Present",
       "date": "2023-12-04",
       "id": 38
+    },
+    {
+      "name": "sonam",
+      "attendance": "Absent",
+      "date": "2023-12-05",
+      "id": 39
     }
   ],
   "EmployeeProfile": [
