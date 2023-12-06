@@ -9,7 +9,7 @@ import TaskIcon from '@mui/icons-material/Task';
 
 const Profileavtar = () => {
     const user = JSON.parse(localStorage.getItem('user'))
-    console.log("user data", user)
+    // console.log("user data", user)
     const navigate = useNavigate();
     
     const { user: authUser } = useAuth();

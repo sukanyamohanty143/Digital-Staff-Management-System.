@@ -480,10 +480,11 @@ function UserTask() {
     useEffect(() => {
         fetch(" http://localhost:8000/userTask")
             .then(res => res.json())
-            .then(data => {
-                console.log("data", data);
-                setData(data);
-            })
+            .then((data) => {
+                
+                const filterData =  data.filter(element => element.userName === `${user.firstname} ${user.lastname}`  )
+                setData(filterData);
+              })
             .catch(error => {
                 console.error("Error fetching data:", error);
             });
