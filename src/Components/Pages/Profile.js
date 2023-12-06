@@ -118,16 +118,10 @@ const EmployeeProfile = ({setNotificationCount, setAllNotifications}) => {
   return (
     <Container style={{ marginTop: '100px' }}>
       <Paper elevation={1} style={{ padding: '40px', margin: 'auto', maxWidth: '600px' }}>
-        <Typography variant="h4" style={{ textAlign: 'center' }}>
-          Employee Profile
-        </Typography>
+        <Typography variant='h4' style={{ textAlign: "center" }}> Employee Profile </Typography>
         <form>
           <label htmlFor="profilePhoto" style={{ marginTop: '40px' }}>
-            <Avatar
-              src={profile.profilePhoto}
-              alt="Profile"
-              style={{ width: 80, height: 80, marginTop: '20' }}
-            >
+            <Avatar src={profile.profilePhoto} alt="Profile" style={{ width: 80, height: 80, marginTop: "20" }}>
               <IconButton
                 color="primary"
                 component="span"
@@ -156,8 +150,8 @@ const EmployeeProfile = ({setNotificationCount, setAllNotifications}) => {
                   !profile.name
                     ? 'Name is required'
                     : !/^[a-zA-Z\s]*$/.test(profile.name)
-                    ? <span style={{ color: 'red' }}>Only alphabets and spaces are allowed</span>
-                    : 'Enter your name'
+                      ? <span style={{ color: 'red' }}>Only alphabets and spaces are allowed</span>
+                      : 'Enter your name'
                 }
               />
             </Grid>
@@ -208,10 +202,7 @@ const EmployeeProfile = ({setNotificationCount, setAllNotifications}) => {
             Save Profile
           </Button>
         </form>
-        {/* <Notifications
-          notificationCount={notificationCount}
-          allNotifications={allNotifications}
-        /> */}
+        
       </Paper>
     </Container>
   );

@@ -9,6 +9,7 @@ import {
   Paper,
   Typography,
   Container,
+  Pagination
 } from '@mui/material';
 
 const EmployeeTable = () => {
@@ -16,6 +17,11 @@ const EmployeeTable = () => {
   const user = JSON.parse(localStorage.getItem('user'));
 
 
+  const [page,setPage]=useState(1)
+  const handleChange=(e,p)=>{
+      console.log(e,p)
+      setPage(p)
+  }
   useEffect(() => {
     fetch('http://localhost:8000/Attendence') 
       .then((response) => response.json())
@@ -55,7 +61,12 @@ const EmployeeTable = () => {
           </TableBody>
         </Table>
       </TableContainer>
+      <Pagination
+          count={5} color='primary' onChange={handleChange}
+              page={page}
+     ></Pagination>
       </Container>
+    
     </div>
   );
 };

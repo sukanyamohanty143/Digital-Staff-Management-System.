@@ -1,13 +1,14 @@
 
-body {
-  margin: 0;
-  padding: 0;
+
+body{
+  margin: 0%;
+  padding: 0%;
   background-image: url("../src/Components/assets/bg1.jpeg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  min-height: 100vh;
+  background-size: cover; 
+  background-repeat: no-repeat; 
+ 
 }
+
 .navigetiontitle {
   color: white;
   padding: 10px;
@@ -17,14 +18,17 @@ body {
 .formcontainer {
   text-align: center;
 }
+
 .card {
-  margin: auto;
+  width: 1000px;
   height: 500px;
-  border: 2px solid gray;
-  border-radius: 5px;
-  background-color: white;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
-.outercard {
+
+.outercard{
+
   width: 1000px;
   height: 500px;
   margin: auto;
@@ -32,7 +36,16 @@ body {
   margin-bottom: 50px;
   border: 2px solid rgb(161, 158, 158);
   border-radius: 50px;
+
 }
+/* .staffbox{
+  width: 700px;
+  border: 2px solid black;
+  margin: auto;
+  height: 500px;
+} */
+
+
 
 .footer-text {
   text-align: "center";
@@ -40,23 +53,25 @@ body {
   font-size: smaller;
   font-style: italic;
 }
+
+
+
 .registretion-card {
   width: 700px;
-  height: auto;
+  height:auto;
   margin: auto;
   margin-top: 54px;
   margin-bottom: 50px;
+  /* background-image: url('../src/Components/assets/bg.jpg'); */
 }
-
-.tast-card {
+.tast-card{
   width: 655px;
-  height: auto;
+  height:auto;
   margin: auto;
   margin-top: 54px;
   margin-bottom: 50px;
 
 }
-
 .cardcontainer {
   width: 800px;
   height: 500px;
@@ -64,13 +79,11 @@ body {
   margin-top: 40px;
 }
 
-.welcometext {
+.welcometext{
   animation: fadeIn 1.5s ease-in-out;
   text-shadow: 2px 2px 5px rgb(65, 69, 149);
 }
-
-.outercard,
-.registretion-card {
+ .outercard ,.registretion-card{
   animation: fadeIn 1.20s ease-in-out;
 }
 
@@ -83,7 +96,7 @@ body {
   text-shadow: 2px 2px 5px gray;
 }
 
-.tastbox {
+.tastbox{
   width: auto;
   height: 76px;
   border: 2px solid rgb(159, 157, 157);
@@ -92,7 +105,7 @@ body {
   margin: 19px;
 }
 
-.statusbox {
+.statusbox{
   width: auto;
   height: auto;
   border: 2px solid rgb(159, 157, 157);
@@ -102,27 +115,26 @@ body {
 }
 
 
-.removebtn,
-.editbtn {
+.removebtn , .editbtn{
   float: right;
 }
 
-.secondcard {
+.secondcard{
   width: 620px;
-  height: auto;
+  height:auto;
   margin: auto;
   margin-top: 54px;
   margin-bottom: 20px;
   padding: 20px;
 }
 
-.boxone {
+.boxone{
   text-align: center;
   margin-top: 20px;
 }
 
 
-.editbtn {
+.editbtn{
   margin-left: 20px;
 }
 
@@ -146,3 +158,12 @@ body {
     width: 64%;
   }
 }
+
+  
+
+
+
+
+
+
+
