@@ -33,6 +33,12 @@ body {
   border: 2px solid rgb(161, 158, 158);
   border-radius: 50px;
 }
+/* .staffbox{
+  width: 700px;
+  border: 2px solid black;
+  margin: auto;
+  height: 500px;
+} */
 
 .footer-text {
   text-align: "center";

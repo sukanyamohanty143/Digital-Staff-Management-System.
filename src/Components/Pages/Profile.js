@@ -48,12 +48,12 @@ const EmployeeProfile = () => {
       const fullName = name.split(" ")
       const profileData = {
         firstname: fullName[0],
-        lastname:fullName.length>1 && fullName[1],
+        lastname: fullName.length > 1 && fullName[1],
         joiningDate: joinDate,
         profilePhotoURL: profilePhoto,
       };
       const prevUser = JSON.parse(localStorage.getItem('user'))
-      localStorage.setItem('user',JSON.stringify({...prevUser,...profileData}))
+      localStorage.setItem('user', JSON.stringify({ ...prevUser, ...profileData }))
       function _objectWithoutProperties(obj, keys) {
         var target = {};
         for (var i in obj) {
@@ -63,9 +63,9 @@ const EmployeeProfile = () => {
         }
         return target;
       }
-      
-      
-      
+
+
+
       var removeId = _objectWithoutProperties(prevUser, ["id"]);
       console.log("removeId", profileData);
 
@@ -75,7 +75,7 @@ const EmployeeProfile = () => {
 
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({...removeId,...profileData}),
+        body: JSON.stringify({ ...removeId, ...profileData }),
       })
 
         .then((response) => response.json())
@@ -97,10 +97,10 @@ const EmployeeProfile = () => {
   return (
     <Container style={{ marginTop: '100px' }}>
       <Paper elevation={1} style={{ padding: '40px', margin: 'auto', maxWidth: '600px' }}>
-        <Typography variant='h4' style={{textAlign:"center"}}> Employee Profile </Typography>
+        <Typography variant='h4' style={{ textAlign: "center" }}> Employee Profile </Typography>
         <form>
-          <label htmlFor="profilePhoto" style={{marginTop: '40px'}}>
-            <Avatar src={profile.profilePhoto} alt="Profile" style={{ width: 80, height: 80 ,marginTop:"20"}}>
+          <label htmlFor="profilePhoto" style={{ marginTop: '40px' }}>
+            <Avatar src={profile.profilePhoto} alt="Profile" style={{ width: 80, height: 80, marginTop: "20" }}>
               <IconButton
                 color="primary"
                 component="span"
@@ -109,7 +109,7 @@ const EmployeeProfile = () => {
                   bottom: '50%',
                   right: '50%',
                   transform: 'translate(50%, 50%)',
-                 
+
                 }}
               >
                 <PhotoCameraIcon />
@@ -130,27 +130,27 @@ const EmployeeProfile = () => {
                   !profile.name
                     ? 'Name is required'
                     : !/^[a-zA-Z\s]*$/.test(profile.name)
-                    ? <span style={{ color: 'red' }}>Only alphabets and spaces are allowed</span>
-                    : 'Enter your name'
+                      ? <span style={{ color: 'red' }}>Only alphabets and spaces are allowed</span>
+                      : 'Enter your name'
                 }
               />
             </Grid>
             <Grid item xs={12}>
               <TextField
-              label="Designation"
-              fullWidth
-              select
-              value={profile.designation}
-              onChange={handleChange}
-              name="designation"
-              helperText="Select your designation"
-            >
-              <MenuItem value="staff">Staff</MenuItem>
-              <MenuItem value="supervisor">Supervisor</MenuItem>
-              <MenuItem value="Admin">Admin</MenuItem>
-            </TextField>
-          </Grid>
-             
+                label="Designation"
+                fullWidth
+                select
+                value={profile.designation}
+                onChange={handleChange}
+                name="designation"
+                helperText="Select your designation"
+              >
+                <MenuItem value="staff">Staff</MenuItem>
+                <MenuItem value="supervisor">Supervisor</MenuItem>
+                <MenuItem value="Admin">Admin</MenuItem>
+              </TextField>
+            </Grid>
+
             <Grid item xs={12}>
               <TextField
                 label="Joining Date"
