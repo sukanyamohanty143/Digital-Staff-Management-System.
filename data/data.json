@@ -458,6 +458,12 @@
       "attendance": "Present",
       "date": "2023-12-06",
       "id": 41
+    },
+    {
+      "name": "Kajal",
+      "attendance": "Present",
+      "date": "2023-12-06",
+      "id": 42
     }
   ],
   "EmployeeProfile": [
