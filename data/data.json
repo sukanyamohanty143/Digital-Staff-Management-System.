@@ -185,10 +185,7 @@
     {
       "firstname": "deepu",
       "lastname": "M",
-      "gender": "female",
       "mobilenumber": "8098098609",
-      "email": "deepu@navgurukul.org",
-      "password": "Deepu@123",
       "designation": "admin",
       "roll":"non-tech",
       "id": 6
@@ -275,8 +272,6 @@
       "lastname": "Yadav",
       "gender": "female",
       "mobilenumber": "5698549493",
-      "email": "mansa@gmail.com",
-      "password": "Mansa@!23",
       "designation": "staff",
       "role": "tech",
       "id": 14
