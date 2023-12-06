@@ -446,6 +446,18 @@
       "attendance": "Present",
       "date": "2023-12-05",
       "id": 39
+    },
+    {
+      "name": "puja rani ",
+      "attendance": "Present",
+      "date": "2023-12-05",
+      "id": 40
+    },
+    {
+      "name": "kajal",
+      "attendance": "Present",
+      "date": "2023-12-06",
+      "id": 41
     }
   ],
   "EmployeeProfile": [
