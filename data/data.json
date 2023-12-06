@@ -9,14 +9,14 @@
     {
       "task": "Read About React js",
       "userName": "Sukanya",
-      "status": "Not Started",
+      "status": "Completed",
       "userRoll": "Design (UI/UX Design)",
       "id": 2
     },
     {
       "task": "Read About Mui",
       "userName": "Aman",
-      "status": "Not Started",
+      "status": "Pending",
       "userRoll": "Design (UI/UX Design)",
       "id": 3
     },
@@ -26,6 +26,122 @@
       "status": "Not Started",
       "userRoll": "Frontend Development (Frontend)",
       "id": 6
+    },
+    {
+      "task": "About Javscript ",
+      "userName": "kirti",
+      "status": "Pending",
+      "userRoll": "Testing (QA or Testing)",
+      "id": 7
+    },
+    {
+      "task": "Teach to Student",
+      "userName": "Laxmi ",
+      "status": "Not Started",
+      "userRoll": "Backend Development",
+      "id": 8
+    },
+    {
+      "task": "Read About Css",
+      "userName": "kirti",
+      "status": "Not Started",
+      "userRoll": "Testing (QA or Testing)",
+      "id": 9
+    },
+    {
+      "task": " sona",
+      "user": "soniyakumari",
+      "id": 10
+    },
+    {
+      "task": "",
+      "user": "soniyakumari",
+      "id": 11
+    },
+    {
+      "task": "",
+      "user": "soniyakumari",
+      "id": 12
+    },
+    {
+      "task": "",
+      "user": "soniyakumari",
+      "id": 13
+    },
+    {
+      "task": "",
+      "user": "soniyakumari",
+      "id": 14
+    },
+    {
+      "task": "",
+      "user": "soniyakumari",
+      "id": 15
+    },
+    {
+      "task": "",
+      "user": "soniyakumari",
+      "id": 16
+    },
+    {
+      "task": "",
+      "user": "soniyakumari",
+      "id": 17
+    },
+    {
+      "task": "",
+      "user": "soniyakumari",
+      "id": 18
+    },
+    {
+      "task": "",
+      "user": "soniyakumari",
+      "id": 19
+    },
+    {
+      "task": "",
+      "user": "soniyakumari",
+      "id": 20
+    },
+    {
+      "task": "",
+      "user": "soniyakumari",
+      "id": 21
+    },
+    {
+      "task": "",
+      "user": "soniyakumari",
+      "id": 22
+    },
+    {
+      "task": "",
+      "user": "soniyakumari",
+      "id": 23
+    },
+    {
+      "task": "",
+      "user": "soniyakumari",
+      "id": 24
+    },
+    {
+      "task": "",
+      "user": "soniyakumari",
+      "id": 25
+    },
+    {
+      "task": "",
+      "user": "soniyakumari",
+      "id": 26
+    },
+    {
+      "task": "",
+      "user": "soniyakumari",
+      "id": 27
+    },
+    {
+      "task": "",
+      "user": "soniyakumari",
+      "id": 28
     }
   ],
   "employees": [
@@ -156,26 +272,15 @@
       "id": 15
     },
     {
-      "firstname": "vijaylaxmi",
-      "lastname": "bharti",
+      "firstname": "kajal",
+      "lastname": "Yadav",
       "gender": "female",
-      "role": "non tech",
-      "mobilenumber": "7987596759",
-      "email": "vijaylaxmi@gmail.com",
-      "password": "Vijaylaxmi@123",
-      "designation": "",
-      "id": 16
-    },
-    {
-      "firstname": "chhaya",
-      "lastname": "kumari",
-      "gender": "female",
-      "role": "non tech",
-      "mobilenumber": "9809486598",
-      "email": "chhaya@gmail.com",
-      "password": "Chhaya@1234",
+      "role": "tech",
+      "mobilenumber": "8956843049",
+      "email": "kajal@123gmail.com",
+      "password": "Kajal@123",
       "designation": "staff",
-      "id": 17
+      "id": 16
     }
   ],
   "employeestatus": [],
@@ -337,8 +442,8 @@
       "id": 38
     },
     {
-      "name": "sonam",
-      "attendance": "Absent",
+      "name": "kajal yadav",
+      "attendance": "Present",
       "date": "2023-12-05",
       "id": 39
     }
