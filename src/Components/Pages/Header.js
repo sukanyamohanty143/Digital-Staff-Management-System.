@@ -7,7 +7,7 @@ import Logout from './LoginButton';
 import Profileavtar from './Profileavtar';
 import { useLocation } from 'react-router-dom';
 import Notifications from './notifications';
-
+import { Hidden } from '@mui/material';
 export default function Header(props) {
     const location = useLocation();
     const currentRoute = location.pathname;
