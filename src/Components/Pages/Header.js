@@ -4,10 +4,12 @@ import CoPresentIcon from '@mui/icons-material/CoPresent';
 import Logout from './LoginButton';
 import Profileavtar from './Profileavtar';
 import { useLocation } from 'react-router-dom';
+import Notifications from './notifications';
 
-export default function Header() {
+export default function Header(props) {
     const location = useLocation();
     const currentRoute = location.pathname;
+
 
     return (
         <AppBar position='static'>
@@ -25,10 +27,13 @@ export default function Header() {
                         <>
                             <Hidden smDown>
                                 <Profileavtar />
+                                <Notifications {...props}/>
                             </Hidden>
                             <Hidden mdUp>
                                 <IconButton color='inherit'>
                                     <Profileavtar />
+                                    <Notifications  {...props}/>
+
                                 </IconButton>
                             </Hidden>
                         </>

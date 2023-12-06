@@ -36,7 +36,7 @@
       "designation": "Staff",
       "gender": "Male",
       "id": 2,
-      "roll":"tech"
+      "roll": "tech"
     },
     {
       "firstname": "Vikas",
@@ -45,7 +45,7 @@
       "designation": "Admin",
       "gender": "Male",
       "id": 3,
-      "roll":"non-tech"
+      "roll": "non-tech"
     },
     {
       "firstname": "Vishal ",
@@ -54,7 +54,7 @@
       "designation": "Staff",
       "gender": "male",
       "id": 4,
-      "roll":"tech"
+      "roll": "tech"
     },
     {
       "firstname": "Kumkum",
@@ -63,7 +63,7 @@
       "designation": "admin",
       "gender": "female",
       "id": 1,
-      "roll":"non-tech"
+      "roll": "non-tech"
     },
     {
       "firstname": "deepu",
@@ -74,7 +74,7 @@
       "password": "Deepu@123",
       "designation": "admin",
       "id": 8,
-      "roll":"tech"
+      "roll": "tech"
     },
     {
       "firstname": "Nikita",
@@ -85,7 +85,7 @@
       "password": "Nikita@123",
       "designation": "supervisor",
       "id": 9,
-      "roll":"non-tech"
+      "roll": "non-tech"
     },
     {
       "firstname": "Roshan",
@@ -96,18 +96,18 @@
       "password": "Roshan@123",
       "designation": "staff",
       "id": 11,
-      "roll":"non-tech"
+      "roll": "non-tech"
     },
     {
       "firstname": "Laxmi",
-      "lastname": "Yadab",
+      "lastname": "Yadav",
       "gender": "male",
       "mobilenumber": "7453980942",
       "email": "laxmi12@gmail.com",
       "password": "Laxmi@1234",
       "designation": "admin",
       "id": 9,
-      "roll":"tech"
+      "roll": "tech"
     },
     {
       "firstname": "Khushboo",
@@ -116,7 +116,7 @@
       "designation": "supervisor",
       "gender": "female",
       "id": 10,
-      "roll":"non-tech"
+      "roll": "non-tech"
     },
     {
       "firstname": "puja",
@@ -128,7 +128,7 @@
       "password": "Pujarani123@",
       "designation": "staff",
       "id": 12,
-      "roll":"non-tech"
+      "roll": "non-tech"
     },
     {
       "firstname": "Laxmi ",
@@ -332,6 +332,12 @@
       "attendance": "Present",
       "date": "2023-12-04",
       "id": 38
+    },
+    {
+      "name": "puja rani",
+      "attendance": "Absent",
+      "date": "2023-12-05",
+      "id": 39
     }
   ],
   "EmployeeProfile": [

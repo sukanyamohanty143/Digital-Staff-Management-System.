@@ -13,11 +13,17 @@ import {
 
 const EmployeeTable = () => {
   const [employeeData, setEmployeeData] = useState([]);
+  const user = JSON.parse(localStorage.getItem('user'));
+
 
   useEffect(() => {
     fetch('http://localhost:8000/Attendence') 
       .then((response) => response.json())
-      .then((data) => setEmployeeData(data))
+      .then((data) => {
+        const userName = user.firstname+" "+user.lastname
+        const userAttendenceData = data.filter((attendence) => attendence.userName === userName);
+        setEmployeeData(userAttendenceData);
+      })
       .catch((error) => console.error('Error fetching data:', error));
   }, []);
 

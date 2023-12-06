@@ -18,7 +18,7 @@ const Outer = () => {
   };
 
   const viewAttendance = () => {
-    navigate('/table', { state: { user: user.Name } });
+    navigate('/table');
   };
 
   const handleEditClick = () => {
