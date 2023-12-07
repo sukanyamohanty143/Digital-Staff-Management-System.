@@ -12,7 +12,6 @@ import {
 } from '@mui/material';
 import PhotoCameraIcon from '@mui/icons-material/PhotoCamera';
 import { useNavigate } from 'react-router-dom';
-import Notifications from './notifications';
 
 
 const EmployeeProfile = ({setNotificationCount, setAllNotifications}) => {

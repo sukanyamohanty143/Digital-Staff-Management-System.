@@ -1,7 +1,7 @@
 
 
 import React from 'react';
-import { AppBar, Toolbar, Typography, IconButton, Stack } from '@mui/material';
+import { AppBar, Toolbar, Typography, IconButton, Stack,Hidden } from '@mui/material';
 import CoPresentIcon from '@mui/icons-material/CoPresent';
 import Logout from './LoginButton';
 import Profileavtar from './Profileavtar';
@@ -28,17 +28,11 @@ export default function Header(props) {
                         <Logout />
                     ) : currentRoute.includes('/registration') || currentRoute.includes('/login')? null : (
                         <>
-                            <Hidden smDown>
-                                <Profileavtar />
-                                <Notifications {...props}/>
-                            </Hidden>
-                            <Hidden mdUp>
                                 <IconButton color='inherit'>
                                     <Profileavtar />
                                     <Notifications  {...props}/>
 
                                 </IconButton>
-                            </Hidden>
                         </>
                     )}
                 </Stack>

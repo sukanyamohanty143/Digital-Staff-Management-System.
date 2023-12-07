@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import {Grid,TextField, Button,Container, TableContainer, Table, TableHead, TableBody, TableRow, Paper,  MenuItem, Box } from "@mui/material";
+import { Grid, TextField, Button, Container, TableContainer, Table, TableHead, TableBody, TableRow, Paper, MenuItem, Box } from "@mui/material";
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
 import { styled } from "@mui/material/styles";
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import UserForm from "./AddButton";
-
+import AddPagination from "./PaginationAdmin";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -17,17 +17,16 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     },
 }));
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
-    // backgroundColor: theme.palette.action.hover,
     backgroundColor: '#FFEBD8',
     "&:last-child td, &:last-child th": {
         border: 0,
     },
 }));
 const AdminPage = () => {
-    const [users, setUsers] = useState(null);
+    const [users, setUsers] = useState([]);
     const [showForm, setShowForm] = useState(false);
     const [selectedUser, setSelectedUser] = useState(null);
-    
+    const [currentPage, setCurrentPage] = useState(1);
     const fetchData = () => {
         fetch("http://localhost:8000/employees")
             .then((response) => response.json())
@@ -39,7 +38,7 @@ const AdminPage = () => {
     useEffect(() => {
         fetchData();
     }, []);
-
+    const itemsPerPage = 5;
     const addUser = (newUser) => {
         if (selectedUser) {
             fetch(`http://localhost:8000/employees/${selectedUser.id}`, {
@@ -92,50 +91,58 @@ const AdminPage = () => {
                 console.error("Error deleting user data:", error);
             });
     };
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentItems = users.slice(indexOfFirstItem, indexOfLastItem);
+    const pageCount = Math.ceil(users.length / itemsPerPage);
+
+    const handleChangePage = (event, newPage) => {
+        setCurrentPage(newPage);
+    };
     return (
 
         <>
-            
+
             <Box sx={{
-                        display: "flex", m: "30px", alignItems: "center", justifyContent: "center", width: "93%", height: "70px", boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"
-                    }}>
-                        <Grid item xs={12}>
-                            <TextField
-                                label="Designation"
-                                size="small"
-                                fullWidth
-                                select
-                                name="designation"
-                                helperText="Select your designation"
-                                >
-                                <MenuItem value="staff">Staff</MenuItem>
-                                <MenuItem value="supervisor">Supervisor</MenuItem>
-                            </TextField>
-                        </Grid>
-                        <Grid  item xs={12} marginLeft={2} >
-                            <TextField
-                                label="Role"
-                                size="small"
-                                fullWidth
-                                select
-                                name="designation"
-                                helperText="Select your Role"
-                            >
-                                <MenuItem value="Tech">Tech</MenuItem>
-                                <MenuItem value="Non-Tech">Non-Tech</MenuItem>
-                           </TextField>
-                        </Grid>
-                        <Grid  item xs={12} marginLeft={2} marginBottom={3}>
-                            <TextField
-                                label="Search here "
-                                size="small"
-                                fullWidth
-                                name="search here"
-                                // helperText="Select your Role"
-                            ></TextField>
-                            </Grid>
-                        <Button variant="contained" size="medium" sx={{ marginLeft: '20px',marginBottom:"25px"}}>Search</Button>
-                    </Box>
+                display: "flex", m: "30px", alignItems: "center", justifyContent: "center", width: "93%", height: "70px", boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"
+            }}>
+                <Grid item xs={12}>
+                    <TextField
+                        label="Designation"
+                        size="small"
+                        fullWidth
+                        select
+                        name="designation"
+                        helperText="Select your designation"
+                    >
+                        <MenuItem value="staff">Staff</MenuItem>
+                        <MenuItem value="supervisor">Supervisor</MenuItem>
+                    </TextField>
+                </Grid>
+                <Grid item xs={12} marginLeft={2} >
+                    <TextField
+                        label="Role"
+                        size="small"
+                        fullWidth
+                        select
+                        name="designation"
+                        helperText="Select your Role"
+                    >
+                        <MenuItem value="Tech">Tech</MenuItem>
+                        <MenuItem value="Non-Tech">Non-Tech</MenuItem>
+                    </TextField>
+                </Grid>
+                <Grid item xs={12} marginLeft={2} marginBottom={3}>
+                    <TextField
+                        label="Search here "
+                        size="small"
+                        fullWidth
+                        name="search here"
+                    // helperText="Select your Role"
+                    ></TextField>
+                </Grid>
+                <Button variant="contained" size="medium" sx={{ marginLeft: '20px', marginBottom: "25px" }}>Search</Button>
+            </Box>
             {showForm && (
                 <div
                     style={{
@@ -169,7 +176,7 @@ const AdminPage = () => {
             <Container style={{ display: 'flex', justifyContent: 'center', mT: '20px' }}>
 
                 <TableContainer component={Paper} sx={{ width: '2000px', p: '20px', m: '20px' }}>
-                    
+
                     <Table>
                         <TableHead>
                             <StyledTableRow>
@@ -181,34 +188,43 @@ const AdminPage = () => {
                                 <StyledTableCell>Action</StyledTableCell>
                             </StyledTableRow>
                         </TableHead>
+
                         <TableBody>
                             {users === null ? (
                                 <TableRow>
                                     <TableCell colSpan={6}>Loading...page</TableCell>
                                 </TableRow>
                             ) : (
-                                users.map((user) => (
-                                    <StyledTableRow key={user.id}>
-                                        <StyledTableCell>{user.firstname}</StyledTableCell>
-                                        <StyledTableCell>{user.lastname}</StyledTableCell>
-                                        <StyledTableCell>{user.mobilenumber}</StyledTableCell>
-                                        <StyledTableCell>{user.designation}</StyledTableCell>
-                                        <StyledTableCell>{user.gender}</StyledTableCell>
-
-                                        <StyledTableCell>
-                                            <DeleteIcon
-                                                style={{ marginRight: 10 }}
-                                                onClick={() => handleDelete(user)}
-                                            />
-                                            <EditIcon
-                                                onClick={() => handleEdit(user)}
-                                            />
-                                        </StyledTableCell>
-                                    </StyledTableRow>
-                                ))
+                                currentItems && currentItems.length > 0 ? (
+                                    currentItems.map((user) => (
+                                        <StyledTableRow key={user.id}>
+                                            <StyledTableCell>{user.firstname}</StyledTableCell>
+                                            <StyledTableCell>{user.lastname}</StyledTableCell>
+                                            <StyledTableCell>{user.mobilenumber}</StyledTableCell>
+                                            <StyledTableCell>{user.designation}</StyledTableCell>
+                                            <StyledTableCell>{user.gender}</StyledTableCell>
+                                            <StyledTableCell>
+                                                <DeleteIcon
+                                                    style={{ marginRight: 10 }}
+                                                    onClick={() => handleDelete(user)}
+                                                />
+                                                <EditIcon
+                                                    onClick={() => handleEdit(user)}
+                                                />
+                                            </StyledTableCell>
+                                        </StyledTableRow>
+                                    ))
+                                ) : (
+                                    <TableRow>
+                                        <TableCell colSpan={6}>No data available</TableCell>
+                                    </TableRow>
+                                )
                             )}
                         </TableBody>
+
                     </Table>
+                    <AddPagination pageCount={pageCount} currentPage={currentPage} handleChangePage={handleChangePage} />
+
                 </TableContainer>
 
             </Container>

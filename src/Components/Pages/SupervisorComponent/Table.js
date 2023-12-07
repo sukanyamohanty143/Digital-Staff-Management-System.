@@ -462,6 +462,7 @@ function TableData({ data, setFilteredData }) {
   const [clickedItem, setClickedItem] = useState(null);
   const [openForm, setOpenForm] = useState(false);
   const [taskData, setTaskData] = useState([]);
+  
   const [employeeStatusMap, setEmployeeStatusMap] = useState({});
 
   const itemsPerPage = 10;
