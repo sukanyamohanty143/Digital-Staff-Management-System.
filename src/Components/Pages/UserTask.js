@@ -14,10 +14,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import DataSaverOnIcon from '@mui/icons-material/DataSaverOn';
-
-
 import { makeStyles } from "@material-ui/core/styles";
-
 const useStyles = makeStyles((theme) => ({
     container: {
         display: "flex",
@@ -40,9 +37,6 @@ const useStyles = makeStyles((theme) => ({
         textAlign: "center"
     },
 }));
-
-
-
 
 function UserTask({setNotificationCount, setAllNotifications}) {
 
@@ -72,9 +66,7 @@ function UserTask({setNotificationCount, setAllNotifications}) {
     const [editIndex, setEditIndex] = useState(null);
     const [editTask, setEditTask] = useState("");
 
-
     const user = JSON.parse(localStorage.getItem('user'));
-
 
     const handleSelect = (event, index) => {
         const { value } = event.target;
@@ -102,9 +94,7 @@ function UserTask({setNotificationCount, setAllNotifications}) {
             .catch((error) => {
                 console.error("Error updating status:", error);
             });
-    };
-
-
+    };listData
     const editTaskone = (index) => {
         setEditIndex(index);
         setEditTask(data[index].task);
@@ -198,9 +188,6 @@ function UserTask({setNotificationCount, setAllNotifications}) {
                 console.error("Error deleting data:", error);
             });
     };
-
-
-
     return (
 
         <div className={classes.container}>

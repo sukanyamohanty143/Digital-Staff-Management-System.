@@ -9,6 +9,7 @@ import Notifications from './notifications';
 export default function Header(props) {
     const location = useLocation();
     const currentRoute = location.pathname;
+
     return (
         <AppBar position='static'>
             <Toolbar>
@@ -35,4 +36,3 @@ export default function Header(props) {
         </AppBar>
     )
 }
-// https://youtube.com/shorts/Qhv9kBheAp4?si=2nE5DxMaiublKQeF

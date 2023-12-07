@@ -11,6 +11,7 @@ const Notifications = ({ notificationCount, allNotifications }) => {
     const handleMenuClose =()=>{
         setAnchorEl(null);
     };
+    
     return(
         <>
             <IconButton color="inherit" onClick={handleNotificationClick}>

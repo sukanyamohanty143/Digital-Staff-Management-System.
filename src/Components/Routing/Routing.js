@@ -12,9 +12,11 @@ import UserTask from '../Pages/UserTask';
 import Header from '../Pages/Header';
 import Footer from '../Pages/Footer';
 import { useState } from 'react';
+
 function Routing() {
   const [notificationCount, setNotificationCount] = useState(0);
   const [allNotifications, setAllNotifications] = useState([]);
+  
   return (
     <BrowserRouter>
       <Header  {...{notificationCount, allNotifications}}/>
