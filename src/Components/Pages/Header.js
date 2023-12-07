@@ -1,5 +1,3 @@
-
-
 import React from 'react';
 import { AppBar, Toolbar, Typography, IconButton, Stack } from '@mui/material';
 import CoPresentIcon from '@mui/icons-material/CoPresent';
@@ -11,8 +9,6 @@ import Notifications from './notifications';
 export default function Header(props) {
     const location = useLocation();
     const currentRoute = location.pathname;
-
-
     return (
         <AppBar position='static'>
             <Toolbar>
@@ -28,17 +24,10 @@ export default function Header(props) {
                         <Logout />
                     ) : currentRoute.includes('/registration') || currentRoute.includes('/login')? null : (
                         <>
-                            <Hidden smDown>
-                                <Profileavtar />
-                                <Notifications {...props}/>
-                            </Hidden>
-                            <Hidden mdUp>
-                                <IconButton color='inherit'>
-                                    <Profileavtar />
-                                    <Notifications  {...props}/>
-
-                                </IconButton>
-                            </Hidden>
+                              <IconButton color='inherit'>
+                                  <Profileavtar />
+                                  <Notifications  {...props}/>
+                              </IconButton>
                         </>
                     )}
                 </Stack>
@@ -46,3 +35,4 @@ export default function Header(props) {
         </AppBar>
     )
 }
+// https://youtube.com/shorts/Qhv9kBheAp4?si=2nE5DxMaiublKQeF

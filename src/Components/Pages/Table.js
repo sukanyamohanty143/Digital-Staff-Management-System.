@@ -15,8 +15,6 @@ import {
 const EmployeeTable = () => {
   const [employeeData, setEmployeeData] = useState([]);
   const user = JSON.parse(localStorage.getItem('user'));
-
-
   const [page,setPage]=useState(1)
   const handleChange=(e,p)=>{
       console.log(e,p)

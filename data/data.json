@@ -1,40 +1,5 @@
-
 {
   "userTask": [
-    {
-      "status": "started",
-      "userName": "Laxmi Yadav",
-      "task": "About Javscript",
-      "id": 1
-    },
-    {
-      "task": "Read About React js",
-      "userName": "Sukanya",
-      "status": "Completed",
-      "userRoll": "Design (UI/UX Design)",
-      "id": 2
-    },
-    {
-      "task": "Read About Mui",
-      "userName": "Aman",
-      "status": "Pending",
-      "userRoll": "Design (UI/UX Design)",
-      "id": 3
-    },
-    {
-      "task": "Read About Python",
-      "userName": "Sukanya",
-      "status": "Not Started",
-      "userRoll": "Frontend Development (Frontend)",
-      "id": 6
-    },
-    {
-      "task": "About Javscript ",
-      "userName": "kirti",
-      "status": "Pending",
-      "userRoll": "Testing (QA or Testing)",
-      "id": 7
-    },
     {
       "task": "Teach to Student",
       "userName": "Laxmi ",
@@ -43,106 +8,8 @@
       "id": 8
     },
     {
-      "task": "Read About Css",
-      "userName": "kirti",
-      "status": "Not Started",
-      "userRoll": "Testing (QA or Testing)",
+      "task": "Read About Css1",
       "id": 9
-    },
-    {
-      "task": " sona",
-      "user": "soniyakumari",
-      "id": 10
-    },
-    {
-      "task": "",
-      "user": "soniyakumari",
-      "id": 11
-    },
-    {
-      "task": "",
-      "user": "soniyakumari",
-      "id": 12
-    },
-    {
-      "task": "",
-      "user": "soniyakumari",
-      "id": 13
-    },
-    {
-      "task": "",
-      "user": "soniyakumari",
-      "id": 14
-    },
-    {
-      "task": "",
-      "user": "soniyakumari",
-      "id": 15
-    },
-    {
-      "task": "",
-      "user": "soniyakumari",
-      "id": 16
-    },
-    {
-      "task": "",
-      "user": "soniyakumari",
-      "id": 17
-    },
-    {
-      "task": "",
-      "user": "soniyakumari",
-      "id": 18
-    },
-    {
-      "task": "",
-      "user": "soniyakumari",
-      "id": 19
-    },
-    {
-      "task": "",
-      "user": "soniyakumari",
-      "id": 20
-    },
-    {
-      "task": "",
-      "user": "soniyakumari",
-      "id": 21
-    },
-    {
-      "task": "",
-      "user": "soniyakumari",
-      "id": 22
-    },
-    {
-      "task": "",
-      "user": "soniyakumari",
-      "id": 23
-    },
-    {
-      "task": "",
-      "user": "soniyakumari",
-      "id": 24
-    },
-    {
-      "task": "",
-      "user": "soniyakumari",
-      "id": 25
-    },
-    {
-      "task": "",
-      "user": "soniyakumari",
-      "id": 26
-    },
-    {
-      "task": "",
-      "user": "soniyakumari",
-      "id": 27
-    },
-    {
-      "task": "",
-      "user": "soniyakumari",
-      "id": 28
     }
   ],
   "employees": [
