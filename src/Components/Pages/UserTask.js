@@ -90,11 +90,17 @@ function UserTask({setNotificationCount, setAllNotifications}) {
         })
             .then((response) => response.json())
             .then(() => {
+                const message ='Status updated successfully';
+            setAllNotifications((prevNotifications) => [...prevNotifications, message]);
+            setNotificationCount((prevCount) => prevCount + 1);
             })
             .catch((error) => {
                 console.error("Error updating status:", error);
+                const message = 'Failed to update status';
+                setAllNotifications((prevNotifications) => [...prevNotifications, message]);
+                setNotificationCount((prevCount) => prevCount + 1);
             });
-    };listData
+    };
     const editTaskone = (index) => {
         setEditIndex(index);
         setEditTask(data[index].task);
