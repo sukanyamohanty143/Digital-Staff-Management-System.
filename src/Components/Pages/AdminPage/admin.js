@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Grid, TextField, Button, Container, TableContainer, Table, TableHead, TableBody, TableRow, Paper, MenuItem, Box, Select } from "@mui/material";
+import { Grid, TextField, Button, Container, TableContainer, Table, TableHead, TableBody, TableRow, Paper, MenuItem, Box } from "@mui/material";
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
 import { styled } from "@mui/material/styles";
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import UserForm from "./AddButton";
-import Select from "@mui/material/Select";
+import AddPagination from "./PaginationAdmin";
+
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
         backgroundColor: '#83A2FF',
@@ -15,7 +16,6 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
         fontSize: 15,
     },
 }));
-
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
     backgroundColor: '#FFEBD8',
     "&:last-child td, &:last-child th": {
@@ -23,34 +23,22 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
     },
 }));
 const AdminPage = () => {
-    const [users, setUsers] = useState(null);
+    const [users, setUsers] = useState([]);
     const [showForm, setShowForm] = useState(false);
     const [selectedUser, setSelectedUser] = useState(null);
-    const [searchTerm, setSearchTerm] = useState("");
-    const [filteredData, setFilteredData] = useState([]);
-    const [selectedRoll, setSelectedRoll] = useState("");
-
+    const [currentPage, setCurrentPage] = useState(1);
     const fetchData = () => {
-        let apiUrl = "http://localhost:8000/employees";
-        if (selectedRoll) {
-            apiUrl += `?roll=${selectedRoll}`;
-        }
-
-        fetch(apiUrl)
+        fetch("http://localhost:8000/employees")
             .then((response) => response.json())
-            .then((data) => {
-                setUsers(data);
-                setFilteredData(data);
-            })
+            .then((data) => setUsers(data))
             .catch((error) => {
                 console.error("Error fetching data:", error);
             });
     };
-
     useEffect(() => {
         fetchData();
-    }, [selectedRoll]);
-
+    }, []);
+    const itemsPerPage = 5;
     const addUser = (newUser) => {
         if (selectedUser) {
             fetch(`http://localhost:8000/employees/${selectedUser.id}`, {
@@ -65,13 +53,13 @@ const AdminPage = () => {
                     console.error("Error updating user data:", error);
                 });
             setSelectedUser(null);
-        } else {
+        }
+        else {
             fetch("http://localhost:8000/employees", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
-
                 body: JSON.stringify(newUser),
             })
                 .then(() => fetchData())
@@ -79,8 +67,11 @@ const AdminPage = () => {
                     console.error("Error adding a new user:", error);
                 });
         }
+        setShowForm(false);
+        setUsers(users)
+        setShowForm(showForm)
+        setSelectedUser(selectedUser)
     };
-
     const closeForm = () => {
         setShowForm(false);
         setSelectedUser(null);
@@ -100,50 +91,58 @@ const AdminPage = () => {
                 console.error("Error deleting user data:", error);
             });
     };
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentItems = users.slice(indexOfFirstItem, indexOfLastItem);
+    const pageCount = Math.ceil(users.length / itemsPerPage);
 
-    const handleChange = (e) => {
-        setSearchTerm(e.target.value);
+    const handleChangePage = (event, newPage) => {
+        setCurrentPage(newPage);
     };
-
-    const handleSearch = () => {
-        const filtered = filteredData.filter((item) => {
-            return (
-                item.firstname.toLowerCase().includes(searchTerm.toLowerCase()) &&
-                (!selectedRoll || item.roll === selectedRoll)
-            );
-        });
-        setFilteredData(filtered);
-        setSearchTerm("");
-    };
-
     return (
+
         <>
+
             <Box sx={{
                 display: "flex", m: "30px", alignItems: "center", justifyContent: "center", width: "93%", height: "70px", boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"
             }}>
-                <Select
-                    style={{width:"10%"}}
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
-                    onChange={(e) => setSelectedRoll(e.target.value)}
-                    value={selectedRoll}
-                >
-                    <MenuItem value="">all</MenuItem>
-                    <MenuItem value="tech">Tech</MenuItem>
-                    <MenuItem value="non-tech">Non-Tech</MenuItem>
-                </Select>
-                <Grid item xs={12} marginLeft={2} marginBottom={3}>
+                <Grid item xs={12}>
                     <TextField
-                        label="Search here"
+                        label="Designation"
                         size="small"
                         fullWidth
-                        name="search here....."
-                        onChange={handleChange}
+                        select
+                        name="designation"
+                        helperText="Select your designation"
+                    >
+                        <MenuItem value="staff">Staff</MenuItem>
+                        <MenuItem value="supervisor">Supervisor</MenuItem>
+                    </TextField>
+                </Grid>
+                <Grid item xs={12} marginLeft={2} >
+                    <TextField
+                        label="Role"
+                        size="small"
+                        fullWidth
+                        select
+                        name="designation"
+                        helperText="Select your Role"
+                    >
+                        <MenuItem value="Tech">Tech</MenuItem>
+                        <MenuItem value="Non-Tech">Non-Tech</MenuItem>
+                    </TextField>
+                </Grid>
+                <Grid item xs={12} marginLeft={2} marginBottom={3}>
+                    <TextField
+                        label="Search here "
+                        size="small"
+                        fullWidth
+                        name="search here"
+                    // helperText="Select your Role"
                     ></TextField>
                 </Grid>
-                <Button variant="contained" size="medium" sx={{ marginLeft: '20px', marginBottom: "25px" }} onClick={handleSearch}>Search</Button>
+                <Button variant="contained" size="medium" sx={{ marginLeft: '20px', marginBottom: "25px" }}>Search</Button>
             </Box>
-
             {showForm && (
                 <div
                     style={{
@@ -173,8 +172,11 @@ const AdminPage = () => {
                 </div>
             )}
 
+
             <Container style={{ display: 'flex', justifyContent: 'center', mT: '20px' }}>
-                <TableContainer component={Paper} sx={{ width: '1000px', p: '20px', m: '20px' }}>
+
+                <TableContainer component={Paper} sx={{ width: '2000px', p: '20px', m: '20px' }}>
+
                     <Table>
                         <TableHead>
                             <StyledTableRow>
@@ -186,47 +188,51 @@ const AdminPage = () => {
                                 <StyledTableCell>Action</StyledTableCell>
                             </StyledTableRow>
                         </TableHead>
+
                         <TableBody>
                             {users === null ? (
                                 <TableRow>
                                     <TableCell colSpan={6}>Loading...page</TableCell>
                                 </TableRow>
                             ) : (
-                                filteredData.map((user) => {
-                                    if (!selectedRoll || user.roll === selectedRoll) {
-                                        return (
-                                            <StyledTableRow key={user.id}>
-                                                <StyledTableCell>{user.firstname}</StyledTableCell>
-                                                <StyledTableCell>{user.lastname}</StyledTableCell>
-                                                <StyledTableCell>{user.mobilenumber}</StyledTableCell>
-                                                <StyledTableCell>{user.designation}</StyledTableCell>
-                                                <StyledTableCell>{user.gender}</StyledTableCell>
-                                                <StyledTableCell>{user.roll}</StyledTableCell>
-
-                                                <StyledTableCell>
-                                                    <DeleteIcon
-                                                        style={{ marginRight: 10 }}
-                                                        onClick={() => handleDelete(user)}
-                                                    />
-                                                    <EditIcon
-                                                        onClick={() => handleEdit(user)}
-                                                    />
-                                                </StyledTableCell>
-                                            </StyledTableRow>
-                                        );
-                                    } else {
-                                        return null;
-                                    }
-                                })
+                                currentItems && currentItems.length > 0 ? (
+                                    currentItems.map((user) => (
+                                        <StyledTableRow key={user.id}>
+                                            <StyledTableCell>{user.firstname}</StyledTableCell>
+                                            <StyledTableCell>{user.lastname}</StyledTableCell>
+                                            <StyledTableCell>{user.mobilenumber}</StyledTableCell>
+                                            <StyledTableCell>{user.designation}</StyledTableCell>
+                                            <StyledTableCell>{user.gender}</StyledTableCell>
+                                            <StyledTableCell>
+                                                <DeleteIcon
+                                                    style={{ marginRight: 10 }}
+                                                    onClick={() => handleDelete(user)}
+                                                />
+                                                <EditIcon
+                                                    onClick={() => handleEdit(user)}
+                                                />
+                                            </StyledTableCell>
+                                        </StyledTableRow>
+                                    ))
+                                ) : (
+                                    <TableRow>
+                                        <TableCell colSpan={6}>No data available</TableCell>
+                                    </TableRow>
+                                )
                             )}
                         </TableBody>
+
                     </Table>
+                    <AddPagination pageCount={pageCount} currentPage={currentPage} handleChangePage={handleChangePage} />
+
                 </TableContainer>
+
             </Container>
         </>
     );
 };
 
 export default AdminPage;
+
 
 
