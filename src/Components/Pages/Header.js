@@ -1,7 +1,4 @@
-
-
-import React from 'react';
-import { AppBar, Toolbar, Typography, IconButton, Stack } from '@mui/material';
+import { AppBar, Toolbar, Typography, IconButton, Stack} from '@mui/material';
 import CoPresentIcon from '@mui/icons-material/CoPresent';
 import Logout from './LoginButton';
 import Profileavtar from './Profileavtar';
@@ -12,7 +9,6 @@ export default function Header(props) {
     const location = useLocation();
     const currentRoute = location.pathname;
 
-
     return (
         <AppBar position='static'>
             <Toolbar>
@@ -22,23 +18,13 @@ export default function Header(props) {
                 <Typography variant='h5' className='digital'>
                     Digital Staff Management System
                 </Typography>
-                <Stack direction="row" spacing={2} sx={{ marginLeft: 'auto'}}>                    
-                    
+                <Stack direction="row" spacing={2} sx={{ marginLeft: 'auto' }}>
                     {currentRoute === '/' ? (
                         <Logout />
-                    ) : currentRoute.includes('/registration') || currentRoute.includes('/login')? null : (
+                    ) : currentRoute.includes('/registration') || currentRoute.includes('/login') ? null : (
                         <>
-                            <Hidden smDown>
-                                <Profileavtar />
-                                <Notifications {...props}/>
-                            </Hidden>
-                            <Hidden mdUp>
-                                <IconButton color='inherit'>
-                                    <Profileavtar />
-                                    <Notifications  {...props}/>
-
-                                </IconButton>
-                            </Hidden>
+                            <Profileavtar />
+                            <Notifications  {...props}/>
                         </>
                     )}
                 </Stack>

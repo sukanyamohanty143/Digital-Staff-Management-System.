@@ -11,6 +11,7 @@ import {
   Select,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import SessionTimeout from "./SessionTimeout";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -47,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Staff = () => {
+const Staff = (props) => {
   const classes = useStyles();
   const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
   const [name, setName] = useState("");
@@ -95,6 +96,12 @@ const Staff = () => {
 
   return (
     <Box className={classes.container}>
+       {props.showSessionTimeout ? (
+        <SessionTimeout
+          onExtendSession={props.handleExtendSession}
+          onLogout={props.handleLogoutFromSessionTimeout}
+        />
+      ) : (
       <Card className={classes.card}>
         <Typography variant="h4" className={classes.heading}>
           Staff Page
@@ -146,6 +153,7 @@ const Staff = () => {
           Submit
         </Button>
       </Card>
+      )}
     </Box>
   );
 };

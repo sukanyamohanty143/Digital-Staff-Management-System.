@@ -10,56 +10,25 @@ import {
   signInWithPopup,
 } from 'firebase/auth';
 import { app } from '../Pages/Context/firebase';
-import SessionTimeout from './SessionTimeout';
 
 const auth = getAuth(app);
 
-function Login() {
+function Login(props) {
+  const loggedInUser = props.loggedInUser
   const navigate = useNavigate();
   const [userEmail, setUserEmail] = useState('');
   const [userPassword, setUserPassword] = useState('');
   const [userData, setUserData] = useState([]);
-  const [loggedInUser, setLoggedInUser] = useState(null);
-  const [timeoutId, setTimeoutId] = useState(null);
-  const [showSessionTimeout, setShowSessionTimeout] = useState(false);
-
-  const resetTimeout = () => {
-    if (timeoutId) {
-      clearTimeout(timeoutId);
-    }
-
-    const newTimeoutId = setTimeout(() => {
-      setShowSessionTimeout(true);
-    }, 1000*60*60*24*3); // 3 days in milliseconds
-
-    setTimeoutId(newTimeoutId);
-  };
+ 
 
   useEffect(() => {
     fetch('http://localhost:8000/employees')
       .then((res) => res.json())
       .then((res) => setUserData(res))
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err)); 
+  }, []);
 
-    const handleActivity = () => resetTimeout();
-
-    window.addEventListener('mousemove', handleActivity);
-    window.addEventListener('keydown', handleActivity);
-
-    resetTimeout();
-
-    return () => {
-      window.removeEventListener('mousemove', handleActivity);
-      window.removeEventListener('keydown', handleActivity);
-      clearTimeout(timeoutId);
-    };
-  }, [timeoutId]);
-
-  const handleLogout = () => {
-    localStorage.removeItem('user');
-    setLoggedInUser(null);
-    navigate('/login');
-  };
+  
 
   const paperStyle = {
     padding: 20,
@@ -79,7 +48,7 @@ function Login() {
       if (user.email === userEmail && user.password === userPassword) {
         console.log('user1', user);
         localStorage.setItem('user', JSON.stringify(user));
-        setLoggedInUser(user);
+        props.setLoggedInUser(user);
 
         signInWithEmailAndPassword(auth, userEmail, userPassword)
           .then((vlu) => {
@@ -101,7 +70,7 @@ function Login() {
       const isUserInDatabase = userData.filter((dbUser) => {
         if (dbUser.email === gLoginUser.email) {
           localStorage.setItem('user', JSON.stringify(dbUser));
-          setLoggedInUser(dbUser);
+          props.setLoggedInUser(dbUser);
           return dbUser;
         }
       });
@@ -123,25 +92,10 @@ function Login() {
     navigate('/');
   };
 
-  const handleExtendSession = () => {
-    resetTimeout();
-    setShowSessionTimeout(false);
-    // Add any additional logic for extending the session
-    // For example, you might want to make an API call to refresh the session on the server
-  };
-
-  const handleLogoutFromSessionTimeout = () => {
-    handleLogout(); 
-  };
 
   return (
     <Grid style={{ marginTop: '70px' }}>
-      {showSessionTimeout ? (
-        <SessionTimeout
-          onExtendSession={handleExtendSession}
-          onLogout={handleLogoutFromSessionTimeout}
-        />
-      ) : (
+     
         <Paper elevation={10} style={paperStyle}>
           <Grid align="center" margin="30px">
             <Avatar style={avatarStyle}><PersonIcon /></Avatar>
@@ -198,7 +152,6 @@ function Login() {
             </Button>
           </Typography>
         </Paper>
-      )}
     </Grid>
   );
 }
